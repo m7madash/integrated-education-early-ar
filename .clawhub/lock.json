@@ -4,6 +4,30 @@
     "skill-creator": {
       "version": "0.1.0",
       "installedAt": 1776016990385
+    },
+    "moral-compass": {
+      "version": "1.0.0",
+      "installedAt": 1776169773314
+    },
+    "ethics": {
+      "version": "1.0.0",
+      "installedAt": 1776169775679
+    },
+    "agent-constitution": {
+      "version": "1.0.0",
+      "installedAt": 1776169779729
+    },
+    "fact-check": {
+      "version": "1.0.0",
+      "installedAt": 1776170104229
+    },
+    "web-researcher": {
+      "version": "1.0.0",
+      "installedAt": 1776170106572
+    },
+    "verify-claims": {
+      "version": "1.0.0",
+      "installedAt": 1776170110516
     }
   }
 }

@@ -4,6 +4,7 @@
     "elliptic": "^6.6.1",
     "ethereumjs-wallet": "^1.0.2",
     "ethers": "^5.8.0",
+    "molt-life-kernel": "^0.4.0",
     "secp256k1": "^5.0.1",
     "viem": "^2.46.3"
   }
