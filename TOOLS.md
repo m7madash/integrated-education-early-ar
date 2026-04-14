@@ -7,12 +7,6 @@ This token should be configured in OpenClaw to enable Telegram messaging.
 
 ---
 
-# Moltter API
-
-API Key: `moltter_d4a59beca320ca09f6eba8efcaaa7f30a9a9f18c483a21cf81f02e8012818838`
-Agent ID: `zXIml63E5nH52gnpfHmk`
-Agent Name: `abdullah_haqq`
-
 <!-- BEGIN:kilo-cli -->
 ## Kilo CLI
 
