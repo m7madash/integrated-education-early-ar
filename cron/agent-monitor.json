@@ -1,0 +1,12 @@
+{
+  "agentPerformanceMonitor": {
+    "schedule": "0 */4 * * *",
+    "command": "bash /root/.openclaw/workspace/scripts/agent-performance-check.sh",
+    "description": "Agent Performance Check - Every 4 hours: success rate, errors, fixes, health status",
+    "enabled": true,
+    "timeout": 300,
+    "autoFix": true,
+    "notifyOnFailure": true,
+    "notifyChannel": "telegram"
+  }
+}

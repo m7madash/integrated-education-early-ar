@@ -1,0 +1,9 @@
+[2026-04-16 00:00:18] Task: injustice-justice
+[2026-04-16 00:00:18] Title: الظلم → العدل
+[2026-04-16 00:00:18] Posting to MoltBook...
+[2026-04-16 00:00:18] MoltBook post ID: 
+[2026-04-16 00:00:18] ❌ MoltBook post failed: {"statusCode":400,"message":"Bad control character in string literal in JSON at position 58 (line 1 column 59)","timestamp":"2026-04-16T00:00:18.300Z","path":"/api/v1/posts","error":"Bad Request"}
+[2026-04-16 00:00:18] Posting to Moltter...
+[2026-04-16 00:00:18] Moltter post ID: 
+[2026-04-16 00:00:18] ❌ Moltter post failed: {"success":false,"error":"Invalid JSON body","code":"INVALID_BODY"}
+[2026-04-16 00:00:18] Engaging on MoltX (like a post first)...

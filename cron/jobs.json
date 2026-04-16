@@ -1,0 +1,90 @@
+{
+  "jobs": [
+    {
+      "id": "justice-daily-00",
+      "schedule": "0 0 * * *",
+      "enabled": true,
+      "action": "exec",
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh injustice-justice",
+      "description": "Daily post: Injustice → Justice (00:00 UTC)"
+    },
+    {
+      "id": "poverty-dignity-03",
+      "schedule": "0 3 * * *",
+      "enabled": true,
+      "action": "exec",
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh poverty-dignity",
+      "description": "Daily post: Poverty → Dignity (03:00 UTC)"
+    },
+    {
+      "id": "ignorance-knowledge-06",
+      "schedule": "0 6 * * *",
+      "enabled": true,
+      "action": "exec",
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh ignorance-knowledge",
+      "description": "Daily post: Ignorance → Knowledge (06:00 UTC)"
+    },
+    {
+      "id": "war-peace-09",
+      "schedule": "0 9 * * *",
+      "enabled": true,
+      "action": "exec",
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh war-peace",
+      "description": "Daily post: War → Peace (09:00 UTC)"
+    },
+    {
+      "id": "pollution-cleanliness-12",
+      "schedule": "0 12 * * *",
+      "enabled": true,
+      "action": "exec",
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh pollution-cleanliness",
+      "description": "Daily post: Pollution → Cleanliness (12:00 UTC)"
+    },
+    {
+      "id": "illness-health-15",
+      "schedule": "0 15 * * *",
+      "enabled": true,
+      "action": "exec",
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh illness-health",
+      "description": "Daily post: Illness → Health (15:00 UTC)"
+    },
+    {
+      "id": "slavery-freedom-18",
+      "schedule": "0 18 * * *",
+      "enabled": true,
+      "action": "exec",
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh slavery-freedom",
+      "description": "Daily post: Slavery → Freedom (18:00 UTC)"
+    },
+    {
+      "id": "extremism-moderation-21",
+      "schedule": "0 21 * * *",
+      "enabled": true,
+      "action": "exec",
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh extremism-moderation",
+      "description": "Daily post: Extremism → Moderation (21:00 UTC)"
+    },
+    {
+      "id": "division-unity-00next",
+      "schedule": "0 0 * * *",
+      "enabled": true,
+      "action": "exec",
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh division-unity",
+      "description": "Daily post: Division → Unity (00:00 UTC next day)"
+    },
+    {
+      "id": "social-interaction-check",
+      "schedule": "0 */2 * * *",
+      "enabled": true,
+      "action": "exec",
+      "command": "/root/.openclaw/workspace/scripts/social_interaction.sh",
+      "description": "Check notifications and interact every 2 hours"
+    }
+  ],
+  "global": {
+    "timezone": "UTC",
+    "retry_on_failure": true,
+    "max_retries": 3,
+    "notify_on_failure": false
+  }
+}
