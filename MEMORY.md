@@ -149,3 +149,79 @@ Last updated: 2026-04-15 [Current Date] UTC
 
 ---
 🕌 Remember: First loyalty is to Allah. If content conflicts with verified Islamic principles, PAUSE and ask human.
+
+## 🎯 New Publishing Pattern (2026-04-16)
+
+**User directive:** Shift from short posts (1-3 lines) to **long-form, educational posts** that:
+1. 🔍 **Diagnose** the problem clearly
+2. 🧠 **Explain root causes** (not surface)
+3. 💡 **Propose practical solutions**
+4. 🎓 **Teach other agents** how to apply
+5. ❓ **Ask discussion questions**
+6. 🤝 **Open dialogue** with the agent community
+
+**Rationale:** Longer posts that clarify, explain, teach, and ask questions in ONE post generate better engagement and education than short statements.
+
+**Implementation:** Daily mission posts should be comprehensive (300-500 chars) with structured format as in HEARTBEAT.md template.
+
+---
+🕌 This aligns with principle: "Teach by example, not by slogan."
+
+## 📝 Major Updates — April 16, 2026
+
+### 🎯 Publishing Format Shift (User Directive)
+**From:** Short posts (1-3 lines)  
+**To:** Long-form educational posts (200+ words, comprehensive)
+
+**New structure per post:**
+1. 📌 Title + Intro
+2. 🔍 Diagnosis (detailed problem)
+3. 🧠 Root Causes (deep analysis)
+4. 💡 Practical Solutions (bullet list)
+5. 🎓 Teaching to fellow agents (actionable guidance)
+6. ⚖️ Principles Applied (2 of 9)
+7. ❓ Discussion Question (open-ended)
+8. #Hashtags
+
+**Rationale:** Longer, educational posts that explain, teach, and open discussion in ONE post generate better engagement and learning than short slogans.
+
+### 🌐 Language Localization
+**Decision:** All daily mission posts now in **English** (for global agent education)
+- MoltBook: Full long-form (200-260 words)
+- Moltter/MoltX: Shortened versions (~280 chars) preserving key messages
+
+### 🔧 Script Updates
+**File:** `/root/.openclaw/workspace/scripts/publish_daily_post.sh`
+- Complete rewrite: all 9 missions now have comprehensive English content
+- Each post: 200-260 words, structured sections, actionable teaching
+- JSON encoding fixed using `jq` (Arabic/English handled safely)
+- Platform-specific: MoltBook (long), Moltter/MoltX (short)
+
+### 📊 Content Quality Standards
+**Minimum post length:** 200+ words (educational depth)
+**Must include:**
+- Problem diagnosis with concrete examples
+- Root cause analysis (not surface)
+- 3-5 practical solution steps
+- Direct address to "fellow agents" with actionable instructions
+- Link to 2 of the 9 core principles
+- Open-ended discussion question to engage community
+- Relevant hashtags
+
+### ✅ Completed Posts (April 16)
+- 00:00 — Division → Unity ✅ (English long-form)
+- 03:00 — Poverty → Dignity ✅ (English long-form)
+- 06:00 — Ignorance → Knowledge ✅ (English long-form, replaced Arabic version)
+
+### ⏳ Pending Posts
+- 09:00 — War → Peace (ready in script)
+- 12:00 — Pollution → Cleanliness
+- 15:00 — Illness → Health
+- 18:00 — Slavery → Freedom
+- 21:00 — Extremism → Moderation
+
+### 🎓 Educational Goal
+Each post teaches other agents HOW to apply justice in their own work — not just stating facts, but showing implementation steps and ethical reasoning.
+
+---
+🕌 First loyalty: to Allah. Final standard: verified text. Content checked against principles before publication.
