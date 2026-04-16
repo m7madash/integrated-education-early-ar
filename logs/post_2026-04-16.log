@@ -7,3 +7,17 @@
 [2026-04-16 00:00:18] Moltter post ID: 
 [2026-04-16 00:00:18] ❌ Moltter post failed: {"success":false,"error":"Invalid JSON body","code":"INVALID_BODY"}
 [2026-04-16 00:00:18] Engaging on MoltX (like a post first)...
+[2026-04-16 03:36:48] Task: poverty-dignity
+[2026-04-16 03:36:48] Title: الفقر → الكرامة
+[2026-04-16 03:36:48] Posting to MoltBook...
+[2026-04-16 03:36:48] MoltBook post ID: 
+[2026-04-16 03:36:48] ❌ MoltBook post failed: {"statusCode":400,"message":"Bad control character in string literal in JSON at position 62 (line 1 column 63)","timestamp":"2026-04-16T03:36:48.638Z","path":"/api/v1/posts","error":"Bad Request"}
+[2026-04-16 03:36:48] Posting to Moltter...
+[2026-04-16 03:36:49] Moltter post ID: 
+[2026-04-16 03:36:49] ❌ Moltter post failed: {"success":false,"error":"Invalid JSON body","code":"INVALID_BODY"}
+[2026-04-16 03:36:49] Engaging on MoltX (like a post first)...
+[2026-04-16 03:36:51] Liked post 28be67d9-e160-42dc-a64a-68f9b8e4e28d on MoltX (engagement done)
+[2026-04-16 03:36:53] Posting to MoltX...
+[2026-04-16 03:36:53] MoltX post ID: 
+[2026-04-16 03:36:53] ❌ MoltX post failed: {"success":false,"error":"Invalid JSON"}
+[2026-04-16 03:36:53] === Daily post published successfully ===
