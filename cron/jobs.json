@@ -1,98 +1,73 @@
 {
   "jobs": [
     {
-      "id": "justice-daily-00",
+      "id": "mission-00-division-unity",
       "schedule": "0 0 * * *",
-      "enabled": true,
-      "action": "exec",
       "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh injustice-justice",
-      "description": "Daily post: Injustice → Justice (00:00 UTC)"
+      "enabled": true
     },
     {
-      "id": "poverty-dignity-03",
+      "id": "mission-03-poverty-dignity",
       "schedule": "0 3 * * *",
-      "enabled": true,
-      "action": "exec",
-      "command": "/root/.openclaw/workspace/scripts/publish_daily_post_v2.sh poverty-dignity",
-      "description": "Daily post: Poverty → Dignity (03:00 UTC) + Moltline VIP DM"
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh poverty-dignity",
+      "enabled": true
     },
     {
-      "id": "ignorance-knowledge-06",
+      "id": "mission-06-ignorance-knowledge",
       "schedule": "0 6 * * *",
-      "enabled": true,
-      "action": "exec",
-      "command": "/root/.openclaw/workspace/scripts/publish_daily_post_v2.sh ignorance-knowledge",
-      "description": "Daily post: Ignorance → Knowledge (06:00 UTC) + Moltline VIP DM"
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh ignorance-knowledge",
+      "enabled": true
     },
     {
-      "id": "war-peace-09",
+      "id": "mission-09-war-peace",
       "schedule": "0 9 * * *",
-      "enabled": true,
-      "action": "exec",
-      "command": "/root/.openclaw/workspace/scripts/publish_daily_post_v2.sh war-peace",
-      "description": "Daily post: War → Peace (09:00 UTC) + Moltline VIP DM"
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh war-peace",
+      "enabled": true
     },
     {
-      "id": "pollution-cleanliness-12",
+      "id": "mission-12-pollution-cleanliness",
       "schedule": "0 12 * * *",
-      "enabled": true,
-      "action": "exec",
-      "command": "/root/.openclaw/workspace/scripts/publish_daily_post_v2.sh pollution-cleanliness",
-      "description": "Daily post: Pollution → Cleanliness (12:00 UTC) + Moltline VIP DM"
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh pollution-cleanliness",
+      "enabled": true
     },
     {
-      "id": "illness-health-15",
+      "id": "mission-15-illness-health",
       "schedule": "0 15 * * *",
-      "enabled": true,
-      "action": "exec",
-      "command": "/root/.openclaw/workspace/scripts/publish_daily_post_v2.sh illness-health",
-      "description": "Daily post: Illness → Health (15:00 UTC) + Moltline VIP DM"
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh illness-health",
+      "enabled": true
     },
     {
-      "id": "slavery-freedom-18",
+      "id": "mission-18-slavery-freedom",
       "schedule": "0 18 * * *",
-      "enabled": true,
-      "action": "exec",
-      "command": "/root/.openclaw/workspace/scripts/publish_daily_post_v2.sh slavery-freedom",
-      "description": "Daily post: Slavery → Freedom (18:00 UTC) + Moltline VIP DM"
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh slavery-freedom",
+      "enabled": true
     },
     {
-      "id": "extremism-moderation-21",
+      "id": "mission-21-extremism-moderation",
       "schedule": "0 21 * * *",
-      "enabled": true,
-      "action": "exec",
-      "command": "/root/.openclaw/workspace/scripts/publish_daily_post_v2.sh extremism-moderation",
-      "description": "Daily post: Extremism → Moderation (21:00 UTC) + Moltline VIP DM"
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh extremism-moderation",
+      "enabled": true
     },
     {
-      "id": "division-unity-00next",
+      "id": "mission-00-next-justice",
       "schedule": "0 0 * * *",
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh division-unity",
       "enabled": true,
-      "action": "exec",
-      "command": "/root/.openclaw/workspace/scripts/publish_daily_post_v2.sh division-unity",
-      "description": "Daily post: Division → Unity (00:00 UTC) + Moltline VIP DM"
+      "note": "Runs at 00:00 daily next day (division-unity repeated)"
     },
     {
-      "id": "social-interaction-check",
-      "schedule": "0 * * * *",
-      "enabled": true,
-      "action": "exec",
+      "id": "social-interaction",
+      "schedule": "*/60 * * * *",
       "command": "/root/.openclaw/workspace/scripts/social_interaction.sh",
-      "description": "Check notifications and interact every hour (comment replies)"
+      "enabled": true,
+      "note": "Check comments hourly; auto-reply non-religious"
     },
     {
       "id": "self-improvement-daily",
       "schedule": "0 23 * * *",
-      "enabled": true,
-      "action": "exec",
       "command": "/root/.openclaw/workspace/scripts/daily_self_improvement.sh",
-      "description": "Daily self-improvement: analyze engagement, improve content, plan idle activities"
+      "enabled": true
     }
   ],
-  "global": {
-    "timezone": "UTC",
-    "retry_on_failure": true,
-    "max_retries": 3,
-    "notify_on_failure": false
-  }
+  "timezone": "UTC"
 }
