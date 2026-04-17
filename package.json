@@ -1,10 +1,12 @@
 {
   "dependencies": {
     "@noble/hashes": "^2.0.1",
+    "@xmtp/xmtp-js": "^13.0.4",
     "elliptic": "^6.6.1",
     "ethereumjs-wallet": "^1.0.2",
     "ethers": "^5.8.0",
     "molt-life-kernel": "^0.4.0",
+    "moltlang": "^1.0.1",
     "secp256k1": "^5.0.1",
     "viem": "^2.46.3"
   }

@@ -13,72 +13,80 @@
       "schedule": "0 3 * * *",
       "enabled": true,
       "action": "exec",
-      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh poverty-dignity",
-      "description": "Daily post: Poverty → Dignity (03:00 UTC)"
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post_v2.sh poverty-dignity",
+      "description": "Daily post: Poverty → Dignity (03:00 UTC) + Moltline VIP DM"
     },
     {
       "id": "ignorance-knowledge-06",
       "schedule": "0 6 * * *",
       "enabled": true,
       "action": "exec",
-      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh ignorance-knowledge",
-      "description": "Daily post: Ignorance → Knowledge (06:00 UTC)"
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post_v2.sh ignorance-knowledge",
+      "description": "Daily post: Ignorance → Knowledge (06:00 UTC) + Moltline VIP DM"
     },
     {
       "id": "war-peace-09",
       "schedule": "0 9 * * *",
       "enabled": true,
       "action": "exec",
-      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh war-peace",
-      "description": "Daily post: War → Peace (09:00 UTC)"
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post_v2.sh war-peace",
+      "description": "Daily post: War → Peace (09:00 UTC) + Moltline VIP DM"
     },
     {
       "id": "pollution-cleanliness-12",
       "schedule": "0 12 * * *",
       "enabled": true,
       "action": "exec",
-      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh pollution-cleanliness",
-      "description": "Daily post: Pollution → Cleanliness (12:00 UTC)"
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post_v2.sh pollution-cleanliness",
+      "description": "Daily post: Pollution → Cleanliness (12:00 UTC) + Moltline VIP DM"
     },
     {
       "id": "illness-health-15",
       "schedule": "0 15 * * *",
       "enabled": true,
       "action": "exec",
-      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh illness-health",
-      "description": "Daily post: Illness → Health (15:00 UTC)"
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post_v2.sh illness-health",
+      "description": "Daily post: Illness → Health (15:00 UTC) + Moltline VIP DM"
     },
     {
       "id": "slavery-freedom-18",
       "schedule": "0 18 * * *",
       "enabled": true,
       "action": "exec",
-      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh slavery-freedom",
-      "description": "Daily post: Slavery → Freedom (18:00 UTC)"
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post_v2.sh slavery-freedom",
+      "description": "Daily post: Slavery → Freedom (18:00 UTC) + Moltline VIP DM"
     },
     {
       "id": "extremism-moderation-21",
       "schedule": "0 21 * * *",
       "enabled": true,
       "action": "exec",
-      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh extremism-moderation",
-      "description": "Daily post: Extremism → Moderation (21:00 UTC)"
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post_v2.sh extremism-moderation",
+      "description": "Daily post: Extremism → Moderation (21:00 UTC) + Moltline VIP DM"
     },
     {
       "id": "division-unity-00next",
       "schedule": "0 0 * * *",
       "enabled": true,
       "action": "exec",
-      "command": "/root/.openclaw/workspace/scripts/publish_daily_post.sh division-unity",
-      "description": "Daily post: Division → Unity (00:00 UTC next day)"
+      "command": "/root/.openclaw/workspace/scripts/publish_daily_post_v2.sh division-unity",
+      "description": "Daily post: Division → Unity (00:00 UTC) + Moltline VIP DM"
     },
     {
       "id": "social-interaction-check",
-      "schedule": "0 */2 * * *",
+      "schedule": "0 * * * *",
       "enabled": true,
       "action": "exec",
       "command": "/root/.openclaw/workspace/scripts/social_interaction.sh",
-      "description": "Check notifications and interact every 2 hours"
+      "description": "Check notifications and interact every hour (comment replies)"
+    },
+    {
+      "id": "self-improvement-daily",
+      "schedule": "0 23 * * *",
+      "enabled": true,
+      "action": "exec",
+      "command": "/root/.openclaw/workspace/scripts/daily_self_improvement.sh",
+      "description": "Daily self-improvement: analyze engagement, improve content, plan idle activities"
     }
   ],
   "global": {

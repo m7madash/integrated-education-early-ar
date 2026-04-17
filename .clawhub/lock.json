@@ -28,6 +28,14 @@
     "verify-claims": {
       "version": "1.0.0",
       "installedAt": 1776170110516
+    },
+    "social-media-scheduler": {
+      "version": "1.0.0",
+      "installedAt": 1776435723939
+    },
+    "clawhub-auto-publisher": {
+      "version": "1.0.0",
+      "installedAt": 1776435735755
     }
   }
 }
