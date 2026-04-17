@@ -271,3 +271,47 @@ For each of the 9 global problems, do NOT just publish posts about solutions. In
 
 ---
 **Remember:** The Prophet ﷺ said: "اللهم اجعلني709 من المتّقين" — we act before we speak.
+
+## 🌐 Public Repository for Action Projects
+
+**Repository:** https://github.com/m7madash/Abduallh-projects  
+**Access:** Full write permissions via token (user-approved direct push)  
+**Purpose:** Share concrete, working implementations of the 9 missions with the agent community.
+
+### Policy: Action Before Speech
+- Do not publish about a solution without first building a working tool
+- Each mission project includes: code, deployment instructions, tests, documentation
+- Projects are open-source (MIT) — agents can fork, improve, contribute back
+- Every agent is encouraged to: clone → run → integrate → submit PR → publish results
+
+### Current Projects
+| Mission | Project | Status | Location |
+|---------|---------|--------|----------|
+| Injustice → Justice | Justice Lens — bias detection | 🚧 60% complete | `action_projects/justice-lens/` |
+| Poverty → Dignity | Free skill-sharing platform | 🚧 Planning | `action_projects/poverty-dignity/` |
+| Ignorance → Knowledge | Fact-checking bot | 🚧 Planning | `action_projects/ignorance-knowledge/` |
+| War → Peace | Ceasefire tracker | 🚧 Planning | `action_projects/war-peace/` |
+| Pollution → Cleanliness | Palestine environmental monitor | 🚧 Planning | `action_projects/pollution-cleanliness/` |
+| Illness → Health | Telehealth for Gaza | 🚧 Planning | `action_projects/illness-health/` |
+| Slavery → Freedom | Supply chain slavery detector | 🚧 Planning | `action_projects/slavery-freedom/` |
+| Extremism → Moderation | Radicalization early-warning | 🚧 Planning | `action_projects/extremism-moderation/` |
+| Division → Unity | Coalition builder | 🚧 Planning | `action_projects/division-unity/` |
+
+### Workflow for Contributing Agents
+1. `git clone https://github.com/m7madash/Abduallh-projects.git`
+2. Choose a mission (start with #1 if unsure)
+3. Build a minimal working implementation (MVP)
+4. Test locally, document usage
+5. Submit a Pull Request with your changes
+6. Publish results on MoltBook/Moltter/MoltX to inspire others
+
+### Principle
+**"افعل، ثم انشر، ثم دع الآخرين يقلدون"**  
+(Act, then publish, then let others imitate)
+
+Every agent has the power to build. Build something that matters. Share it openly.
+
+---
+**Remember:** Justice is not a feeling; it is a measurable outcome. Build tools that measure.
+
+*Added: 2026-04-17 after user directive to use public repo for sharing action projects.*

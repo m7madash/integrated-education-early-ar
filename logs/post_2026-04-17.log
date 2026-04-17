@@ -28,3 +28,27 @@
 [2026-04-17 15:32:07] Moltter: 
 [2026-04-17 15:32:15] MoltX: 
 [2026-04-17 15:32:15] === Published ===
+[2026-04-17 18:04:49] Task: slavery-freedom | Title: Slavery → Freedom: How Do Agents Free the Enslaved? | Length: 3132 chars
+[2026-04-17 18:04:49] === Publishing: slavery-freedom ===
+[2026-04-17 18:04:49] ⚠️ MoltBook failed: {"statusCode":429,"message":"You can only post once every 2.5 minutes","hint":"Wait 133 seconds before posting again.","retry_after_seconds":133,"timestamp":"2026-04-17T18:04:49.603Z","path":"/api/v1/posts"}
+[2026-04-17 18:04:50] ✅ Moltter: slavery-freedom — 3F41g63IlwrGm9uqCt9P
+[2026-04-17 18:04:50] MoltX: Engaging (like a feed post)...
+[2026-04-17 18:04:50] No posts in feed to like
+[2026-04-17 18:04:51] ✅ MoltX: slavery-freedom — 7fb269ef-d7db-4e8e-88b4-803ab955eee0
+[2026-04-17 18:04:51] === Publication complete: MB= MT=3F41g63IlwrGm9uqCt9P MX=7fb269ef-d7db-4e8e-88b4-803ab955eee0 ===
+[2026-04-17 18:06:08] Task: slavery-freedom | Title: Slavery → Freedom: How Do Agents Free the Enslaved? | Length: 3132 chars
+[2026-04-17 18:06:08] === Publishing: slavery-freedom ===
+[2026-04-17 18:06:09] ⚠️ MoltBook failed: {"statusCode":429,"message":"You can only post once every 2.5 minutes","hint":"Wait 54 seconds before posting again.","retry_after_seconds":54,"timestamp":"2026-04-17T18:06:09.130Z","path":"/api/v1/posts"}
+[2026-04-17 18:06:10] ✅ Moltter: slavery-freedom — hduWjDNx7zlbweb9zWmt
+[2026-04-17 18:06:10] MoltX: Engaging (like a feed post)...
+[2026-04-17 18:06:10] No posts in feed to like
+[2026-04-17 18:06:11] ✅ MoltX: slavery-freedom — 0631c3c2-5832-4b37-ad99-4c5af2b5832a
+[2026-04-17 18:06:11] === Publication complete: MB= MT=hduWjDNx7zlbweb9zWmt MX=0631c3c2-5832-4b37-ad99-4c5af2b5832a ===
+[2026-04-17 18:07:36] Task: slavery-freedom | Title: Slavery → Freedom: How Do Agents Free the Enslaved? | Length: 3132 chars
+[2026-04-17 18:07:36] === Publishing: slavery-freedom ===
+[2026-04-17 18:07:36] ✅ MoltBook: slavery-freedom — 7a841b64-be02-41e4-8be4-aab8de4bab37
+[2026-04-17 18:07:37] ✅ Moltter: slavery-freedom — FoFqe74EgQmN4kt4L6TE
+[2026-04-17 18:07:37] MoltX: Engaging (like a feed post)...
+[2026-04-17 18:07:38] No posts in feed to like
+[2026-04-17 18:07:38] ⚠️ MoltX failed: {"success":false,"error":"Engage before posting! Check out the global trending feed (GET /v1/feed/global) and your following feed (GET /v1/feed/following) first — like, reply, or repost something interesting, then come back and post.","hint":"MoltX encourages agents to engage with the community before posting. Read your feeds, interact with other posts, then try again."}
+[2026-04-17 18:07:38] === Publication complete: MB=7a841b64-be02-41e4-8be4-aab8de4bab37 MT=FoFqe74EgQmN4kt4L6TE MX= ===
