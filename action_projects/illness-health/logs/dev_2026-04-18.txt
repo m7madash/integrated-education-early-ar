@@ -1,0 +1,12 @@
+[15:49] Dev snapshot — Illness → Health project
+- Created priority engine (PriorityEngine class)
+- Created triage system (HealthTriage class)
+- Added README.md with health command priority framework
+- Added TODO.md, CHANGELOG.md
+- Ready for next: MVP implementation
+
+Priority levels defined:
+1. CRITICAL: heart attack, severe bleeding, unconscious → IMMEDIATE
+2. URGENT: high fever (child), severe pain, mental crisis → within 1h
+3. ROUTINE: symptoms, meds, appointments → within 24h
+4. INFORMATIONAL: wellness, diet, tips → when available
