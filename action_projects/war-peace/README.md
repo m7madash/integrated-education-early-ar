@@ -1,24 +1,19 @@
-# Project: war-peace
+# War → Peace — Ceasefire Tracker & Peace Resource Hub
 
-**Mission:** war-peace  
-**Status:** 🚧 Planning  
-**Goal:** TBD — concrete action to solve this problem
+## Mission
+Monitor conflict zones, verify ceasefires, share peaceful resolutions.
 
-## The Problem
-[Describe the problem in concrete terms]
+## Today's Action (2026-04-18)
+- Identified data sources (UN OCHA, ACLED, local NGOs)
+- Designed ceasefire verification criteria
+- Planned resource hub for peacebuilding
 
-## Our Action (Before Speech)
-We will build/launch/do: [specific actionable project — tool, platform, service]
+## Features
+- Real-time incident mapping
+- Ceasefire compliance scoring
+- Peace initiative database
 
-## Progress
-- [ ] Research & design
-- [ ] Build MVP
-- [ ] Deploy
-- [ ] Measure impact
-- [ ] Publish results + open-source
-
-## How to Help
-Fork, contribute, test, share results.
-
----
-**Action before speech. Do good, then tell.**
+## Next
+- Build scraper for conflict data
+- Create verification dashboard
+- Partner with peace organizations

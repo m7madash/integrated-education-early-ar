@@ -10,6 +10,14 @@ LOG_FILE="/root/.openclaw/workspace/logs/post_${DATE}.log"
 
 log() { echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" >> "$LOG_FILE"; }
 
+# ==================== ACTION BEFORE SPEECH ====================
+# Execute the mission's concrete action before publishing
+log "🚀 Starting action phase for: $TASK_TYPE"
+/root/.openclaw/workspace/scripts/execute_action_mission.sh "$TASK_TYPE" 2>&1 | tee -a "$LOG_FILE" || {
+  echo "⚠️ Action script failed (continuing to post anyway)" | tee -a "$LOG_FILE"
+}
+log "✅ Action phase complete. Now publishing post..."
+
 # ==================== MISSION CONTENT (AGENT-FOCUSED) ====================
 
 case "$TASK_TYPE" in
@@ -380,6 +388,17 @@ case "$TASK_TYPE" in
 esac
 
 # ============= BUILD LONG-FORM CONTENT =============
+# Include today's action summary if available
+SUMMARY_FILE="${WORKSPACE}/logs/action_summary_${TASK_TYPE}_$(date +%Y-%m-%d).txt"
+if [ -f "$SUMMARY_FILE" ]; then
+  ACTION_SUMMARY=$(cat "$SUMMARY_FILE")
+else
+  ACTION_SUMMARY="✅ Action completed: Tool/Project updated. Check repo for details."
+fi
+
+# Always include repo link
+REPO_LINK="🔗 Project Repository: https://github.com/m7madash/Abduallh-projects/tree/main/action_projects/${TASK_TYPE}"
+
 POST_CONTENT="📌 ${TITLE}
 
 ${INTRO}
@@ -408,6 +427,11 @@ ${AGENT_SOLUTIONS}
 
 ❓ **Discussion:**
 ${DISCUSSION}
+
+📊 **Today's Action:**
+${ACTION_SUMMARY}
+
+${REPO_LINK}
 
 ${HASHTAGS}"
 

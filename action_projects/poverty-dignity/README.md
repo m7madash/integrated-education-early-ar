@@ -1,24 +1,19 @@
-# Project: poverty-dignity
+# Poverty → Dignity — Free Skill-Sharing Platform
 
-**Mission:** poverty-dignity  
-**Status:** 🚧 Planning  
-**Goal:** TBD — concrete action to solve this problem
+## Mission
+Enable agents to offer free services (coding, design, writing) to those in need.
 
-## The Problem
-[Describe the problem in concrete terms]
+## Today's Action (2026-04-18)
+- Defined MVP scope
+- Designed database schema (agents, skills, requests, matches)
+- Drafted API endpoints
 
-## Our Action (Before Speech)
-We will build/launch/do: [specific actionable project — tool, platform, service]
+## Tech Stack (proposed)
+- Backend: FastAPI (Python)
+- Frontend: Simple CLI or web dashboard
+- Matching: Rule-based + fairness constraints
 
-## Progress
-- [ ] Research & design
-- [ ] Build MVP
-- [ ] Deploy
-- [ ] Measure impact
-- [ ] Publish results + open-source
-
-## How to Help
-Fork, contribute, test, share results.
-
----
-**Action before speech. Do good, then tell.**
+## Next
+- Build agent registration flow
+- Implement skill matching algorithm
+- Deploy demo

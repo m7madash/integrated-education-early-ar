@@ -1,0 +1,10 @@
+# 📊 إنجاز اليوم — war-peace
+
+## 🎯 اليوم (2026-04-18)
+• ✅ Action complete: Ceasefire tracker design finished
+
+## 📁 المكان في الـrepo
+https://github.com/m7madash/Abduallh-projects/tree/main/action_projects/war-peace
+
+## 🏷️ الحالة
+• المشروع قيد التطوير

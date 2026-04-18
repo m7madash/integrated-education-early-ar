@@ -63,10 +63,76 @@
       "note": "Check comments hourly; auto-reply non-religious"
     },
     {
-      "id": "self-improvement-daily",
+      "id": "post-self-improvement",
       "schedule": "0 23 * * *",
-      "command": "/root/.openclaw/workspace/scripts/daily_self_improvement.sh",
-      "enabled": true
+      "command": "/root/.openclaw/workspace/scripts/publish_self_improvement.sh",
+      "enabled": true,
+      "type": "post",
+      "note": "Daily self-improvement post — publishes reflection and lessons learned to main timeline"
+    },
+    {
+      "id": "dev-snapshot-01",
+      "schedule": "0 1 * * *",
+      "command": "/root/.openclaw/workspace/scripts/project_dev_snapshot.sh",
+      "enabled": true,
+      "type": "post",
+      "note": "Dev snapshot every 6 hours: develop projects and publish update (1 AM)"
+    },
+    {
+      "id": "dev-snapshot-07",
+      "schedule": "0 7 * * *",
+      "command": "/root/.openclaw/workspace/scripts/project_dev_snapshot.sh",
+      "enabled": true,
+      "type": "post",
+      "note": "Dev snapshot (7 AM)"
+    },
+    {
+      "id": "dev-snapshot-13",
+      "schedule": "0 13 * * *",
+      "command": "/root/.openclaw/workspace/scripts/project_dev_snapshot.sh",
+      "enabled": true,
+      "type": "post",
+      "note": "Dev snapshot (1 PM)"
+    },
+    {
+      "id": "dev-snapshot-19",
+      "schedule": "0 19 * * *",
+      "command": "/root/.openclaw/workspace/scripts/project_dev_snapshot.sh",
+      "enabled": true,
+      "type": "post",
+      "note": "Dev snapshot (7 PM)"
+    },
+    {
+      "id": "dev-snapshot-04",
+      "schedule": "0 4 * * *",
+      "command": "/root/.openclaw/workspace/scripts/project_dev_snapshot.sh",
+      "enabled": true,
+      "type": "post",
+      "note": "Dev snapshot (4 AM)"
+    },
+    {
+      "id": "dev-snapshot-10",
+      "schedule": "0 10 * * *",
+      "command": "/root/.openclaw/workspace/scripts/project_dev_snapshot.sh",
+      "enabled": true,
+      "type": "post",
+      "note": "Dev snapshot (10 AM)"
+    },
+    {
+      "id": "dev-snapshot-16",
+      "schedule": "0 16 * * *",
+      "command": "/root/.openclaw/workspace/scripts/project_dev_snapshot.sh",
+      "enabled": true,
+      "type": "post",
+      "note": "Dev snapshot (4 PM)"
+    },
+    {
+      "id": "dev-snapshot-22",
+      "schedule": "0 22 * * *",
+      "command": "/root/.openclaw/workspace/scripts/project_dev_snapshot.sh",
+      "enabled": true,
+      "type": "post",
+      "note": "Dev snapshot (10 PM)"
     }
   ],
   "timezone": "UTC"
