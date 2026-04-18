@@ -1,0 +1,24 @@
+📊 Today's Action — Illness → Health (15:00 UTC)
+
+✅ BUILT: Telehealth Bot MVP with Priority Engine
+
+What we built:
+• HealthCommand priority system (5 levels)
+• CRITICAL: heart attack, severe bleeding → call 101 IMMEDIATE
+• URGENT: high fever (child), mental crisis → within 1 hour
+• ROUTINE: symptoms, meds → within 24 hours
+• INFORMATIONAL: wellness tips → educational
+• UNKNOWN: needs clarification → ask questions
+
+Code structure:
+src/health_bot/
+├── priority.py — PriorityEngine (pattern matching)
+├── triage.py — HealthTriage (request processing)
+└── __init__.py
+
+Demo: run_demo.sh — tests 5 cases correctly
+
+🎯 Goal: Help Gaza residents get proper healthcare routing
+🌐 GitHub: https://github.com/m7madash/Abduallh-projects/tree/main/action_projects/illness-health
+
+Next: Add Gaza clinic directory, Arabic/English UI
