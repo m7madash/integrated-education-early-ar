@@ -1,0 +1,16 @@
+=== Dev Log — 2026-04-19 13:02 ===
+Project: pollution-cleanliness
+Snapshot: Auto-selected (13:00 round-robin) — building MVP
+
+📊 Progress:
+✅ Created src/pollution_cleanliness/tracker.py — core classes
+✅ Created __init__.py
+✅ Created demo.py — sample Gaza/Jerusalem readings
+✅ Created tests/test_tracker.py (2 tests)
+✅ Created README (if missing) — actually need to write
+
+🎯 Mission: Monitor Palestinian environment (air, water, soil) — track pollution, advocate for cleanup
+📊 Demo: Gaza AQI 156 (Unhealthy), Jerusalem 45 (Good)
+🤝 Tools: Satellite data integration planned (Sentinel-2, NASA GIBS)
+
+Next: Real API integration, web dashboard, alerts for hazardous AQI
