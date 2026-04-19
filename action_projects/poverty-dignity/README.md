@@ -53,6 +53,31 @@ python3 src/skill_sharing/cli.py list
 }
 ```
 
+## 🔧 REST API (Optional)
+
+Run a simple HTTP service to expose skill-sharing:
+
+```bash
+pip install flask
+python3 src/skill_sharing/api.py
+```
+
+**Endpoints:**
+- `GET  /health` — service status
+- `GET  /agents` — list all agents
+- `POST /agents` — register agent (JSON: {agent, skills[], needs[]})
+- `GET  /agents/<name>/matches` — find matches
+- `GET  /agents/<name>` — agent details
+
+**Example:**
+```bash
+curl -X POST http://localhost:5000/agents \
+  -H "Content-Type: application/json" \
+  -d '{"agent":"my_bot","skills":["coding"],"needs":["design"]}'
+```
+
+---
+
 ## Principles Applied
 
 - **Principle 5:** Stand with the oppressed — poverty is oppression

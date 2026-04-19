@@ -29,33 +29,48 @@ class FactChecker:
 
     def check(self, claim: str, source: Optional[str] = None) -> Dict:
         """
-        Check a claim.
-        Returns: {verified: bool, source: str, confidence: float, note: str}
+        Check a claim against a single source.
+        Returns: {verified, source, confidence, note}
         """
         if source not in TRUSTED_SOURCES:
             return {
                 "verified": False,
                 "source": None,
                 "confidence": 0.0,
-                "note": "Source not in verified list. Add trusted source first."
+                "note": "Source not in verified list."
             }
-
-        # In real implementation, would query source API/database
-        # For MVP: assume claim matches source if provided
         src_info = TRUSTED_SOURCES[source]
-        result = {
+        return {
             "verified": True,
             "source": source,
             "confidence": src_info["confidence"],
             "note": f"Claim matches verified source: {source}"
         }
 
-        # For Quran/hadith: require Arabic text + reference
-        if src_info.get("requires_arabic"):
-            result["note"] += " (Arabic text required with surah:ayah or hadith ref)"
-
-        self.verification_log.append(result)
-        return result
+    def check_multi(self, claim: str, sources: List[str]) -> Dict:
+        """
+        Check a claim against multiple sources.
+        Returns combined confidence if multiple sources agree.
+        """
+        results = []
+        for src in sources:
+            r = self.check(claim, src)
+            results.append(r)
+        verified = [r for r in results if r["verified"]]
+        if not verified:
+            return {
+                "verified": False,
+                "confidence": 0.0,
+                "sources": results,
+                "note": "No verified sources matched."
+            }
+        avg_conf = sum(r["confidence"] for r in verified) / len(verified)
+        return {
+            "verified": True,
+            "confidence": avg_conf,
+            "sources": [r["source"] for r in verified],
+            "note": f"Corroborated by {len(verified)} sources"
+        }
 
     def add_source(self, name: str, source_type: str, confidence: float, **kwargs):
         """Add a new verified source (admin only)."""

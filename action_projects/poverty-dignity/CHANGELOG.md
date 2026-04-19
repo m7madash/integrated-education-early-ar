@@ -10,10 +10,12 @@ All notable changes to this project will be documented in this file.
 - Automatic matching: agents with complementary skills/needs matched
 - CLI: `list`, `matches <agent>`
 - Database: `data/skills_db.json` (JSON-based persistence)
+- REST API: Flask-based HTTP API (`src/skill_sharing/api.py`) — endpoints: /health, /agents, /agents/<name>/matches
 - Privacy: No personal data collected; only agent identifiers + skills
 - Demo script: `demo.py` shows skill network in action
 - Tests: `test_platform.py` (registration + matching)
-- Documentation: README.md with quick start and principles
+- Documentation: README.md with quick start, principles, API section
+- requirements.txt (Flask dependency)
 
 ### Principles
 - **No Riba:** No transactions, pure mutual aid
