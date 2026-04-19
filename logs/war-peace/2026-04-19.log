@@ -1,0 +1,23 @@
+[2026-04-19 11:19:51] INFO: CeasefireTracker initialized
+[2026-04-19 11:19:51] INFO: Conflict added | gaza-2023 in Gaza Strip, Palestine
+[2026-04-19 11:19:51] INFO: Ceasefire recorded | gaza-2023 on 2024-01-20
+[2026-04-19 11:19:51] INFO: Conflict added | ukraine-2022 in Ukraine
+[2026-04-19 11:20:19] INFO: CeasefireTracker initialized
+[2026-04-19 11:20:19] INFO: Conflict added | gaza-2023 in Gaza Strip, Palestine
+[2026-04-19 11:20:19] INFO: Ceasefire recorded | gaza-2023 on 2024-01-20
+[2026-04-19 11:20:19] INFO: Conflict added | ukraine-2022 in Ukraine
+[2026-04-19 11:20:19] WARN: Ceasefire broken: gaza-2023 (3 violations)
+[2026-04-19 11:20:34] INFO: CeasefireTracker initialized
+[2026-04-19 11:20:34] INFO: Conflict added | test-1 in Testland
+[2026-04-19 11:20:34] INFO: CeasefireTracker initialized
+[2026-04-19 11:20:34] INFO: Conflict added | test-2 in Peaceville
+[2026-04-19 11:20:34] INFO: Ceasefire recorded | test-2 on 2024-02-01
+[2026-04-19 11:20:34] INFO: CeasefireTracker initialized
+[2026-04-19 11:20:34] INFO: Conflict added | test-3 in Wartown
+[2026-04-19 11:20:34] INFO: Ceasefire recorded | test-3 on 2024-02-01
+[2026-04-19 11:20:34] WARN: Ceasefire broken: test-3 (5 violations)
+[2026-04-19 11:20:34] INFO: CeasefireTracker initialized
+[2026-04-19 11:20:34] INFO: Conflict added | c1 in A
+[2026-04-19 11:20:34] INFO: Conflict added | c2 in B
+[2026-04-19 11:20:34] INFO: Conflict added | c3 in C
+[2026-04-19 11:20:34] INFO: Ceasefire recorded | c3 on 2024-02-01

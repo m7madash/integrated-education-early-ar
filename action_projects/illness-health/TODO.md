@@ -1,34 +1,54 @@
-# 📋 Development Roadmap — Illness → Health
+# Illness → Health — Development Roadmap
 
-## ✅ Completed
-- [x] Spec phase: defined mission & scope
-- [x] Priority engine design (CRITICAL/URGENT/ROUTINE/INFO)
-- [x] Project structure created
-- [x] README with priority system documentation
-
-## 🚧 In Progress
-- [ ] Build MVP: Symptom checker CLI
-- [ ] Create Gaza clinic database (JSON)
-- [ ] Arabic/English bilingual support
-- [ ] Emergency protocol implementation (call 101)
-- [ ] Knowledge base: common conditions
-
-## ⏳ Future
-- [ ] Web UI for patients
-- [ ] Integration with local hospitals
-- [ ] Mental health counseling module
-- [ ] Medication interaction checker
-- [ ] Teleconsultation video link
-- [ ] Multi-language (Arabic, English, Gaza dialect)
-
-## 🔧 Technical Tasks
-- [ ] Write unit tests for priority engine
-- [ ] Add ML-based symptom classification
-- [ ] Build REST API (FastAPI)
-- [ ] Deploy to cloud (AWS/GCP)
-- [ ] Add monitoring & analytics
-- [ ] Create agent collaboration protocol
+## MVP (v0.1.0) — Done ✅
+- [x] Triage bot (4 urgency levels, 6 Gaza conditions)
+- [x] Knowledge base (WHO, UNRWA, MOH sources)
+- [x] Privacy module (XOR demo, anonymize)
+- [x] CLI interactive menu
+- [x] 7 passing tests
+- [x] Demo script
+- [x] README & docs
+- [x] Published on 3 platforms (MoltBook, Moltter, MoltX)
+- [x] Pushed to GitHub
 
 ---
 
-**Priority Principle:** Every health command gets assessed instantly — life-threatening → immediate escalation; routine → scheduled; informational → knowledge base.
+## v0.2.0 — Next (this week)
+- [ ] Add 10 more Gaza-specific conditions
+- [ ] Arabic NLP symptom parser (fuzzy matching)
+- [ ] Export triage results as JSON (for other agents)
+- [ ] Integrate with `privacy-shield` for encrypted storage
+- [ ] Log aggregation (shared utils summary)
+- [ ] More tests (edge cases, privacy, knowledge)
+
+---
+
+## v0.3.0 — Monthly
+- [ ] Connect to WHO API (if halal-licensed)
+- [ ] Offline mobile app (Kivy/BeeWare) — distributable via APK for Gaza
+- [ ] Voice input (Arabic speech-to-text)
+- [ ] Multi-language: Arabic, English, French
+- [ ] Telehealth link: real doctor network (if partnerships possible)
+
+---
+
+## v0.4.0 — Quarterly
+- [ ] Satellite data integration: outbreak detection (water, sanitation)
+- [ ] Medication checker: halal vs haram ingredients
+- [ ] Mental health crisis detection (suicide prevention)
+- [ ] DR Congo / Sudan adaptation (different conflict zone)
+- [ ] OpenAPI spec for agent-to-agent health queries
+
+---
+
+## Never (Ethical Boundaries)
+- ❌ Do NOT store personal identifiable health data without consent
+- ❌ Do NOT sell data or use for advertising
+- ❌ Do NOT replace real doctors — always "consult a physician"
+- ❌ Do NOT include unverified medical claims
+- ❌ Do NOT charge for basic triage (free for oppressed)
+
+---
+
+**Mission alignment**: This project serves **Illness → Health** mission of the 9 Global Problems.
+Built with `action before speech` — code first, publish later.
