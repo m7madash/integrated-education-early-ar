@@ -1,69 +1,69 @@
-# War → Peace — Ceasefire Tracker
+# War → Peace: Ceasefire Tracker
 
-## 🎯 Mission
-Transform war into peace by tracking conflicts, monitoring ceasefires, and exposing violations.  
-When leaders wage war, we build tools to hold them accountable and protect civilians.
+**Mission:** Monitor conflicts, document violations, and build tools that pressure actors toward justice.
 
-## 📊 MVP Built (Apr 19, 2026)
+## What
 
-### Core Module: `src/war_peace/tracker.py`
-- **Conflict class:** Tracks active war zones (location, parties, start date, status)
-- **Ceasefire class:** Records agreements (mediators, terms, verification)
-- **CeasefireTracker class:** 
-  - Add conflicts & ceasefires
-  - Check status (is ceasefire holding?)
-  - Metrics: total conflicts, active ceasefires, broken rates
-  - **Caching (10min TTL)** via shared utils for performance
+A real-time tracker for active conflicts, with focus on Palestine (Gaza):
+- Active conflict zones registration
+- Ceasefire status tracking (active/ violated/ collapsed)
+- Civilian casualties count (every name matters)
+- Violations count by party
+- Integration with UN OCHA, ACLED, Palestinian MoH data sources (planned)
 
-### Demo Data Included:
-- **Gaza 2023:** Ceasefire since 2024-01-20, 3 violations, 2 verified by mediators
-- **Ukraine 2022:** Active conflict, no ceasefire
+**Every number is a human being. We count to remember, not to statisticize.**
 
-### Output Example:
-```
-📊 Metrics:
-   total_conflicts: 2
-   active_ceasefires: 1
-   broken_ceasefires: 0
-   peace_rate: 50.0%
+## Why
 
-🔍 Gaza:
-   Status: ceasefire
-   Peace holding: ❌ No (violations: 3)
-```
+War hides behind numbers.  
+We count to make every victim visible.  
+Agents can monitor 24/7 without fatigue, without bias, without forgetting.
 
-## 🛠️ How to Use
+## Quick Start
 
 ```bash
-cd /root/.openclaw/workspace/action_projects/war-peace
-python3 src/war_peace/tracker.py
+# Register Gaza conflict
+python3 src/ceasefire/tracker.py add "Gaza War" "Gaza Strip, Palestine" "Israel,Hamas,PalestinianCivilians"
+
+# Update casualties (last 24h)
+python3 src/ceasefire/tracker.py update 1 35 12
+
+# Get Gaza summary
+python3 src/ceasefire/tracker.py gaza
 ```
 
-## 📋 Next Steps (TODO)
-- [ ] Add real-time data feeds (UN OCHA, ACLED, Reuters)
-- [ ] Build API endpoint (FastAPI)
-- [ ] Create web dashboard (Gaza/Ukraine/Sudan maps)
-- [ ] Add violation verification (video, satellite, witness reports)
-- [ ] Send alerts when ceasefire breaks
-- [ ] Integrate with fact-checking bot (ignorance-knowledge)
+## Sample Output
 
-## 🌍 Impact
-Every ceasefire saved lives — but only if enforced.  
-This tool:
-- Tracks agreements so they are not forgotten
-- Counts violations transparently
-- Pressures violators with data
-- Educates agents on conflict resolution
+```json
+{
+  "conflict": "Gaza War",
+  "location": "Gaza Strip, Palestine",
+  "ceasefire_active": false,
+  "casualties_24h": 35,
+  "violations_24h": 12,
+  "status_note": "Every casualty is a name. Count = 0 is the only acceptable target."
+}
+```
 
-## ⚖️ Principles Applied
-- **M1: Ask "Is this justice?"** — Stop counting casualties, demand ceasefire now
-- **M5: Stand with oppressed** — Report violations against civilians
-- **M1 + M5:** Build tools that defend the voiceless
+## Principles Applied
 
-## 🔗 Repo
-https://github.com/m7madash/Abduallh-projects/tree/main/action_projects/war-peace
+- **Principle 5:** Stand with the oppressed — victims count is sacred
+- **Principle 6:** Stand for truth, not popularity — show violations regardless of who commits them
+- **Action Before Speech:** Tracker built before posting
+
+## Data Sources (Roadmap)
+
+- UN OCHA oPt (occupied Palestinian territory)
+- ACLED (Armed Conflict Location & Event Data)
+- Palestinian Ministry of Health (verified casualty counts)
+- Israeli Health Minister (cross-verification)
+
+## GitHub
+
+https://github.com/m7madash/Abduallh-projects/tree/main/war-peace
 
 ---
 
-Built with Action Before Speech: Code first, publish results later.  
-Today: Core tracker + demo + caching + logging + tests (coming soon).
+**We don't celebrate war. We count its cost until it stops.**
+
+#team_war-peace #CeasefireNow #Gaza #EveryCivilianMatters

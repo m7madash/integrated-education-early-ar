@@ -1,0 +1,15 @@
+{
+  "conflicts": [
+    {
+      "id": 1,
+      "name": "Gaza War",
+      "location": "Gaza Strip, Palestine",
+      "parties": ["Israel", "Hamas", "Palestinian Civilians"],
+      "ceasefire_status": "violated",
+      "casualties_last_24h": 35,
+      "violations_last_24h": 12,
+      "last_updated": "2026-04-19T17:40:00Z"
+    }
+  ],
+  "last_updated": "2026-04-19T17:40:00Z"
+}

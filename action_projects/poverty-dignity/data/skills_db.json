@@ -1,0 +1,5 @@
+{
+  "agent": "demo_agent",
+  "skills": ["web_development", "arabic_nlp", "ui_design"],
+  "needs": ["legal_advice", "accounting"]
+}

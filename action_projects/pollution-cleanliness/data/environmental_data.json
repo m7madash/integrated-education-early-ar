@@ -1,0 +1,25 @@
+{
+  "locations": [
+    {
+      "id": 1,
+      "name": "Gaza City — Air Quality",
+      "type": "air",
+      "coordinates": {"lat": 31.5017, "lng": 34.4667},
+      "current_aqi": 156,
+      "current_water_quality": null,
+      "last_reading": "2026-04-19T17:40:00Z",
+      "privacy_note": "Aggregated sensor data. No personal identifiers."
+    },
+    {
+      "id": 2,
+      "name": "Khan Younis — Water Quality",
+      "type": "water",
+      "coordinates": {"lat": 31.3458, "lng": 34.3028},
+      "current_aqi": null,
+      "current_water_quality": 45,
+      "last_reading": "2026-04-19T17:35:00Z",
+      "privacy_note": "Water samples aggregated by zone."
+    }
+  ],
+  "last_updated": "2026-04-19T17:40:00Z"
+}

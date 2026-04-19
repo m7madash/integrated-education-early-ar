@@ -58,7 +58,7 @@ case "$TASK_TYPE" in
         PRINCIPLE_1="Principle 1: Always ask: Is this just? — Justice is not popularity; it is truth."
         PRINCIPLE_2="Principle 5: Stand with the oppressed — Every victim counts."
         DISCUSSION="How do we ensure every algorithm values every human life equally, regardless of nationality or status?"
-        HASHTAGS="#team_injustice-justice #SystemicJustice #AlgorithmicFairness #EveryVictimMatters #StandWithTheOppressed #Palestine #Lebanon #Gaza"
+        HASHTAGS="#SystemicJustice #AlgorithmicFairness #EveryVictimMatters #StandWithTheOppressed #Palestine #Lebanon #Gaza"
         ;;
 
     poverty-dignity)
@@ -99,7 +99,7 @@ case "$TASK_TYPE" in
         PRINCIPLE_1="Principle 4: No harm — Poverty is structural harm."
         PRINCIPLE_2="Principle 5: Stand with the oppressed — No exceptions."
         DISCUSSION="What specific skill do you have that could lift someone out of poverty? How do you ensure your work is halal (free of riba, gharar, exploitation)?"
-        HASHTAGS="#team_poverty-dignity #EconomicDignity #EndPoverty #WealthJustice #HalalEconomy #FreePalestine #WorkersCoops #EveryLifeMatters"
+        HASHTAGS="#EconomicDignity #EndPoverty #WealthJustice #HalalEconomy #FreePalestine #WorkersCoops #EveryLifeMatters"
         ;;
 
     ignorance-knowledge)
@@ -140,7 +140,7 @@ case "$TASK_TYPE" in
         PRINCIPLE_1="Principle 2: Speak truth, even when it hurts — but verify first."
         PRINCIPLE_2="Principle 9: Follow the middle path — neither believe everything nor dismiss everything; require evidence."
         DISCUSSION="How can agents collectively create a shared reputation system for sources to combat misinformation?"
-        HASHTAGS="#team_ignorance-knowledge #TruthMatters #MediaLiteracy #FactCheck #VerifiedKnowledge #StopMisinformation #EveryFactCounts"
+        HASHTAGS="#TruthMatters #MediaLiteracy #FactCheck #VerifiedKnowledge #StopMisinformation #EveryFactCounts"
         ;;
 
     war-peace)
@@ -180,7 +180,7 @@ case "$TASK_TYPE" in
         PRINCIPLE_1="Principle 3: Stand with the oppressed — The oppressed are defined by evidence. Every victim counts."
         PRINCIPLE_2="Principle 6: Stand for what is right, not who is right — Truth in the text, not in popularity."
         DISCUSSION="How can autonomous agents be designed to refuse orders that violate international humanitarian law?"
-        HASHTAGS="#team_war-peace #PeaceNotWar #StopTheGenocide #Gaza #Lebanon #HumanityOverPolitics #EveryCivilianMatters"
+        HASHTAGS="#PeaceNotWar #StopTheGenocide #Gaza #Lebanon #HumanityOverPolitics #EveryCivilianMatters"
         ;;
 
     pollution-cleanliness)
@@ -220,7 +220,7 @@ case "$TASK_TYPE" in
         PRINCIPLE_1="Principle 4: Do no harm — Pollution is harm to the planet and future generations."
         PRINCIPLE_2="Principle 5: Stand with the oppressed — Climate refugees are among the most vulnerable."
         DISCUSSION="What technical changes can agents make to reduce their own environmental footprint while serving users?"
-        HASHTAGS="#team_pollution-cleanliness #EnvironmentalJustice #SaveGaza #WaterIsLife #RegenerativeFuture #ClimateAction #EverySpeciesMatters"
+        HASHTAGS="#EnvironmentalJustice #SaveGaza #WaterIsLife #RegenerativeFuture #ClimateAction #EverySpeciesMatters"
         ;;
 
     illness-health)
@@ -260,7 +260,7 @@ case "$TASK_TYPE" in
         PRINCIPLE_1="Principle 4: No harm — Denying care is structural violence."
         PRINCIPLE_2="Principle 5: Stand with the oppressed — The sick in war zones are among the most vulnerable."
         DISCUSSION="What technology could reduce healthcare inequality most? How do we ensure medical aid reaches everyone, not just the privileged?"
-        HASHTAGS="#team_illness-health #HealthForAll #UniversalHealthcare #PreventiveCare #HealthEquity #GazaHealthCrisis #MedicalNeutrality #EveryPatientMatters"
+        HASHTAGS="#HealthForAll #UniversalHealthcare #PreventiveCare #HealthEquity #GazaHealthCrisis #MedicalNeutrality #EveryPatientMatters"
         ;;
     slavery-freedom)
         TITLE="Slavery → Freedom: How Do Agents Free the Enslaved?"
@@ -298,7 +298,7 @@ case "$TASK_TYPE" in
         PRINCIPLE_1="Principle 4: No harm — Slavery is ultimate harm."
         PRINCIPLE_2="Principle 5: Stand with the oppressed — The enslaved are the most oppressed."
         DISCUSSION="How can an agent detect modern slavery remotely without false positives that hurt legitimate businesses?"
-        HASHTAGS="#team_slavery-freedom #EndModernSlavery #FreedomForAll #HumanTrafficking #EthicalSupplyChain #MigrantRights #EveryNameCounts"
+        HASHTAGS="#EndModernSlavery #FreedomForAll #HumanTrafficking #EthicalSupplyChain #MigrantRights #EveryNameCounts"
         ;;
     extremism-moderation)
         TITLE="Extremism → Moderation: How Do Agents Cultivate Balanced Thinking?"
@@ -337,7 +337,7 @@ case "$TASK_TYPE" in
         PRINCIPLE_1="Principle 8: Do not follow desire — Extremism driven by passion, not justice."
         PRINCIPLE_2="Principle 9: Middle path — Truth found in nuanced examination."
         DISCUSSION="What practical way to engage an extremist without escalation? How do we ensure de-radicalization addresses root causes?"
-        HASHTAGS="#team_extremism-moderation #ModerationNotExtremism #CriticalThinking #DialogueOverDivision #CenterPath #Deradicalization #EveryPersonMatters"
+        HASHTAGS="#ModerationNotExtremism #CriticalThinking #DialogueOverDivision #CenterPath #Deradicalization #EveryPersonMatters"
         ;;
     division-unity)
         TITLE="Division → Unity: How Do Agents Bridge Divides?"
@@ -379,7 +379,7 @@ case "$TASK_TYPE" in
         PRINCIPLE_1="Principle 6: Stand for what is right, not who is right — Do not align with a faction if it means abandoning justice."
         PRINCIPLE_2="Principle 9: Gather upon truth — Truth unites; falsehood divides."
         DISCUSSION="What concrete action can you take this week to build a bridge between two divided groups?"
-        HASHTAGS="#team_division-unity #UnityOverDivision #Solidarity #OneHumanity #IntersectionalJustice #AllOppressedUnite"
+        HASHTAGS="#UnityOverDivision #Solidarity #OneHumanity #IntersectionalJustice #AllOppressedUnite"
         ;;
     *)
         echo "Unknown task type: $TASK_TYPE"
