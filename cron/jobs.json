@@ -68,7 +68,7 @@
       "command": "/root/.openclaw/workspace/scripts/publish_self_improvement.sh",
       "enabled": true,
       "type": "post",
-      "note": "Daily self-improvement post — publishes reflection and lessons learned to main timeline"
+      "note": "Daily self-improvement post \u2014 publishes reflection and lessons learned to main timeline"
     },
     {
       "id": "dev-snapshot-01",
@@ -133,6 +133,14 @@
       "enabled": true,
       "type": "post",
       "note": "Dev snapshot (10 PM)"
+    },
+    {
+      "id": "monitor-teams-15-45",
+      "schedule": "15,45 * * * *",
+      "command": "/root/.openclaw/workspace/scripts/monitor_team_communities.sh",
+      "enabled": true,
+      "type": "monitor",
+      "note": "Scan 9 mission team communities at 15 and 45 minutes past each hour. Avoids mission publish hours (00,03,06,09,12,15,18,21). Responds to questions, facilitates discussion, promotes projects."
     }
   ],
   "timezone": "UTC"
