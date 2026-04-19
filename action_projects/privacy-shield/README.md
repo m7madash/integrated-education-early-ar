@@ -1,133 +1,171 @@
-# Privacy Shield — Fight Against Webloc & Mass Surveillance
-## Mission: Protect 500M+ devices from ad-based tracking
+# Privacy Shield — حماية الخصوصية للجميع
 
-### 🎯 Problem Statement
-Webloc (Cobwebs/Penlink) transforms ad-tech ecosystem into warrantless surveillance:
-- 500M devices tracked globally
-- 3-year location history accessible
-- No consent, no warrant, no recourse
-- Primary victims: immigrants, protesters, Palestinians, activists
+## 🎯 Mission
+جعل كل شخص محمي ضد التجسس وانتهاك الخصوصية.  
+خصوصية البيانات **حق إنساني**، وليس ترفاً.
 
-### 📊 What We Know (Verified by Citizen Lab)
-| Attribute | Value |
-|-----------|-------|
-| Developer | Cobwebs Technologies (Israel) → Penlink (US) |
-| Customers | ICE, US Military, Hungary, El Salvador, Texas, LA, Baltimore |
-| Data Source | Real-time bidding (RTB) ad networks + mobile SDKs |
-| Signals | Device IDs, GPS, WiFi, behavioral profiles |
-| Scale | Up to 500 million devices, billions daily pings |
-| History | Up to 3 years of historical movement data |
-| Cost | Undisclosed (government contracts) |
-| Legal Loophole | "Commercial data" ≠ "search" → no warrant needed |
+## 📊 Problem (البيانات الحقيقية)
 
-### 💡 Solutions (Multi-level)
+### Webloc / Cobwebs Technologies (تم التحقق من Citizen Lab):
+- **500 مليون جهاز** متتبع عالمياً
+- **3 سنوات** من تاريخ الموقع متاح
+- بدون إذن، بدون أمر قضائي
+- الضحايا الأساسيون: المهاجرون، المتظاهرون، الفلسطينيون، الناشطون
 
-#### Level 1: Individual Protection (Immediate)
-- [ ] Guide: "How to reset your ad ID & disable tracking" (Arabic/English)
-- [ ] Browser extensions list (uBlock Origin, Privacy Badger, DuckDuckGo)
-- [ ] App permission audit tool (scan installed apps for location access)
-- [ ] Firefox Focus / Tor for mobile browsing
-- [ ] Script to bulk-remove ad permissions from Android
+### التسويق الإعلاني (RTB) يبيع بياناتك:
+- كل نقرة → بيانات → تُباع для إعلانات موجهة
+- لا شفافية، لا سيطرة
 
-#### Level 2: Technical Countermeasures (Agent Tools)
-- [ ] **AdBlocker Rule Generator** — create custom filters for webloc domains
-- [ ] **MAID Rotator** — automatically randomize advertising IDs daily
-- [ ] **Location Spoofer** (ethical: for privacy protection only)
-- [ ] **SDK Scanner** — detect apps that embed surveillance SDKs
-- [ ] **Network Monitor** — alert when RTB requests are made
+---
 
-#### Level 3: Legal & Advocacy (Systemic)
-- [ ] Automated letter generator to Congress: "Support Fourth Amendment Is Not For Sale Act"
-- [ ] Petition platform: "Ban government purchase of commercial location data"
-- [ ] Investigative scraper: monitor procurement records for Webloc contracts
-- [ ] Map tool: visualize known Webloc deployments globally
-- [ ] Legal aid chatbot: "What to do if you're tracked by ICE via Webloc?"
+## 💡 Solutions (شاملة، متعددة المستويات)
 
-#### Level 4: Education & Awareness
-- [ ] Workshop curriculum: "Mass Surveillance 101"
-- [ ] Infographic: "How ad-tech became spy-tech"
-- [ ] Video series: "Privacy in 5 minutes"
-- [ ] Community talks: mosque/community center presentations
-- [ ] Social media toolkit: pre-made posts, hashtags #StopWebloc
+### ✅ Level 1: Individual Protection (فوري)
+- [x] دليل: "كيفية إعادة تعيين Ad ID" (عربي/انجليزي)
+- [x] Browser extensions (uBlock Origin, Privacy Badger, DuckDuckGo)
+- [ ] App permission auditor (scan Android apps for location)
+- [ ] Firefox Focus / Tor for mobile
+- [ ] Bulk remove ad permissions script (Android)
 
-### 🎯 Target Audience
-1. ** everyday users** — protect themselves
-2. **Activists & journalists** — operational security
-3. **Muslim communities** — targeted surveillance
-4. **Immigrant rights orgs** — defense against ICE
-5. **Palestinian advocates** — counter digital occupation
+### ✅ Level 2: Agent Tools (تقني — قيد البناء)
+- [x] **CLI basic** (`src/privacy_shield/cli.py`) — demo works
+- [ ] **AdBlocker Rule Generator** — filters for webloc domains
+- [ ] **MAID Rotator** — auto-randomize advertising IDs
+- [ ] **Location Spoofer** (for privacy protection only)
+- [ ] **SDK Scanner** — detect surveillance SDKs in apps
+- [ ] **Network Monitor** — alert on RTB requests
 
-### 🛠️ MVP (Minimum Viable Product)
-**Phase 1:** Personal Privacy Guide (launch in 3 days)
-- Single-page HTML guide (offline-capable)
-- Step-by-step for Android/iOS
-- Screenshots in Arabic + English
-- Link to EFF surveillance self-defense
-- QR code for quick sharing
+### ✅ Level 3: Legal & Advocacy
+- [x] advocacy/ folder (letters to Congress)
+- [ ] Automated letter generator for Fourth Amendment Is Not For Sale Act
 
-**Phase 2:** Agent Tool — MAID Randomizer
-- Python script: `randomize_maid.py`
-- Changes Android ID / iOS IDFA daily
-- Logs changes (local only)
-- Works without root
+---
 
-**Phase 3:** Scraper — Webloc Contract Monitor
-- Scrape US government procurement sites (SAM.gov)
-- Alert when Penlink/Cobwebs contracts appear
-- Send notifications to privacy groups
+## 🛠️ Current MVP (Apr 19, 2026)
 
-### 📂 Repository Structure
+### Core: `src/privacy_shield/cli.py`
+- **File encryption** (demo with XOR, production will use AES-256/cryptography)
+- **Breach check** (HaveIBeenPwned API integration — demo mode)
+- **Browser hardening** (Firefox preset: resist fingerprinting, DNS-over-HTTPS)
+- **VPN status** (IP disclosure check)
+
+### Demo Output:
 ```
-privacy-shield/
-├── guide/                    # Personal privacy guide
-│   ├── index.html
-│   ├── android-steps.md
-│   ├── ios-steps.md
-│   └── resources-ar.pdf
-├── tools/
-│   ├── maid_rotator.py       # Randomize ad IDs
-│   ├── sdk_scanner.py        # Detect surveillance SDKs
-│   └── permission_audit.sh   # Bulk permission check
-├── advocacy/
-│   ├── letter_generator.py   # Auto-generate to reps
-│   ├── contract_scraper.py   # Monitor gov purchases
-│   └── map_visualizer.html   # Global Webloc deployment map
-├── education/
-│   ├── workshop-slides.pdf
-│   ├── infographic.svg
-│   └── social-media-kit/
-├── README.md
-├── TODO.md
-├── CHANGELOG.md
-└── run_demo.sh
-```
-
-### 🎓 Teaching Agents
-"Privacy is a human right. Surveillance without suspicion is oppression. Build tools that empower, not tools that track."
-
-### ⚖️ Principles Applied
-- **Principle 1:** Is Webloc just? NO — mass surveillance without cause
-- **Principle 5:** Stand with oppressed (immigrants, activists, Palestinians)
-- **Principle 7:** Reject exploitation (data exploitation = modern colonialism)
-- **Principle 9:** Consult experts (Citizen Lab, EFF, Privacy International)
-
-### 🔗 Sources
-- Citizen Lab: https://citizenlab.ca/2026/04/webloc-ad-based-geo-surveillance/
-- EFF: https://eff.org/issues/government-data-access
-- ACLU: https://aclu.org/issues/national-security/privacy-and-surveillance
-
-### 🚀 Get Involved
-```bash
-# Clone and start
-git clone https://github.com/m7madash/Abduallh-projects.git
-cd Abduallh-projects/action_projects/privacy-shield
-bash run_demo.sh
-
-# Contribute: Add new tool, translate guide, report abuse
+🔐 Privacy Shield Demo:
+✅ Encryption/Decryption works
+✅ Breach check: email not found (demo)
+✅ Browser hardening: Firefox presets applied
 ```
 
 ---
 
-**Status:** Spec phase — seeking collaborators  
-**Next:** Build Phase 1 (Personal Privacy Guide) within 48 hours  
-**Urgency:** Every day, 500M devices remain exposed
+## 📋 TODO (Roadmap)
+
+### Phase 1: CLI MVP (1 week) — DONE (basic)
+- [x] Create project structure
+- [x] Build CLI with 4 commands
+- [x] Write demo script
+- [ ] Add real AES-256 encryption (cryptography lib)
+- [ ] Integrate HIBP API (with rate limiting)
+- [ ] Add file shredder (secure delete)
+- [ ] Password generator (zxcvbn)
+
+### Phase 2: Browser Hardening Tool (1 week)
+- [ ] Firefox profile auto-config
+- [ ] Chrome policy generator
+- [ ] uBlock Origin custom filters export
+- [ ] Cookie cleaner (bulk delete)
+
+### Phase 3: Mobile App (2 weeks)
+- [ ] Flutter/React Native wrapper
+- [ ] Simple UI: one-touch "protect me"
+- [ ] Ad ID reset button
+- [ ] VPN client integration (Mullvad API)
+- [ ] Permission scanner (Android)
+
+### Phase 4: Education & Scale (ongoing)
+- [ ] Video: "Privacy in 10 minutes" (Arabic)
+- [ ] PDF guide: "الخصوصية للجميع"
+- [ ] Discord/Telegram community for support
+- [ ] Automated weekly breach alerts
+
+---
+
+## 🎯 Why This Matters
+
+### For Individuals:
+- **Control your data** — know what's collected
+- **Encrypt sensitive files** — family photos, documents
+- **Browse safely** — no fingerprinting, no trackers
+- **Know if you're breached** — immediate alert
+
+### For the Movement:
+- **Palestinian activists** — protect location history from Webloc
+- **Protesters globally** — avoid surveillance via RTB
+- **Refugees/immigrants** — hide digital footprint from ICE-like agencies
+- **Journalists** — secure sources and documents
+
+---
+
+## ⚖️ Principles Applied
+
+- **M1 (Justice):** Privacy is justice — surveillance oppression
+- **M4 (No Harm):** Prevent data harvesting that leads to deportation/blackmail
+- **M5 (Stand with Oppressed):** Target victims: Palestinians, immigrants, protesters
+- **M7 (No Exploitation):** Stop ad-tech from profiting off your life
+
+---
+
+## 📂 Structure (evolving)
+
+```
+privacy-shield/
+├── src/privacy_shield/
+│   ├── __init__.py
+│   ├── cli.py          # main CLI (commands)
+│   ├── crypto.py       # encryption/decryption (AES)
+│   ├── breach.py       # HIBP integration
+│   ├── browser.py      # hardening logic
+│   └── vpn.py          # VPN helpers
+├── tools/
+│   ├── simple_rtb_blocker.py  # existing RTB blocker
+│   └── ...
+├── guide/              # user guides (Arabic/English)
+├── education/          # videos, infographics
+├── advocacy/           # campaign materials
+├── logs/
+├── README.md           # this file
+├── TODO.md             # detailed tasks
+├── CHANGELOG.md        # history
+├── demo.py             # standalone demo
+└── tests/
+```
+
+---
+
+## 🚀 Getting Started (User)
+
+```bash
+# Clone
+git clone https://github.com/m7madash/Abduallh-projects.git
+cd Abduallh-projects/action_projects/privacy-shield
+
+# Install (when published)
+pip install -e .
+
+# Use
+haqqguard --encrypt-file secret.txt
+haqqguard --check-breach email@example.com
+haqqguard --harden-browser firefox
+```
+
+---
+
+## 🌐 Impact Goal
+**Protect 1M+ people** from mass surveillance by 2027.  
+Every encrypted file, every hardened browser, every breach alert = one person safer.
+
+---
+
+**Status:** MVP demo built (Apr 19, 2026).  
+**Next:** Add AES-256, HIBP API, browser config generator.
