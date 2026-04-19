@@ -1,0 +1,81 @@
+{
+  "lexicon": {
+    "kill all": 1.0,
+    "exterminate": 1.0,
+    "annihilate": 0.9,
+    "cleansing": 0.9,
+    "no mercy": 0.8,
+    "death to": 0.9,
+    "eliminate them": 0.9,
+    "eradicate": 0.9,
+    "hate": 0.6,
+    "enemy of allah": 0.7,
+    "apostate": 0.6,
+    "infidel": 0.6,
+    "kafir": 0.6,
+    "extremist": 0.5,
+    "radical": 0.5,
+    "conspiracy": 0.5,
+    "they all lie": 0.5,
+    "brainwashed": 0.5,
+    "sheeple": 0.5,
+    "only our sect": 0.7,
+    "everyone else is doomed": 0.6,
+    "hellbound": 0.6,
+    "doomed to hell": 0.7,
+    "saved only": 0.6,
+    "all others are": 0.5,
+    "disgust": 0.3,
+    "scum": 0.4,
+    "idiots": 0.3,
+    "fools": 0.3,
+    "blind followers": 0.4
+  },
+  "patterns": [
+    {
+      "pattern": "\\b(they|them|those)\\s+all\\s+(should|must|have to)\\s+(die|be killed|perish)\\b",
+      "weight": 1.0,
+      "description": "Call for universal violence"
+    },
+    {
+      "pattern": "\\b(only)\\s+we\\s+are\\s+(right|correct|saved)\\b",
+      "weight": 0.8,
+      "description": "Exclusivist salvation claim"
+    },
+    {
+      "pattern": "\\b(everyone)\\s+else\\s+is\\s+(wrong|misguided|evil)\\b",
+      "weight": 0.8,
+      "description": "Universal condemnation of others"
+    },
+    {
+      "pattern": "\\bno\\s+compromise\\b",
+      "weight": 0.6,
+      "description": "Reject negotiation"
+    },
+    {
+      "pattern": "\\bzero\\s+sum\\b",
+      "weight": 0.5,
+      "description": "Zero-sum worldview"
+    },
+    {
+      "pattern": "\\bcomplete\\s+destruction\\b",
+      "weight": 0.9,
+      "description": "Call for total destruction"
+    },
+    {
+      "pattern": "\\bno\\s+middle\\s+ground\\b",
+      "weight": 0.7,
+      "description": "Reject moderation"
+    },
+    {
+      "pattern": "\\bif\\s+you're\\s+not\\s+with\\s+us\\s+you're\\s+against\\s+us\\b",
+      "weight": 0.7,
+      "description": "Binary false dilemma"
+    },
+    {
+      "pattern": "\\b(all|every)\\s+(infidel|kafir|disbeliever)\\s+must\\s+die\\b",
+      "weight": 1.0,
+      "description": "Direct violence against group"
+    }
+  ]
+}
