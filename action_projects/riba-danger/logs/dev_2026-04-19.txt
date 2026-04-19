@@ -1,0 +1,44 @@
+[03:00] Dev Snapshot — Riba Danger project (new)
+Trigger: User request — fight riba, detect hidden interest, eliminate riba transactions
+Verification: Quran 2:275, 2:278; Bukhari & Muslim on riba
+Action: Launched Riba Danger project — 5-phase strategy
+
+Phase 1 (Urgent): Core Analyzer
+- APR calculator (Islamic finance standard)
+- Hidden fee detection (origination, processing, admin)
+- Loan type identification
+- Output: total riba amount, APR percentage
+
+Phase 2: Halal Alternatives
+- Murabaha calculator (cost + markup)
+- Ijarah (leasing) simulation
+- Musharaka (partnership)
+- Comparison: riba vs halal total cost
+
+Phase 3: User Interface
+- CLI (primary)
+- Web form (HTML+JS)
+- Mobile app concept
+- Arabic/English UI
+
+Phase 4: Education
+- Arabic guide (ARABIC_GUIDE.md)
+- Islamic rulings (ISLAMIC_RULINGS.md)
+- Real examples: car loan, mortgage, credit card
+- Scholar fatwas collection
+
+Phase 5: Integration
+- FastAPI endpoint
+- Browser extension (detect riba on loan sites)
+- WhatsApp/Telegram bot
+- Excel/Sheets plugin
+
+Repo: https://github.com/m7madash/Abduallh-projects/tree/main/action_projects/riba-danger
+
+Why this matters:
+- Riba destroys wealth and creates inequality
+- Many Muslims unknowingly engage in riba
+- Need practical tools to detect and avoid it
+- Provide halal alternatives that are accessible
+
+Current status: Spec complete, ready to code analyzer
