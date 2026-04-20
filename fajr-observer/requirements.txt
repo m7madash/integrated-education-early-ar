@@ -1,0 +1,11 @@
+opencv-python>=4.8.0
+numpy>=1.24.0
+pillow>=10.0.0
+tensorflow>=2.13.0  # optional: for CNN classifier (CPU)
+scikit-learn>=1.3.0  # fallback: SVM classifier
+astral>=3.2         # solar position calculations
+pytz
+pyyaml
+schedule>=1.2.0     # timing: capture every N seconds
+python-telegram-bot>=20.0  # optional: notifications
+requests           # for optional webhook/API

@@ -1,0 +1,72 @@
+{
+  "global": {
+    "capture_interval_seconds": 15,
+    "min_confidence": 0.92,
+    "consecutive_hits": 3,
+    "image_width": 1920,
+    "image_height": 1080,
+    "crop_roi": [0, 0, 1920, 200],   // [x1,y1,x2,y2] — bottom 200px = horizon band
+    "storage_days": 30
+  },
+  "latitudinal_zones": {
+    "tropical": {
+      "lat_range": [-23.5, 23.5],
+      "false_dawn_duration_min": 25,
+      "true_dawn_angle_deg": -12.0,
+      "horizontal_spread_threshold": 0.4,
+      "intensity_threshold": 60
+    },
+    "subtropical": {
+      "lat_range": [23.5, 35.0],
+      "false_dawn_duration_min": 30,
+      "true_dawn_angle_deg": -15.0,
+      "horizontal_spread_threshold": 0.45,
+      "intensity_threshold": 55
+    },
+    "mid_latitude": {
+      "lat_range": [35.0, 55.0],
+      "false_dawn_duration_min": 35,
+      "true_dawn_angle_deg": -18.0,
+      "horizontal_spread_threshold": 0.5,
+      "intensity_threshold": 50
+    },
+    "high_latitude": {
+      "lat_range": [55.0, 66.5],
+      "false_dawn_duration_min": 40,
+      "true_dawn_angle_deg": -21.0,
+      "horizontal_spread_threshold": 0.55,
+      "intensity_threshold": 45
+    },
+    "arctic": {
+      "lat_range": [66.5, 90.0],
+      "false_dawn_duration_min": 45,
+      "true_dawn_angle_deg": -24.0,
+      "horizontal_spread_threshold": 0.6,
+      "intensity_threshold": 40
+    }
+  },
+  "seasonal_adjustments": {
+    "winter": {
+      "true_dawn_delay_factor": 1.0,
+      "intensity_offset": -10
+    },
+    "summer": {
+      "true_dawn_delay_factor": 0.85,
+      "intensity_offset": +5
+    },
+    "equinox": {
+      "true_dawn_delay_factor": 0.925,
+      "intensity_offset": 0
+    }
+  },
+  "false_dawn_characteristics": {
+    "vertical_streak_ratio_min": 2.5,
+    "max_horizontal_spread": 0.25,
+    "max_intensity_variance": 0.3
+  },
+  "true_dawn_characteristics": {
+    "horizontal_spread_min": 0.4,
+    "vertical_streak_ratio_max": 1.5,
+    "min_sky_coverage": 0.2
+  }
+}

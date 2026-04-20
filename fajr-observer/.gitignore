@@ -1,0 +1,14 @@
+# Fajr Observer — Git ignore
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+venv/
+env/
+.idea/
+.vscode/
+logs/images/
+models/*.h5
+models/training/dataset/
+data/
+config/camera_settings.yaml  # contains local secrets/calibration

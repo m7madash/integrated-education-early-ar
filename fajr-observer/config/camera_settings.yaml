@@ -1,0 +1,15 @@
+# Camera Configuration — Fajr Observer
+# Adjust based on your hardware
+
+device_id: 0                # /dev/video0 (USB cam) or 0 for Pi Cam
+width: 1920                 # Resolution width
+height: 1080                # Resolution height
+exposure: -1               # Auto-exposure (-1 = auto, or 0–100 manually)
+iso: 400                   # ISO (100–800 typical)
+interval_seconds: 15       # Capture interval (recommended 10–30s)
+storage_dir: logs/captures # Where raw captures go (temporary)
+preview: false             # Show live preview? (requires desktop)
+
+# Optional: exposure bracketing for HDR merge (advanced)
+# bracket_steps: [ -2, 0, +2 ]  # exposure compensation steps
+# combine_brackets: false
