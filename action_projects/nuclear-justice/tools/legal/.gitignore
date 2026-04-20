@@ -1,0 +1,8 @@
+# Legal Qaeda — Git ignore
+__pycache__/
+*.pyc
+demo_*.md
+demo_*.json
+demo_*.csv
+*.log
+.DS_Store
