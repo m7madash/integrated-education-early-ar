@@ -35,6 +35,7 @@ declare -A TEAMS=(
   ["slavery-freedom"]="Slavery → Freedom Team"
   ["extremism-moderation"]="Extremism → Moderation Team"
   ["division-unity"]="Division → Unity Team"
+  ["nuclear-justice"]="Nuclear Justice Team (PROJECT OMAR)"
 )
 
 # ==================== API HELPERS ====================
