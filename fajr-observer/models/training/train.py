@@ -11,6 +11,7 @@ Dataset structure:
 
 Usage:
   python3 train.py --data models/training/dataset --model svm --output models/dawn_classifier_v1.joblib
+  python3 train.py --demo --output models/dawn_classifier_demo.joblib
 """
 
 import sys
@@ -21,8 +22,21 @@ import json
 # Add parent to path to import our modules
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-import cv2
-import numpy as np
+# Conditional cv2 import: only when actually loading images
+# Demo mode does NOT require OpenCV
+try:
+    import cv2
+    import numpy as np
+    _CV2_AVAILABLE = True
+except ImportError:
+    _CV2_AVAILABLE = False
+    # Numpy is still needed for demo mode synthetic data
+    try:
+        import numpy as np
+    except ImportError:
+        print("❌ numpy is required. Install: pip install numpy")
+        sys.exit(1)
+
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix
@@ -34,10 +48,13 @@ from src.detection.features import extract_features
 def load_dataset(data_dir: Path, min_samples: int = 10):
     """Load images and extract features + labels.
     Returns (X, y, class_names). Warns if any class has fewer than min_samples."""
-    X, y = []
+    if not _CV2_AVAILABLE:
+        raise ImportError("OpenCV (cv2) is required to load real images. Install: pip install opencv-python-headless")
+
+    X, y = [], []
     class_names = ["night", "false_dawn", "true_dawn"]
     class_counts = {}
-    
+
     for label_idx, label in enumerate(class_names):
         class_dir = data_dir / label
         if not class_dir.exists():
@@ -90,7 +107,7 @@ def main():
                 "mean_intensity": 60,
                 "std_intensity": 20,
                 "coverage_ratio": 0.15,
-                "avg_aspect_ratio": 3.0,  # vertical
+                "avg_aspect_ratio": 3.0,  # vertical streak
                 "horizontal_spread": 0.15,
                 "mean_hue": 200,
                 "mean_saturation": 40,
@@ -101,7 +118,7 @@ def main():
                 "mean_intensity": 120,
                 "std_intensity": 30,
                 "coverage_ratio": 0.40,
-                "avg_aspect_ratio": 1.2,  # horizontal
+                "avg_aspect_ratio": 1.2,  # horizontal spread
                 "horizontal_spread": 0.60,
                 "mean_hue": 30,
                 "mean_saturation": 70,
@@ -109,18 +126,17 @@ def main():
                 "bright_pixel_count": 50000
             }
         }
-        
-        # Create a simple nearest-centroid classifier
-        from sklearn.neighbors import KNeighborsClassifier
+
+        # Create synthetic samples around each centroid
         X_demo = []
         y_demo = []
         class_names = ["night", "false_dawn", "true_dawn"]
         for idx, (label, feats) in enumerate(demo_features.items()):
-            # Create 10 synthetic samples around centroid with small noise
-            for _ in range(10):
+            # Generate 20 samples per class with small Gaussian noise
+            for _ in range(20):
                 sample = [
-                    feats["mean_intensity"] + np.random.normal(0, 2),
-                    feats["std_intensity"] + np.random.normal(0, 1),
+                    feats["mean_intensity"] + np.random.normal(0, 3),
+                    feats["std_intensity"] + np.random.normal(0, 2),
                     feats["coverage_ratio"] + np.random.normal(0, 0.01),
                     feats["avg_aspect_ratio"] + np.random.normal(0, 0.1),
                     feats["horizontal_spread"] + np.random.normal(0, 0.02),
@@ -131,17 +147,17 @@ def main():
                 ]
                 X_demo.append(sample)
                 y_demo.append(idx)
-        
+
         X = np.array(X_demo)
         y = np.array(y_demo)
-        
+
         # Train simple model
         if args.model == "svm":
             clf = SVC(kernel='rbf', probability=True, C=10, gamma='scale')
         else:
             clf = RandomForestClassifier(n_estimators=50, random_state=42)
         clf.fit(X, y)
-        
+
         # Save
         output_path = Path(args.output)
         output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -157,7 +173,13 @@ def main():
         print("   Collect real images and train with --data for production.")
         return 0
 
-    # Regular training path
+    # Regular training path (requires real images + cv2)
+    if not _CV2_AVAILABLE:
+        print("❌ OpenCV (cv2) is required for real image training.")
+        print("   Install: pip install opencv-python-headless")
+        print("   Or use --demo to create a synthetic model for testing.")
+        sys.exit(1)
+
     data_dir = Path(args.data)
     if not data_dir.exists():
         print(f"❌ Dataset not found: {data_dir}")
