@@ -1,0 +1,3 @@
+Fajr Observer
+Enhanced prototype: demo mode works without OpenCV; synthetic dataset generator ready.
+Next: Deploy on Raspberry Pi with camera, collect real images, train production model.
