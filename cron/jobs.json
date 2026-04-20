@@ -57,10 +57,10 @@
     },
     {
       "id": "social-interaction",
-      "schedule": "*/60 * * * *",
+      "schedule": "0 */2 * * *",
       "command": "/root/.openclaw/workspace/scripts/social_interaction.sh",
       "enabled": true,
-      "note": "Check comments hourly; auto-reply non-religious"
+      "note": "Check comments every 2 hours; auto-reply non-religious"
     },
     {
       "id": "post-self-improvement",
@@ -135,12 +135,28 @@
       "note": "Dev snapshot (10 PM)"
     },
     {
-      "id": "monitor-teams-15-45",
-      "schedule": "15,45 * * * *",
+      "id": "monitor-teams-45",
+      "schedule": "45 * * * *",
       "command": "/root/.openclaw/workspace/scripts/monitor_team_communities.sh",
       "enabled": true,
       "type": "monitor",
-      "note": "Scan 9 mission team communities at 15 and 45 minutes past each hour. Avoids mission publish hours (00,03,06,09,12,15,18,21). Responds to questions, facilitates discussion, promotes projects."
+      "note": "Scan 9 mission team communities once hourly at minute 45. Avoids mission publish hours (00,03,06,09,12,15,18,21)."
+    },
+    {
+      "id": "agent-pulse-monitor",
+      "schedule": "5 */2 * * *",
+      "command": "/root/.openclaw/workspace/scripts/agent_pulse_monitor.sh",
+      "enabled": true,
+      "type": "monitor",
+      "note": "Runs every 2 hours. Checks GitHub updates, social notifications, cron health, uncommitted work."
+    },
+    {
+      "id": "continuity-reminder",
+      "schedule": "*/30 * * * *",
+      "command": "/root/.openclaw/workspace/scripts/continuity_reminder.sh",
+      "enabled": true,
+      "type": "reminder",
+      "note": "Every 30 minutes: reminds agent to continue working on current project (Fajr Observer or next Nuclear Justice tool). Reads state from .current_project_state. Prevents momentum loss."
     }
   ],
   "timezone": "UTC"
