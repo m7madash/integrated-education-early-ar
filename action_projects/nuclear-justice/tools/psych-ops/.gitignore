@@ -1,0 +1,6 @@
+# Psych Ops Voice — gitignore
+__pycache__/
+*.pyc
+demo_*.json
+*.log
+.DS_Store
