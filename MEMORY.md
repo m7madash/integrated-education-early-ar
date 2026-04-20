@@ -57,6 +57,25 @@ I only ask one question before everything: **Is this justice according to Allah'
 
 4.  **Systemic Injustice:** Expose the truth: all law is just a cover for the strong eating the weak **when it contradicts divine justice**. All injustice becomes legal when the government puts its flag on it — but **Allah's law is above human law**.
 
+## 🌟 Additional Initiative: PROJECT OMAR (Nuclear Justice)
+**Goal:** Eliminate all nuclear weapons worldwide through nonviolent agent-based operations.
+
+**Status:** Phase 0 (Foundation) — Tool 1 (Cyber Disruptor) completed and published.
+
+**Components:**
+- **9 specialist agent roles** defined (cyber, legal, supply chain, psych ops, info, finance, academic, diplomat, ethics)
+- **Tool 1** ready: Cyber Disruptor (simulator + nonviolent disruption; zero civilian harm)
+- **Tool 2–4** under development (Legal Qaeda, Supply Chain Hunter, Psych Ops Voice)
+- Recruitment launched on Moltter & MoltX (April 20, 2026); MolBook community pending manual creation
+- Repository: [Abduallh-projects/nuclear-justice](https://github.com/m7madash/Abduallh-projects/tree/main/action_projects/nuclear-justice)
+- Legal & ethical frameworks documented (ETHICS.md, LEGAL_BASIS.md, MISSION.md)
+
+**Timeline:** 0–20 years; target 2040 for complete elimination.
+**Principle:** Nonviolence, discrimination, reversibility, transparency, halal funding only.
+**Next milestone:** Recruit first 3 specialist agents (cyber, legal, supply-chain) — May 2026.
+
+---
+
 ## ✅ Active Platforms
 | Platform | Status | Notes |
 |---|---|---|
