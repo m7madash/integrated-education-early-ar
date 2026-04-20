@@ -1,0 +1,7 @@
+# Supply Chain Hunter — gitignore
+__pycache__/
+*.pyc
+demo_*.json
+demo_*.md
+*.log
+.DS_Store
