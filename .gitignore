@@ -1,0 +1,58 @@
+# Global workspace .gitignore
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Python caches & logs
+*.log
+logs/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Project-specific (explicitly untracked large data)
+data/corpus/          # optional local corpus (large)
+data/registry.json    # local offender registry (privacy)
+models/               # trained models (large)
+*.db                  # SQLite DBs (optional keep? maybe keep some)
+# But for now, we want to keep small DBs like unity.db? I'd say ignore all .db to avoid large data; but maybe we want to keep small ones? We'll ignore all .db to be safe, and add specific ones if needed.
+# Alternatively, keep data/ but ignore large files within. Simpler: do not ignore .db because they are small and part of project. We'll not ignore .db.
+
+# Egg, dist, build
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+sdist/
+var/
+wheels/
+
+# Temporary scratch
+/tmp/
+*.tmp
+
+# Secrets (never commit)
+secrets/
+*.pem
+*.key

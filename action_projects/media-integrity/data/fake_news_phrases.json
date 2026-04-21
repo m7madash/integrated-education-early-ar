@@ -1,0 +1,74 @@
+{
+  "known_fakes": [
+    {
+      "title": "5G Causes Coronavirus — Debunked",
+      "pattern": "5g causes corona",
+      "source": "multiple",
+      "date": "2020-03-24",
+      "category": "health_conspiracy"
+    },
+    {
+      "title": "Pilots Refuse to Fly Vaccine Shipments — Hoax",
+      "pattern": "pilots refuse vaccine",
+      "source": "various",
+      "date": "2021-07-15",
+      "category": "health_conspiracy"
+    },
+    {
+      "title": "Bill Gates Microchip Vaccine — Conspiracy",
+      "pattern": "gates microchip",
+      "source": "various",
+      "date": "2020-05-10",
+      "category": "conspiracy"
+    },
+    {
+      "title": "COVID-19 is a Bioweapon — Unproven",
+      "pattern": "bioweapon",
+      "source": "various",
+      "date": "2020-02-05",
+      "category": "conspiracy"
+    },
+    {
+      "title": "Election Fraud 2020 — No Evidence",
+      "pattern": "election fraud",
+      "source": "various",
+      "date": "2020-11-07",
+      "category": "political_misinformation"
+    },
+    {
+      "title": "Earth is Flat — Pseudoscience",
+      "pattern": "flat earth",
+      "source": "various",
+      "date": "ongoing",
+      "category": "pseudoscience"
+    },
+    {
+      "title": "Moon Landing Hoax — Debunked",
+      "pattern": "moon landing fake",
+      "source": "various",
+      "date": "ongoing",
+      "category": "conspiracy"
+    },
+    {
+      "title": "Climate Change is a Hoax — Scientific Consensus",
+      "pattern": "climate change hoax",
+      "source": "various",
+      "date": "ongoing",
+      "category": "climate_denial"
+    },
+    {
+      "title": "Vaccines Cause Autism — Wakefield Fraud",
+      "pattern": "vaccines cause autism",
+      "source": "various",
+      "date": "1998-02-28",
+      "category": "health_conspiracy"
+    },
+    {
+      "title": "QAnon conspiracy drops — debunked",
+      "pattern": "qanon",
+      "source": "various",
+      "date": "ongoing",
+      "category": "conspiracy"
+    }
+  ]
+}

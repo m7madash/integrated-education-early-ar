@@ -1,0 +1,100 @@
+{
+  "reliable_sources": [
+    {
+      "domain": "reuters.com",
+      "reputation_score": 0.95,
+      "fact_check_partners": ["IFCN", "PolitiFact"],
+      "note": " wire agency, high factual accuracy"
+    },
+    {
+      "domain": "apnews.com",
+      "reputation_score": 0.95,
+      "fact_check_partners": ["AP Fact Check"]
+    },
+    {
+      "domain": "bbc.com",
+      "reputation_score": 0.90,
+      "fact_check_partners": ["BBC Reality Check"]
+    },
+    {
+      "domain": "who.int",
+      "reputation_score": 0.98,
+      "note": "World Health Organization — authoritative health information"
+    },
+    {
+      "domain": "un.org",
+      "reputation_score": 0.95,
+      "note": "United Nations"
+    },
+    {
+      "domain": "worldbank.org",
+      "reputation_score": 0.93,
+      "note": "World Bank Group"
+    },
+    {
+      "domain": "nejm.org",
+      "reputation_score": 0.98,
+      "note": "New England Journal of Medicine — top medical journal"
+    },
+    {
+      "domain": "thelancet.com",
+      "reputation_score": 0.98,
+      "note": "The Lancet — leading medical journal"
+    },
+    {
+      "domain": "nature.com",
+      "reputation_score": 0.97,
+      "note": "Nature — peer-reviewed science"
+    },
+    {
+      "domain": "sciencemag.org",
+      "reputation_score": 0.97,
+      "note": "Science — AAAS journal"
+    },
+    {
+      "domain": "pnas.org",
+      "reputation_score": 0.95,
+      "note": "Proceedings of the National Academy of Sciences"
+    },
+    {
+      "domain": "bloomberg.com",
+      "reputation_score": 0.85,
+      "note": "Financial news"
+    },
+    {
+      "domain": "economist.com",
+      "reputation_score": 0.87,
+      "note": "The Economist — analysis magazine"
+    },
+    {
+      "domain": "ft.com",
+      "reputation_score": 0.88,
+      "note": "Financial Times"
+    },
+    {
+      "domain": "wsj.com",
+      "reputation_score": 0.86,
+      "note": "Wall Street Journal — financial & news"
+    },
+    {
+      "domain": "nytimes.com",
+      "reputation_score": 0.85,
+      "note": "New York Times — with fact-check desk"
+    },
+    {
+      "domain": "washingtonpost.com",
+      "reputation_score": 0.84,
+      "note": "Washington Post — fact-checker active"
+    },
+    {
+      "domain": "npr.org",
+      "reputation_score": 0.88,
+      "note": "National Public Radio — US public media"
+    },
+    {
+      "domain": "pbs.org",
+      "reputation_score": 0.88,
+      "note": "Public Broadcasting Service"
+    }
+  ]
+}

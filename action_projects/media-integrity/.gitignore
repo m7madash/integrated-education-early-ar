@@ -1,0 +1,46 @@
+# Media Integrity — .gitignore
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual env
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Uploads (demo)
+/tmp/media_integrity_uploads/
+
+# Data (large models)
+data/deepfake_models/*.pth
+data/deepfake_models/*.pt
+data/deepfake_models/*.h5
+
+# Cache
+cache/
+*.db
+
+# Secrets
+secrets/
+*.key
+*.pem
