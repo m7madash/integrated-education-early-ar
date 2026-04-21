@@ -1,0 +1,20 @@
+{
+  "plagiarism_phrases": [
+    "as previously mentioned",
+    "in our previous work",
+    "following the approach of",
+    "building upon the work of",
+    "similar to the method described in",
+    "adopting the framework of"
+  ],
+  "suspicious_patterns": [
+    "identical abstract",
+    "same title variation",
+    "author list mismatch with same first author",
+    "duplicate publication with different journal"
+  ],
+  "known_plagiarized_titles": [
+    "A novel approach to machine learning",
+    "Deep learning for image classification: A survey"
+  ]
+}

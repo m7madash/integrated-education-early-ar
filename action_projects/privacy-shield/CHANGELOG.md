@@ -4,52 +4,54 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased] — Development (Apr 19, 2026)
+## [0.1.0] — 2026-04-21 (Initial Release)
 
 ### Added
-- **CLI prototype** (`src/privacy_shield/cli.py`):
-  - `--encrypt-file` / `--decrypt-file` demo (XOR cipher)
-  - `--check-breach` demo (simulated, HIBP integration pending)
-  - `--harden-browser` (Firefox presets: resist fingerprinting, DoH)
-  - `--vpn-status` (IP disclosure check)
-- **Demo script** (`demo.py`) — standalone, zero dependencies
-  - File encryption/decryption round-trip verified
-  - Breach check demo (mock response)
-  - Browser hardening presets listing
-- **Project infrastructure**:
-  - README expanded to full mission + problem statement (Webloc verified by Citizen Lab)
-  - TODO.md with phased roadmap (Phase 1–5)
-  - Existing tools: `simple_rtb_blocker.py` (RTB/webloc blocking)
-  - Existing docs: `guide/`, `advocacy/`, `education/` folders
+- **crypto.py**: Fernet-based file encryption/decryption (AES-128-CBC + HMAC-SHA256)
+  - Password-derived key via PBKDF2 (100k iterations)
+  - Salt stored with ciphertext for stateless decryption
+- **breach.py**: HaveIBeenPwned API v3 integration
+  - Email breach checking with local caching (10 min TTL)
+  - Phone lookup support (requires API key)
+- **browser.py**: Browser hardening generators
+  - Firefox: prefs.js with fingerprinting resistance, WebRTC disable, telemetry off
+  - Chrome: enterprise policies JSON (Incognito mode, autofill disabled, etc.)
+- **vpn.py**: Public IP detection and VPN status checker
+  - Compares against baseline IP to detect VPN activation
+  - Recommends ethical VPN providers (Mullvad, ProtonVPN, IVPN)
+- **tests/test_privacy.py**: core functionality tests
+- **requirements.txt**: dependencies (cryptography, requests)
+- **Full README** with installation and usage examples
 
 ### Technical Notes
-- Pure Python stdlib for demo (no external packages)
-- XOR cipher used for demo only — **NOT for production**
-- Production crypto will use `cryptography` (Fernet/AES-256)
-- Breach check uses HaveIBeenPwned API (v3) — rate-limited, key optional
-- Browser hardening targets Firefox first (Chrome later)
-
-### Principles Applied
-- **M1 (Justice):** Surveillance is oppression — tools fight back
-- **M4 (No Harm):** Prevent data harvesting that leads to harm
-- **M5 (Stand with Oppressed):** Palestinians, immigrants, protesters targeted by Webloc
-- **Action Before Speech:** CLI built before any public announcement
+- All crypto operations use `cryptography` library (fernet)
+- No data leaves the device except HIBP API calls (optional)
+- Supports Python 3.8+
+- Caching layer respects rate limits
 
 ---
 
-## [0.1.0] — Project Init (Apr 18, 2026)
+## [Planned] — Future Releases
 
-### Added
-- Initial project scaffolding:
-  - README with Webloc/ Cobwebs Technologies overview
-  - TODO draft (manual tasks)
-  - CHANGELOG template
-  - `tools/simple_rtb_blocker.py` (early ad-blocker guide)
-  - Directories: `advocacy/`, `education/`, `guide/`, `logs/`
+### [0.2.0] — Enhanced Privacy
+- Android app permission scanner
+- MAID (Mobile Advertising ID) rotator
+- RTB domain blocker generation (simple_rtb_blocker.py → production)
+- Location spoofer (ethical use only)
 
-### Notes
-Project originated from need to protect Palestinian activists from Webloc location tracking by ICE/Israel-affiliated data brokers.
+### [0.3.0] — Education & Scale
+- Arabic guide: "الخصوصية للجميع"
+- Video script & infographic
+- Weekly breach alert newsletter (email)
+- Partnership with digital rights orgs (EFF, Access Now)
+
+### [1.0.0] — Full Suite
+- GUI desktop app (Tkinter/PyQt)
+- Browser extension (Chrome/Firefox add-on)
+- Mobile app (Flutter)
+- Docker image for easy deployment
 
 ---
 
-🚀 **GitHub:** https://github.com/m7madash/Abduallh-projects/tree/main/action_projects/privacy-shield
+**Ethical Boundary**: This tool protects privacy — it does not enable illegal activities.  
+No backdoors, no data collection, fully auditable open source.

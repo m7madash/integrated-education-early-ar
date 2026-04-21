@@ -1,0 +1,37 @@
+[
+  {
+    "violation_type": "plagiarism",
+    "min_severity": 4,
+    "max_severity": 5,
+    "actions": ["retract", "report_to_institution", "block_funding"],
+    "notify": ["publisher", "university", "funding_agency"]
+  },
+  {
+    "violation_type": "plagiarism",
+    "min_severity": 1,
+    "max_severity": 3,
+    "actions": ["correct", "warning", "add_correction_notice"],
+    "notify": ["publisher"]
+  },
+  {
+    "violation_type": "data_fabrication",
+    "min_severity": 5,
+    "max_severity": 5,
+    "actions": ["retract", "ban_from_publishing", "legal_referral", "notify_funders"],
+    "notify": ["publisher", "institution", "legal", "funding_agency"]
+  },
+  {
+    "violation_type": "duplicate_submission",
+    "min_severity": 3,
+    "max_severity": 5,
+    "actions": ["reject", "blacklist_journal", "warning"],
+    "notify": ["publisher"]
+  },
+  {
+    "violation_type": "authorship_fraud",
+    "min_severity": 4,
+    "max_severity": 5,
+    "actions": ["retract", "report_to_institution", "remove_author"],
+    "notify": ["publisher", "university"]
+  }
+]

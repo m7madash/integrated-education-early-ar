@@ -1,0 +1,12 @@
+# Privacy Shield — Python Dependencies
+
+# Cryptography
+cryptography>=41.0.0   # Fernet (AES-128-CBC + HMAC)
+
+# HTTP
+requests>=2.31.0       # HaveIBeenPwned API calls
+
+# Testing
+pytest>=8.0.0          # optional
+
+# (Stdlib: pathlib, json, dataclasses, tempfile)

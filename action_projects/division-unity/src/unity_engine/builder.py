@@ -9,6 +9,8 @@ from dataclasses import dataclass, asdict
 from typing import List, Dict, Optional
 import json
 import hashlib
+from datetime import datetime
+from .storage import UnityStorage, AgentRecord, CoalitionRecord
 
 @dataclass
 class Agent:
@@ -34,16 +36,29 @@ class Coalition:
 class CoalitionBuilder:
     """Match agents by mission and suggest coalitions."""
 
-    def __init__(self):
-        self.agents: Dict[str, Agent] = {}
-        self.coalitions: Dict[str, Coalition] = {}
+    def __init__(self, storage_path: str = None):
+        self.storage = UnityStorage(Path(storage_path)) if storage_path else UnityStorage()
+        # Load initial data from storage
+        self.agents = {a.agent_id: a for a in self.storage.list_agents()}
+        self.coalitions = {c.coalition_id: c for c in self.storage.list_coalitions()}
 
     def register_agent(self, agent: Agent) -> str:
         """Register an agent and return its ID."""
-        # Generate deterministic ID from name + mission
         raw = f"{agent.name}:{agent.mission}"
         agent.id = hashlib.sha256(raw.encode()).hexdigest()[:12]
         self.agents[agent.id] = agent
+        # Persist
+        record = AgentRecord(
+            agent_id=agent.id,
+            name=agent.name,
+            mission=agent.mission,
+            capabilities=agent.capabilities,
+            region=agent.region,
+            contact=agent.contact,
+            created_at=datetime.utcnow().isoformat(),
+            updated_at=datetime.utcnow().isoformat()
+        )
+        self.storage.save_agent(record)
         return agent.id
 
     def find_compatible_agents(self, mission: str, capability: str = None) -> List[Agent]:

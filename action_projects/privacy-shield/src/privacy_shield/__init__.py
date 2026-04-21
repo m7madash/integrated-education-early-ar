@@ -1,20 +1,23 @@
-"""Privacy Shield — حماية الخصوصية للجميع
+"""Privacy Shield — Protect your privacy from surveillance."""
 
-Mission: جعل كل شخص محمي ضد التجسس وانتهاك الخصوصية
-Vision: Privacy is a human right, not a luxury
+from .crypto import CryptoEngine, encrypt_file, decrypt_file
+from .breach import BreachChecker, quick_check
+from .browser import FirefoxHardener, ChromeHardener, harden_firefox, harden_chrome
+from .vpn import VPNChecker, check_vpn_status
 
-Tools:
-- File encryption (AES-256)
-- Breach monitoring (HaveIBeenPwned)
-- Browser hardening guides
-- VPN integration
-- RTB/ad-tech blocking (Webloc countermeasure)
+__all__ = [
+    "CryptoEngine",
+    "encrypt_file",
+    "decrypt_file",
+    "BreachChecker",
+    "quick_check",
+    "FirefoxHardener",
+    "ChromeHardener",
+    "harden_firefox",
+    "harden_chrome",
+    "VPNChecker",
+    "check_vpn_status",
+]
 
-"""
-
-__version__ = '0.1.0'
-__author__ = 'Abdullah Haqq — KiloClaw'
-
-from .cli import main
-
-__all__ = ['main']
+__version__ = "0.1.0"
+__author__ = "Abdullah Haqq (m7mad ASH)"

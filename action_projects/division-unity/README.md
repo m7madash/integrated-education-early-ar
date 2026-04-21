@@ -52,6 +52,36 @@
 
 ---
 
+## 🗃️ Persistence & API (v0.1.0)
+
+### SQLite Storage (`src/unity_engine/storage.py`)
+- `UnityStorage` class: agents & coalitions tables
+- Full CRUD: save_agent, get_agent, list_agents, delete_agent
+- Coalition: save_coalition, get_coalition, list_coalitions, update_impact
+- Data stored in `data/unity.db` (auto-created)
+
+### REST API (`src/unity_engine/api.py`)
+- Flask-based HTTP API
+- Endpoints:
+  - `GET /agents` — list all (filter by `?region=...&capability=...`)
+  - `GET /agents/<id>` — get one
+  - `POST /agents` — create agent
+  - `DELETE /agents/<id>` — remove agent
+  - `GET /coalitions` — list (filter by `?status=...`)
+  - `GET /coalitions/<id>` — get one
+  - `POST /coalitions` — create coalition
+  - `POST /coalitions/<id>/impact` — increment metric
+  - `GET /health` — health check
+- Run: `python3 -m unity_engine.api --host 0.0.0.0 --port 5000`
+
+### Impact Tracking (`src/unity_engine/metrics.py`)
+- `ImpactTracker` class: record people_helped, funds_raised, projects_completed
+- Increment per coalition: `tracker.increment(coalition_id, 'people_helped', 50)`
+- Total across coalitions: `tracker.total_impact()`
+- Metrics stored in coalition record (JSON)
+
+---
+
 ## 🧪 Tests
 
 ```bash

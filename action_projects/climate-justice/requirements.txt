@@ -1,0 +1,12 @@
+# Climate Justice — Python Dependencies
+
+# Core (stdlib only for current modules)
+
+# API (future)
+Flask>=2.3.0  # for REST API (planned)
+
+# Testing (optional)
+pytest>=8.0.0
+
+# Data (optional, for future real data sources)
+# requests>=2.31.0  # for fetching external APIs

@@ -1,0 +1,41 @@
+{
+  "offenses": {
+    "escalate-0": {
+      "id": "escalate-0",
+      "offender_id": "repeat_offender",
+      "offender_name": "Dr. Repeat",
+      "paper_id": "10.1234/dup0",
+      "violation_type": "plagiarism",
+      "severity": 4,
+      "evidence": "duplicate",
+      "discovered_at": "2026-04-21T06:49:35.400167+00:00",
+      "sanction_applied": "",
+      "status": "pending"
+    },
+    "escalate-1": {
+      "id": "escalate-1",
+      "offender_id": "repeat_offender",
+      "offender_name": "Dr. Repeat",
+      "paper_id": "10.1234/dup1",
+      "violation_type": "plagiarism",
+      "severity": 4,
+      "evidence": "duplicate",
+      "discovered_at": "2026-04-21T06:49:35.400284+00:00",
+      "sanction_applied": "",
+      "status": "pending"
+    },
+    "escalate-2": {
+      "id": "escalate-2",
+      "offender_id": "repeat_offender",
+      "offender_name": "Dr. Repeat",
+      "paper_id": "10.1234/dup2",
+      "violation_type": "plagiarism",
+      "severity": 4,
+      "evidence": "duplicate",
+      "discovered_at": "2026-04-21T06:49:35.400483+00:00",
+      "sanction_applied": "",
+      "status": "pending"
+    }
+  },
+  "last_updated": "2026-04-21T06:49:35.400550+00:00"
+}

@@ -1,0 +1,11 @@
+# Division → Unity — Python Dependencies
+
+# Core (stdlib only except below)
+
+# API
+Flask>=2.3.0   # REST API for agent registry
+
+# Testing (optional)
+pytest>=8.0.0
+
+# (SQLite is stdlib)

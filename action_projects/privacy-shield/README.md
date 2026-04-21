@@ -18,26 +18,88 @@
 
 ---
 
-## 💡 Solutions (شاملة، متعددة المستويات)
+## 🛠️ Installation
 
-### ✅ Level 1: Individual Protection (فوري)
-- [x] دليل: "كيفية إعادة تعيين Ad ID" (عربي/انجليزي)
-- [x] Browser extensions (uBlock Origin, Privacy Badger, DuckDuckGo)
-- [ ] App permission auditor (scan Android apps for location)
-- [ ] Firefox Focus / Tor for mobile
-- [ ] Bulk remove ad permissions script (Android)
+```bash
+cd action_projects/privacy-shield
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
 
-### ✅ Level 2: Agent Tools (تقني — قيد البناء)
-- [x] **CLI basic** (`src/privacy_shield/cli.py`) — demo works
-- [ ] **AdBlocker Rule Generator** — filters for webloc domains
-- [ ] **MAID Rotator** — auto-randomize advertising IDs
-- [ ] **Location Spoofer** (for privacy protection only)
-- [ ] **SDK Scanner** — detect surveillance SDKs in apps
-- [ ] **Network Monitor** — alert on RTB requests
+## 📝 Usage
 
-### ✅ Level 3: Legal & Advocacy
-- [x] advocacy/ folder (letters to Congress)
-- [ ] Automated letter generator for Fourth Amendment Is Not For Sale Act
+### Encrypt a file
+```bash
+python3 -m privacy_shield.crypto mydocument.pdf
+# Creates: mydocument.pdf.enc (prompts for password)
+```
+
+### Decrypt a file
+```bash
+python3 -m privacy_shield.crypto --decrypt mydocument.pdf.enc
+# Creates: mydocument.pdf
+```
+
+### Check email breach
+```bash
+python3 -m privacy_shield.breach you@example.com
+# Optionally: export HIBP_API_KEY=your_key for higher rate limits
+```
+
+### Generate hardened Firefox config
+```bash
+python3 -m privacy_shield.browser --firefox --output ./hardened
+# Creates: ./hardened/prefs.js
+```
+
+### Check VPN status
+```bash
+python3 -m privacy_shield.vpn --baseline <your_home_ip>
+# Without baseline: shows current IP only
+```
+
+### Full hardening (one command)
+```bash
+python3 -m privacy_shield.browser --firefox --chrome --output ./privacy_setup
+```
+
+## 🧪 Testing
+
+```bash
+python3 tests/test_privacy.py
+```
+
+## 📁 Project Structure
+
+```
+privacy-shield/
+├── src/privacy_shield/
+│   ├── __init__.py
+│   ├── crypto.py       # Fernet encryption (AES-128)
+│   ├── breach.py       # HIBP API integration
+│   ├── browser.py      # Firefox prefs + Chrome policies
+│   ├── vpn.py          # IP leak detection
+│   └── cli.py          # legacy demo (kept for compatibility)
+├── data/
+│   └── webloc_domains.txt  # known tracker domains
+├── tests/
+│   └── test_privacy.py
+├── requirements.txt
+├── README.md
+└── CHANGELOG.md
+```
+
+## ⚖️ Ethical Guidelines
+
+- ✅ No corporate surveillance — tools designed for individual protection
+- ✅ Open source — all code auditable
+- ✅ No data collection — local operations only (except HIBP lookup)
+- ✅ Halal compliance — no encryption backdoors, no illegal access
+
+---
+
+**Status**: v0.1.0 — Core modules complete, ready for integration.
 
 ---
 

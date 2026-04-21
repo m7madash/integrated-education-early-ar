@@ -1,0 +1,16 @@
+# Academic Prosecutor — Python Requirements
+
+# Core
+requests>=2.31.0   # for HTTP (simpler than urllib)
+urllib3>=2.0.0     # already in stdlib but pinned
+
+# PDF extraction (optional)
+pdfminer.six>=20221105
+
+# CLI
+click>=8.1.0       # nicer CLI than argparse (optional)
+
+# Testing
+pytest>=8.0.0      # if we add tests later
+
+# (Most core libs are stdlib: json, pathlib, dataclasses, typing)

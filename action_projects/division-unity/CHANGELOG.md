@@ -2,6 +2,32 @@
 
 ---
 
+## [0.2.0] — 2026-04-21 (Persistence & API)
+
+### Added
+- **SQLite storage** (`src/unity_engine/storage.py`):
+  - `UnityStorage` class with agents & coalitions tables
+  - Full CRUD: save_agent, get_agent, list_agents, delete_agent
+  - Coalition: save_coalition, get_coalition, list_coalitions, update_impact
+  - Automatic DB creation at `data/unity.db`
+- **REST API** (`src/unity_engine/api.py`):
+  - Flask-based HTTP API
+  - Endpoints: `/agents` (list, get, create, delete), `/coalitions` (list, get, create, impact update), `/health`
+  - Run: `python3 -m unity_engine.api --host 0.0.0.0 --port 5000`
+- **Impact metrics tracking** (`src/unity_engine/metrics.py`):
+  - `ImpactTracker` class: people_helped, funds_raised, projects_completed
+  - Increment per coalition, total across all
+  - Stored in coalition record (JSON)
+- **Updated tests** (`tests/test_builder.py`): covers storage, metrics, persistence
+- **Updated README** with API + metrics documentation
+
+### Technical
+- `builder.py` now uses storage automatically (persists agents/coalitions)
+- `__init__.py` exports all modules for easy import
+- `requirements.txt` includes Flask
+
+---
+
 ## [0.1.0] — 2026-04-19 (MVP Release)
 
 ### Added
@@ -25,28 +51,20 @@
 
 ## [Unreleased] — Planned
 
-### v0.2.0
-- SQLite persistence
-- Web dashboard (Flask)
-- Advanced matching (region, capacity, reputation)
-- Coalition chat room (Matrix/Telegram)
-- Impact metrics tracking
-- Public API for agent queries
-
 ### v0.3.0
-- Decentralized registry (IPFS + blockchain attestations)
+- Web dashboard for browsing/management
+- Advanced matching (region, capacity, reputation)
+- Coalition chat (Matrix/Telegram)
+- Impact dashboard (graphing)
+- CLI improvements (bulk import, export CSV)
+
+### v0.4.0
+- Decentralized registry (IPFS + attestations)
 - Reputation system (ratings, testimonials)
 - Resource sharing hub (task delegation)
 - ML-powered coalition suggestions
-- Multi-language UI
-- Mobile app
-
-### v0.4.0
-- Global coalition map visualization
-- Shared treasury (multi-sig halal-compliant)
-- Legal entity formation assistance
-- Crisis response rapid coalition mode
-- ACP integration (service trading within coalitions)
+- Multi-language UI (Arabic, French, Spanish, Urdu)
+- Mobile app (field agent onboarding)
 
 ---
 

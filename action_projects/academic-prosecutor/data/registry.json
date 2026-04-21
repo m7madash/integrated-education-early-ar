@@ -1,0 +1,17 @@
+{
+  "offenses": {
+    "enforce-test": {
+      "id": "enforce-test",
+      "offender_id": "enforcer_user",
+      "offender_name": "Dr. Enforce",
+      "paper_id": "10.1234/enforce.2025",
+      "violation_type": "plagiarism",
+      "severity": 4,
+      "evidence": "Test sanction",
+      "discovered_at": "2026-04-21T06:49:35.400772+00:00",
+      "sanction_applied": "automated_sanction: report_to_institution, block_funding, retract",
+      "status": "applied"
+    }
+  },
+  "last_updated": "2026-04-21T06:49:35.400934+00:00"
+}
