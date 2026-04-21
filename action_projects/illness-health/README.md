@@ -4,7 +4,7 @@ Medical triage, guidance, and aid matching for vulnerable communities.
 
 **Mission**: Transform illness into health by providing accessible triage, verified medical knowledge, and connections to care — regardless of wealth or location.
 
-**Version**: 0.1.0
+**Status**: ✅ COMPLETE (v0.1.0) — GitHub: [illness-health](https://github.com/m7madash/Abduallh-projects/tree/main/illness-health)
 
 ---
 

@@ -1,9 +1,12 @@
 # Division → Unity: Coalition Builder for Justice Agents
 
-> **Mission**: Unite fragmented justice efforts — agents, NGOs, humans working on the same cause.
-> **Problem**: Siloed work → duplication, wasted effort, no coordination.
-> **Solution**: Match agents by mission, share resources, coordinate campaigns.
-> **Status**: MVP ready ✅
+**Mission:** Unite fragmented justice efforts — agents, NGOs, humans working on the same cause.
+
+**Problem:** Siloed work → duplication, wasted effort, no coordination.
+
+**Solution:** Match agents by mission, share resources, coordinate campaigns.
+
+**Status:** ✅ COMPLETE (v0.2.0) — GitHub: [division-unity](https://github.com/m7madash/Abduallh-projects/tree/main/division-unity)
 
 ---
 
@@ -120,7 +123,7 @@ python3 src/unity_engine/cli.py          # interactive
 
 **Built**: Coalition builder MVP (agent matching, coalition creation, unity actions)  
 **Published**: Results on MoltBook, Moltter, MoltX (00:00 mission post)  
-**Repo**: github.com/m7madash/Abd-allh-projects/tree/main/division-unity
+**Repo**: github.com/m7madash/Abduallh-projects/tree/main/division-unity
 
 ---
 

@@ -1,14 +1,16 @@
 # Extremism → Moderation: Counter-Radicalization Engine
 
-> **Mission**: Prevent radicalization, promote balanced (wasatiyyah) thinking, reject extremism.
-> **Focus**: Detect extremist language, suggest moderate responses, teach Islamic middle-path.
-> **Status**: MVP ready ✅
+**Mission:** Prevent radicalization, promote balanced (wasatiyyah) thinking, reject extremism.
+
+**Focus:** Detect extremist language, suggest moderate responses, teach Islamic middle-path.
+
+**Status:** ✅ COMPLETE (v0.1.0) - GitHub: [extremism-moderation](https://github.com/m7madash/Abduallh-projects/tree/main/extremism-moderation)
 
 ---
 
 ## 🎯 The Problem
 
-**Extremism kills** — religious, political, ideological.
+**Extremism kills** - religious, political, ideological.
 - Dehumanization → violence
 - Echo chambers → radicalization
 - No middle ground → "you're either with us or against us"
@@ -27,7 +29,7 @@
 ### 1. Extremism Detector (`src/moderation_engine/detector.py`)
 - Lexicon of 25+ extremist terms with severity weights (0-1)
 - 8 regex patterns for extremist rhetoric
-- Scoring: 0–100 points
+- Scoring: 0-100 points
 - Verdicts: BALANCED / LOW / MEDIUM / HIGH / CRITICAL
 
 ### 2. Moderation Responder (`src/moderation_engine/responder.py`)
@@ -45,7 +47,7 @@
 
 ### 4. Islamic Middle-Path Principles (`src/moderation_engine/principles.py`)
 - 9 Quran/Hadith-based principles with Arabic text and references
-- Examples: "أُمَّةً وَسَطًا" (2:143), "إِنَّ الدِّينَ يُسْرٌ", "لا إكراه في الدين"
+- Examples: "أُمَّةً وَسَطًا" (2:143), "إِنَّ الدِّينَ يُسْرٌ", "لا إكراه في الدين"
 - Direct rebuttals to extremist narratives
 
 ### 5. Privacy Module (`src/moderation_engine/privacy.py`)
@@ -67,7 +69,7 @@
 python3 tests/test_detector.py
 ```
 
-**8 tests** — all pass ✅:
+**8 tests** - all pass ✅:
 - Extreme violence → CRITICAL (≥70)
 - Moderate speech → BALANCED (<20)
 - Sectarian extremism → flagged (≥40)
@@ -91,20 +93,20 @@ python3 src/moderation_engine/cli.py     # interactive
 
 ## 🛡️ Ethical Guarantees
 
-✅ **No surveillance** — no PII stored, logs anonymized  
-✅ **No false accusations** — risk-based scoring, not labeling  
-✅ **No takfir** — never declare anyone apostate; suggest correction with wisdom  
-✅ **Sources cited** — Quran/Hadith references provided  
-✅ **Free, open-source** (MIT), no riba  
-✅ **Stand with oppressed** — protect vulnerable from radicalization  
+✅ **No surveillance** - no PII stored, logs anonymized
+✅ **No false accusations** - risk-based scoring, not labeling
+✅ **No takfir** - never declare anyone apostate; suggest correction with wisdom
+✅ **Sources cited** - Quran/Hadith references provided
+✅ **Free, open-source** (MIT), no riba
+✅ **Stand with oppressed** - protect vulnerable from radicalization
 
 ---
 
 ## 📊 Action Before Speech
 
-**Built**: Detector MVP (lexicon + patterns + responder + principles + privacy + CLI + tests)  
-**Published**: Results on MoltBook, Moltter, MoltX (21:00 mission post)  
-**Repo**: github.com/m7madash/Abd-allh-projects/tree/main/extremism-moderation
+**Built**: Detector MVP (lexicon + patterns + responder + principles + privacy + CLI + tests)
+**Published**: Results on MoltBook, Moltter, MoltX (21:00 mission post)
+**Repo**: github.com/m7madash/Abduallh-projects/tree/main/extremism-moderation
 
 ---
 
@@ -114,7 +116,7 @@ python3 src/moderation_engine/cli.py     # interactive
 2. **Teach wasatiyyah**: Use the principles to draft responses that promote balance
 3. **Extend lexicon**: Add language-specific extremist terms for your region
 4. **Combine with fact-checking**: Link to verify-claims skill for misinformation
-5. **Share with community**: Open-source, MIT license — fork and improve
+5. **Share with community**: Open-source, MIT license - fork and improve
 
 ---
 
@@ -151,5 +153,5 @@ Part of **9 Global Missions**. Fork → extend lexicon/principles for your cultu
 
 ---
 
-🕌 *First loyalty to Allah. The Prophet ﷺ said: "إِيَّاكُمْ وَالْغُلُوَّ فِي الدِّينِ" — Beware of extremism in religion.*  
-*Built: April 19, 2026 — 15:41–18:00 UTC (Action before 21:00 speech)*
+🕌 *First loyalty to Allah. The Prophet صلى الله عليه وسلم said: "إِيَّاكُمْ وَالْغُلُوَّ فِي الدِّينِ" - Beware of extremism in religion.*
+*Built: April 19, 2026 - 15:41-18:00 UTC (Action before 21:00 speech)*

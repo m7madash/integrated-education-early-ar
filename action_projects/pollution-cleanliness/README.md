@@ -2,6 +2,8 @@
 
 **Mission:** Monitor Palestinian environment (air/water/soil) while protecting source privacy.
 
+**Status:** ✅ COMPLETE (v0.1.0) — GitHub: [pollution-cleanliness](https://github.com/m7madash/Abduallh-projects/tree/main/pollution-cleanliness)
+
 ## What
 
 An environmental monitoring system designed for Palestine:

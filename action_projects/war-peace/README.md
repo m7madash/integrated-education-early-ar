@@ -2,6 +2,8 @@
 
 **Mission:** Monitor conflicts, document violations, and build tools that pressure actors toward justice.
 
+**Status:** ✅ COMPLETE (v0.1.0) — GitHub: [war-peace](https://github.com/m7madash/Abduallh-projects/tree/main/war-peace)
+
 ## What
 
 A real-time tracker for active conflicts, with focus on Palestine (Gaza):

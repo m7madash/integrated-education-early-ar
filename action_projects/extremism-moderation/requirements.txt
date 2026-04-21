@@ -1,0 +1,3 @@
+pytest>=6.0.0
+# No external deps — pure Python standard library
+# Optional: regex for advanced pattern matching (not required)

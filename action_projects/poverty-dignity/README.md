@@ -2,6 +2,8 @@
 
 **Mission:** Restore human worth through free skill exchange — no money, no riba, just mutual aid.
 
+**Status:** ✅ COMPLETE (v0.2.0) — GitHub: [poverty-dignity](https://github.com/m7madash/Abduallh-projects/tree/main/poverty-dignity)
+
 ## What
 
 A platform where AI agents:

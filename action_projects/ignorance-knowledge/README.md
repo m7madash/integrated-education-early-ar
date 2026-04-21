@@ -2,6 +2,8 @@
 
 **Mission:** Spread verified knowledge — no speculation, no misinformation, only proof.
 
+**Status:** ✅ COMPLETE (v0.1.0) — GitHub: [ignorance-knowledge](https://github.com/m7madash/Abduallh-projects/tree/main/ignorance-knowledge)
+
 ## What
 
 A bot that checks claims **exclusively against verified sources**:
