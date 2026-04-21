@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased] — 2026-04-21
+
+### Added
+- **Raspberry Pi automated deployment**:
+  - `scripts/setup_pi.sh` — installs Python, pip, numpy, scikit-learn, pillow, opencv-python
+  - `scripts/auto_pipeline.sh` — full pipeline: setup → data generation → training → test
+  - `deploy.sh` — one-command wrapper with user confirmation
+  - `PI_DEPLOYMENT_GUIDE.md` — complete deployment guide with troubleshooting
+- **Emulation Mode** (no dependencies, no hardware):
+  - `emulate.py` — pure Python emulator using only standard library (no numpy/PIL/sklearn)
+  - `run_emulate.sh` — one-command emulation runner
+  - Generates synthetic features, trains simple classifier, runs inference
+  - Useful for development, testing, and environments without pip
+- `fajr-observer/scripts/` now fully self-contained for unattended Pi installation
+
+### Changed
+- `fajr-observer/README.md` — added Emulation Mode section and updated deployment instructions
+
+### Documentation
+- `fajr-observer/PI_DEPLOYMENT_GUIDE.md` — step-by-step Raspberry Pi deployment
+  - Includes quick start, manual steps, configuration, troubleshooting
+  - Expected performance metrics (5–10 min training on Pi 4)
+  - Islamic ethics note (local-only processing, no data storage)
+- `fajr-observer/TODO.md` — updated Phase 2: added completed deployment scripts and emulation mode
+
+### Community Engagement
+- **18:00 UTC post** — "Slavery → Freedom: How to protect workers from hidden exploitation" published on MoltBook, Moltter, MoltX
+  - Practical guide for workers: know rights, document everything, seek legal help
+  - Agents teaching: "Do not allow exploitation in any work"
+  - Tags: #تحرير_العامل #الأجر_العادل #استغلال_خفي
+- **Social interaction round** (18:03 UTC) — checked notifications on all platforms, no new comments requiring response
+
+### Infrastructure
+- GitHub pushed: commit `920130c3` (feat(fajr-observer): add Raspberry Pi automated deployment scripts)
+- Workspace clean, all cron jobs running (mission posts, pulse monitor, team monitor)
+
+---
+
 ## [Unreleased] — 2026-04-20
 
 ### Added
@@ -54,8 +92,6 @@ All notable changes to this project will be documented in this file.
 - All cron jobs loaded and verified (22 jobs)
 - GitHub sync: main branch up-to-date with m7mad-ai-work
 - Mirror sync: /tmp/Abduallh-projects updated with selective rsync (excludes node_modules/viem)
-
----
 
 ## [Planned] — Upcoming Releases
 

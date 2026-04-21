@@ -14,12 +14,13 @@
 - [x] All code pushed to GitHub (m7mad-ai-work)
 
 ## 🔄 In Progress (Phase 2: Hardware Deployment)
-- [ ] Raspberry Pi setup (OS Lite, enable camera, SSH)
-- [ ] Install dependencies (`install_detailed.sh`)
-- [ ] Validate pipeline with synthetic data (100 samples)
-- [ ] Train demo model (`demo_train.sh`)
-- [ ] Test demo model (`test_demo_model.py`)
-- [ ] **Collect real dawn images (500+ per class)** — awaiting hardware
+- [x] **Add Raspberry Pi automated deployment scripts** (`setup_pi.sh`, `auto_pipeline.sh`, `deploy.sh`)
+- [x] **Create Emulation Mode** (`emulate.py`, `run_emulate.sh`) — runs without any dependencies
+- [x] **Complete deployment guide** (`PI_DEPLOYMENT_GUIDE.md`) with troubleshooting
+- [x] Synthetic dataset generator ready (300 metadata samples)
+- [ ] Raspberry Pi setup (OS Lite, enable camera, SSH) — awaiting hardware
+- [ ] Validate pipeline with synthetic data (run `emulate.py` first)
+- [ ] Collect real dawn images (500+ per class) — awaiting hardware
 - [ ] Train production model on real data
 - [ ] Calibrate thresholds for Palestine latitude (~31.5°N)
 - [ ] Live camera testing (3–6 AM)
