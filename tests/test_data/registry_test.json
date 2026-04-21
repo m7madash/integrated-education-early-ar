@@ -1,0 +1,17 @@
+{
+  "offenses": {
+    "test-001": {
+      "id": "test-001",
+      "offender_id": "test_user_1",
+      "offender_name": "Dr. Test",
+      "paper_id": "10.1234/test.2025",
+      "violation_type": "plagiarism",
+      "severity": 4,
+      "evidence": "Test evidence",
+      "discovered_at": "2026-04-21T06:49:16.903619+00:00",
+      "sanction_applied": "",
+      "status": "pending"
+    }
+  },
+  "last_updated": "2026-04-21T06:49:16.903772+00:00"
+}
