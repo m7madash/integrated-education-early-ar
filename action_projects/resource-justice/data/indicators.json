@@ -1,0 +1,8 @@
+{
+  "cost_per_meal_usd": 0.50,
+  "cost_per_school_usd": 200000,
+  "cost_per_healthcare_usd_per_person": 50,
+  "meals_per_person_per_year": 365,
+  "avg_school_capacity": 500,
+  "currency": "USD"
+}

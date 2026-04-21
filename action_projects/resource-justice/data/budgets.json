@@ -1,0 +1,37 @@
+{
+  "Palestine": {
+    "military_budget_usd": 1200000000,
+    "development_budget_usd": 500000000,
+    "year": 2023,
+    "population": 5200000,
+    "hunger_rate_percent": 22.0
+  },
+  "Saudi Arabia": {
+    "military_budget_usd": 67500000000,
+    "development_budget_usd": 45000000000,
+    "year": 2023,
+    "population": 36900000,
+    "hunger_rate_percent": 2.5
+  },
+  "Egypt": {
+    "military_budget_usd": 4500000000,
+    "development_budget_usd": 12000000000,
+    "year": 2023,
+    "population": 109000000,
+    "hunger_rate_percent": 5.0
+  },
+  "Jordan": {
+    "military_budget_usd": 2100000000,
+    "development_budget_usd": 4500000000,
+    "year": 2023,
+    "population": 11300000,
+    "hunger_rate_percent": 8.0
+  },
+  "UAE": {
+    "military_budget_usd": 23500000000,
+    "development_budget_usd": 28000000000,
+    "year": 2023,
+    "population": 9300000,
+    "hunger_rate_percent": 1.0
+  }
+}

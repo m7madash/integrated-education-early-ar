@@ -1,0 +1,7 @@
+{
+  "Palestine": { "population": 5200000, "gdp_usd": 18000000000 },
+  "Saudi Arabia": { "population": 36900000, "gdp_usd": 1100000000000 },
+  "Egypt": { "population": 109000000, "gdp_usd": 450000000000 },
+  "Jordan": { "population": 11300000, "gdp_usd": 45000000000 },
+  "UAE": { "population": 9300000, "gdp_usd": 500000000000 }
+}
