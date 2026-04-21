@@ -59,13 +59,17 @@
 - Map hotspots (coastal flooding, desertification)
 - Match with aid agencies
 
-### `accountability.py` — (Planned)
+### `accountability.py` — Carbon Polluter Accountability
 - Carbon emitters database (corporations, nations)
 - Calculate "climate debt" owed to vulnerable nations
 - Generate advocacy reports
+- Compute emissions intensity, per-capita emissions, historical contribution
+- Verdict system: EXCELLENT / COMPLIANT / NON_COMPLIANT / CRIMINAL_NEGLECT
 
-### `api.py` — (Planned)
-- Flask REST API for external integration
+### `api.py` — Flask REST API
+- Endpoints: `/health`, `/modules`, `/analyze/<module>`, `/results/<id>`
+- Shortcut: `/accountability/<polluter_id>` and `/accountability/rank`
+- External integration for water, energy, refugees, detector, accountability modules
 
 ---
 

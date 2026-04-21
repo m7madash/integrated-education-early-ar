@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented.
 
-## [0.1.0] — 2026-04-21 (In Development)
+## [0.1.0] — 2026-04-21 (Complete)
 
 ### Added
 - **Water Justice module** (`water.py`):
@@ -17,28 +17,40 @@ All notable changes to this project will be documented.
   - `DisplacementEvent` dataclass: region, cause, displaced count, severity scoring
   - `ClimateRefugees` class: event tracking, needs assessment, recommendations
   - Example events: Gaza, Sudan, Mekong Delta, Sahel, Morocco, Pakistan, Caribbean
+- **Carbon Accountability module** (`accountability.py`):
+  - `PolluterRecord` dataclass: emissions (current, historical), revenue/GDP, pledges
+  - `CarbonAccountability` class: per-capita emissions, emissions intensity, risk level, verdict
+  - Support for corporations and nations
 - **Main Detector** (`detector.py`):
   - `ClimateDetector` class: combines water + energy + displacement into overall score
   - Severity labels (CRITICAL, HIGH, MEDIUM, LOW)
   - Merged recommendations from all modules
+- **REST API** (`api.py`):
+  - Flask endpoints: `/health`, `/modules`, `/analyze/<module>`, `/results/<id>`
+  - Shortcuts: `/accountability/<polluter_id>`, `/accountability/rank`
+  - In-memory report storage for demo
 - **Tests** (`tests/test_detector.py`): covers each module and full detector
-- **Requirements** (`requirements.txt`): Flask for future API, pytest for tests
+- **Requirements** (`requirements.txt`): Flask for API, pytest for tests
 - **README** with problem statement, modules, usage examples, project structure
+- **CHANGELOG** and **TODO** updated
 
 ### Technical Notes
-- Pure Python (stdlib only currently)
+- Pure Python (stdlib only currently for core modules)
+- Optional dependencies: Flask (API)
 - Easy to extend with real data sources (UN, World Bank APIs)
 - Modular design: each module can be used independently
+- Justice score 0–1; verdict system for polluters (EXCELLENT to CRIMINAL_NEGLECT)
 
 ---
 
 ## [Planned] — Future Releases
 
-### [0.2.0] — Accountability & API
-- `accountability.py`: carbon emitters database, climate debt calculations
-- `api.py`: Flask REST endpoints (/regions, /water, /energy, /refugees, /polluters)
-- Real data integration (UN Water Scarcity Atlas, World Bank Energy Access, IDMC)
-- Demo script (`scripts/run_demo.sh`) and publishing script
+### [0.2.0] — Real Data & Scale
+- Integrate external APIs (UN Water, World Bank Energy, IDMC displacement)
+- Web dashboard (Flask + HTML) with map visualization
+- Batch processing: scan list of regions from JSON
+- Export reports (PDF, JSON, CSV)
+- Improved test coverage (>80%)
 
 ### [0.3.0] — Visualization & Scale
 - Web dashboard (Flask + simple HTML) showing region scores on map
