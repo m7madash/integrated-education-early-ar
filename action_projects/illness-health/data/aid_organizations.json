@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Red Crescent Clinic — Gaza",
+    "type": "clinic",
+    "location": "Gaza Strip",
+    "services": ["general", "emergency", "first-aid"],
+    "phone": "+970-8-xxxxxx",
+    "hours": "24/7 emergency"
+  },
+  {
+    "name": "Médecins Sans Frontières (MSF) — Palestine",
+    "type": "hospital",
+    "location": "Gaza Strip, West Bank",
+    "services": ["emergency", "surgery", "maternal"],
+    "phone": "hotline available via website",
+    "hours": "24/7"
+  },
+  {
+    "name": "WHO Eastern Mediterranean Regional Office",
+    "type": "hotline",
+    "location": "regional",
+    "services": ["medical advice", "referrals"],
+    "phone": "locale-specific",
+    "website": "https://www.emro.who.int"
+  },
+  {
+    "name": "Palestine Red Crescent Society",
+    "type": "ambulance",
+    "location": "Palestine",
+    "services": ["emergency medical transport"],
+    "phone": "101"
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "common_cold",
+    "name": "Common Cold",
+    "name_ar": "الزكام",
+    "symptoms": ["runny nose", "sneezing", "sore throat", "mild cough", "low fever"],
+    "severity": "mild",
+    "contagious": true,
+    "typical_duration_days": 7,
+    "treatment_guidelines": ["Rest", "Hydration", "OTC symptom relief"],
+    "recommended_medications": ["paracetamol", "ibuprofen"],
+    "when_to_see_doctor": ["fever > 39°C", "symptoms > 10 days", "difficulty breathing"],
+    "source": "CDC Common Cold Guidelines 2023",
+    "source_url": "https://www.cdc.gov"
+  },
+  {
+    "id": "influenza",
+    "name": "Influenza (Flu)",
+    "name_ar": "الإنفلونزا",
+    "symptoms": ["high fever", "body aches", "fatigue", "cough", "headache"],
+    "severity": "moderate",
+    "contagious": true,
+    "typical_duration_days": 14,
+    "treatment_guidelines": ["Rest", "Fluids", "Antivirals if within 48h"],
+    "recommended_medications": ["oseltamivir", "paracetamol"],
+    "when_to_see_doctor": ["difficulty breathing", "chest pain", "persistent high fever", "at-risk groups"],
+    "source": "WHO Influenza Guidelines 2022",
+    "source_url": "https://www.who.int"
+  },
+  {
+    "id": "covid19",
+    "name": "COVID-19",
+    "name_ar": "كوفيد-19",
+    "symptoms": ["fever", "cough", "shortness of breath", "loss of taste or smell", "fatigue"],
+    "severity": "moderate_to_severe",
+    "contagious": true,
+    "typical_duration_days": 14,
+    "treatment_guidelines": ["Isolation", "Rest", "Oxygen if needed", "Antivirals if high-risk"],
+    "recommended_medications": ["paracetamol", "nirmatrelvir-ritonavir (Paxlovid) for high-risk"],
+    "when_to_see_doctor": ["oxygen saturation < 94%", "persistent chest pain", "confusion", "bluish lips"],
+    "source": "WHO COVID-19 Clinical Management 2023",
+    "source_url": "https://www.who.int"
+  },
+  {
+    "id": "diabetes_emergency",
+    "name": "Diabetic Emergency (DKA/HHS)",
+    "name_ar": "طوارئ السكري",
+    "symptoms": ["extreme thirst", "frequent urination", "nausea", "confusion", "rapid breathing"],
+    "severity": "critical",
+    "contagious": false,
+    "typical_duration_days": 0,
+    "treatment_guidelines": ["Emergency room immediately", "IV fluids", "insulin therapy"],
+    "recommended_medications": ["IV insulin", "IV fluids"],
+    "when_to_see_doctor": ["ALWAYS — emergency"],
+    "source": "American Diabetes Association Standards of Care 2023",
+    "source_url": "https://diabetes.org"
+  }
+]

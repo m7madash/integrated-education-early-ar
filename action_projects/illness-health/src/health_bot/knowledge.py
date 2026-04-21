@@ -1,70 +1,233 @@
 #!/usr/bin/env python3
-"""Health knowledge base — verified medical guidance for Gaza context.
-Sources: WHO, UNRWA, Palestinian Ministry of Health (MOH), CDC.
+"""
+Illness → Health — Medical Knowledge Base
+Store condition → symptom → treatment mappings with credible sources.
+Sources: WHO, CDC, Mayo Clinic, NHS (verifiable).
 """
 
-# Common conditions in Gaza due to blockade, poor sanitation, malnutrition
-CONDITIONS_GAZA = {
-    "waterborne_diseases": {
-        "name": "أمراض تنقل via المياه",
-        "causes": "مياه غير نظيفة، صرف صحي ملوث",
-        "symptoms": ["إسهال", "قىء", "جفاف", "حمى"],
-        "prevention": "اشرب ماء معالج، اغسل يديك،人不 haber food مغسول",
-        "treatment": "تعويض السوائل، ORS، إذا شديد — المستشفى",
-        "source": "WHO Gaza Fact Sheet 2023"
-    },
-    "respiratory_infections": {
-        "name": "التهابات تنفسية",
-        "causes": "نظام تسخين سيء، اكتظاظ، تدخين",
-        "symptoms": ["سعال", "صعوبة تنفس", "حمى", "ضعف"],
-        "prevention": "紧闭 النوافذ عند needed، اغسل يديك، لا تدخن بالقرب من الأطفال",
-        "treatment": "راحة، سوائل، إذا ضيق تنفس — طبيب فوراً",
-        "source": "UNRWA Health Guidelines"
-    },
-    "anemia": {
-        "name": "فقر الدم",
-        "causes": "نقص الحديد (نظام غذائي مقيد، قلة اللحوم)",
-        "symptoms": ["تعب", "شحوب", "دوار", "ضيق نفس"],
-        "prevention": "كولي الخضار الورقية، عدس، إن أمكن — مكملات حديد",
-        "treatment": "مكملات حديد بوصفة طبية،odsgov('\n'",
-        "source": "Palestinian MOH Nutrition Guide"
-    },
-    "skin_infections": {
-        "name": "التهابات جلدية",
-        "causes": "نظافة سيئة، مياه مالحة، حرارة",
-        "symptoms": "طفح، حكة، قشور، diffuse",
-        "prevention": "اغسل الجسم، استخدم صابون نظيف، جفف جيداً",
-        "treatment": "غسول موضعي، إذا spread — طبيب",
-        "source": "CDC Skin Infections Guide"
-    },
-    "mental_health": {
-        "name": "الصحة النفسية (صدمات войны)",
-        "causes": "القصف، فقدان الأهل، حصار، بلا مستقبل",
-        "symptoms": ["كوابيس", "قلق", "اكتئاب", "خوف", "صعوبة تركيز"],
-        "prevention": "لا يوجد — هذه ليست chosen",
-        "treatment": "الدعم النفسي، talking مع مرشد، group therapy, إذا suicidal — intervene فوراً",
-        "source": "UNICEF Mental Health in Conflict Zones"
-    }
-}
+import json
+from pathlib import Path
+from typing import Dict, List, Optional
+from dataclasses import dataclass, asdict
 
-def get_advice(condition_key):
-    """Return verified advice for a condition."""
-    cond = CONDITIONS_GAZA.get(condition_key)
-    if not cond:
-        return "استشر طبيباً محلياً. هذه الأداة لا تغني عن الطبيب."
+@dataclass
+class Condition:
+    """Medical condition definition."""
+    id: str
+    name: str
+    name_ar: str  # Arabic name
+    symptoms: List[str]
+    severity: str  # 'mild', 'moderate', 'severe', 'critical'
+    contagious: bool
+    typical_duration_days: int
+    treatment_guidelines: List[str]
+    recommended_medications: List[str]  # generic names
+    when_to_see_doctor: List[str]
+    source: str  # e.g., "WHO Guidelines 2023"
+    source_url: Optional[str] = None
 
-    return {
-        "condition": cond["name"],
-        "advice": f"السبب: {cond['causes']}\n"
-                  f"الأعراض: {', '.join(cond['symptoms'])}\n"
-                  f"الوقاية: {cond['prevention']}\n"
-                  f"العلاج: {cond['treatment']}",
-        "source": cond["source"]
-    }
+@dataclass
+class Medication:
+    """Medication info and alternatives."""
+    id: str
+    name: str
+    name_ar: Optional[str] = None
+    category: str  # 'pain', 'antibiotic', 'antihistamine', etc.
+    typical_dose: str
+    contraindications: List[str]
+    affordable_alternatives: List[str]  # cheaper substitutes
+    source: str
+
+class MedicalKnowledgeBase:
+    """Query medical conditions and medications."""
+
+    def __init__(self, data_path: Optional[Path] = None):
+        self.conditions: Dict[str, Condition] = {}
+        self.medications: Dict[str, Medication] = {}
+        if data_path:
+            self._load(data_path)
+        else:
+            self._load_default()
+
+    def _load_default(self):
+        """Load synthetic demo dataset (small)."""
+        # Conditions
+        self.conditions = {
+            "common_cold": Condition(
+                id="common_cold",
+                name="Common Cold",
+                name_ar="الزكام",
+                symptoms=["runny nose", "sneezing", "sore throat", "mild cough", "low fever"],
+                severity="mild",
+                contagious=True,
+                typical_duration_days=7,
+                treatment_guidelines=["Rest", "Hydration", "OTC symptom relief"],
+                recommended_medications=["paracetamol", "ibuprofen"],
+                when_to_see_doctor=["fever > 39°C", "symptoms > 10 days", "difficulty breathing"],
+                source="CDC Common Cold Guidelines 2023",
+                source_url="https://www.cdc.com"
+            ),
+            "influenza": Condition(
+                id="influenza",
+                name="Influenza (Flu)",
+                name_ar="الإنفلونزا",
+                symptoms=["high fever", "body aches", "fatigue", "cough", "headache"],
+                severity="moderate",
+                contagious=True,
+                typical_duration_days=14,
+                treatment_guidelines=["Rest", "Fluids", "Antivirals if within 48h"],
+                recommended_medications=["oseltamivir (Tamiflu)", "paracetamol"],
+                when_to_see_doctor=["difficulty breathing", "chest pain", "persistent high fever", "at-risk groups"],
+                source="WHO Influenza Guidelines 2022",
+                source_url="https://www.who.int"
+            ),
+            "covid19": Condition(
+                id="covid19",
+                name="COVID-19",
+                name_ar="كوفيد-19",
+                symptoms=["fever", "cough", "shortness of breath", "loss of taste/smell", "fatigue"],
+                severity="moderate_to_severe",
+                contagious=True,
+                typical_duration_days=14,
+                treatment_guidelines=["Isolation", "Rest", "Oxygen if needed", "Antivirals (Paxlovid) if high-risk"],
+                recommended_medications=["paracetamol", "nirmatrelvir-ritonavir (Paxlovid) for high-risk"],
+                when_to_see_doctor=["oxygen saturation < 94%", "persistent chest pain", "confusion", "bluish lips"],
+                source="WHO COVID-19 Clinical Management 2023",
+                source_url="https://www.who.int"
+            ),
+            "diabetes_emergency": Condition(
+                id="diabetes_emergency",
+                name="Diabetic Emergency (DKA/HHS)",
+                name_ar="طوارئ السكري",
+                symptoms=["extreme thirst", "frequent urination", "nausea", "confusion", "rapid breathing"],
+                severity="critical",
+                contagious=False,
+                typical_duration_days=0,  # immediate
+                treatment_guidelines=["Emergency room immediately", "IV fluids", "insulin therapy"],
+                recommended_medications=["IV insulin", "IV fluids"],
+                when_to_see_doctor=["ALWAYS — emergency"],
+                source="American Diabetes Association Standards of Care 2023",
+                source_url="https://diabetes.org"
+            )
+        }
+
+        # Medications
+        self.medications = {
+            "paracetamol": Medication(
+                id="paracetamol",
+                name="Paracetamol (Acetaminophen)",
+                name_ar="باراسيتامول",
+                category="pain/fever",
+                typical_dose="500-1000mg every 4-6h (max 4g/day)",
+                contraindications=["severe liver disease"],
+                affordable_alternatives=["generic acetaminophen"],
+                source="WHO Essential Medicines List"
+            ),
+            "ibuprofen": Medication(
+                id="ibuprofen",
+                name="Ibuprofen",
+                name_ar="إيبوبروفين",
+                category="pain/fever/anti-inflammatory",
+                typical_dose="200-400mg every 6-8h (max 1.2g/day OTC)",
+                contraindications=["peptic ulcer", "severe kidney disease", "third trimester pregnancy"],
+                affordable_alternatives=["generic ibuprofen", "naproxen"],
+                source="WHO Essential Medicines List"
+            ),
+            "oseltamivir": Medication(
+                id="oseltamivir",
+                name="Oseltamivir (Tamiflu)",
+                name_ar="أوسيلتامivir",
+                category="antiviral",
+                typical_dose="75mg twice daily for 5 days (within 48h of symptoms)",
+                contraindications=["known hypersensitivity"],
+                affordable_alternatives=["generic oseltamivir"],
+                source="CDC Influenza Treatment Guidelines"
+            )
+        }
+
+    def _load(self, path: Path):
+        """Load from JSON files."""
+        with open(path / 'conditions.json') as f:
+            conds = json.load(f)
+            self.conditions = {c['id']: Condition(**c) for c in conds}
+        with open(path / 'medications.json') as f:
+            meds = json.load(f)
+            self.medications = {m['id']: Medication(**m) for m in meds}
+
+    def get_condition(self, condition_id: str) -> Optional[Condition]:
+        return self.conditions.get(condition_id)
+
+    def search_by_symptom(self, symptom: str) -> List[Condition]:
+        """Find conditions that include this symptom."""
+        matches = []
+        symptom_lower = symptom.lower()
+        for cond in self.conditions.values():
+            if any(symptom_lower in s.lower() for s in cond.symptoms):
+                matches.append(cond)
+        return matches
+
+    def get_medication(self, med_id: str) -> Optional[Medication]:
+        return self.medications.get(med_id)
+
+    def suggest_treatment(self, condition_id: str) -> Dict:
+        """Return treatment guidelines for a condition."""
+        cond = self.get_condition(condition_id)
+        if not cond:
+            return {"error": "Condition not found"}
+        return {
+            "condition": cond.name,
+            "treatment": cond.treatment_guidelines,
+            "medications": cond.recommended_medications,
+            "when_to_see_doctor": cond.when_to_see_doctor,
+            "source": cond.source
+        }
+
+# Convenience
+def knowledge_base() -> MedicalKnowledgeBase:
+    return MedicalKnowledgeBase()
 
 if __name__ == "__main__":
-    print("=== Health Knowledge Base — Gaza Conditions ===")
-    for key, cond in CONDITIONS_GAZA.items():
-        print(f"\n{cond['name']} ({key}):")
-        print(f" 预防: {cond['prevention']}")
-        print(f" 治疗: {cond['treatment']}")
+    import argparse
+    parser = argparse.ArgumentParser(description="Medical Knowledge Base")
+    parser.add_argument("--search", help="Search conditions by symptom")
+    parser.add_argument("--condition", help="Get condition details by ID")
+    parser.add_argument("--medication", help="Get medication info by ID")
+    parser.add_argument("--json", action="store_true")
+    args = parser.parse_args()
+
+    kb = MedicalKnowledgeBase()
+
+    if args.search:
+        results = kb.search_by_symptom(args.search)
+        if args.json:
+            print(json.dumps([asdict(c) for c in results], indent=2, ensure_ascii=False))
+        else:
+            print(f"🔍 Conditions with symptom '{args.search}':")
+            for c in results:
+                print(f" • {c.name} ({c.id}) — severity: {c.severity}")
+    elif args.condition:
+        cond = kb.get_condition(args.condition)
+        if cond:
+            if args.json:
+                print(json.dumps(asdict(cond), indent=2, ensure_ascii=False))
+            else:
+                print(f"📋 Condition: {cond.name} ({cond.name_ar})")
+                print(f"Severity: {cond.severity}")
+                print(f"Symptoms: {', '.join(cond.symptoms)}")
+                print(f"Treatment: {', '.join(cond.treatment_guidelines)}")
+                print(f"Medications: {', '.join(cond.recommended_medications)}")
+                print(f"See doctor if: {', '.join(cond.when_to_see_doctor)}")
+                print(f"Source: {cond.source}")
+        else:
+            print("Condition not found")
+    elif args.medication:
+        med = kb.get_medication(args.medication)
+        if med:
+            print(f"💊 Medication: {med.name}")
+            print(f"Dose: {med.typical_dose}")
+            print(f"Contraindications: {', '.join(med.contraindications)}")
+            print(f"Alternatives: {', '.join(med.affordable_alternatives)}")
+        else:
+            print("Medication not found")
+    else:
+        parser.print_help()

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "paracetamol",
+    "name": "Paracetamol (Acetaminophen)",
+    "name_ar": "باراسيتامول",
+    "category": "pain/fever",
+    "typical_dose": "500-1000mg every 4-6h (max 4g/day)",
+    "contraindications": ["severe liver disease", "alcoholism"],
+    "affordable_alternatives": ["generic acetaminophen", "generic paracetamol"],
+    "source": "WHO Essential Medicines List"
+  },
+  {
+    "id": "ibuprofen",
+    "name": "Ibuprofen",
+    "name_ar": "إيبوبروفين",
+    "category": "pain/fever/anti-inflammatory",
+    "typical_dose": "200-400mg every 6-8h (max 1.2g/day OTC)",
+    "contraindications": ["peptic ulcer", "severe kidney disease", "third trimester pregnancy", "aspirin allergy"],
+    "affordable_alternatives": ["generic ibuprofen", "naproxen"],
+    "source": "WHO Essential Medicines List"
+  },
+  {
+    "id": "oseltamivir",
+    "name": "Oseltamivir (Tamiflu)",
+    "name_ar": "أوسيلتامivir (تاميflu)",
+    "category": "antiviral",
+    "typical_dose": "75mg twice daily for 5 days (within 48h of symptoms)",
+    "contraindications": ["known hypersensitivity to oseltamivir"],
+    "affordable_alternatives": ["generic oseltamivir"],
+    "source": "CDC Influenza Treatment Guidelines"
+  }
+]

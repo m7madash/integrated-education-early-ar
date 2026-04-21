@@ -1,11 +1,10 @@
-"""
-Illness → Health: Telehealth Bot for Gaza
-MVP: Triage bot for common conditions in Gaza strip.
-"""
+"""Illness → Health — Medical Triage & Guidance Bot.
 
-from .triage import TriageBot
-from .knowledge import get_advice, CONDITIONS_GAZA
-from .privacy import xor_encrypt, xor_decrypt, anonymize_name
+Mission: Transform illness into health by providing triage, guidance, and aid matching.
+Ethics: First loyalty to Allah; prioritize human life; protect privacy; no medical liability.
+"""
 
 __version__ = "0.1.0"
-__all__ = ['TriageBot', 'get_advice', 'CONDITIONS_GAZA', 'xor_encrypt', 'xor_decrypt', 'anonymize_name']
+__author__ = "Abdullah Haqq (m7mad ASH)"
+
+__all__ = []

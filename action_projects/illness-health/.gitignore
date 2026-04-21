@@ -1,0 +1,42 @@
+# Illness → Health — .gitignore
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual env
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Encrypted patient data (never commit)
+data/patient_records/
+*.enc
+
+# Secrets
+secrets/
+*.key
+*.pem
+
+# Cache
+__pycache__/
+*.db

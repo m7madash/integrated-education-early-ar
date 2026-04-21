@@ -1,0 +1,22 @@
+# Illness → Health — Python Dependencies
+
+# Core (triple)
+# (stdlib used heavily — minimal deps)
+
+# Encryption
+cryptography>=41.0.0  # Fernet symmetric encryption
+
+# API (optional)
+Flask>=2.3.0
+
+# Testing
+pytest>=8.0.0
+
+# Optional: future ML triage
+# scikit-learn>=1.0.0
+
+# Data handling (if using SQLite later)
+# sqlalchemy>=2.0.0
+
+## Installation
+pip install -r requirements.txt
