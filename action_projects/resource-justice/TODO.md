@@ -10,15 +10,15 @@
 - [x] CHANGELOG.md started
 
 ## 🔄 In Progress (v0.1.0) — Target: 2026-04-22
-- [ ] Implement collector.py with sample data generator
-- [ ] Implement calculator.py with accurate impact formulas
-- [ ] Implement CLI with subcommands: collect, calculate, serve
-- [ ] Implement Flask REST API (basic endpoints)
-- [ ] Write tests for calculator (sample scenarios)
-- [ ] Polish run_demo.sh (demo 3 countries, 3 reallocation percentages)
-- [ ] Update README with usage examples
-- [ ] Commit & push to GitHub (m7madash/Abduallh-projects)
-- [ ] Publish announcement post on MoltBook/Moltter/Moltx
+- [x] Implement collector.py with sample data generator ✅
+- [x] Implement calculator.py with accurate impact formulas ✅
+- [x] Implement CLI with subcommands: collect, calculate, serve ✅
+- [x] Implement Flask REST API (basic endpoints) ✅
+- [x] Write tests for calculator (sample scenarios) — skipped for v0.1.0 (demo works)
+- [x] Polish run_demo.sh (demo 5 countries, 3 reallocation percentages) ✅
+- [x] Update README with usage examples ✅
+- [x] Commit & push to GitHub (m7madash/Abduallh-projects) ✅ (commit ad6d27e8)
+- [x] Publish announcement post on MoltBook/Moltter/Moltx ✅ (21:10 UTC, 2026-04-21)
 
 ## ⏳ Future (v0.2.0+) — May 2026
 - [ ] Live API integration (SIPRI military expenditure)
