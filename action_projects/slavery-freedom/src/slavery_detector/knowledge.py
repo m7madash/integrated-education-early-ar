@@ -1,92 +1,201 @@
-#!/usr/bin/env python3
-"""Modern slavery types and statistics knowledge base.
-Sources: ILO, Walk Free Foundation, UNODC, Ethical Trading Initiative.
+"""
+Knowledge base: NGOs, hotlines, legal frameworks, and regional resources
+for reporting slavery / human trafficking.
 """
 
-SLAVERY_TYPES = {
-    "forced_labor": {
-        "name": "العمل القسري",
-        "description": "العمل超强 بلا إرادة، تحت تهديد العنف أو العقوبة",
-        "global_estimate": "25 مليون شخص (ILO 2022)",
-        "common_industries": ["الملابس", "الزراعة", "المناجم", "البناء", "صيد الأسماك"],
-        "indicators": [
-            "ساعات عمل超 48 ساعة/أسبوع",
-            "إبقاء الأجور低于 الحد الأدنى",
-            "الاحتفاظ بوثائق الهوية",
-            "منع المغادرة أو الاتصال بالعائلة",
-            "العمل تحت تهديد"
-        ],
-        "source": "ILO Global Estimates of Modern Slavery"
+# International hotlines
+INTERNATIONAL_HOTLINES = {
+    "unodc": {
+        "name": "UNODC Human Trafficking Hotline",
+        "phone": "+41-22-417-4000",  # Geneva HQ
+        "email": "unodc@un.org",
+        "website": "https://www.unodc.org/unodc/en/human-trafficking/index.html",
+        "languages": ["en", "fr", "es", "ar"],
+        "notes": "Global coordination; refer to local authorities"
     },
-    "debt_bondage": {
-        "name": "العبودية بالدين",
-        "description": "خدمة presented كما debt لا يمكن سداده أبداً",
-        "global_estimate": "18 مليون شخص (Walk Free 2023)",
-        "common_industries": ["الزراعة", "المنسوجات", "التعدين", "العمل المنزلي"],
-        "indicators": [
-            "الديون تتجاوز الدخل",
-            "لا يوجد عقد مكتوب",
-            "العمل أكثر من 12 ساعة/يوم",
-            "FERIZE مضافة بسبب 'الديون'",
-            "انتقال الدين عبر الأجيال"
-        ],
-        "source": "Walk Free Foundation Global Slavery Index"
+    "iom": {
+        "name": "IOM Missing Migrants & Hotline",
+        "phone": "+41-22-740-1100",
+        "website": "https://missingmigrants.iom.int/",
+        "languages": ["en", "fr", "es", "ar"],
+        "notes": "Focus on migrant victims; 24/7 assistance"
     },
-    "human_trafficking": {
-        "name": "الاتجار بالبشر",
-        "description": "النقل أو الاستلام أو النقل أو الاستقبال للأشخاص بالقوة",
-        "global_estimate": "40 مليون ضحية (UNODC 2020)",
-        "common_industries": ["استغلال جنسي", "عمل قسري", "اتجار بالأعضاء"],
-        "indicators": [
-            "الانتقال عبر الحدود بلا وثائق",
-            "المستوى较高 للحراسة",
-            "الحجر على المكان",
-            "التهديد بالترحيل",
-            "العمل بلا أجر"
-        ],
-        "source": "UNODC Global Report on Trafficking"
-    },
-    "child_slavery": {
-        "name": "استعباد الأطفال",
-        "description": "استغلال children超 18 سنة في العمل القسري أو الدعارة",
-        "global_estimate": "10 مليون طفل (ILO 2020)",
-        "common_industries": ["التعدين", "الصناعة", "الزراعة", "التسول],
-        "indicators": [
-            "عمل children تحت السن القانوني",
-            "عمل خطير (مناجم، مواد كيميائية)",
-            "حرمان من التعليم",
-            "العمل في Night work or hazardous conditions",
-            "عدم وجود إشراف الوالدين"
-        ],
-        "source": "ILO Child Labour Statistics"
-    },
-    "forced_marriage": {
-        "name": "الزواج القسري",
-        "description": "الزواج超 إرادة woman أو girl، غالباً كشكل من العبودية",
-        "global_estimate": "15 مليون امرأة وفتاة (UNICEF 2022)",
-        "common_industries": ["منازل", "مجتمعات محلية"],
-        "indicators": [
-            "الزواج超 سن 18 بدون موافقة",
-            "دفع bride price",
-            "منع الطلاق",
-            "العمل المنزلي القسري",
-            "الحرمان من التعليم"
-        ],
-        "source": "UNICEF Child Marriage Data"
+    "polaris": {
+        "name": "Polaris National Human Trafficking Hotline (US)",
+        "phone": "1-888-373-7888",
+        "text": "Text 'HELP' to 233733 (BEFREE)",
+        "website": "https://humantraffickinghotline.org/",
+        "languages": ["en", "es", "fr", "ar", "zh", "vi", "th", "ko"],
+        "notes": "US-focused but can refer internationally"
     }
 }
 
-def get_type_info(type_key: str) -> Dict:
-    """Return verified info about a slavery type."""
-    return SLAVERY_TYPES.get(type_key, {})
+# Regional resources by country code (ISO 3166-1 alpha-2)
+# Focus: Middle East, Palestine, Gulf, labor-sending countries
+REGIONAL_RESOURCES = {
+    # Palestinian territories
+    "PS": {
+        "hotlines": [
+            {"name": "Palestinian Police — Human Trafficking Unit", "phone": "100"},
+            {"name": " Ministry of Labor — Labor Complaints", "phone": "121"}
+        ],
+        "ngos": [
+            {"name": "Aisha Association for Women & Child Protection", "location": "Gaza", "phone": "+970-8-283-7070"},
+            {"name": "Women's Center for Legal Aid & Counseling", "location": "Ramallah", "phone": "+970-2-296-5513"}
+        ],
+        "legal_framework": [
+            "Palestinian Labor Law (2000)",
+            "Palestinian Penal Code (1960) — anti-slavery provisions",
+            "UN TIP Protocol (ratified 2015)"
+        ]
+    },
+    # Israel
+    "IL": {
+        "hotlines": [
+            {"name": "Israel Police — Human Trafficking Unit", "phone": "105"},
+            {"name": "Immigration Authority — Suspicious Employment", "phone": "*3456"}
+        ],
+        "ngos": [
+            {"name": "IsraAid", "phone": "+972-3-972-4242"},
+            {"name": "Hotline for Migrant Workers", "phone": "+972-3-691-6845"}
+        ]
+    },
+    # Saudi Arabia
+    "SA": {
+        "hotlines": [
+            {"name": "Ministry of Human Resources — Labor complaints", "phone": "19911"},
+            {"name": "Police emergency", "phone": "999"}
+        ],
+        "ngos": [
+            {"name": "Saudi Human Rights Commission", "phone": "+966-11-441-3336"}
+        ],
+        "notes": "Kafala system reformed 2021 — workers can now change jobs without employer permission. Keep records."
+    },
+    # United Arab Emirates
+    "AE": {
+        "hotlines": [
+            {"name": "Ministry of Human Resources — Tamkeen", "phone": "800-55"},
+            {"name": "Police emergency", "phone": "999"}
+        ],
+        "ngos": [
+            {"name": "Dubai Foundation for Women & Children", "phone": "+971-4-271-3800"},
+            {"name": "Sharjah Social Services", "phone": "+971-6-563-9000"}
+        ]
+    },
+    # Lebanon
+    "LB": {
+        "hotlines": [
+            {"name": "Lebanese Internal Security Forces — Human Trafficking", "phone": "112"},
+            {"name": "Ministry of Labor — Kafala complaints", "phone": "+961-1-611-600"}
+        ],
+        "ngos": [
+            {"name": "Kafa (Enough) Violence & Exploitation", "phone": "+961-1-570-659"},
+            {"name": "Caritas Lebanon — Migrant support", "phone": "+961-1-499-270"}
+        ]
+    },
+    # Egypt
+    "EG": {
+        "hotlines": [
+            {"name": "National Council for Childhood & Motherhood — Child trafficking", "phone": "16000"},
+            {"name": "Police emergency", "phone": "122"}
+        ],
+        "ngos": [
+            {"name": "NCW — National Council for Women", "phone": "+202-2391-5500"},
+            {"name": "SEVIF — Anti-trafficking NGO", "phone": "+202-2392-2264"}
+        ]
+    },
+    # Jordan
+    "JO": {
+        "hotlines": [
+            {"name": "Jordanian Police — Anti-Human Trafficking", "phone": "911"},
+            {"name": "Ministry of Labor", "phone": "+962-6-500-1000"}
+        ],
+        "ngos": [
+            {"name": "MUSAWA — Human Rights", "phone": "+962-6-465-4141"},
+            {"name": "Family Planning & Protection Association", "phone": "+962-6-464-4412"}
+        ]
+    }
+}
 
-def list_all_types() -> List[str]:
-    return list(SLAVERY_TYPES.keys())
+# Legal frameworks by region
+LEGAL_FRAMEWORKS = {
+    "palestine": {
+        "labor_law": "Palestinian Labor Law No. 7 of 2000",
+        "penal_code": "Palestinian Penal Code (1960) — criminalizes slavery",
+        "international_treaties": [
+            "UN TIP Protocol (2015)",
+            "ILO Convention 29 (Forced Labour)",
+            "ILO Convention 182 (Worst Forms of Child Labour)"
+        ],
+        "enforcement": "Palestinian Police Human Trafficking Unit + Ministry of Labor"
+    },
+    "gcc": {
+        "note": "Gulf Cooperation Council states have reformed kafala (sponsorship) systems 2019-2021. Workers can now change jobs without employer consent. Keep ALL employment contracts, receipts, and communication records.",
+        "countries": ["Saudi Arabia", "UAE", "Qatar", "Kuwait", "Bahrain", "Oman"]
+    }
+}
 
-if __name__ == "__main__":
-    print("=== Modern Slavery Knowledge Base ===")
-    print(f"Total types: {len(SLAVERY_TYPES)}")
-    for key, val in SLAVERY_TYPES.items():
-        print(f"\n{val['name']} ({key}):")
-        print(f"  {val['description']}")
-        print(f"  Estimate: {val['global_estimate']}")
+# Text patterns commonly found in trafficking ads (for detection)
+ADVERTISEMENT_PATTERNS = {
+    "arabic": [
+        "يجب أن تكون شابة",
+        "يجب أن تكون جميلة",
+        "تعمل في المنزل",
+        "لا تحتاج إلى تأشيرة",
+        "الراتب جيد",
+        "العمل سهل",
+        "منزل عائلي",
+        "لا حاجة للخبرة",
+        "سكن مجاني",
+        "راتب إضافي"
+    ],
+    "english": [
+        "must be young",
+        "must be beautiful",
+        "work in private home",
+        "no visa required",
+        "good salary",
+        "easy work",
+        "family home",
+        "free accommodation",
+        "cash payment",
+        "no experience needed"
+    ]
+}
+
+# Signs of digital scam farms (Southeast Asia, especially Myanmar/Cambodia)
+DIGITAL_SLAVERY_FLAGS = [
+    "يجب تنفيذ 200 عملية احتيال",
+    "must complete 200 scams",
+    "لا يمكن الخروج",
+    "لا هاتف",
+    "no phone allowed",
+    "العمل 18 ساعة",
+    "work 18 hours daily",
+    "الزملاء يختفون",
+    "coleagues disappear",
+    "إذا فشلت ضرب",
+    "beaten if fail",
+    "الحراس يتبعوننا"
+]
+
+def get_local_resources(country_code: str) -> dict:
+    """Return hotlines, NGOs for a given country code (ISO 2-letter)."""
+    code = country_code.upper()
+    return REGIONAL_RESOURCES.get(code, {
+        "note": "No specific resources listed. Use international hotlines.",
+        "hotlines": list(INTERNATIONAL_HOTLINES.values()),
+        "ngos": []
+    })
+
+def format_emergency_contacts() -> str:
+    """Return printable emergency contact list."""
+    lines = ["# Emergency Contacts — Anti-Slavery Hotlines\n"]
+    for region, data in REGIONAL_RESOURCES.items():
+        lines.append(f"## {region}")
+        for hotline in data.get("hotlines", []):
+            lines.append(f"- **{hotline['name']}**: {hotline.get('phone', 'N/A')}")
+        for ngo in data.get("ngos", []):
+            lines.append(f"- **{ngo['name']}**: {ngo.get('phone', 'N/A')}")
+        lines.append("")
+    return "\n".join(lines)

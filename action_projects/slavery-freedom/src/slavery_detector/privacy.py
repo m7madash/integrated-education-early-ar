@@ -1,53 +1,103 @@
-#!/usr/bin/env python3
-"""Privacy module — protect victim identities in slavery reports."""
+"""
+Privacy & safe reporting module.
+Ensures victim data is encrypted and reporting is anonymous (unless victim consents to identify).
 
-import hashlib
+NOTE: Requires `cryptography` for Fernet encryption. Falls back to base64 if not available.
+Production deployment should: pip install -r requirements.txt
+"""
+
 import base64
+import json
+import os
 
-def anonymize_id(real_id: str, salt: str = "slavery-free-2026") -> str:
-    """One-way hash for victim/supplier IDs (non-reversible)."""
-    return hashlib.sha256((real_id + salt).encode()).hexdigest()[:12]
+# Try cryptography; fall back to obfuscation-only if missing
+try:
+    from cryptography.fernet import Fernet
+    _HAS_CRYPTO = True
+except ImportError:
+    _HAS_CRYPTO = False
 
-def encrypt_report(report_text: str, key: str) -> str:
-    """XOR encrypt report for confidential storage."""
-    if not report_text or not key:
-        raise ValueError("Text and key required")
-    encrypted = ''.join(chr(ord(c) ^ ord(key[i % len(key)])) for i, c in enumerate(report_text))
-    return base64.b64encode(encrypted.encode('utf-8')).decode('utf-8')
 
-def decrypt_report(enc_b64: str, key: str) -> str:
-    """Decrypt report (only for authorized investigators)."""
-    enc = base64.b64decode(enc_b64).decode('utf-8')
-    decrypted = ''.join(chr(ord(c) ^ ord(key[i % len(key)])) for i, c in enumerate(enc))
-    return decrypted
+class PrivacyShield:
+    """
+    Encrypts sensitive victim data. Key can be derived from environment variable.
+    If cryptography library is missing, uses base64 encoding (NOT secure for production).
+    """
+    def __init__(self, key_env: str = "SLAVERY_FREEDOM_KEY"):
+        self.key_str = os.getenv(key_env, "dev-key-please-set-SLAVERY_FREEDOM_KEY")
+        if _HAS_CRYPTO:
+            # Derive a 32-byte key (Fernet requires 32 urlsafe base64 bytes)
+            import hashlib
+            key_bytes = hashlib.sha256(self.key_str.encode()).digest()
+            self.key = base64.urlsafe_b64encode(key_bytes)
+            self.cipher = Fernet(self.key)
+        else:
+            self.cipher = None
+            print("⚠️  cryptography not installed — encryption disabled (base64 only). Install requirements.txt for production.")
 
-def redact_pii(text: str) -> str:
-    """Replace PII with [REDACTED]."""
-    import re
-    # Patterns: emails, phones, IDs, full names (basic)
-    patterns = [
-        (r'\S+@\S+', '[EMAIL]'),
-        (r'\+\d{10,}', '[PHONE]'),
-        (r'\b\d{6,}\b', '[ID]'),
-        (r'([A-Z][a-z]+ [A-Z][a-z]+)', '[NAME]')  # simple full name
-    ]
-    for pattern, repl in patterns:
-        text = re.sub(pattern, repl, text)
-    return text
+    def encrypt(self, data: str) -> bytes:
+        """Encrypt string data. Returns base64-encoded payload."""
+        if _HAS_CRYPTO:
+            return self.cipher.encrypt(data.encode('utf-8'))
+        else:
+            # Fallback: simple base64 (obfuscation only, NOT secure)
+            return base64.b64encode(data.encode('utf-8'))
 
-if __name__ == "__main__":
-    # Test victim ID anonymization
-    victim = "VIC-2026-04-19-001"
-    anon = anonymize_id(victim)
-    print(f"Original ID: {victim}")
-    print(f"Anonymized: {anon}")
+    def decrypt(self, token: bytes) -> str:
+        """Decrypt bytes to string."""
+        if _HAS_CRYPTO:
+            return self.cipher.decrypt(token).decode('utf-8')
+        else:
+            return base64.b64decode(token).decode('utf-8')
 
-    # Test encrypt/decrypt
-    secret = "Supplier A: 60+ hrs/week, no contracts, wages withheld"
-    enc = encrypt_report(secret, "detective-key")
-    dec = decrypt_report(enc, "detective-key")
-    print(f"\nOriginal: {secret}")
-    print(f"Enc: {enc[:50]}...")
-    print(f"Dec: {dec}")
-    assert dec == secret
-    print("✅ Privacy module works!")
+    def anonymize_report(self, report: dict) -> dict:
+        """
+        Remove personally identifying fields unless consent given.
+        Fields kept: indicators, location (city level), outcome needed.
+        Fields removed/dropped: full name, exact address, ID numbers.
+        """
+        anonymized = {
+            "indicators": report.get("indicators", []),
+            "risk_level": report.get("risk_level", "UNKNOWN"),
+            "sector": report.get("sector", "unknown"),
+            "city": report.get("city", "unknown"),
+            "needs": report.get("needs", []),
+            "contact_consent": report.get("contact_consent", False)
+        }
+        return anonymized
+
+
+REPORT_TEMPLATE = """
+# Slavery Freedom — Incident Report
+
+## ⚠️ Risk Level: {risk_level}
+
+## 🔍 Indicators Found
+{indicators_list}
+
+## 📍 Location
+{country} — {city}
+
+## 🏭 Sector
+{sector}
+
+## 🆘 Immediate Needs
+{needs_list}
+
+## 🔐 Privacy
+This report was submitted anonymously. To follow up, consent required.
+"""
+
+
+def generate_report_html(report: dict) -> str:
+    """Generate a human-readable HTML report for authorities."""
+    indicators_list = "\n".join([f"- {i}" for i in report["indicators"]])
+    needs_list = "\n".join([f"- {n}" for n in report["needs"]])
+    return REPORT_TEMPLATE.format(
+        risk_level=report["risk_level"],
+        indicators_list=indicators_list,
+        country=report.get("country", "unknown"),
+        city=report.get("city", "unknown"),
+        sector=report.get("sector", "unknown"),
+        needs_list=needs_list
+    )

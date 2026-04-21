@@ -1,78 +1,181 @@
-#!/usr/bin/env python3
-"""Red flag indicators for modern slavery in supply chains."""
+# Red flags and indicators of modern slavery / human trafficking
+# Based on UNODC, IOM, and Polaris Project frameworks
 
-# 10 Red Flags (ethical auditing standards: SA8000, ETI, ILO)
-RED_FLAGS = {
-    "excessive_hours": {
-        "condition": lambda s: s.avg_hours_per_week > 60,
-        "evidence": " overtime logs, worker interviews",
-        "question": "Are workers forced to work overtime beyond legal limits?"
+INDICATORS = {
+    "labor_exploitation": {
+        "withhold_wages": [
+            "لم يتم دفع الأجور",
+            " withholding wages",
+            "salary withheld",
+            "لم يستلم راتبه",
+            "أخذ الجنسية",
+            "confiscated passport",
+            "تمت مصادرة جواز السفر",
+            "لا توجد أوراق",
+            "no documents",
+            "إجبار على العمل",
+            "forced to work",
+            "ساعات طويلة",
+            "long hours without break",
+            "العمل 16 ساعة",
+            "work 16 hours",
+            "لا إجازات",
+            "no vacation",
+            "العمل في العيد",
+            "يتعرض للضرب",
+            "being beaten",
+            "تهديد بالترحيل",
+            "threatened with deportation"
+        ],
+        "debt_bondage": [
+            "الديون تزيد",
+            "debt increasing",
+            "فائدة عالية",
+            "high interest",
+            "الراتب يخصم",
+            "salary deduction",
+            "يجب سداد القرض",
+            "must repay loan",
+            "الديون تراكمت",
+            "debt accumulated",
+            "لا يمكن ترك العمل",
+            "can't leave job"
+        ],
+        "restricted_movement": [
+            "ممنوع الخروج",
+            "not allowed to leave",
+            "يجب البقاء في المكان",
+            "must stay on site",
+            "الحراس يتبعون",
+            "guards follow",
+            "الح missأحد يتحكم",
+            "نقل بشكل قسري",
+            "transported forcibly",
+            "لا يمكن الاتصال"
+        ]
     },
-    "withhold_wages": {
-        "condition": lambda s: s.wage_withheld_months > 0,
-        "evidence": " payroll records, worker testimony",
-        "question": "Are wages withheld as punishment or control?"
+    "sexual_exploitation": {
+        "coercion": [
+            "إجبار على العلاقات الجنسية",
+            "forced into sex",
+            "لا موافقة",
+            "no consent",
+            "تم欧美",
+            "تم بيع",
+            "تم بيعه",
+            "بيعت",
+            "بيعت",
+            "يجب أن أتقبل",
+            "must accept clients",
+            "إذا رفضت ضرب",
+            "ضرب إذا رفضت",
+            "العمل في الدعارة"
+        ],
+        "control": [
+            "الحارس يتحكم في كل شيء",
+            "guard controls everything",
+            "لا هاتف",
+            "no phone",
+            "الهاتف ممنوع",
+            "تم أخذ الهاتف",
+            "phone taken away",
+            "يجب طلب الإذن",
+            "must ask permission",
+            "لا خصوصية"
+        ]
     },
-    "no_contracts": {
-        "condition": lambda s: not s.has_contracts,
-        "evidence": " document review, worker interviews",
-        "question": "Do workers have written contracts in a language they understand?"
+    "child_exploitation": {
+        "forced_labor": [
+            "الطفل يعمل",
+            "child working",
+            "الطالب يدرس لفترة قصيرة",
+            "يبيع في الشارع",
+            "begging on street",
+            "في المصنع",
+            "works in factory",
+            "في المزرعة",
+            "works on farm",
+            "لا يذهب للمدرسة",
+            "doesn't attend school"
+        ],
+        "child_soldier": [
+            "الطفل يحمل سلاح",
+            "child carrying weapon",
+            "مجند صغير",
+            "young recruit",
+            "تدريب عسكري",
+            "military training",
+            "يشارك في القتال"
+        ]
     },
-    "passport_retention": {
-        "condition": lambda s: s.ids_retained,
-        "evidence": " facility inspection, personal belongings check",
-        "question": "Are identity documents held by employer?"
-    },
-    "debt_bondage": {
-        "condition": lambda s: s.debt_to_employer > s.monthly_wage * 3,
-        "evidence": " accounting ledgers, worker debt statements",
-        "question": "Do workers owe money to employer that they cannot repay?"
-    },
-    "threats_violence": {
-        "condition": lambda s: s.violence_threats_reported,
-        "evidence": " incident reports, interview transcripts",
-        "question": "Are threats of violence or actual violence used to control workers?"
-    },
-    "child_labor": {
-        "condition": lambda s: s.underage_workers > 0,
-        "evidence": " age verification documents, school attendance records",
-        "question": "Are workers under 18 performing hazardous work?"
-    },
-    "forced_overtime": {
-        "condition": lambda s: s.overtime_required,
-        "evidence": " work schedules, worker testimony",
-        "question": "Is overtime mandatory without consent or extra pay?"
-    },
-    "unfree_recruitment": {
-        "condition": lambda s: s.recruitment_fee_paid > s.monthly_wage * 0.5,
-        "evidence": " recruitment agency records, worker receipts",
-        "question": "Did workers pay high recruitment fees that bind them to employer?"
-    },
-    "no_union": {
-        "condition": lambda s: not s.unionized and s.union_banned,
-        "evidence": " union membership records, policy documents",
-        "question": "Are workers prevented from forming or joining unions?"
+    "digital_slavery": {
+        "scam_factories": [
+            "يجب الاحتيال",
+            "must scam",
+            "لا يسمح بمغادرة",
+            "囚禁",
+            "محتجز",
+            "held captive",
+            "يجب تحقيق هدف",
+            "must meet quota",
+            "العمل 18 ساعة",
+            "عمل الاحتيال المبرمج",
+            "programming scams"
+        ],
+        "ransomware": [
+            "يجب العمل",
+            "forced to work",
+            "تحت تهديد",
+            "under threat",
+            "يجب الدفع",
+            "must pay",
+            "محتجز",
+            "يجب اختراق"
+        ]
     }
 }
 
-# Risk weights (0-5 per flag)
-FLAG_WEIGHTS = {
-    "excessive_hours": 2,
-    "withhold_wages": 4,
-    "no_contracts": 5,
-    "passport_retention": 5,
-    "debt_bondage": 5,
-    "threats_violence": 5,
-    "child_labor": 5,
-    "forced_overtime": 3,
-    "unfree_recruitment": 4,
-    "no_union": 2
+# Geographic hot spots (region-level indicators)
+REGION_INDICATORS = {
+    "gulf_states": ["خليجية", "KSA", "UAE", "قطر", "Qatar", "الكويت", "Kuwait"],
+    "south_asia": ["هند", "India", "باكستان", "Pakistan", "بنغلاديش", "Bangladesh", "نيبال", "Nepal"],
+    "southeast_asia": ["إندونيسيا", "Indonesia", "فلبين", "Philippines", "تايلاند", "Thailand", "فيتنام", "Vietnam", "كمبوديا", "Cambodia"],
+    "africa": [" أفريقيا", "Nigeria", "مصر", "Egypt", "Libya", "ليبيا", "المغرب", "Morocco", "الجزائر", "Algeria"],
+    "latin_america": ["برازيل", "Brazil", "كولومبيا", "Colombia", "المكسيك", "Mexico", "هايتي", "Haiti"]
 }
 
-def calculate_risk_score(supplier_claims: Dict) -> int:
-    """Calculate total risk score (0-20)."""
-    total = 0
-    for flag_name, flag_def in RED_FLAGS.items():
-        if flag_def["condition"](supplier_claims):
-            total += FLAG_WEIGHTS[flag_name]
-    return total
+# Industry sectors with high slavery risk
+HIGH_RISK_SECTORS = [
+    "الزراعة", "agriculture",
+    "الصيد", "fishing",
+    "المناجم", "mining",
+    "البناء", "construction",
+    "النوم", "domestic work",
+    "التصنيع", "manufacturing",
+    "الجنس", "sex industry",
+    "المطاعم", "restaurants",
+    "الملابس", "garment"
+]
+
+def get_indicator_category(text: str) -> list:
+    """Check text against all indicator keywords. Returns list of matching categories."""
+    matches = []
+    text_lower = text.lower()
+    for category, subcategories in INDICATORS.items():
+        for subcat, keywords in subcategories.items():
+            for keyword in keywords:
+                if keyword.lower() in text_lower:
+                    matches.append({"category": category, "subcategory": subcat, "keyword": keyword})
+                    break
+    return matches
+
+def assess_risk(indicators_found: list) -> str:
+    """Return risk level: CRITICAL, HIGH, MEDIUM, LOW."""
+    if len(indicators_found) >= 5:
+        return "CRITICAL"
+    elif len(indicators_found) >= 3:
+        return "HIGH"
+    elif len(indicators_found) >= 1:
+        return "MEDIUM"
+    else:
+        return "LOW"

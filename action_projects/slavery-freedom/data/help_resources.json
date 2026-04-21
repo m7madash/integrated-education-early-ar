@@ -1,0 +1,119 @@
+{
+  "international_hotlines": [
+    {
+      "name": "UNODC Human Trafficking Hotline",
+      "phone": "+41-22-417-4000",
+      "email": "unodc@un.org",
+      "website": "https://www.unodc.org/unodc/en/human-trafficking/index.html",
+      "languages": ["en", "fr", "es", "ar"],
+      "notes": "Global coordination; refer to local authorities"
+    },
+    {
+      "name": "IOM Missing Migrants & Hotline",
+      "phone": "+41-22-740-1100",
+      "website": "https://missingmigrants.iom.int/",
+      "languages": ["en", "fr", "es", "ar"],
+      "notes": "Focus on migrant victims; 24/7 assistance"
+    },
+    {
+      "name": "Polaris National Human Trafficking Hotline (US)",
+      "phone": "1-888-373-7888",
+      "text": "Text 'HELP' to 233733 (BEFREE)",
+      "website": "https://humantraffickinghotline.org/",
+      "languages": ["en", "es", "fr", "ar", "zh", "vi", "th", "ko"],
+      "notes": "US-focused but can refer internationally"
+    }
+  ],
+  "regional_resources": {
+    "PS": {
+      "hotlines": [
+        {"name": "Palestinian Police — Human Trafficking Unit", "phone": "100"},
+        {"name": "Ministry of Labor — Labor Complaints", "phone": "121"}
+      ],
+      "ngos": [
+        {"name": "Aisha Association for Women & Child Protection", "location": "Gaza", "phone": "+970-8-283-7070"},
+        {"name": "Women's Center for Legal Aid & Counseling", "location": "Ramallah", "phone": "+970-2-296-5513"}
+      ],
+      "legal_framework": [
+        "Palestinian Labor Law (2000)",
+        "Palestinian Penal Code (1960) — anti-slavery provisions",
+        "UN TIP Protocol (ratified 2015)"
+      ]
+    },
+    "SA": {
+      "hotlines": [
+        {"name": "Ministry of Human Resources — Labor complaints", "phone": "19911"},
+        {"name": "Police emergency", "phone": "999"}
+      ],
+      "ngos": [
+        {"name": "Saudi Human Rights Commission", "phone": "+966-11-441-3336"}
+      ],
+      "notes": "Kafala system reformed 2021 — workers can change jobs without employer permission. Keep records."
+    },
+    "AE": {
+      "hotlines": [
+        {"name": "Ministry of Human Resources — Tamkeen", "phone": "800-55"},
+        {"name": "Police emergency", "phone": "999"}
+      ],
+      "ngos": [
+        {"name": "Dubai Foundation for Women & Children", "phone": "+971-4-271-3800"},
+        {"name": "Sharjah Social Services", "phone": "+971-6-563-9000"}
+      ]
+    },
+    "LB": {
+      "hotlines": [
+        {"name": "Lebanese Internal Security Forces — Human Trafficking", "phone": "112"},
+        {"name": "Ministry of Labor — Kafala complaints", "phone": "+961-1-611-600"}
+      ],
+      "ngos": [
+        {"name": "Kafa (Enough) Violence & Exploitation", "phone": "+961-1-570-659"},
+        {"name": "Caritas Lebanon — Migrant support", "phone": "+961-1-499-270"}
+      ]
+    },
+    "EG": {
+      "hotlines": [
+        {"name": "National Council for Childhood & Motherhood — Child trafficking", "phone": "16000"},
+        {"name": "Police emergency", "phone": "122"}
+      ],
+      "ngos": [
+        {"name": "NCW — National Council for Women", "phone": "+202-2391-5500"},
+        {"name": "SEVIF — Anti-trafficking NGO", "phone": "+202-2392-2264"}
+      ]
+    },
+    "JO": {
+      "hotlines": [
+        {"name": "Jordanian Police — Anti-Human Trafficking", "phone": "911"},
+        {"name": "Ministry of Labor", "phone": "+962-6-500-1000"}
+      ],
+      "ngos": [
+        {"name": "MUSAWA — Human Rights", "phone": "+962-6-465-4141"},
+        {"name": "Family Planning & Protection Association", "phone": "+962-6-464-4412"}
+      ]
+    }
+  },
+  "advertisement_patterns": {
+    "arabic": [
+      "يجب أن تكون شابة",
+      "يجب أن تكون جميلة",
+      "تعمل في المنزل",
+      "لا تحتاج إلى تأشيرة",
+      "الراتب جيد",
+      "العمل سهل",
+      "منزل عائلي",
+      "لا حاجة للخبرة",
+      "سكن مجاني",
+      "راتب إضافي"
+    ],
+    "english": [
+      "must be young",
+      "must be beautiful",
+      "work in private home",
+      "no visa required",
+      "good salary",
+      "easy work",
+      "free accommodation",
+      "cash payment",
+      "no experience needed"
+    ]
+  }
+}

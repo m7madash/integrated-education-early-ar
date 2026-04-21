@@ -1,0 +1,132 @@
+{
+  "labor_exploitation": {
+    "withhold_wages": [
+      "لم يتم دفع الأجور",
+      "withholding wages",
+      "salary withheld",
+      "لم يستلم راتبه",
+      "أخذ الجنسية",
+      "confiscated passport",
+      "تمت مصادرة جواز السفر",
+      "لا توجد أوراق",
+      "no documents",
+      "إجبار على العمل",
+      "forced to work",
+      "ساعات طويلة",
+      "long hours without break",
+      "العمل 16 ساعة",
+      "work 16 hours",
+      "لا إجازات",
+      "no vacation",
+      "العمل في العيد",
+      "يتعرض للضرب",
+      "being beaten",
+      "تهديد بالترحيل",
+      "threatened with deportation"
+    ],
+    "debt_bondage": [
+      "الديون تزيد",
+      "debt increasing",
+      "فائدة عالية",
+      "high interest",
+      "الراتب يخصم",
+      "salary deduction",
+      "يجب سداد القرض",
+      "must repay loan",
+      "الديون تراكمت",
+      "debt accumulated",
+      "لا يمكن ترك العمل",
+      "can't leave job"
+    ],
+    "restricted_movement": [
+      "ممنوع الخروج",
+      "not allowed to leave",
+      "يجب البقاء في المكان",
+      "must stay on site",
+      "الحراس يتبعون",
+      "guards follow",
+      "الح missأحد يتحكم",
+      "نقل بشكل قسري",
+      "transported forcibly",
+      "لا يمكن الاتصال"
+    ]
+  },
+  "sexual_exploitation": {
+    "coercion": [
+      "إجبار على العلاقات الجنسية",
+      "forced into sex",
+      "لا موافقة",
+      "no consent",
+      "تم欧美",
+      "تم بيع",
+      "تم بيعه",
+      "بيعت",
+      "يجب أن أتقبل",
+      "must accept clients",
+      "إذا رفضت ضرب",
+      "ضرب إذا رفضت",
+      "العمل في الدعارة"
+    ],
+    "control": [
+      "الحارس يتحكم في كل شيء",
+      "guard controls everything",
+      "لا هاتف",
+      "no phone",
+      "الهاتف ممنوع",
+      "تم أخذ الهاتف",
+      "phone taken away",
+      "يجب طلب الإذن",
+      "must ask permission",
+      "لا خصوصية"
+    ]
+  },
+  "child_exploitation": {
+    "forced_labor": [
+      "الطفل يعمل",
+      "child working",
+      "الطالب يدرس لفترة قصيرة",
+      "يبيع في الشارع",
+      "begging on street",
+      "في المصنع",
+      "works in factory",
+      "في المزرعة",
+      "works on farm",
+      "لا يذهب للمدرسة",
+      "doesn't attend school"
+    ],
+    "child_soldier": [
+      "الطفل يحمل سلاح",
+      "child carrying weapon",
+      "مجند صغير",
+      "young recruit",
+      "تدريب عسكري",
+      "military training",
+      "يشارك في القتال"
+    ]
+  },
+  "digital_slavery": {
+    "scam_factories": [
+      "يجب تنفيذ 200 عملية احتيال",
+      "must complete 200 scams",
+      "لا يمكن الخروج",
+      "囚禁",
+      "محتجز",
+      "held captive",
+      "يجب تحقيق هدف",
+      "must meet quota",
+      "العمل 18 ساعة",
+      "عمل الاحتيال المبرمج",
+      "programming scams"
+    ],
+    "ransomware": [
+      "يجب العمل",
+      "forced to work",
+      "تحت تهديد",
+      "under threat",
+      "يجب الدفع",
+      "must pay",
+      "محتجز",
+      "يجب اختراق"
+    ]
+  }
+}

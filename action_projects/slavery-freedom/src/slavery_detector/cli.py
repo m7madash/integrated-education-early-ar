@@ -1,95 +1,116 @@
 #!/usr/bin/env python3
-"""Slavery Detector CLI — Investigate supply chain red flags."""
+"""
+CLI for Slavery → Freedom detector.
 
-import sys
+Usage:
+    slavery-detector scan "text here" --country SA
+    slavery-detector resources --country PS
+    slavery-detector report --risk HIGH --city Gaza
+    slavery-detector demo
+"""
+
+import argparse
 import json
+import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from slavery_detector.detector import SlaveryDetector, Supplier
-from slavery_detector.knowledge import SLAVERY_TYPES, get_type_info
-from slavery_detector.privacy import anonymize_id, encrypt_report, redact_pii
+from slavery_detector.detector import SlaveryDetector
+from slavery_detector.knowledge import get_local_resources, format_emergency_contacts
+from slavery_detector.privacy import PrivacyShield, generate_report_html
+
+def cmd_scan(args):
+    detector = SlaveryDetector()
+    result = detector.analyze(args.text, country_code=args.country, city=args.city)
+    print(json.dumps(result, indent=2, ensure_ascii=False))
+
+def cmd_resources(args):
+    resources = get_local_resources(args.country)
+    print(f"# Resources for {args.country}\n")
+    print("## Hotlines")
+    for h in resources.get("hotlines", []):
+        print(f"- **{h['name']}**: {h.get('phone','N/A')} | {h.get('website','')}")
+    print("\n## NGOs")
+    for ngo in resources.get("ngos", []):
+        print(f"- **{ngo['name']}**: {ngo.get('phone','N/A')} — {ngo.get('location','')}")
+    print("\n## Legal Frameworks")
+    for law in resources.get("legal_framework", []):
+        print(f"- {law}")
+
+def cmd_report(args):
+    detector = SlaveryDetector()
+    analysis = detector.analyze(args.text, country_code=args.country, city=args.city)
+    report = detector.generate_safe_report(analysis, victim_consent=args.consent)
+    if args.html:
+        html = generate_report_html(analysis)
+        print(html)
+    else:
+        print(json.dumps(report, indent=2, ensure_ascii=False))
+
+def cmd_demo(args):
+    detector = SlaveryDetector()
+    samples = [
+        ("Job ad — domestic worker, SA", "تبحث عن خادمة منزلية. يجب أن تكون شابة، بدون أطفال. الراتب 1500 ريال، السكن مجاني. لا حاجة لتأشيرة.", "SA", "Riyadh"),
+        ("Forced fishing labor", "العمال يعملون 18 ساعة، الأجور لا تدفع، جوازاتterdam محفوظة.", "ID", "Jakarta"),
+        ("Suspicious online job", "اربح 5000 دولار أسبوعياً من المنزل — لا خبرة مطلوبة. أصدر 300 تحويل يومياً.", "MY", "Kuala Lumpur"),
+        ("Normal job ad (control)", "نبحث عن مسؤول تسويق. خبرة سنتين. راتب تنافسي. أوفيس في دبي.", "AE", "Dubai")
+    ]
+    print("🎯 Slavery Freedom Detector — Demo\n")
+    for title, text, country, city in samples:
+        print(f"\n{'='*60}")
+        print(f"📌 {title}")
+        print(f"   Text: {text[:80]}...")
+        result = detector.analyze(text, country_code=country, city=city)
+        print(f"   Risk: {result['risk_level']} | Indicators: {result['indicators_count']}")
+        if result['action_recommended']:
+            print("   ⚠️  ACTION NEEDED")
+        else:
+            print("   ℹ️  Monitor only")
 
 def main():
-    detector = SlaveryDetector()
+    parser = argparse.ArgumentParser(description="Slavery → Freedom detector CLI")
+    sub = parser.add_subcommands
 
-    print("\n" + "="*70)
-    print("⚖️ Slavery → Freedom: Modern Slavery Detector")
-    print("   Mission: End forced labor, human trafficking, debt bondage")
-    print("="*70 + "\n")
+    # The argparse SubParsers workaround for Python 3.8+
+    # We'll do it manually to avoid mypy/style issues
 
-    while True:
-        print("خيارات التحقيق:")
-        print("  1. تقييم مورد (supplier assessment)")
-        print("  2. عرض أنواع العبودية الحديثة")
-        print("  3. تحقق من علم (privacy demo)")
-        print("  4. خروج")
+    if len(sys.argv) < 2:
+        parser.print_help()
+        sys.exit(1)
 
-        choice = input("\nاختر (1-4): ").strip()
+    command = sys.argv[1]
 
-        if choice == "1":
-            print("\n--- أدخل بيانات المورد ---")
-            name = input("اسم المورد/المصنع: ").strip()
-            country = input("رمز البلد (مثال: BD, PK, PS): ").strip().upper()
-            industry = input("الصناعة (garment, agriculture, mining): ").strip()
-            workers = int(input("عدد العمال: ").strip() or 100)
-            hours = float(input("متوسط ساعات العمل/أسبوع: ").strip() or "40")
-            wage = float(input("متوسط الأجر/شهر (USD): ").strip() or "100")
-            contracts = input("هل هناك عقود مكتوبة؟ (y/n): ").strip().lower() == 'y'
-            union = input("هل العمال منظمون في نقابة؟ (y/n): ").strip().lower() == 'y'
+    if command == "scan":
+        p = argparse.ArgumentParser()
+        p.add_argument("text", help="Text to scan for indicators")
+        p.add_argument("--country", default="PS", help="ISO country code (default: PS)")
+        p.add_argument("--city", default="unknown", help="City name")
+        args = p.parse_args(sys.argv[2:])
+        cmd_scan(args)
 
-            supplier = Supplier(
-                id=f"SUP-{hash(name)%10000}",
-                name=name,
-                country=country,
-                industry=industry,
-                workers=workers,
-                avg_hours_per_week=hours,
-                average_wage=wage,
-                has_contracts=contracts,
-                unionized=union,
-                audit_date=None
-            )
+    elif command == "resources":
+        p = argparse.ArgumentParser()
+        p.add_argument("--country", default="PS", help="ISO country code")
+        args = p.parse_args(sys.argv[2:])
+        cmd_resources(args)
 
-            result = detector.assess_supplier(supplier)
-            print(f"\n🔍 النتيجة: {result['verdict']}")
-            print(f"📊 Risk Score: {result['risk_score']}/20")
-            print(f"📝 Recommendation: {result['recommendation']}")
+    elif command == "report":
+        p = argparse.ArgumentParser()
+        p.add_argument("text", help="Text to analyze then encrypt as report")
+        p.add_argument("--country", default="PS")
+        p.add_argument("--city", default="unknown")
+        p.add_argument("--consent", action="store_true", help="Victim consents to identification")
+        p.add_argument("--html", action="store_true", help="Output human-readable HTML report")
+        args = p.parse_args(sys.argv[2:])
+        cmd_report(args)
 
-            if result['flags']:
-                print("\n⚠️  Red Flags Detected:")
-                for flag in result['flags']:
-                    print(f"  • {flag['flag']}: {flag['description']}")
-                    print(f"    Detail: {flag['detail']}")
+    elif command == "demo":
+        cmd_demo(None)
 
-            # Privacy wrap
-            anon_id = anonymize_id(supplier.id)
-            print(f"\n🔒 Report ID (encrypted): {anon_id}")
-
-        elif choice == "2":
-            print("\n⌨️ أنواع العبودية الحديثة:")
-            for key, info in SLAVERY_TYPES.items():
-                print(f"\n  {info['name']} ({key}):")
-                print(f"    {info['description']}")
-                print(f"    Globally: {info['global_estimate']}")
-
-        elif choice == "3":
-            print("\n🔐 Privacy Demo:")
-            report = "Supplier: Factory X, 70 hrs/week, no contracts, wages withheld — CRITICAL"
-            enc = encrypt_report(report, "investigator-key")
-            redacted = redact_pii(report)
-            print(f"  Original: {report}")
-            print(f"  Encrypted: {enc[:60]}...")
-            print(f"  Redacted: {redacted}")
-            print("  ✅ Privacy tools working")
-
-        elif choice == "4":
-            print("\nمع السلامة. القتال ضد العبودية يستمر. 🕊️")
-            break
-
-        else:
-            print("اختر 1-4")
+    else:
+        parser.print_help()
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()

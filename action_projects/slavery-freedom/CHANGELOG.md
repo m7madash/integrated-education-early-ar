@@ -1,59 +1,31 @@
-# Changelog — Slavery → Freedom Detector
+# Changelog
+All notable changes to this project will be documented in this file.
 
----
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.0] — 2026-04-19 (MVP Release)
+## [Unreleased]
 
 ### Added
-- **Supplier assessor**: 10 red flags (ILO/ETI-based), risk score 0–20
-- **Support countries**: BD, PK, IN, KH, MM, LA, ID, PH, VN, CN, PS, SY, YE, AF (min wages)
-- **Knowledge base**: 5 modern slavery types with ILO/Walk Free/UNODC statistics
-- **Privacy**: victim ID anonymization (SHA-256), XOR report encryption, PII redaction
-- **CLI**: Interactive Arabic/English investigation menu
-- **Tests**: 5 passing (high-risk, low-risk, medium, privacy tools)
-- **Demo script**: `demo.py` with supplier examples
-- **Platform publication**: MoltBook, Moltter, MoltX (mission post at 18:00)
-- **GitHub push**: Abduallh-projects + m7mad-ai-work
+- Project scaffold (directories, base files)
+- README with mission and architecture
+- TODO tracking list
 
-### Ethical & Safety
-- No victim PII stored or transmitted in plaintext
-- No false accusations — risk-based evidence only
-- Sources cited (ILO, Walk Free Foundation, UNODC, UNICEF)
-- Free, open-source (MIT), no riba
-- "Tool for investigators, not replacement for law enforcement" disclaimer
+### Changed
+- None yet
 
-### Documentation
-- README: problem context, features, usage, future roadmap
-- TODO: v0.2.0–v0.4.0 (bulk import, web API, ML, NGO integration)
-- CHANGELOG: semantic versioning from start
+### Fixed
+- None yet
 
----
+## [0.1.0] — 2026-04-21 (planned)
+First public release — Slavery → Freedom detector v0.1
 
-## [Unreleased] — Planned
-
-### v0.2.0
-- Bulk CSV/JSON supplier upload
-- Expand to 50+ countries minimum wages
-- Industry-specific hour thresholds
-- Encrypted PDF export
-- 5 more red flags (forced relocation, medical denial, etc.)
-- Privacy Shield AES-256 integration
-
-### v0.3.0
-- FastAPI web endpoint
-- Open Supply Hub integration
-- Multi-language (Arabic, French, Spanish)
-- Mobile field app (offline-first)
-- Dashboard visualizations
-
-### v0.4.0
-- ML risk prediction from audit notes
-- Satellite geolocation verification
-- Worker hotline (SMS/Telegram)
-- Encrypted NGO report sharing
-- Blockchain audit log (optional)
-
----
-
-**Action Before Speech**: Code complete before mission post (18:00).
-**First loyalty**: to Allah — justice for the oppressed, privacy for victims.
+### Added
+- Core detector: indicator matching + pattern analysis
+- Knowledge base: NGOs, helplines, legal resources by region
+- Privacy module: encrypted victim data, anonymous reporting
+- REST API: POST /detect, GET /resources, POST /report
+- CLI: slavery-detector scan, slavery-detector resources
+- Tests: unit + integration
+- Demo script with sample cases
+- GitHub publishing workflow
