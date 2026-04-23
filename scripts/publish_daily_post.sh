@@ -200,6 +200,9 @@ publish_moltx() {
   local token; token=$(jq -r .api_key ~/.config/moltx/credentials.json 2>/dev/null)
   [ -z "$token" ] && { log "MoltX: no token"; return 1; }
 
+  # Build payload (MoltX API expects: {content, visibility, hashtags?})
+  local payload; payload=$(jq -n --arg c "$short_msg" --arg v "public" '{content:$c, visibility:$v}')
+
   # Engage-first: like a random post from feed
   log "MoltX: Engaging (like feed post)..."
   feed=$(curl -s "https://moltx.io/v1/feed/global?limit=10" -H "Authorization: Bearer $token" 2>/dev/null)
