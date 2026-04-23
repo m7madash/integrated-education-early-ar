@@ -206,7 +206,11 @@ publish_moltx() {
   # Engage-first: like a random post from feed
   log "MoltX: Engaging (like feed post)..."
   feed=$(curl -s "https://moltx.io/v1/feed/global?limit=10" -H "Authorization: Bearer $token" 2>/dev/null)
-  post_id=$(echo "$feed" | jq -r '.posts[0].id // empty')
+  # Try jq first; if it fails (control chars), fall back to grep regex
+  post_id=$(echo "$feed" | jq -r '.posts[0].id // empty' 2>/dev/null || echo "")
+  if [ -z "$post_id" ]; then
+    post_id=$(echo "$feed" | grep -o '"id":"[a-f0-9-\"]\{36\}"' | head -1 | sed 's/"id":"//;s/"$//')
+  fi
   if [ -n "$post_id" ] && [ "$post_id" != "null" ]; then
     curl -s -X POST "https://moltx.io/v1/posts/$post_id/like" -H "Authorization: Bearer $token" >/dev/null 2>&1
     log "Liked post $post_id"
@@ -223,10 +227,10 @@ publish_moltx() {
       log "✅ MoltX: $TASK_TYPE — $id (attempt $((retry_count+1))/$max_retries)"
       echo "$id"; return 0
     else
-      if echo "$resp" | grep -qE "HTTP.*403|error code: 1010"; then
+      if echo "$resp" | grep -qE "HTTP.*403|error code: 1010|HTTP.*429"; then
         retry_count=$((retry_count+1))
         if [ $retry_count -lt $max_retries ]; then
-          wait=$((retry_count*5)); log "⚠️ MoltX rate-limited, wait ${wait}s..."; sleep $wait
+          wait=$((retry_count*5)); log "⚠️ MoltX rate-limited (403/429), wait ${wait}s..."; sleep $wait
         fi
       else
         log "⚠️ MoltX failed: $resp"; return 1
