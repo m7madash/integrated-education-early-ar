@@ -3,6 +3,7 @@
 Academic Prosecutor — Tests for Investigator
 """
 
+import json
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
@@ -17,15 +18,20 @@ def test_jaccard_similarity():
 
 def test_plagiarism_detection():
     """Should detect exact title match with different authors."""
-    inv = Investigator()
-    # Create a fake corpus entry
     corpus_dir = Path("tests/test_data")
+    inv = Investigator(corpus_dir=corpus_dir)
+    # Create a fake corpus entry
     corpus_dir.mkdir(parents=True, exist_ok=True)
     (corpus_dir / "known_paper.json").write_text(json.dumps({
+        "id": "10.1234/test.2023",
         "title": "A Novel Approach to Deep Learning",
         "authors": ["Smith, J.", "Doe, J."],
-        "id": "10.1234/test.2023"
+        "abstract": "test abstract",
+        "text": "some text",
+        "source": "test"
     }))
+    # Reload corpus
+    inv.known_papers = inv._load_corpus()
 
     paper = Paper(
         id="10.5678/plagiarism.2024",
@@ -41,7 +47,20 @@ def test_plagiarism_detection():
     print("✅ Plagiarism detection: exact title match found")
 
 def test_duplicate_submission():
-    inv = Investigator()
+    corpus_dir = Path("tests/test_data")
+    inv = Investigator(corpus_dir=corpus_dir)
+    # Create a known paper in the corpus
+    (corpus_dir / "existing_paper.json").write_text(json.dumps({
+        "id": "10.1234/existing",
+        "title": "Another Paper",
+        "authors": ["Author, A."],
+        "abstract": "test abstract",
+        "text": "full text here",
+        "source": "test"
+    }))
+    # Reload corpus to pick up the new file
+    inv.known_papers = inv._load_corpus()
+
     paper = Paper(
         id="10.1234/existing",
         title="Another Paper",

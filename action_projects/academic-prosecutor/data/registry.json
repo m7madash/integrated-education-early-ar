@@ -8,10 +8,10 @@
       "violation_type": "plagiarism",
       "severity": 4,
       "evidence": "Test sanction",
-      "discovered_at": "2026-04-21T06:49:35.400772+00:00",
-      "sanction_applied": "automated_sanction: report_to_institution, block_funding, retract",
+      "discovered_at": "2026-04-23T17:43:26.078122+00:00",
+      "sanction_applied": "automated_sanction: block_funding, retract, report_to_institution",
       "status": "applied"
     }
   },
-  "last_updated": "2026-04-21T06:49:35.400934+00:00"
+  "last_updated": "2026-04-23T17:43:26.078299+00:00"
 }

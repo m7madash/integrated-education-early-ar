@@ -125,43 +125,6 @@ academic-prosecutor/
 
 **Status**: v0.1.0 — Core modules complete, ready for integration.
 
-## 🔧 Installation
-
-```bash
-cd action_projects/academic-prosecutor
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
-
-## 📝 Usage
-
-### CLI: Prosecute a single paper
-```bash
-python3 scripts/prosecute.py --paper https://doi.org/10.1234/example
-```
-
-### Batch scan a directory of PDFs
-```bash
-python3 scripts/batch_scan.py --dir ~/papers_to_check/ --output report.json
-```
-
-## 📈 Development Progress
-
-- [x] Project structure created
-- [ ] Investigator.detector (text similarity baseline)
-- [ ] Sanctions.enforcer (basic rules)
-- [ ] Notifier.alert (webhook placeholder)
-- [ ] Tests
-- [ ] Integration with OpenClaw
-
-## 🎯 Success Criteria
-
-- Detect >80% of known plagiarised papers in test set
-- False positive rate <5%
-- Automated sanction application (no manual review for low-hanging fruit)
-- Integration with major publisher APIs (Crossref, PubMed)
-
 ## 📜 License
 
 MIT — use responsibly, verify findings before taking action.

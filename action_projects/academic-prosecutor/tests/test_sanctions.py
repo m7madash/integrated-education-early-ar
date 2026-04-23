@@ -11,7 +11,15 @@ from sanctions.registry import OffenseRegistry, Offense, OffenderProfile
 from sanctions.enforcer import SanctionEnforcer, SanctionRule
 from datetime import datetime, timezone
 
+# CLEAR TEST DATA BEFORE RUNNING
+def _clear_test_data():
+    test_data = Path("tests/test_data")
+    for f in test_data.glob("registry_*.json"):
+        f.unlink(missing_ok=True)
+    test_data.mkdir(parents=True, exist_ok=True)
+
 def test_registry_add_offense():
+    _clear_test_data()
     reg = OffenseRegistry(Path("tests/test_data/registry_test.json"))
     offense = Offense(
         id="test-001",
@@ -36,6 +44,7 @@ def test_registry_add_offense():
     print("✅ Registry: add_offense works, risk level correct (low for score<5)")
 
 def test_risk_escalation():
+    _clear_test_data()
     reg = OffenseRegistry(Path("tests/test_data/registry_escalation.json"))
     # Add three medium offenses (severity 4 each = 12 total -> high)
     for i in range(3):
@@ -58,6 +67,7 @@ def test_risk_escalation():
     print("✅ Risk escalation: 3×severity4 → high (12 pts)")
 
 def test_sanction_enforcer():
+    _clear_test_data()
     enforcer = SanctionEnforcer()
     # Create a pending offense
     offense = Offense(
@@ -84,6 +94,7 @@ def test_sanction_enforcer():
     print("✅ SanctionEnforcer: applies penalty and updates registry")
 
 def test_rule_selection():
+    _clear_test_data()
     enforcer = SanctionEnforcer()
     # Low severity plagiarism -> should get warning/correct
     actions_low = enforcer.determine_sanction("plagiarism", 2, "some_id")

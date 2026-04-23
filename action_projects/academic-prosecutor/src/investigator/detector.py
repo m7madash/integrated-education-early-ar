@@ -130,16 +130,16 @@ class Investigator:
 
     def _check_duplicate_submission(self, paper: Paper) -> List[Violation]:
         """Check if same paper submitted to multiple venues."""
-        # Placeholder: would need access to submission database
-        # For now, check if DOI already exists in corpus
-        if paper.id in self.known_papers:
-            return [Violation(
-                type="duplicate_submission",
-                severity=4,
-                evidence=f"Paper ID already exists in corpus",
-                source_paper=paper,
-                source_corpus=[paper.id]
-            )]
+        # Check if paper ID already exists in corpus
+        for known in self.known_papers.values():
+            if known.get("id") == paper.id:
+                return [Violation(
+                    type="duplicate_submission",
+                    severity=4,
+                    evidence=f"Paper ID already exists in corpus: {paper.id}",
+                    source_paper=paper,
+                    source_corpus=[paper.id]
+                )]
         return []
 
     def _check_authorship_fraud(self, paper: Paper) -> List[Violation]:
