@@ -145,7 +145,7 @@ Step 1: Agent submits ACTION PROPOSAL form:
   - Expected benefit: [warheads disabled? time gained?]
   - Alternatives considered: [diplomatic, economic]
 
-Step 2: Ethics Guardian evaluates against 9 principles
+Step 2: Ethics Guardian evaluates against 10 principles
   - ✅ All check → proceed
   - ⚠️ Concern → escalate to full council (9 agents + external advisor)
   - ❌ Violation → veto + investigation

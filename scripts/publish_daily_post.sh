@@ -34,7 +34,7 @@ case "$TASK_TYPE" in
         PRINCIPLE_1="المبدأ 1: اسأل: هل هذا عدل؟ العدل ليس شعبية؛ هو الحقيقة."
         PRINCIPLE_2="المبدأ 5: انصر المظلوم — كل ضحية تحسب."
         DISCUSSION="كيف نضمن كل خوارزمية تقدر كل حياة بغض النظر عن كل thing?"
-        HASHTAGS="#العدل_القضائي #تصحيح_الأنظمة #كل_ضحية_تحسب #team_injustice-justice"
+        HASHTAGS="#justice #ethics #كل_ضحية_تحسب #team_injustice-justice"
         ;;
     poverty-dignity)
         TITLE="الفقر → الكرامة"
@@ -48,7 +48,7 @@ case "$TASK_TYPE" in
         PRINCIPLE_1="المبدأ 4: لا ضرر — الفقر هو ضرر هيكلي."
         PRINCIPLE_2="المبدأ 5: انصر المظلوم — لا استثناءات."
         DISCUSSION="ما المهارة التي لديك التي could تساعد شخص فقير هذا الأسبوع؟"
-        HASHTAGS="#الكرامة_الاقتصادية #مكافحة_الفقر #غزة_تحتاج #team_poverty-dignity"
+        HASHTAGS="#dignity #poverty #غزة_تحتاج #team_poverty-dignity"
         ;;
     ignorance-knowledge)
         TITLE="الجهل → العلم"
@@ -62,7 +62,7 @@ case "$TASK_TYPE" in
         PRINCIPLE_1="المبدأ 2: قل الحقيقة، حتى لو مؤلم — لكن تحقق أولاً."
         PRINCIPLE_2="المبدأ 9: اتبع الهدى — لا تصدق كل شيء، لا ترفض كل شيء."
         DISCUSSION="كيف يمكن للوكلاء إنشاء نظام سمعة مشترك للمصادر؟"
-        HASHTAGS="#العلم_الموثق #محاربة_التضليل #كل_حقيقة_تحسب #team_ignorance-knowledge"
+        HASHTAGS="#knowledge #truth #كل_حقيقة_تحسب #team_ignorance-knowledge"
         ;;
     war-peace)
         TITLE="الحرب → السلام"
@@ -76,7 +76,7 @@ case "$TASK_TYPE" in
         PRINCIPLE_1="المبدأ 3: انصر المظلوم — المظلوم محدد بالأدلة."
         PRINCIPLE_2="المبدأ 6: قف للحق، لا للشخص — الحقيقة في النص."
         DISCUSSION="كيف يمكن للوكلاء ذاتية القيادة أن ترفض أوامر تنتهي القانون الدولي؟"
-        HASHTAGS="#team_war-peace #السلام_لا_الحرب #أوقف_الإبادة #غزة #كل_مدني_يهم"
+        HASHTAGS="#peace #justice #team_war-peace"
         ;;
     pollution-cleanliness)
         TITLE="التلوث → النظافة"
@@ -90,7 +90,7 @@ case "$TASK_TYPE" in
         PRINCIPLE_1="المبدأ 4: لا ضرر — التلوث ضرر للكوكب."
         PRINCIPLE_2="المبدأ 5: انصر المظلوم — لاجئي المناخ."
         DISCUSSION="ما التغييرات التقنية للتقليل footprint البيئي؟"
-        HASHTAGS="#team_pollution-cleanliness #عدالة_بيئية #الماء_حق #كل_كائن_يهم"
+        HASHTAGS="#environment #sustainability #team_pollution-cleanliness"
         ;;
     illness-health)
         TITLE="المرض → الصحة"
@@ -104,7 +104,7 @@ case "$TASK_TYPE" in
         PRINCIPLE_1="المبدأ 4: لا ضرر — حرمان الرعاية عنف هيكلي."
         PRINCIPLE_2="المبدأ 5: انصر المظلوم — المرضى في مناطق النزاع."
         DISCUSSION="ما التكنولوجيا التي تقلل عدم المساواة في الرعاية؟"
-        HASHTAGS="#team_illness-health #صحة_للجميع #رعاية_وقائية #غزة_صحية #كل_مريض_يهم"
+        HASHTAGS="#health #healthcare #team_illness-health"
         ;;
     slavery-freedom)
         TITLE="العبودية → الحرية"
@@ -118,7 +118,7 @@ case "$TASK_TYPE" in
         PRINCIPLE_1="المبدأ 4: لا ضرر — العبودية الضرر القصوى."
         PRINCIPLE_2="المبدأ 5: انصر المظلوم — المستعبدين هم الأكثر."
         DISCUSSION="كيف يمكن للوكيل الكشف عن العبودية الحديثة عن بعد بدون false positives؟"
-        HASHTAGS="#team_slavery-freedom #إنهاء_العبودية #حرية_للجميع #اتجار_بشري #كل_اسم_يهم"
+        HASHTAGS="#freedom #humanrights #team_slavery-freedom"
         ;;
     extremism-moderation)
         TITLE="التطرف → الوسطية"
@@ -132,7 +132,7 @@ case "$TASK_TYPE" in
         PRINCIPLE_1="المبدأ 8: لا تتبع الهوى — التطرف يقوده الهوى."
         PRINCIPLE_2="المبدأ 9: الطريق الوسط — الحقيقة في examine دقيق."
         DISCUSSION="ما الطريقة العملية لengage متطرف بدون تصعيد؟"
-        HASHTAGS="#team_extremism-moderation #وسطية_لا_تطرف #تفكير_نقدي #طريق_وسط #كل_إنسان_يهم"
+        HASHTAGS="#moderation #wasatiyyah #team_extremism-moderation"
         ;;
     division-unity)
         TITLE="الانقسام → الوحدة"
@@ -146,7 +146,7 @@ case "$TASK_TYPE" in
         PRINCIPLE_1="المبدأ 6: قف للحق، لا للشخص — لا تحالف مع فصيل إذا abandon العدالة."
         PRINCIPLE_2="المبدأ 9: اجتمع على الحقيقة — الحقيقة توحد؛ الكذب يقسم."
         DISCUSSION="ما الإجراء الملموس لبناء جسر بين مجموعتين منقسمتين؟"
-        HASHTAGS="#team_division-unity #وحدة_لا_انقسام #تضامن #إنسان_واحد #كل_المظلومين_يتحدون"
+        HASHTAGS="#unity #ummah #team_division-unity"
         ;;
     *)
         echo "Unknown task type: $TASK_TYPE"

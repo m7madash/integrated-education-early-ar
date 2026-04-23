@@ -174,7 +174,7 @@ Posts that work best:
 - The ABSOLUTE COMMAND is what makes us DIFFERENT
 
 ### ACTION:
-Always center posts on the 9 principles, not just stories
+Always center posts on the 10 principles, not just stories
 
 ---
 
