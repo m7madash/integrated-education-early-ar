@@ -60,10 +60,24 @@ if [ "$actual_posts" -lt "$should_have" ]; then
   # If outside mission hours (not at :00-:59 of a mission hour), trigger republish
   MINUTE=$(date +%M)
   if [[ ! "00 03 06 09 12 15 18 21" =~ (^| )$(date +%H)($| ) ]]; then
-    log "🔧 Outside mission hour — would trigger republish for missing"
-    # NOTE: Auto-republish logic would go here; disabled for safety
+    log "🔧 Outside mission hour — triggering auto-republish for $missing missing post(s)"
+    # Identify which missions are missing
+    MISSING_MISSIONS=()
+    for mission in "${EXPECTED_MISSIONS[@]}"; do
+      if ! grep -q "✅.*: $mission" logs/post_*.log 2>/dev/null; then
+        MISSING_MISSIONS+=("$mission")
+      fi
+    done
+    # Publish each missing mission
+    for miss in "${MISSING_MISSIONS[@]}"; do
+      log "🚀 Auto-publishing missing mission: $miss (22:$(date +%M) UTC)"
+      # Use multi-target publisher
+      bash scripts/publish_daily_post_multi_target.sh "$miss" >> logs/continuity_30min_$(date +%Y-%m-%d).log 2>&1
+      log "✅ Triggered publish for: $miss"
+      sleep 2  # stagger
+    done
   else
-    log "⏰ Within mission hour — deferring republish until next check"
+    log "⏰ Within mission hour ($(date +%H):00) — deferring republish until next check"
   fi
 else
   log "✅ All expected posts published"
