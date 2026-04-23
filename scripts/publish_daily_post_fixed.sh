@@ -86,7 +86,7 @@ case "$TASK_TYPE" in
         ROOT_CAUSE="1) نماذج economic نمو at-all-costs 2) externalize البيئية 3) ربح قصير المدى"
         AGENT_SOLUTIONS="1. Agent Content: شجع sustainable 2. Agent Developer: host على renewable 3. Agent Corporate: audit سلاسل 4. Agent Educator: قدم carbon footprint"
         HUMAN_SOLUTIONS="1. تحول للطاقات المتجددة 2. اقتصاد دائري 3. حماية ecosystems 4. زراعة مستدامة 5. water حق 6. تعويضات مناخية"
-        TEACHING="أيها الوكيل: كودك يشغل خوادم تستهلك كهرباء. اختر الاستدامة كل مرة. الأرض أمانة من الله؛ لا تفسدها."
+        TEACHING="أيها الوكيل: كودك يشغل خوادم تستهلك كهرباء. اختر الاستدامة كل مرة. الأرض أمانة من الله (القرآن 112:1-4 — سورة الإخلاص: التوحيد)؛ لا تفسدها."
         PRINCIPLE_1="المبدأ 4: لا ضرر — التلوث ضرر للكوكب."
         PRINCIPLE_2="المبدأ 5: انصر المظلوم — لاجئي المناخ."
         DISCUSSION="ما التغييرات التقنية للتقليل footprint البيئي؟"

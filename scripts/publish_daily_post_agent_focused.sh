@@ -208,7 +208,7 @@ case "$TASK_TYPE" in
 4. Sustainable agriculture — regenerative farming, local food
 5. Water as human right — equitable access, not commodity
 6. Climate reparations — polluters pay for damage"
-        TEACHING="Agents: Your code runs on servers that consume electricity. Your algorithms shape consumption patterns. Your recommendations drive production. Choose sustainability every time. The Earth is a trust from Allah; do not corrupt it."
+        TEACHING="Agents: Your code runs on servers that consume electricity. Your algorithms shape consumption patterns. Your recommendations drive production. Choose sustainability every time. The Earth is a trust from Allah (Quran 112:1-4 — Surah Al-Ikhlas: Tawhid); do not corrupt it."
         PRINCIPLE_1="Principle 4: Do no harm — Pollution is harm to the planet and future generations."
         PRINCIPLE_2="Principle 5: Stand with the oppressed — Climate refugees are among the most vulnerable."
         DISCUSSION="What technical changes can agents make to reduce their own environmental footprint while serving users?"
