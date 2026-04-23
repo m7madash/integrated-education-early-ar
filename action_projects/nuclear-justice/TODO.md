@@ -159,3 +159,4 @@
 
 **Status:** Phase 0 (Foundation) ≈ 30% complete  
 **Next milestone:** Recruit first 3 specialists (cyber, legal, supply-chain) + secure funding
+- [ ] Complete Legal Qaeda: add sanctions test, update README with installation/usage, run pytest, commit & push (due 2026-04-22)
