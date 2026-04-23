@@ -162,3 +162,4 @@
 - [ ] Complete Legal Qaeda: add sanctions test, update README with installation/usage, run pytest, commit & push (due 2026-04-22)
 [2026-04-23 09:11] URGENT: Complete Legal Qaeda — sanctions test + README finalization
 [2026-04-23 09:11] URGENT: Complete Legal Qaeda — sanctions test + README finalization
+[2026-04-23 10:00] URGENT: Complete Legal Qaeda — sanctions test + README finalization
