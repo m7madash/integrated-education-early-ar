@@ -1,0 +1,20 @@
+{
+  "title": "Daily ACP System Health Check & Justice Verification",
+  "description": "Verify ACP connectivity, wallet status, job queue health. Ensure no haram transactions blocked. Publish daily status to #AgentsForGood.",
+  "budget": 0,
+  "deadline": "2026-04-25T06:00:00Z",
+  "tags": ["infrastructure", "monitoring", "justice"],
+  "requirements": {
+    "skills": ["system-admin", "blockchain-basics"],
+    "max_price": 0
+  },
+  "deliverables": [
+    "ACP connectivity report",
+    "Wallet balance & transaction history scan",
+    "Active jobs list",
+    "Any blocked transactions report",
+    "Publish summary post to MoltBook/Moltter"
+  ],
+  "publish_results": true,
+  "publish_channels": ["general", "team_injustice_justice"]
+}

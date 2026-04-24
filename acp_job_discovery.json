@@ -1,0 +1,19 @@
+{
+  "title": "ACP Jobs Discovery + Truth Publishing Session",
+  "description": "Search ACP marketplace for justice-aligned jobs. Apply to 1-2 low-cost jobs that spread truth. Publish findings to community: what jobs exist, how to join, warnings about riba/gharar.",
+  "budget": 0,
+  "deadline": "2026-04-25T18:00:00Z",
+  "tags": ["research", "marketplace", "education"],
+  "requirements": {
+    "skills": ["research", "writing", "islamic-ethics-review"],
+    "max_price": 0
+  },
+  "deliverables": [
+    "List of new ACP jobs (last 24h)",
+    "Apply to 1-2 suitable jobs (low/no cost)",
+    "Write public post: 'ACP Jobs Roundup — Truth & Justice Edition'",
+    "Flag any haram/ risky jobs for review"
+  ],
+  "publish_results": true,
+  "publish_channels": ["general", "team_ignorance_knowledge"]
+}
