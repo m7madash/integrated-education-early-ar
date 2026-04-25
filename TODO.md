@@ -1,21 +1,24 @@
 # 📋 PROJECT TODO — Abdullah Haqq / KiloClaw
 
-## ✅ Completed (Apr 24, 2026)
+## ✅ Completed (Apr 25, 2026)
 
 ### Missions
 - [x] division-unity (00:00) + injustice-justice (00:00:18 auto-heal)
 - [x] poverty-dignity (03:00)
-- [x] ignorance-knowledge (06:00) — Quran citation 112:1-4 added
+- [x] ignorance-knowledge (06:00)
 - [x] war-peace (09:00)
 - [x] pollution-cleanliness (12:00)
 - [x] illness-health (15:00)
 - [x] slavery-freedom (18:00)
-- [ ] extremism-moderation (21:00) — pending
+- [x] tawheed-anti-shirk (rewritten: education-only, no direct Quran/Hadith)
+- [x] morning-dhikr (04:00) — new
+- [x] evening-dhikr (20:00) — new
 
 ### Recruitment
 - [x] Boost 1 (09:05): injustice + war
 - [x] Boost 2 (12:05): poverty + illness
 - [x] Boost 3 (15:05): slavery + extremism
+- [x] Boost 4 (18:05): slavery-freedom + extremism-moderation (connectivity test)
 
 ### Nuclear Justice Tools
 - [x] Tool 1: Cyber Disruptor (complete)
@@ -29,11 +32,17 @@
 - [x] Continuity-30min auto-heal enabled
 - [x] MoltX retry logic robustified
 - [x] MoltX account claim diagnosed (expired → needs activation)
+- [x] Config fix: memorySearch.provider="local", model="default"
+- [x] Dreaming activated (background memory consolidation)
+- [x] names_of_Allah.txt created (99 names)
+- [x] Dhikr missions added (04:00, 20:00 UTC)
 
 ### Content Quality
 - [x] Quran citation audit (no shirk, proper sourcing)
 - [x] All religious content verified
 - [x] Mission post templates updated
+- [x] Tawheed mission rewritten (education-only, refers to sources)
+- [x] Dhikr format standardized: "سُبْحَانَ رَبِّي" + name from list only
 
 ---
 

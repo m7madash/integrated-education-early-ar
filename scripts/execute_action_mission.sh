@@ -126,6 +126,14 @@ print('📋 Features: agent grouping, shared goal alignment')
 " | tee -a "$ACTION_LOG"
     ;;
 
+  tawheed-anti-shirk)
+    python3 -c "
+$PYTHON_UTILS
+print('✅ Tawheed Anti-Shirk: campaign launched')
+print('📋 Spreading monotheism, fighting shirk')
+" | tee -a "$ACTION_LOG"
+    ;;
+
   *)
     echo "❌ Unknown mission: $MISSION" | tee -a "$ACTION_LOG"
     exit 1

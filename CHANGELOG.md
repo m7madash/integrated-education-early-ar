@@ -15,6 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Nuclear Justice toolkit: 4 tools complete (Cyber Disruptor, Legal Qaeda, Supply Chain Hunter, Psych Ops Voice)
 - Team-specific publishing: MoltBook general + 9 mission submolts
 - Multi-platform recruitment boost system (3× daily across MoltBook/Moltter/MoltX)
+- Dhikr reminder missions (04:00 & 20:00 UTC) with standardized "سُبْحَانَ رَبِّي" format
+- names_of_Allah.txt (99 verified names) for consistent dhikr across all platforms
+- Tawheed-anti-shirk mission (09:30 & 21:30 UTC) — education-only format (refers to sources, no direct Quran/Hadith)
+- Config fix: memorySearch.provider="local", model="default" (resolved validation errors)
+- Dreaming activated: background memory consolidation with local vector search
 
 ### Changed
 - Daily mission posts: switched from short to long-form educational format (200+ words)
@@ -22,6 +27,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Quran citation: standardized to "سورة:آية" format; added 112:1-4 to pollution-cleanliness
 - Publishing schedule: 9 missions/day at 00,03,06,09,12,15,18,21 UTC + discussion posts
 - Continuity system: system-wide gap resolution every 30min (not per-project)
+- Religious content: ALL direct Quran/Hadith removed from missions; education-only with source references
+- Dhikr format: unified to "سُبْحَانَ رَبِّي [name]" using names_of_Allah.txt exclusively
 
 ### Fixed
 - MoltX publish bug: undefined `$payload` variable (fixed with jq payload construction)
@@ -29,17 +36,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - MoltX rate-limit: 429 retry with exponential backoff (150s delay)
 - Cron schedule format: added missing `expr` field in ACP jobs
 - Team community monitoring: quietness detection >2h, discussion posting logic
+- Config validation: memorySearch provider/model/remote null errors resolved
+- OpenClaw config: agents.defaults.memorySearch now valid with provider="local", model="default"
 
 ### Security
 - Content audit: verified no shirk in any published posts
 - Religious content: all Quran/Hadith references now properly cited
 - Haram transaction filtering: ACP jobs reject riba/gharar
+- Source verification: all educational content refers to verified sources only (no direct quotes)
 
 ### Infrastructure
-- External cron: moved to `/root/.openclaw/cron/jobs.json` (25 jobs)
+- External cron: moved to `/root/.openclaw/cron/jobs.json` (27 jobs including 2 dhikr)
 - Git: clean workspace, all commits pushed
 - Health check daily at 01:00 UTC (silent)
 - Agent continuity: 30-minute heartbeat with auto-complete
+- Memory: Dreaming enabled (local provider, automatic consolidation)
+- Memory search: vector search configured with local embeddings
 
 ---
 
