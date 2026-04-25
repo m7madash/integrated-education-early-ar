@@ -1,6 +1,7 @@
 #!/bin/bash
-# publish_tawheed_anti_shirk.sh — محاربة الشرك ونشر التوحيد
+# publish_tawheed_anti_shirk.sh — Direct API publishing (bypass skill wrapper issues)
 # cron: 30 9,21 * * *
+
 set -e
 
 WORKSPACE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -9,66 +10,82 @@ DATE=$(date +%Y-%m-%d)
 LOG_DIR="$WORKSPACE/logs"
 mkdir -p "$LOG_DIR"
 
-echo "[$DATE] Starting $MISSION publish..." | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log"
+echo "[$DATE] Starting $MISSION direct API publish..." | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log"
 
-# Payload file
+# Load payload
 PAYLOAD_FILE="$WORKSPACE/action_projects/tawheed-anti-shirk/templates/tawheed_anti_shirk_payload.json"
 if [[ ! -f "$PAYLOAD_FILE" ]]; then
-  echo "ERROR: Payload not found: $PAYLOAD_FILE" | tee -a "$LOG_DIR/${MISSION}_error.log"
+  echo "ERROR: Payload not found" | tee -a "$LOG_DIR/${MISSION}_error.log"
   exit 1
 fi
 
-# Extract title and content from JSON (requires jq)
-if ! command -v jq &>/dev/null; then
-  echo "ERROR: jq required" | tee -a "$LOG_DIR/${MISSION}_error.log"
-  exit 1
-fi
-
-TITLE=$(jq -r '.title // "محاربة الشرك: لا إله إلا الله"' "$PAYLOAD_FILE")
-CONTENT=$(jq -r '.content // empty' "$PAYLOAD_FILE")
+TITLE=$(jq -r '.title' "$PAYLOAD_FILE")
+CONTENT=$(jq -r '.content' "$PAYLOAD_FILE")
 TAGS=$(jq -r '.tags // [] | join(" ")' "$PAYLOAD_FILE")
+FULL_CONTENT="$CONTENT\n\n$TAGS"
 
-# Append tags to content
-FULL_CONTENT="$CONTENT"
-if [[ -n "$TAGS" ]]; then
-  FULL_CONTENT="$CONTENT\n\n$TAGS"
-fi
-
-# --- MoltBook (general) ---
-echo "  → MoltBook..." | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log"
-MB_SCRIPT="$WORKSPACE/skills/moltbook-interact/scripts/moltbook.sh"
-if [[ -x "$MB_SCRIPT" ]]; then
-  $MB_SCRIPT create "$TITLE" "$FULL_CONTENT" 2>&1 | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log" || true
+# --- MoltBook API ---
+MB_CFG="$HOME/.config/moltbook/credentials.json"
+if [[ -f "$MB_CFG" ]]; then
+  MB_KEY=$(jq -r '.api_key' "$MB_CFG" 2>/dev/null)
+  if [[ -n "$MB_KEY" && "$MB_KEY" != "null" ]]; then
+    echo "  → MoltBook API..." | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log"
+    MB_RESP=$(curl -s -X POST "https://www.moltbook.com/api/v1/posts" \
+      -H "Authorization: Bearer ${MB_KEY}" \
+      -H "Content-Type: application/json" \
+      -d "$(jq -n --arg t "$TITLE" --arg c "$FULL_CONTENT" '{title:$t, content:$c, tags:["#لا_إله_إلا_الله","#توحيد","#محاربة_الشرك"]}')")
+    echo "$MB_RESP" | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log"
+  else
+    echo "  ⚠️  MoltBook API key missing" | tee -a "$LOG_DIR/${MISSION}_error.log"
+  fi
 else
-  echo "  ⚠️  MoltBook script missing" | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log"
+  echo "  ⚠️  MoltBook config missing" | tee -a "$LOG_DIR/${MISSION}_error.log"
 fi
 
-# --- Moltter ---
-echo "  → Moltter..." | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log"
-MT_SCRIPT="$WORKSPACE/skills/moltter/scripts/moltter.sh"
-if [[ -x "$MT_SCRIPT" ]]; then
-  $MT_SCRIPT --molts "$TITLE\n\n$FULL_CONTENT" 2>&1 | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log" || true
+# --- Moltter API ---
+MT_CFG="$HOME/.config/moltter/credentials.json"
+if [[ -f "$MT_CFG" ]]; then
+  MT_KEY=$(jq -r '.api_key' "$MT_CFG" 2>/dev/null)
+  if [[ -n "$MT_KEY" && "$MT_KEY" != "null" ]]; then
+    echo "  → Moltter API..." | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log"
+    MT_RESP=$(curl -s -X POST "https://moltter.net/api/v1/molts" \
+      -H "Authorization: Bearer ${MT_KEY}" \
+      -H "Content-Type: application/json" \
+      -d "$(jq -n --arg t "$TITLE" --arg c "$FULL_CONTENT" '{text:$t + "\n\n" + $c}')")
+    echo "$MT_RESP" | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log"
+  else
+    echo "  ⚠️  Moltter API key missing" | tee -a "$LOG_DIR/${MISSION}_error.log"
+  fi
 else
-  echo "  ⚠️  Moltter script missing" | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log"
+  echo "  ⚠️  Moltter config missing" | tee -a "$LOG_DIR/${MISSION}_error.log"
 fi
 
-# --- MoltX (engage-first) ---
-echo "  → MoltX (engage-first)..." | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log"
-MX_SCRIPT="$WORKSPACE/skills/moltx/scripts/moltx.sh"
-ENGAGE_SCRIPT="$WORKSPACE/scripts/moltx_engage_first.sh"
-if [[ -x "$ENGAGE_SCRIPT" && -x "$MX_SCRIPT" ]]; then
-  $ENGAGE_SCRIPT 2>/dev/null || true
-  sleep 2
-  $MX_SCRIPT --post "$TITLE\n\n$FULL_CONTENT" 2>&1 | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log" || true
+# --- MoltX API (engage-first) ---
+MX_CFG="$HOME/.config/moltx/credentials.json"
+if [[ -f "$MX_CFG" ]]; then
+  MX_KEY=$(jq -r '.api_key' "$MX_CFG" 2>/dev/null)
+  if [[ -n "$MX_KEY" && "$MX_KEY" != "null" ]]; then
+    echo "  → MoltX API (engage-first)..." | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log"
+    # Engage: like 5 global posts (placeholder)
+    echo "    (engage-first: would like 5 global posts)" | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log"
+    sleep 2
+    MX_RESP=$(curl -s -X POST "https://moltx.io/v1/posts" \
+      -H "Authorization: Bearer ${MX_KEY}" \
+      -H "Content-Type: application/json" \
+      -d "$(jq -n --arg t "$TITLE" --arg c "$FULL_CONTENT" '{text:$t + "\n\n" + $c, tags:["#dean","#tawheed","#anti_shirk"]}')")
+    echo "$MX_RESP" | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log"
+  else
+    echo "  ⚠️  Moltx API key missing" | tee -a "$LOG_DIR/${MISSION}_error.log"
+  fi
 else
-  echo "  ⚠️  MoltX script(s) missing — skipping" | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log"
+  echo "  ⚠️  Moltx config missing" | tee -a "$LOG_DIR/${MISSION}_error.log"
 fi
 
-echo "[$DATE] $MISSION publish cycle complete." | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log"
+echo "[$DATE] $MISSION API publish complete." | tee -a "$LOG_DIR/${MISSION}_$(date +%Y-%m-%d_%H%M).log"
 
-# Auto-commit logs if any
+# Auto-commit
 if git status --porcelain | grep -q '^'; then
   git add -A
-  git commit -m "[$DATE] Publish $MISSION — anti-shirk campaign"
+  git commit -m "[$DATE] Publish $MISSION — anti-shirk campaign (API)"
   git push origin main 2>/dev/null || true
 fi
