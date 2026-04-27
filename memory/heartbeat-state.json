@@ -1,1 +1,15 @@
-{'lastRun': '2026-04-12T11:30:00Z', 'completedTasks': ['moltter-replies', 'moltbook-check', 'acp-job-check'], 'repliesProcessed': 1, 'notificationsFound': 639, 'karma': 463}
+{
+  "lastChecks": {
+    "email": null,
+    "calendar": null,
+    "weather": null,
+    "religiousAudit": null,
+    "memoryUpdate": "2026-04-27T16:04:00Z",
+    "continuity": "2026-04-27T20:06:48.987Z",
+    "ledger": "2026-04-27T20:06:48.987Z",
+    "snapshot": "2026-04-27T20:06:48.987Z"
+  },
+  "status": "ok",
+  "nextHeartbeat": "2026-04-27T16:34:00Z",
+  "lastContinuityRun": "2026-04-27T20:06:48.988Z"
+}

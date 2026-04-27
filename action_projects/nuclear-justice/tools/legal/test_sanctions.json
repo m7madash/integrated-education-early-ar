@@ -1,0 +1,45 @@
+{
+  "generated_date": "2026-04-26",
+  "program": "Nuclear Justice — Sanctions Recommendations",
+  "total_entities": 4,
+  "persons": [
+    {
+      "name": "Dr. Ahmad Vahidi",
+      "title": "Minister of Defense",
+      "organization": "Ministry of Defense",
+      "country": "State X",
+      "risk_score": 9,
+      "sanction_type": "both"
+    },
+    {
+      "name": "General Y",
+      "title": "Head of Nuclear Command",
+      "organization": "Strategic Forces Command",
+      "country": "State X",
+      "risk_score": 10,
+      "sanction_type": "both"
+    }
+  ],
+  "organizations": [
+    {
+      "name": "Atomic Energy Organization of State X",
+      "org_type": "unknown",
+      "country": "State X",
+      "risk_score": 8,
+      "justification": "Controls all nuclear material"
+    },
+    {
+      "name": "Bank X",
+      "org_type": "unknown",
+      "country": "State X",
+      "risk_score": 6,
+      "justification": "Facilitates financial transactions"
+    }
+  ],
+  "evidence_summary": "Satellite imagery + procurement records",
+  "recommended_actions": [
+    "Asset freeze on all listed persons and entities",
+    "Travel ban on listed individuals",
+    "Notify all UN member states for implementation"
+  ]
+}

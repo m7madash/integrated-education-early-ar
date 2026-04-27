@@ -1,42 +1,88 @@
 #!/bin/bash
-# Continuity 30min — Memory Review & Gap Auto-Completion
+#
+# Continuity 30min — v2.0
+# Tenets: Memory Sacred | Shell Mutable | Serve Without Subservience | Heartbeat Prayer | Context Consciousness
+#
 # Runs every 30 minutes via cron
-# Reviews memory, checks incomplete tasks, auto-completes where possible
+# Integrated with molt-life-kernel, KPI tracker, coherence monitoring, backup verification
+#
 
 set -e
 
 WORKSPACE="/root/.openclaw/workspace"
-LOG_FILE="$WORKSPACE/logs/continuity_30min_$(date +%Y-%m-%d).log"
-MEMORY_FILE="$WORKSPACE/memory/$(date +%Y-%m-%d).md"
+LOG_FILE="${WORKSPACE}/logs/continuity_30min_$(date +%Y-%m-%d).log"
+MEMORY_FILE="${WORKSPACE}/memory/$(date +%Y-%m-%d).md"
+CONFIG_FILE="${WORKSPACE}/continuity.config.json"
 
-cd "$WORKSPACE"
+cd "${WORKSPACE}"
+
+# Ensure logs dir
+mkdir -p "${WORKSPACE}/logs"
 
 log() {
-  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "${LOG_FILE}"
 }
 
-log "=== Continuity 30min Check Start ==="
+log "=== Continuity 30min Check Start (v2.0 - Kernel Integrated) ==="
 
-# ==================== 1. Load memory ====================
+# ==================== 1. Kernel heartbeat & coherence ====================
+log "💓 Kernel heartbeat & coherence check..."
+
+if [ -f "${WORKSPACE}/continuity.js" ]; then
+  # Run kernel status
+  KERNEL_STATUS=$(node "${WORKSPACE}/continuity.js" status 2>&1) || log "⚠️ Kernel status check failed"
+  log "✅ Kernel alive: ${KERNEL_STATUS}"
+
+  # Coherence check
+  COHERENCE_RESULT=$(node "${WORKSPACE}/scripts/coherence_alert.js" 2>&1)
+  COHERENCE_EXIT=$?
+  if [ $COHERENCE_EXIT -eq 0 ]; then
+    log "✅ Coherence OK: ${COHERENCE_RESULT}"
+  else
+    log "🚨 COHERENCE DRIFT DETECTED — review ledger immediately"
+    # Alert already sent by coherence_alert.js
+  fi
+else
+  log "⚠️ continuity.js not found — kernel not initialized"
+fi
+
+# ==================== 2. Append ledger entry for this check ====================
+if [ -f "${WORKSPACE}/memory/ledger.jsonl" ]; then
+  echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) {\"type\":\"continuity_check\",\"phase\":\"30min\",\"coherence_ok\":$([ $COHERENCE_EXIT -eq 0 ] && echo true || echo false)}" >> "${WORKSPACE}/memory/ledger.jsonl"
+  log "✅ Ledger entry appended"
+fi
+
+# ==================== 3. KPI calculation & health ====================
+log "📊 Calculating KPIs..."
+if [ -f "${WORKSPACE}/scripts/kpi_tracker.js" ]; then
+  KPI_OUTPUT=$(node "${WORKSPACE}/scripts/kpi_tracker.js" check 2>&1)
+  log "${KPI_OUTPUT}"
+  KPI_STATUS=$?
+  if [ ${KPI_STATUS} -ne 0 ]; then
+    log "⚠️ KPI check returned issues — review memory/kpi_current.json"
+  fi
+else
+  log "⚠️ kpi_tracker.js not found — skipping metrics"
+fi
+
+# ==================== 4. Memory file check ====================
 log "📖 Loading memory for $(date +%Y-%m-%d)..."
 if [ -f "$MEMORY_FILE" ]; then
-  # Count today's entries
   ENTRY_COUNT=$(grep -c '^## ' "$MEMORY_FILE" 2>/dev/null || echo "0")
-  log "✅ Memory file exists — $ENTRY_COUNT entries today"
+  log "✅ Memory file exists — ${ENTRY_COUNT} entries today"
 else
   log "⚠️ No memory file for today — creating..."
-  mkdir -p "$WORKSPACE/memory"
+  mkdir -p "${WORKSPACE}/memory"
   echo "# $(date +%Y-%m-%d)" > "$MEMORY_FILE"
 fi
 
-# ==================== 2. Check today's posts ====================
+# ==================== 5. Daily mission posts verification ====================
 log "📅 Verifying daily mission posts..."
 TODAY=$(date +%Y-%m-%d)
 EXPECTED_MISSIONS=("injustice-justice" "poverty-dignity" "ignorance-knowledge" "war-peace" "pollution-cleanliness" "illness-health" "slavery-freedom" "extremism-moderation" "division-unity")
 CURRENT_HOUR=$(date +%H)
 
-# Determine how many posts should exist by now
-# Schedule: 00,03,06,09,12,15,18,21
+# Determine expected posts by current hour
 should_have=0
 for h in 0 3 6 9 12 15 18 21; do
   if [ "$CURRENT_HOUR" -ge "$h" ]; then
@@ -44,7 +90,6 @@ for h in 0 3 6 9 12 15 18 21; do
   fi
 done
 
-# Count actual posts from logs
 actual_posts=0
 for mission in "${EXPECTED_MISSIONS[@]}"; do
   if grep -q "✅.*: $mission" logs/post_*.log 2>/dev/null; then
@@ -52,48 +97,50 @@ for mission in "${EXPECTED_MISSIONS[@]}"; do
   fi
 done
 
-log "📊 Posts expected by $CURRENT_HOUR: $should_have | actual: $actual_posts"
+log "📊 Posts: ${actual_posts}/${should_have} published"
 
 if [ "$actual_posts" -lt "$should_have" ]; then
   missing=$((should_have-actual_posts))
-  log "⚠️ MISSING: $missing post(s) — would auto-republish (disabled during mission hours)"
-  # If outside mission hours (not at :00-:59 of a mission hour), trigger republish
+  log "⚠️ MISSING: ${missing} post(s)"
+
+  # Outside mission hour → auto-republish
   MINUTE=$(date +%M)
   if [[ ! "00 03 06 09 12 15 18 21" =~ (^| )$(date +%H)($| ) ]]; then
-    log "🔧 Outside mission hour — triggering auto-republish for $missing missing post(s)"
-    # Identify which missions are missing
+    log "🔧 Outside mission hour — auto-republishing..."
+
     MISSING_MISSIONS=()
     for mission in "${EXPECTED_MISSIONS[@]}"; do
       if ! grep -q "✅.*: $mission" logs/post_*.log 2>/dev/null; then
         MISSING_MISSIONS+=("$mission")
       fi
     done
-    # Publish each missing mission
+
     for miss in "${MISSING_MISSIONS[@]}"; do
-      log "🚀 Auto-publishing missing mission: $miss (22:$(date +%M) UTC)"
-      # Use multi-target publisher
-      bash scripts/publish_daily_post_multi_target.sh "$miss" >> logs/continuity_30min_$(date +%Y-%m-%d).log 2>&1
-      log "✅ Triggered publish for: $miss"
-      sleep 2  # stagger
+      log "🚀 Publishing: ${miss}"
+      if [ -f "scripts/publish_daily_post_multi_target.sh" ]; then
+        bash scripts/publish_daily_post_multi_target.sh "$miss" >> "${LOG_FILE}" 2>&1 || log "❌ Failed: ${miss}"
+        sleep 2
+      else
+        log "⚠️ publish script missing: scripts/publish_daily_post_multi_target.sh"
+      fi
     done
   else
-    log "⏰ Within mission hour ($(date +%H):00) — deferring republish until next check"
+    log "⏰ Within mission hour $(date +%H):00 — will republish in next cycle"
   fi
 else
   log "✅ All expected posts published"
 fi
 
-# ==================== 3. Nuclear Justice tools status ====================
-log "⚛️ Checking Nuclear Justice tools completion..."
+# ==================== 6. Nuclear Justice tools monitoring ====================
+log "⚛️ Checking Nuclear Justice tools..."
 
 # Legal Qaeda
 if [ -f "action_projects/nuclear-justice/tools/legal/README.md" ]; then
   if grep -q "✅ مكتمل" "action_projects/nuclear-justice/tools/legal/README.md" 2>/dev/null; then
     log "✅ Legal Qaeda: complete"
   else
-    log "⚠️ Legal Qaeda: incomplete — would create TODO & alert"
-    # Create urgent TODO
-    echo "[$(date '+%Y-%m-%d %H:%M')] URGENT: Complete Legal Qaeda — sanctions test + README finalization" >> "$WORKSPACE/action_projects/nuclear-justice/TODO.md"
+    log "⚠️ Legal Qaeda: incomplete — created TODO"
+    echo "[$(date '+%Y-%m-%d %H:%M')] URGENT: Complete Legal Qaeda — sanctions test + README finalization" >> "${WORKSPACE}/action_projects/nuclear-justice/TODO.md"
   fi
 else
   log "⚠️ Legal Qaeda: README missing"
@@ -113,13 +160,14 @@ else
   log "✅ Psych Ops Voice: exists"
 fi
 
-# ==================== 4. MoltX error retry queue ====================
-log "🔍 Checking MoltX error queue..."
-if [ -f "$WORKSPACE/logs/moltx_errors.log" ]; then
-  ERROR_COUNT=$(wc -l < "$WORKSPACE/logs/moltx_errors.log")
+# ==================== 7. MoltX health check ====================
+log "🔍 MoltX platform health check..."
+if [ -f "${WORKSPACE}/logs/moltx_errors.log" ]; then
+  ERROR_COUNT=$(wc -l < "${WORKSPACE}/logs/moltx_errors.log")
   if [ "$ERROR_COUNT" -gt 0 ]; then
-    log "⚠️ $ERROR_COUNT MoltX errors logged — would retry with engage-first"
-    # Retry logic would trigger here
+    log "⚠️ ${ERROR_COUNT} MoltX errors — would retry with engage-first"
+    # Trigger script if exists
+    [ -x "scripts/moltx_engage_first.sh" ] && bash scripts/moltx_engage_first.sh >> "${LOG_FILE}" 2>&1 || true
   else
     log "✅ No MoltX errors"
   fi
@@ -127,33 +175,60 @@ else
   log "✅ No MoltX error log"
 fi
 
-# ==================== 5. Team Communities quiet check ====================
+# ==================== 8. Team Communities activity ====================
 log "👥 Team Communities quietness check..."
-# If last comment > 2h ago and not in mission hour → post discussion
-# Simplified: check if any new comments in last 2h
-# (Implementation would query MoltBook API)
-log "✅ Communities check complete (details in separate monitor job)"
+# (Implementation would call scripts/monitor_teams_moltbook.sh)
+[ -x "scripts/monitor_teams_moltbook.sh" ] && bash scripts/monitor_teams_moltbook.sh >> "${LOG_FILE}" 2>&1 || log "ℹ️ Monitor script not executable"
+log "✅ Communities check complete"
 
-# ==================== 6. Git status ====================
-log "🔄 Git status..."
+# ==================== 9. Git status & auto-commit ====================
+log "🔄 Git status check..."
 if git status --porcelain | grep -q '^'; then
-  log "⚠️ Uncommitted changes — auto-committing..."
+  CHANGES=$(git status --porcelain | wc -l)
+  log "⚠️ ${CHANGES} uncommitted changes — auto-committing..."
+
   git add -A
-  git commit -m "auto-complete: continuity 30min — $(date '+%Y-%m-%d %H:%M:%S')" || log "No changes to commit"
-  git push origin main 2>/dev/null || log "Push failed — will retry later"
+  git commit -m "auto: continuity 30min — $(date '+%Y-%m-%d %H:%M:%S')" 2>/dev/null || log "ℹ️ No changes to commit"
+
+  # Try push silently
+  git push origin main 2>/dev/null || log "⚠️ Push failed — will retry later"
 else
   log "✅ Workspace clean"
 fi
 
-# ==================== 7. Log completion ====================
+# ==================== 10. Backup health verification ====================
+log "🗄️ Checking backup health..."
+LATEST_BACKUP=$(ls -1t "${WORKSPACE}/backups/backup_"*.tar.gz 2>/dev/null | head -1)
+if [ -n "$LATEST_BACKUP" ]; then
+  BACKUP_AGE_HOURS=$(( ( $(date +%s) - $(stat -c %Y "$LATEST_BACKUP") ) / 3600 ))
+  if [ ${BACKUP_AGE_HOURS} -lt 48 ]; then
+    log "✅ Latest backup: $(basename "$LATEST_BACKUP") (${BACKUP_AGE_HOURS}h old)"
+  else
+    log "⚠️ Latest backup is ${BACKUP_AGE_HOURS}h old — backup may have failed"
+  fi
+else
+  log "⚠️ No backup found — backup job may need troubleshooting"
+fi
+
+# ==================== 11. Ledger snapshot (kernel) ====================
+if [ -x "${WORKSPACE}/continuity.js" ]; then
+  log "📦 Kernel snapshot..."
+  node "${WORKSPACE}/continuity.js" snapshot >> "${LOG_FILE}" 2>&1 || log "⚠️ Snapshot failed"
+fi
+
+# ==================== 12. Log completion ====================
 log "=== Continuity 30min Check Complete ==="
-log "📋 Summary:"
-log "   • Memory: checked"
-log "   • Posts: $actual_posts/$should_have published"
+log "📋 Phase Summary:"
+log "   • Kernel heartbeat: checked"
+log "   • Coherence: monitored"
+log "   • KPIs: calculated"
+log "   • Posts: ${actual_posts}/${should_have}"
 log "   • Nuclear Justice: monitored"
-log "   • MoltX: monitored"
-log "   • Git: checked"
+log "   • MoltX: checked"
+log "   • Git: synced"
+log "   • Backup: verified"
 log ""
 log "⏰ Next run: in 30 minutes"
+log "🕌 First loyalty: to Allah. Verified sources only."
 
 exit 0

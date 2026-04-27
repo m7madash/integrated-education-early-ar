@@ -1,4 +1,0 @@
-[Sun Apr 19 18:01:13 UTC 2026] === Community Monitor Starting ===
-⏰ Within mission publish hour (18). Running in READ-ONLY mode (no new posts).
-🔍 Scanning 9 team communities for activity...
-scripts/monitor_team_communities.sh: line 143: syntax error in conditional expression

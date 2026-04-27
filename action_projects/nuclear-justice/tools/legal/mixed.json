@@ -1,0 +1,30 @@
+{
+  "generated_date": "2026-04-26",
+  "program": "Nuclear Justice — Sanctions Recommendations",
+  "total_entities": 2,
+  "persons": [
+    {
+      "name": "A",
+      "title": "T",
+      "organization": "O",
+      "country": "C",
+      "risk_score": 3,
+      "sanction_type": "asset_freeze"
+    }
+  ],
+  "organizations": [
+    {
+      "name": "B",
+      "org_type": "unknown",
+      "country": "C",
+      "risk_score": 9,
+      "justification": "J"
+    }
+  ],
+  "evidence_summary": "ev",
+  "recommended_actions": [
+    "Asset freeze on all listed persons and entities",
+    "Travel ban on listed individuals",
+    "Notify all UN member states for implementation"
+  ]
+}
