@@ -28,22 +28,38 @@ function analyze(windowSize = 100) {
   if (!fs.existsSync(LEDGER)) return { score: 1.0, status: 'ok', entries: 0 };
 
   const lines = fs.readFileSync(LEDGER, 'utf8').split('\n').filter(l => l.trim());
+  if (lines.length === 0) return { score: 1.0, status: 'ok', entries: 0 };
+
   const window = lines.slice(-windowSize);
-  const entries = window.map(l => JSON.parse(l));
+  let entries;
+  try {
+    entries = window.map(l => JSON.parse(l));
+  } catch (e) {
+    // Malformed JSON line — skip it but log warning
+    console.error('⚠️ Malformed ledger entry, attempting recovery...');
+    entries = window.map(l => {
+      try { return JSON.parse(l); } catch { return null; }
+    }).filter(e => e !== null);
+  }
+
+  if (entries.length < 5) {
+    // Not enough data for meaningful entropy — assume coherent but note insufficiency
+    return { score: 1.0, status: 'ok', entries: entries.length, reason: 'insufficient_data' };
+  }
 
   const entropy = shannonEntropy(entries);
-  const maxEntropy = Math.log2(Math.max(...Object.values(
-    entries.reduce((a, e) => { a[e.type] = (a[e.type] || 0) + 1; return a; }, {})
-  ) || 1));
+  const typeCounts = entries.reduce((a, e) => { a[e.type] = (a[e.type] || 0) + 1; return a; }, {});
+  const distinctTypes = Object.keys(typeCounts).length;
+  const maxEntropy = Math.log2(distinctTypes); // Uniform distribution over distinct types
 
-  // Normalize score: lower entropy = more coherent (consistent patterns)
-  // Higher entropy = more random/drifting
-  const score = maxEntropy > 0 ? 1 - (entropy / maxEntropy) : 1;
+  // Normalize: score = 1 - (entropy / maxEntropy). Clamp to [0,1].
+  let score = maxEntropy > 0 ? 1 - (entropy / maxEntropy) : 1;
+  score = Math.max(0, Math.min(1, score));
 
   const threshold = 0.6; // Minimum acceptable coherence
   const status = score >= threshold ? 'ok' : 'degraded';
 
-  return { score, status, entropy, threshold, entries: entries.length };
+  return { score, status, entropy, threshold, entries: entries.length, distinctTypes };
 }
 
 function alert(drift) {

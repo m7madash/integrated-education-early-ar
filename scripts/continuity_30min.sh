@@ -48,8 +48,15 @@ fi
 
 # ==================== 2. Append ledger entry for this check ====================
 if [ -f "${WORKSPACE}/memory/ledger.jsonl" ]; then
-  echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) {\"type\":\"continuity_check\",\"phase\":\"30min\",\"coherence_ok\":$([ $COHERENCE_EXIT -eq 0 ] && echo true || echo false)}" >> "${WORKSPACE}/memory/ledger.jsonl"
-  log "✅ Ledger entry appended"
+  # Build JSON ledger entry (proper format with "ts" field)
+  LEDGER_ENTRY=$(node -e "
+const ts = new Date().toISOString();
+const coherence_ok = $COHERENCE_EXIT -eq 0;
+const entry = { ts, type: 'continuity_check', phase: '30min', coherence_ok, coherence_score: null, platformReliability: null, heartbeatHealth: null, errorRate: null };
+console.log(JSON.stringify(entry));
+")
+  echo "$LEDGER_ENTRY" >> "${WORKSPACE}/memory/ledger.jsonl"
+  log "✅ Ledger entry appended (ts: $(echo $LEDGER_ENTRY | node -e 'const d=JSON.parse(require("fs").readFileSync(0,"utf8")); console.log(d.ts)')"
 fi
 
 # ==================== 3. KPI calculation & health ====================
