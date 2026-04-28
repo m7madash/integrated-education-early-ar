@@ -64,11 +64,68 @@ if [ -f "${WORKSPACE}/scripts/kpi_tracker.js" ]; then
   KPI_OUTPUT=$(node "${WORKSPACE}/scripts/kpi_tracker.js" check 2>&1)
   log "${KPI_OUTPUT}"
   KPI_STATUS=$?
+  # Capture KPI summary for state update
+  if [ -f "${WORKSPACE}/memory/kpi_current.json" ]; then
+    KPI_JSON=$(cat "${WORKSPACE}/memory/kpi_current.json")
+    KPI_HEALTH=$(echo "$KPI_JSON" | node -e "const d=JSON.parse(require('fs').readFileSync(0,'utf8')); console.log(d.health || 'unknown')" 2>/dev/null || echo "unknown")
+    KPI_DEGRADATION=$(echo "$KPI_JSON" | node -e "const d=JSON.parse(require('fs').readFileSync(0,'utf8')); console.log(d.degradationReason || d.issues && d.issues[0] || '')" 2>/dev/null || echo "")
+  else
+    KPI_HEALTH="unknown"
+    KPI_DEGRADATION=""
+  fi
   if [ ${KPI_STATUS} -ne 0 ]; then
     log "⚠️ KPI check returned issues — review memory/kpi_current.json"
   fi
 else
   log "⚠️ kpi_tracker.js not found — skipping metrics"
+  KPI_HEALTH="unknown"
+  KPI_DEGRADATION=""
+fi
+
+# ==================== 3b. Update heartbeat-state.json atomically ====================
+log "💓 Updating heartbeat-state.json..."
+STATE_FILE="${WORKSPACE}/heartbeat-state.json"
+# Compute next heartbeat (next :00 or :30)
+NOW_MS=$(date +%s%3N)
+NOW_SEC=$((NOW_MS / 1000))
+MINUTE=$(( (NOW_SEC / 60) % 60 ))
+if [ $MINUTE -lt 30 ]; then
+  NEXT_HB=$(date -u -d "@$(( (NOW_SEC + (30*60) ))" '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || date -u -v+30M '+%Y-%m-%dT%H:%M:00.000Z' 2>/dev/null || echo "$(date -u '+%Y-%m-%dT%H:30:00.000Z')")
+else
+  NEXT_HB=$(date -u -d "@$(( NOW_SEC + (60-MINUTE)*60 ))" '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || date -u -v+0M '+%Y-%m-%dT%H:00:00.000Z' 2>/dev/null || echo "$(date -u '+%Y-%m-%dT%H:00:00.000Z')")
+fi
+LAST_RUN=$(date -u '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || date -u '+%Y-%m-%dT%H:%M:00.000Z')
+# Build new state JSON
+NEW_STATE=$(node -e "
+const fs=require('fs');
+const path=require('path');
+const stateFile=process.argv[1];
+const lastRun=process.argv[2];
+const nextHb=process.argv[3];
+const health=process.argv[4];
+const degradation=process.argv[5];
+let state;
+try { state = JSON.parse(fs.readFileSync(stateFile,'utf8')); } catch(e) { state = { lastChecks:{}, status:'unknown', nextHeartbeat:null, lastContinuityRun:null } }
+state.lastContinuityRun = lastRun;
+state.nextHeartbeat = nextHb;
+state.lastChecks = state.lastChecks || {};
+state.lastChecks.continuity = lastRun;
+state.lastChecks.ledger = lastRun;
+state.status = health;
+state.degradationReason = degradation || (state.degradationReason || '');
+state.updatedAt = new Date().toISOString();
+process.stdout.write(JSON.stringify(state, null, 2));
+" "$STATE_FILE" "$LAST_RUN" "$NEXT_HB" "$KPI_HEALTH" "$KPI_DEGRADATION") || {
+  log "⚠️ Failed to compute new heartbeat state — skipping update"
+  NEW_STATE=""
+}
+if [ -n "$NEW_STATE" ]; then
+  TMP_FILE="${STATE_FILE}.tmp"
+  echo "$NEW_STATE" > "$TMP_FILE"
+  mv "$TMP_FILE" "$STATE_FILE"
+  log "✅ heartbeat-state.json updated (status: $KPI_HEALTH, next: $NEXT_HB)"
+else
+  log "⚠️ heartbeat-state.json NOT updated (JSON build failed)"
 fi
 
 # ==================== 4. Memory file check ====================
