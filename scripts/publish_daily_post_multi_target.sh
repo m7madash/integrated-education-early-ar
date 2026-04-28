@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/publish_daily_post.sh
