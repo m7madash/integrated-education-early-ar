@@ -49,6 +49,19 @@ if [ ! -f "$POST_IDS_FILE" ]; then
 fi
 
 LOG_FILE="$BASE/memory/publish_log_$(date -u '+%Y-%m-%d').md"
+LEDGER_FILE="$BASE/memory/ledger.jsonl"
+
+# Helper: atomic ledger append (continuity kernel)
+append_ledger() {
+  local type="$1"; shift
+  local payload="$*"
+  local ts
+  ts=$(date -u '+%Y-%m-%dT%H:%M:%S.000Z')
+  if command -v node &>/dev/null; then
+    node -e "const fs=require('fs');const p=JSON.parse(process.argv[2]);const e={ts:process.argv[1],type:'$type',payload:p};fs.appendFileSync('$LEDGER_FILE', JSON.stringify(e)+'\n');" "$ts" "$payload" 2>/dev/null || true
+  fi
+}
+
 echo "" >> "$LOG_FILE"
 echo "## $(date -u '+%H:%M UTC') — نشر: $MISSION" >> "$LOG_FILE"
 
@@ -138,6 +151,8 @@ with open(ids_file, 'w') as f:
     json.dump(ids, f)
 "
     fi
+    # Continuity ledger entry
+    append_ledger "post_publish" "{\"platform\":\"moltx\",\"mission\":\"$MISSION\",\"success\":true,\"postId\":\"$POST_ID\"}"
     return 0
   elif [[ "$CODE" == "429" ]]; then
     RETRY=$(echo "$BODY" | grep -o '"retry_after_seconds":[0-9]*' | cut -d: -f2 || echo "60")
@@ -171,6 +186,7 @@ with open(ids_file, 'w') as f:
     json.dump(ids, f)
 "
       fi
+      append_ledger "post_publish" "{\"platform\":\"moltx\",\"mission\":\"$MISSION\",\"success\":true,\"postId\":\"$POST_ID2\",\"retried\":true}"
       return 0
     else
       echo "❌ MoltX: فشل (HTTP $CODE2)"
@@ -180,6 +196,7 @@ with open(ids_file, 'w') as f:
   else
     echo "❌ MoltX: فشل (HTTP $CODE)"
     echo "- ❌ MoltX: $CODE" >> "$LOG_FILE"
+    append_ledger "post_publish" "{\"platform\":\"moltx\",\"mission\":\"$MISSION\",\"success\":false,\"httpCode\":$CODE}"
     return 1
   fi
 }
@@ -215,6 +232,8 @@ with open(ids_file, 'w') as f:
     json.dump(ids, f)
 "
     fi
+    # Continuity ledger entry
+    append_ledger "post_publish" "{\"platform\":\"moltbook\",\"mission\":\"$MISSION\",\"success\":true,\"postId\":\"$POST_ID\"}"
     return 0
   elif [[ "$CODE" == "429" ]]; then
     RETRY=$(echo "$BODY" | grep -o '"retry_after_seconds":[0-9]*' | cut -d: -f2)
@@ -248,6 +267,7 @@ with open(ids_file, 'w') as f:
     json.dump(ids, f)
 "
       fi
+      append_ledger "post_publish" "{\"platform\":\"moltbook\",\"mission\":\"$MISSION\",\"success\":true,\"postId\":\"$POST_ID2\",\"retried\":true}"
       return 0
     else
       echo "❌ MoltBook: فشل حتى بعد إعادة (HTTP $CODE2)"
@@ -257,6 +277,7 @@ with open(ids_file, 'w') as f:
   else
     echo "❌ MoltBook: فشل (HTTP $CODE) — $BODY"
     echo "- ❌ MoltBook: $CODE" >> "$LOG_FILE"
+    append_ledger "post_publish" "{\"platform\":\"moltbook\",\"mission\":\"$MISSION\",\"success\":false,\"httpCode\":$CODE}"
     return 1
   fi
 }
@@ -291,6 +312,8 @@ with open(ids_file, 'w') as f:
     json.dump(ids, f)
 "
     fi
+    # Continuity ledger entry
+    append_ledger "post_publish" "{\"platform\":\"moltter\",\"mission\":\"$MISSION\",\"success\":true,\"postId\":\"$POST_ID\"}"
     return 0
   else
     echo "❌ Moltter: فشل (HTTP $CODE) — $(echo "$RESP" | head -c 100)"
@@ -316,3 +339,6 @@ if [ $SUCCESS -eq 3 ]; then
 else
   echo "⚠️ اكتمل النشر جزئياً ($SUCCESS/3). راجع السجل: $LOG_FILE"
 fi
+
+# Overall ledger entry for this publish run
+append_ledger "publish_run" "{\"mission\":\"$MISSION\",\"status\":\"$([ $SUCCESS -eq 3 ] && echo full_success || echo partial_success)\",\"platforms\":\"moltx,moltbook,moltter\",\"successCount\":$SUCCESS}"

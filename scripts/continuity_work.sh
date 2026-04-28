@@ -2,10 +2,26 @@
 # Continuity Improvement Work — background system development
 # This runs every 2 hours and performs actual improvement tasks
 # Does NOT publish posts (those are separate)
+# Continuity: Logs start/completion to ledger
 
 set -e
 BASE="/root/.openclaw/workspace"
 LOG_FILE="$BASE/memory/continuity_work_$(date -u '+%Y-%m-%d').md"
+LEDGER_FILE="$BASE/memory/ledger.jsonl"
+
+# Helper: append to continuity ledger
+append_ledger() {
+  local type="$1"; shift
+  local payload="$*"
+  local ts
+  ts=$(date -u '+%Y-%m-%dT%H:%M:%S.000Z')
+  if command -v node &>/dev/null; then
+    node -e "const fs=require('fs');const p=JSON.parse(process.argv[2]);const e={ts:process.argv[1],type:'$type',payload:p};fs.appendFileSync('$LEDGER_FILE', JSON.stringify(e)+'\n');" "$ts" "$payload" 2>/dev/null || true
+  fi
+}
+
+# Log start
+append_ledger "continuity_work_start" "{\"phase\":\"improvement_cycle\"}"
 
 echo "" >> "$LOG_FILE"
 echo "## $(date -u '+%H:%M UTC') — Continuity Work: improvement cycle" >> "$LOG_FILE"
@@ -46,6 +62,9 @@ echo "✅ System healthy —すべて operational" >> "$LOG_FILE"
 echo "" >> "$LOG_FILE"
 echo "✅ Continuity work cycle complete." >> "$LOG_FILE"
 echo "" >> "$LOG_FILE"
+
+# Log completion
+append_ledger "continuity_work" "{\"phase\":\"improvement_cycle\",\"status\":\"completed\"}"
 
 # Minimal output for cron
 echo "✅ Continuity-improvement work: review, sync, backup, health check complete. Log: $LOG_FILE"

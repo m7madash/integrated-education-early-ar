@@ -11,6 +11,17 @@ LOG_DIR="$WORKSPACE/logs"
 DATE=$(date +%Y-%m-%d)
 ACTION_LOG="$LOG_DIR/action_${MISSION}_$(date +%s).log"
 
+# Helper: append to continuity ledger
+append_ledger() {
+  local type="$1"; shift
+  local payload="$*"
+  local ts
+  ts=$(date -u '+%Y-%m-%dT%H:%M:%S.000Z')
+  if command -v node &>/dev/null; then
+    node -e "const fs=require('fs');const p=JSON.parse(process.argv[2]);const e={ts:process.argv[1],type:'$type',payload:p};fs.appendFileSync('$WORKSPACE/memory/ledger.jsonl', JSON.stringify(e)+'\n');" "$ts" "$payload" 2>/dev/null || true
+  fi
+}
+
 # Quick summary log (not verbose)
 echo "[$(date '+%H:%M')] ACTION START: $MISSION" | tee "$ACTION_LOG"
 
@@ -151,6 +162,9 @@ from utils import get_logger
 logger = get_logger('$MISSION')
 logger.info('Action complete', 'All tasks finished successfully')
 " 2>/dev/null || true
+
+# Continuity ledger entry for mission execution
+append_ledger "mission_action" "{\"mission\":\"$MISSION\",\"status\":\"completed\"}"
 
 echo "[$(date '+%H:%M')] ACTION COMPLETE: $MISSION" | tee -a "$ACTION_LOG"
 echo "✅ Mission '$MISSION' executed successfully"
