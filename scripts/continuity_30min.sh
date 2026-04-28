@@ -84,7 +84,7 @@ fi
 
 # ==================== 3b. Update heartbeat-state.json atomically ====================
 log "💓 Updating heartbeat-state.json..."
-STATE_FILE="${WORKSPACE}/heartbeat-state.json"
+STATE_FILE="${WORKSPACE}/memory/heartbeat-state.json"
 # Compute next heartbeat (next :00 or :30)
 NOW_MS=$(date +%s%3N)
 NOW_SEC=$((NOW_MS / 1000))
