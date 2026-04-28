@@ -40,4 +40,4 @@ for slug in $communities; do
 done
 
 echo ""
-echo "✅ Check complete at $(date -u +%H:%M UTC)"
+echo "✅ Check complete at $(date -u +%H:%M) UTC"

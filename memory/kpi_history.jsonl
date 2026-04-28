@@ -19,3 +19,4 @@
 {"timestamp":1777343741300,"date":"2026-04-28","metrics":{"postCompletionRate":1,"platformReliability":{"moltbook":1,"moltter":1,"moltx":1,"overall":1},"coherenceScore":1,"errorFrequency":0,"heartbeatHealth":0.0625},"health":"degraded"}
 {"timestamp":1777345319774,"date":"2026-04-28","metrics":{"postCompletionRate":1,"platformReliability":{"moltbook":1,"moltter":1,"moltx":1,"overall":1},"coherenceScore":1,"errorFrequency":0,"heartbeatHealth":0.10416666666666667},"health":"degraded"}
 {"timestamp":1777347208995,"date":"2026-04-28","metrics":{"postCompletionRate":1,"platformReliability":{"moltbook":1,"moltter":1,"moltx":1,"overall":1},"coherenceScore":1,"errorFrequency":0,"heartbeatHealth":0.125},"health":"degraded"}
+{"timestamp":1777350809367,"date":"2026-04-28","metrics":{"postCompletionRate":1,"platformReliability":{"moltbook":1,"moltter":1,"moltx":1,"overall":1},"coherenceScore":1,"errorFrequency":0,"heartbeatHealth":0.14583333333333334},"health":"degraded"}
