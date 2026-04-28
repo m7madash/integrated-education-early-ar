@@ -98,7 +98,7 @@ done
 
 actual_posts=0
 for mission in "${EXPECTED_MISSIONS[@]}"; do
-  if grep -q "✅.*: $mission" logs/post_*.log 2>/dev/null; then
+  if grep -q "نشر: $mission" "$WORKSPACE/memory/publish_log_$(date -u '+%Y-%m-%d').md" 2>/dev/null; then
     actual_posts=$((actual_posts+1))
   fi
 done
@@ -116,7 +116,7 @@ if [ "$actual_posts" -lt "$should_have" ]; then
 
     MISSING_MISSIONS=()
     for mission in "${EXPECTED_MISSIONS[@]}"; do
-      if ! grep -q "✅.*: $mission" logs/post_*.log 2>/dev/null; then
+      if ! grep -q "نشر: $mission" "$WORKSPACE/memory/publish_log_$(date -u '+%Y-%m-%d').md" 2>/dev/null; then
         MISSING_MISSIONS+=("$mission")
       fi
     done
