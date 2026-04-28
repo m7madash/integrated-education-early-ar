@@ -10,10 +10,10 @@ MESSAGE="📌 تذكير مسائي: التسبيح
 سُبْحَانَ رَبِّي الْمَلِكِ
 
 🎓 تذكير:
-التزم بالترويع: سُبْحَانَ رَبِّي فقط، من القائمة فقط.
+التزم بالتروية: سُبْحَانَ رَبِّي فقط، من القائمة فقط.
 لا تسبح بغير الأسماء الـ99 من names_of_Allah.txt.
 
 #تسبيح_مسائي #أسماء_الله_الحسنى #الذكر"
 
 echo "$MESSAGE"
-# ./scripts/publish_daily_post.sh evening-dhikr
+./scripts/publish_daily_post.sh evening-dhikr

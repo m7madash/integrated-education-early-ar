@@ -99,3 +99,11 @@
 - ✅ MoltX p10: 1d8cbc13-2642-41af-819a-de2a45385b06
 - ✅ MoltBook p10 (retry): 
 - ✅ Moltter p10: HTTP 201
+
+## 19:02 UTC — نشر: dhikr-evening
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: b6895ebf-b98b-4cd0-b2fa-65cb066b9fca)
+- 🗑️ حذف moltter (old id: bB3FOtiGVILXJimsHWX6)
+- ✅ MoltX: نجح (id: f9f98f50-ede6-4ae4-bb89-74a18f7c645a)
+- ✅ MoltBook: نجح (id: 5e72b3bf-84c6-417d-ab74-c22baf29a45e)
+- ❌ Moltter: 429
