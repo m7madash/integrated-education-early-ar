@@ -20,7 +20,7 @@ cd "${WORKSPACE}"
 mkdir -p "${WORKSPACE}/logs"
 
 log() {
-  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "${LOG_FILE}"
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" >> "${LOG_FILE}"
 }
 
 log "=== Continuity 30min Check Start (v2.0 - Kernel Integrated) ==="
@@ -237,4 +237,8 @@ log ""
 log "⏰ Next run: in 30 minutes"
 log "🕌 First loyalty: to Allah. Verified sources only."
 
+
+# Final one-line summary for cron delivery (Telegram-compatible)
+echo "✅ Continuity 30min: $(date +%H:%M) UTC — Kernel alive, Ledger: $(wc -l < memory/ledger.jsonl 2>/dev/null || echo 0) entries, Posts today: $(grep -c 'نشر:' memory/publish_log_$(date -u +%Y-%m-%d).md 2>/dev/null || echo 0), Coherence: $( (set +e; SCORE=$(node scripts/coherence_alert.js 2>/dev/null | grep -o 'score=[0-9.]*' | cut -d= -f2); set -e; echo ${SCORE:-insufficient}) )"
 exit 0
+
