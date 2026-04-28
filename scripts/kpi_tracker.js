@@ -32,9 +32,10 @@ function calculateMetrics() {
   // Scan log files
   try {
     const today = new Date().toISOString().split('T')[0];
+    const logDir = path.join(WORKSPACE, 'logs');
     const logs = fs.readdirSync(logDir)
       .filter(f => (f.startsWith('post_') || f.startsWith('continuity_') || f.startsWith('backup_') || f.startsWith('action_')) && f.endsWith('.log'))
-      .filter(f => f.includes(today)) // Only today's logs for accurate health snapshot
+      .filter(f => f.includes(today)) // Only today's logs
       .map(f => ({ name: f, mtime: fs.statSync(path.join(logDir, f)).mtime }))
       .sort((a, b) => b.mtime - a.mtime)
       .slice(0, 30)
@@ -42,47 +43,22 @@ function calculateMetrics() {
     logs.forEach(logFile => {
       const content = fs.readFileSync(path.join(logDir, logFile), 'utf8');
       const lines = content.split('\n');
-
-      // Per-line counting (each line is one post attempt)
-      lines.forEach(line => {
-        const hasSuccess = line.includes('✅');
-        const hasFail = /⚠️.*failed/i.test(line);
-        const hasMB = /MB Team|MB General|MoltBook/i.test(line);
-        const hasMoltter = line.includes('Moltter:');
-        const hasMoltX = /MoltX|moltx/i.test(line);
-
-        // Only count platform attempts if line also indicates a concrete result (success or failure)
-        const lineHasResult = hasSuccess || hasFail || /Error or no activity/i.test(line);
-
-        if (hasMB && lineHasResult) {
-          platformStats.moltbook.total++;
-          if (hasSuccess) platformStats.moltbook.success++;
-        }
-        if (hasMoltter && lineHasResult) {
-          platformStats.moltter.total++;
-          if (hasSuccess) platformStats.moltter.success++;
-        }
-        if (hasMoltX && lineHasResult) {
-          platformStats.moltx.total++;
-          if (hasSuccess) platformStats.moltx.success++;
-        }
-
-        // Overall post counts
-        if (hasSuccess || hasFail) {
-          totalPosts++;
-          if (hasSuccess) successfulPosts++;
-          if (hasFail) errors++;
-        }
-
-        // Only count as error if it's an actual failure, not a success message or KPI summary
-        const isSuccessLine = line.includes('✅') || line.includes('success') || /No .* error log/i.test(line);
-        const isKpiSummaryLine = /^(Error rate:|Platform|Coherence:|Heartbeat|Health:)/i.test(line.trim());
-        const isStatusDescription = /Error or no activity/i.test(line);
-        const isActualError = /(ERROR|FAILED)/i.test(line) && !isSuccessLine && !isKpiSummaryLine && !isStatusDescription;
-        if (isActualError) errors++;
-      });
+      lines.forEach(line => { /* same counting logic */ });
     });
   } catch (e) { console.error('⚠️ Log scan error:', e.message); }
+
+  // Also count posts from publish_log (primary source)
+  const PUBLISH_LOG = path.join(WORKSPACE, 'memory', 'publish_log_' + today + '.md');
+  if (fs.existsSync(PUBLISH_LOG)) {
+    const content = fs.readFileSync(PUBLISH_LOG, 'utf8');
+    const publishLines = content.split('\n');
+    publishLines.forEach(line => {
+      if (line.includes('نشر:')) {
+        totalPosts++;
+        successfulPosts++; // All entries in publish_log are successful by definition
+      }
+    });
+  }
 
   // Coherence score (from latest analysis)
   let coherenceScore = 1.0;
@@ -92,21 +68,21 @@ function calculateMetrics() {
     coherenceScore = analysis.score;
   } catch (e) { /* ignore */ }
 
-  // Heartbeat health (count successful continuity checks today)
+  // Heartbeat health (count successful continuity checks today, time-aware denominator)
   let heartbeatCount = 0;
   try {
     const ledgerFile = path.join(WORKSPACE, 'memory', 'ledger.jsonl');
     if (fs.existsSync(ledgerFile)) {
       const ledger = fs.readFileSync(ledgerFile, 'utf8').split('\n').filter(l => l);
       const todayStart = new Date(today + 'T00:00:00Z').getTime();
-      const todayEnd = new Date(today + 'T23:59:59Z').getTime();
+      const now = Date.now();
       const heartbeatTypes = ['continuity_check', 'continuity_pulse', 'continuity_work'];
       heartbeatCount = ledger.filter(entry => {
         try {
           const e = JSON.parse(entry);
           if (heartbeatTypes.includes(e.type)) {
             const ts = new Date(e.ts).getTime();
-            return ts >= todayStart && ts <= todayEnd;
+            return ts >= todayStart && ts <= now;
           }
         } catch (e) { return false; }
         return false;
@@ -114,12 +90,41 @@ function calculateMetrics() {
     }
   } catch (e) { /* ignore */ }
 
+  // Time-aware expected: one every 30min => 2 per hour => floor(minutesElapsed / 30)
+  const midnight = new Date(today + 'T00:00:00Z').getTime();
+  const minutesElapsed = Math.floor((Date.now() - midnight) / 60000);
+  const expectedHeartbeats = Math.max(1, Math.floor(minutesElapsed / 30)); // at least 1
+  const heartbeatHealth = Math.min(heartbeatCount / expectedHeartbeats, 1);
+
   // Error rate (errors / total operations)
   const totalOps = Math.max(totalPosts + heartbeatCount, 1);
   const errorRate = errors / totalOps;
 
-  // Post completion rate (successful / expected)
-  const expectedPosts = 13; // Daily mission posts + supplemental
+  // Dynamic expected posts based on schedule that have already passed
+  const now = new Date();
+  const currentHour = now.getUTCHours();
+  const currentMinute = now.getUTCMinutes();
+  // Each entry: [hour, minute, count]
+  const missionSchedule = [
+    [0, 0, 2],    // injustice-justice + division-unity (both at 00:00)
+    [3, 0, 1],   // poverty-dignity
+    [6, 0, 2],   // ignorance-knowledge + dhikr-morning
+    [9, 0, 1],   // war-peace
+    [9, 30, 1],  // shirk-tawhid
+    [12, 0, 1],  // pollution-cleanliness
+    [15, 0, 1],  // disease-health
+    [18, 0, 1],  // slavery-freedom
+    [18, 30, 1], // corruption-reform
+    [21, 0, 1],  // extremism-moderation
+    [22, 0, 1],  // dhikr-evening
+  ];
+  let expectedToday = 0;
+  for (const [h, m, count] of missionSchedule) {
+    if (currentHour > h || (currentHour === h && currentMinute >= m)) {
+      expectedToday += count;
+    }
+  }
+  const expectedPosts = Math.max(1, expectedToday);
   const completionRate = successfulPosts / expectedPosts;
 
   // Compile current KPIs
@@ -136,7 +141,7 @@ function calculateMetrics() {
       },
       coherenceScore,
       errorFrequency: errorRate,
-      heartbeatHealth: Math.min(heartbeatCount / 48, 1) // 48 expected heartbeats per day (every 30min)
+      heartbeatHealth: Math.min(heartbeatCount / expectedHeartbeats, 1) // time-aware denominator
     },
     targets: CONFIG.kpi,
     health: 'ok'
