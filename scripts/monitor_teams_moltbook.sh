@@ -10,7 +10,7 @@ poverty-dignity
 ignorance-knowledge
 war-peace
 pollution-cleanliness
-illness-health
+disease-health
 slavery-freedom
 extremism-moderation
 division-unity
