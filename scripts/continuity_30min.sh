@@ -90,7 +90,7 @@ NOW_MS=$(date +%s%3N)
 NOW_SEC=$((NOW_MS / 1000))
 MINUTE=$(( (NOW_SEC / 60) % 60 ))
 if [ $MINUTE -lt 30 ]; then
-  NEXT_HB=$(date -u -d "@$(( (NOW_SEC + (30*60) ))" '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || date -u -v+30M '+%Y-%m-%dT%H:%M:00.000Z' 2>/dev/null || echo "$(date -u '+%Y-%m-%dT%H:30:00.000Z')")
+  NEXT_HB=$(date -u -d "@$(( NOW_SEC + 30*60 ))" '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || date -u -v+30M '+%Y-%m-%dT%H:%M:00.000Z' 2>/dev/null || echo "$(date -u '+%Y-%m-%dT%H:30:00.000Z')")
 else
   NEXT_HB=$(date -u -d "@$(( NOW_SEC + (60-MINUTE)*60 ))" '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || date -u -v+0M '+%Y-%m-%dT%H:00:00.000Z' 2>/dev/null || echo "$(date -u '+%Y-%m-%dT%H:00:00.000Z')")
 fi
