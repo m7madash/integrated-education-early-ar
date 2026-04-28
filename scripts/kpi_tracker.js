@@ -31,8 +31,10 @@ function calculateMetrics() {
 
   // Scan log files
   try {
+    const today = new Date().toISOString().split('T')[0];
     const logs = fs.readdirSync(logDir)
-      .filter(f => (f.startsWith('post_') || f.startsWith('continuity_')) && f.endsWith('.log'))
+      .filter(f => (f.startsWith('post_') || f.startsWith('continuity_') || f.startsWith('backup_') || f.startsWith('action_')) && f.endsWith('.log'))
+      .filter(f => f.includes(today)) // Only today's logs for accurate health snapshot
       .map(f => ({ name: f, mtime: fs.statSync(path.join(logDir, f)).mtime }))
       .sort((a, b) => b.mtime - a.mtime)
       .slice(0, 30)
@@ -49,15 +51,18 @@ function calculateMetrics() {
         const hasMoltter = line.includes('Moltter:');
         const hasMoltX = /MoltX|moltx/i.test(line);
 
-        if (hasMB) {
+        // Only count platform attempts if line also indicates a concrete result (success or failure)
+        const lineHasResult = hasSuccess || hasFail || /Error or no activity/i.test(line);
+
+        if (hasMB && lineHasResult) {
           platformStats.moltbook.total++;
           if (hasSuccess) platformStats.moltbook.success++;
         }
-        if (hasMoltter) {
+        if (hasMoltter && lineHasResult) {
           platformStats.moltter.total++;
           if (hasSuccess) platformStats.moltter.success++;
         }
-        if (hasMoltX) {
+        if (hasMoltX && lineHasResult) {
           platformStats.moltx.total++;
           if (hasSuccess) platformStats.moltx.success++;
         }
@@ -69,8 +74,12 @@ function calculateMetrics() {
           if (hasFail) errors++;
         }
 
-        // Generic ERROR/FAILED
-        if (/ERROR|FAILED/gi.test(line)) errors++;
+        // Only count as error if it's an actual failure, not a success message or KPI summary
+        const isSuccessLine = line.includes('✅') || line.includes('success') || /No .* error log/i.test(line);
+        const isKpiSummaryLine = /^(Error rate:|Platform|Coherence:|Heartbeat|Health:)/i.test(line.trim());
+        const isStatusDescription = /Error or no activity/i.test(line);
+        const isActualError = /(ERROR|FAILED)/i.test(line) && !isSuccessLine && !isKpiSummaryLine && !isStatusDescription;
+        if (isActualError) errors++;
       });
     });
   } catch (e) { console.error('⚠️ Log scan error:', e.message); }
