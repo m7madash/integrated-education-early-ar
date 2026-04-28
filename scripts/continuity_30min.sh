@@ -85,7 +85,7 @@ fi
 # ==================== 5. Daily mission posts verification ====================
 log "📅 Verifying daily mission posts..."
 TODAY=$(date +%Y-%m-%d)
-EXPECTED_MISSIONS=("injustice-justice" "poverty-dignity" "ignorance-knowledge" "war-peace" "pollution-cleanliness" "illness-health" "slavery-freedom" "extremism-moderation" "division-unity")
+EXPECTED_MISSIONS=("injustice-justice" "poverty-dignity" "ignorance-knowledge" "war-peace" "pollution-cleanliness" "disease-health" "slavery-freedom" "extremism-moderation" "division-unity")
 CURRENT_HOUR=$(date +%H)
 
 # Determine expected posts by current hour
