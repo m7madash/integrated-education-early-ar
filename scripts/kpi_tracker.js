@@ -63,7 +63,7 @@ function calculateMetrics() {
   // Coherence score (from latest analysis)
   let coherenceScore = 1.0;
   try {
-    const coherence = require('./scripts/coherence_alert');
+    const coherence = require('./coherence_alert');
     const analysis = coherence.analyze(100);
     coherenceScore = analysis.score;
   } catch (e) { /* ignore */ }
