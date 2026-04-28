@@ -140,9 +140,21 @@ function main() {
   ensure();
 
   const errors = loadErrors();
+  const ledgerFile = `${WORKSPACE}/memory/ledger.jsonl`;
+
   if (errors.length === 0) {
     console.log('✅ No errors today — system healthy');
     fs.writeFileSync(REPORT_FILE, `# Post-Mortem — ${new Date().toISOString().split('T')[0]}\n\n✅ No errors recorded. System operating normally.\n`);
+    // Still log healthy run to ledger for continuity tracking
+    const healthyEntry = {
+      ts: new Date().toISOString(),
+      type: 'postmortem',
+      date: new Date().toISOString().split('T')[0],
+      errorCount: 0,
+      status: 'healthy',
+      actions: ['routine_check_complete']
+    };
+    fs.appendFileSync(ledgerFile, `${JSON.stringify(healthyEntry)}\n`);
     return;
   }
 
@@ -153,6 +165,7 @@ function main() {
 
   // Also log to ledger
   const ledgerEntry = {
+    ts: new Date().toISOString(),
     type: 'postmortem',
     date: new Date().toISOString().split('T')[0],
     errorCount: errors.length,
@@ -164,8 +177,7 @@ function main() {
     actions: ['monitoring', 'regression_test', 'documentation']
   };
 
-  const ledgerFile = `${WORKSPACE}/memory/ledger.jsonl`;
-  fs.appendFileSync(ledgerFile, `${new Date().toISOString()} ${JSON.stringify(ledgerEntry)}\n`);
+  fs.appendFileSync(ledgerFile, `${JSON.stringify(ledgerEntry)}\n`);
 
   console.log('✅ Post-mortem complete — improvement cycle started');
 }

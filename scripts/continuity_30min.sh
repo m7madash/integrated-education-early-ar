@@ -34,11 +34,11 @@ if [ -f "${WORKSPACE}/continuity.js" ]; then
   log "✅ Kernel alive: ${KERNEL_STATUS}"
 
   # Coherence check
-  COHERENCE_RESULT=$(node "${WORKSPACE}/scripts/coherence_alert.js" 2>&1)
-  COHERENCE_EXIT=$?
-  if [ $COHERENCE_EXIT -eq 0 ]; then
+  if COHERENCE_RESULT=$(node "${WORKSPACE}/scripts/coherence_alert.js" 2>&1); then
+    COHERENCE_EXIT=0
     log "✅ Coherence OK: ${COHERENCE_RESULT}"
   else
+    COHERENCE_EXIT=$?
     log "🚨 COHERENCE DRIFT DETECTED — review ledger immediately"
     # Alert already sent by coherence_alert.js
   fi

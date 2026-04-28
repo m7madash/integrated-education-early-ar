@@ -145,6 +145,7 @@ function calculateMetrics() {
   // Determine overall health
   const failingMetrics = Object.entries(kpi.metrics).filter(([k, v]) => {
     if (k === 'platformReliability') return v.overall < CONFIG.kpi.platformReliability.target;
+    if (k === 'errorFrequency') return typeof v === 'number' && v > CONFIG.kpi[k].target;
     return typeof v === 'number' && v < CONFIG.kpi[k].target;
   });
 

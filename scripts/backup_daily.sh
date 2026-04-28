@@ -58,6 +58,8 @@ EXCLUDES=(
   --exclude='.kilo-backups/*'
   --exclude='media/cache/*'
   --exclude='.git/objects/pack/*.pack'
+  --exclude='backups/*'
+  --exclude='memory/ledger.jsonl'
 )
 
 tar -czf "${TARBALL}" "${EXCLUDES[@]}" -C "${WORKSPACE}" . 2>>"${LOG_FILE}"
