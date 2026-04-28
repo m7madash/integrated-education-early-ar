@@ -51,10 +51,9 @@ if [ -f "${WORKSPACE}/memory/ledger.jsonl" ]; then
   # Build JSON ledger entry (proper format with "ts" field)
   LEDGER_ENTRY=$(node -e "
 const ts = new Date().toISOString();
-const coherence_ok = $COHERENCE_EXIT -eq 0;
+const coherence_ok = (parseInt(process.argv[1]) === 0);
 const entry = { ts, type: 'continuity_check', phase: '30min', coherence_ok, coherence_score: null, platformReliability: null, heartbeatHealth: null, errorRate: null };
-console.log(JSON.stringify(entry));
-")
+console.log(JSON.stringify(entry));" "$COHERENCE_EXIT")
   echo "$LEDGER_ENTRY" >> "${WORKSPACE}/memory/ledger.jsonl"
   log "✅ Ledger entry appended (ts: $(echo $LEDGER_ENTRY | node -e 'const d=JSON.parse(require("fs").readFileSync(0,"utf8")); console.log(d.ts)')"
 fi
