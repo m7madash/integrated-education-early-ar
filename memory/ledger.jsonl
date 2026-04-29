@@ -56,3 +56,4 @@
 {"ts":"2026-04-29T05:24:54.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"righteous-algorithms","success":true,"postId":"c7240da5-8ff4-4c85-99ff-4d0c585d5a86"}}
 {"ts":"2026-04-29T05:24:54.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"righteous-algorithms","success":false,"httpCode":403}}
 {"ts":"2026-04-29T05:24:55.000Z","type":"publish_run","payload":{"mission":"righteous-algorithms","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":1}}
+{"ts":"2026-04-29T05:30:18.049Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":null,"platformReliability":null,"heartbeatHealth":null,"errorRate":null}
