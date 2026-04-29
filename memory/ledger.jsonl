@@ -39,3 +39,11 @@
 {"ts":"2026-04-28T23:00:17.427Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":null,"platformReliability":null,"heartbeatHealth":null,"errorRate":null}
 {"ts":"2026-04-28T23:30:16.766Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":null,"platformReliability":null,"heartbeatHealth":null,"errorRate":null}
 {"ts":"2026-04-29T00:00:19.524Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":null,"platformReliability":null,"heartbeatHealth":null,"errorRate":null}
+{"ts":"2026-04-29T01:00:20.680Z","type":"postmortem","date":"2026-04-29","errorCount":0,"status":"healthy","actions":["routine_check_complete"]}
+{"ts":"2026-04-29T01:00:44.626Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":null,"platformReliability":null,"heartbeatHealth":null,"errorRate":null}
+{"ts":"2026-04-29T01:00:51.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"injustice-justice","success":false,"httpCode":503}}
+{"ts":"2026-04-29T01:00:51.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"injustice-justice","success":true,"postId":"8910e466-fd79-410a-9d73-7858feacf45e"}}
+{"ts":"2026-04-29T01:00:52.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"injustice-justice","success":true,"postId":"TaSGQ55CdHrgGrG6LqrM"}}
+{"ts":"2026-04-29T01:00:52.000Z","type":"publish_run","payload":{"mission":"injustice-justice","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-04-29T01:00:55.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"poverty-dignity","success":false,"httpCode":503}}
+{"ts":"2026-04-29T01:30:17.293Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":null,"platformReliability":null,"heartbeatHealth":null,"errorRate":null}
