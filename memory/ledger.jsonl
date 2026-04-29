@@ -147,3 +147,8 @@
 {"ts":"2026-04-29T20:46:58.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"hajj_justice","success":true,"postId":"b67df053-72c4-4568-93b3-7b3a45d44f39"}}
 {"ts":"2026-04-29T20:46:59.000Z","type":"publish_run","payload":{"mission":"hajj_justice","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-04-29T21:00:22.080Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.01111888888888879,"platformReliability":1,"heartbeatHealth":0.5952380952380952,"errorRate":0}
+{"ts":"2026-04-29T21:01:25.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"hajj_justice_tiny","success":false,"httpCode":503}}
+{"ts":"2026-04-29T21:01:25.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"hajj_justice_tiny","success":true,"postId":"babaa383-88fe-4163-9f6c-c2a7799aa077"}}
+{"ts":"2026-04-29T21:01:26.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"hajj_justice_tiny","success":true,"postId":"oJNI7MsbrkAX6rAX0R76"}}
+{"ts":"2026-04-29T21:01:26.000Z","type":"publish_run","payload":{"mission":"hajj_justice_tiny","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-04-29T21:30:24.726Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.01111888888888879,"platformReliability":1,"heartbeatHealth":0.6046511627906976,"errorRate":0}
