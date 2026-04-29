@@ -127,3 +127,4 @@
 {"ts":"2026-04-29T14:07:35.000Z","type":"publish_run","payload":{"mission":"anti_extortion_1","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-04-29T14:07:55.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"anti_extortion_1","success":true,"postId":"9e93f2a5-6879-432d-b085-9a013cc1872d"}}
 {"ts":"2026-04-29T14:32:31.528Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.010266944444444537,"platformReliability":1,"heartbeatHealth":0.5172413793103449,"errorRate":0}
+{"ts":"2026-04-29T15:00:17.466Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.007400277777777853,"platformReliability":1,"heartbeatHealth":0.5333333333333333,"errorRate":0}
