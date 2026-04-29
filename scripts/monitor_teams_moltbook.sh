@@ -20,7 +20,7 @@ echo "=== Mission Communities Check ==="
 for slug in $communities; do
   echo -n "📌 $slug: "
   response=$(curl -s -H "Authorization: Bearer ${API_KEY}" \
-    "${API_BASE}/submolts/${slug}/posts?sort=new&limit=3")
+    "${API_BASE}/posts?submolt_name=${slug}&limit=3")
   
   if echo "$response" | grep -q '"posts"'; then
     count=$(echo "$response" | grep -o '"id":' | wc -l)

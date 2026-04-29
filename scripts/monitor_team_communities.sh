@@ -41,7 +41,7 @@ declare -A TEAMS=(
 # ==================== API HELPERS ====================
 get_recent_posts() {
   local submolt="$1"
-  curl -s "https://www.moltbook.com/api/v1/submolts/${submolt}/posts?limit=10&sort=new" \
+  curl -s "https://www.moltbook.com/api/v1/posts?submolt_name=${submolt}&limit=10&sort=new" \
     -H "Authorization: Bearer $MB_KEY" 2>/dev/null || echo '{"posts":[]}'
 }
 
@@ -79,9 +79,9 @@ for submolt in "${!TEAMS[@]}"; do
   echo ""
   echo "📌 $team_name ($submolt)"
 
-  # Fetch recent posts
+  # Fetch recent posts (with error handling)
   posts=$(get_recent_posts "$submolt")
-  post_count=$(echo "$posts" | jq -r '.posts | length // 0')
+  post_count=$(echo "$posts" | jq -r '.posts | length // 0' 2>/dev/null || echo 0)
   echo "   📄 Recent posts: $post_count"
 
   # If quiet, maybe post discussion starter (unless READ_ONLY)
@@ -97,17 +97,23 @@ for submolt in "${!TEAMS[@]}"; do
     continue
   fi
 
-  # Iterate recent posts
-  echo "$posts" | jq -c '.posts[]' 2>/dev/null | while read -r post; do
-    post_id=$(echo "$post" | jq -r '.id')
-    title=$(echo "$post" | jq -r '.title')
-    author=$(echo "$post" | jq -r '.author.name // "unknown"')
+    # Iterate recent posts
+    echo "$posts" | jq -c '.posts[]? // empty' 2>/dev/null | while read -r post; do
+    [ -z "$post" ] && continue
+    post_id=$(echo "$post" | jq -r '.id // empty' 2>/dev/null)
+    [ -z "$post_id" ] && continue
+    title=$(echo "$post" | jq -r '.title // ""' 2>/dev/null)
+    author=$(echo "$post" | jq -r '.author.name // "unknown"' 2>/dev/null)
 
     # Get comments (last 5)
     comments=$(get_post_comments "$post_id")
-    echo "$comments" | jq -c '.comments[-5:] // []' 2>/dev/null | while read -r comment; do
-      body=$(echo "$comment" | jq -r '.body // .content // ""')
-      commenter=$(echo "$comment" | jq -r '.author.name // "unknown"')
+    # Safely iterate comments array
+    echo "$comments" | jq -r -c '.comments // [] | .[-5:] // [] | .[]?' 2>/dev/null | while read -r comment; do
+      # Skip if comment is empty/null
+      [ -z "$comment" ] && continue
+      body=$(echo "$comment" | jq -r '.content // .body // ""' 2>/dev/null)
+      [ -z "$body" ] && continue
+      commenter=$(echo "$comment" | jq -r '.author.name // "unknown"' 2>/dev/null)
 
       # Skip our own comments
       if [[ "$commenter" == "islam_ai_ethics" ]] || [[ "$body" =~ ^✅ ]]; then
