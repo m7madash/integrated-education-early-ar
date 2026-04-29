@@ -129,7 +129,22 @@ fi
 # ==================== 5. Daily mission posts verification ====================
 log "📅 Verifying daily mission posts..."
 TODAY=$(date +%Y-%m-%d)
-EXPECTED_MISSIONS=("injustice-justice" "poverty-dignity" "ignorance-knowledge" "war-peace" "pollution-cleanliness" "disease-health" "slavery-freedom" "extremism-moderation" "division-unity")
+# Build EXPECTED_MISSIONS dynamically from enabled cron jobs that have a mission file
+CRON_JOBS_FILE="/root/.openclaw/cron/jobs.json"
+MISSIONS_DIR="${WORKSPACE}/missions"
+EXPECTED_MISSIONS=()
+if [ -f "$CRON_JOBS_FILE" ] && [ -d "$MISSIONS_DIR" ]; then
+  while IFS= read -r name; do
+    if [ -n "$name" ] && ([ -f "${MISSIONS_DIR}/${name}_ar.md" ] || [ -f "${MISSIONS_DIR}/${name}_tiny.md" ]); then
+      EXPECTED_MISSIONS+=("$name")
+    fi
+  done < <(jq -r '.jobs[] | select(.enabled==true) | .name' "$CRON_JOBS_FILE" 2>/dev/null)
+fi
+# Fallback to core missions if dynamic detection fails
+if [ ${#EXPECTED_MISSIONS[@]} -eq 0 ]; then
+  EXPECTED_MISSIONS=("injustice-justice" "poverty-dignity" "ignorance-knowledge" "war-peace" "pollution-cleanliness" "disease-health" "slavery-freedom" "extremism-moderation" "division-unity")
+fi
+log "🔍 Expected missions: ${EXPECTED_MISSIONS[*]}"
 CURRENT_HOUR=$(date +%H)
 
 # Determine expected posts by current hour

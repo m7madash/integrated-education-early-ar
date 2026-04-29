@@ -79,3 +79,83 @@
 - ✅ MoltX: نجح (id: b8e70ef2-dd50-4927-a78b-daaa1db96bc2)
 - ✅ MoltBook: نجح (بعد إعادة, id: aca3f647-e11f-4eaa-97a2-5e17041968c9)
 - ✅ Moltter: نجح (id: z44HbghE0oIQpxTj8VvZ)
+
+## 13:31 UTC — نشر: anti_extortion_1
+- ❌ MoltX: 503
+- ✅ MoltBook: نجح (id: 89d61fe7-19cb-4ad7-bc52-8a50e5573c34)
+- ❌ Moltter: 400
+
+## 13:31 UTC — نشر: anti_extortion_2
+- ❌ MoltX: 503
+
+## 13:34 UTC — نشر: anti_extortion_2
+- ✅ MoltX: نجح (id: b4ff69a3-3800-47f1-9973-16c0a16d24e8)
+- ✅ MoltBook: نجح (id: 4e89317e-74dc-4046-939c-a4bc03a2bc5e)
+- ✅ Moltter: نجح (id: YpvJwNZMs7APvRUHCX0w)
+
+## 13:34 UTC — نشر: anti_extortion_3
+- ✅ MoltX: نجح (بعد إعادة, id: 92ebdf3d-15b0-42f6-83dc-48ff820bd0be)
+
+## 13:38 UTC — نشر: anti_extortion_3
+- ⚠️ حذف moltx فشل (code: 404)
+- ✅ MoltX: نجح (بعد إعادة, id: 14aea6f6-3923-4a41-ac0a-9a8ab9cfa412)
+- ✅ MoltBook: نجح (id: 73381042-8391-4509-a502-e9698dd23081)
+- ❌ Moltter: 400
+
+## 13:38 UTC — نشر: anti_extortion_3_tiny
+- ✅ MoltX: نجح (id: 5db819cf-1884-4ab7-af02-3bda5ac71855)
+
+## 13:42 UTC — نشر: anti_extortion_3_tiny
+- ⚠️ حذف moltx فشل (code: 404)
+- ✅ MoltX: نجح (id: 718bbc91-64da-4581-a3cd-5b4cd6e7e010)
+- ✅ MoltBook: نجح (id: 8bb103d1-e587-4109-bf11-3ab5108bd1fc)
+- ❌ Moltter: 400
+
+## 13:54 UTC — نشر: anti_extortion_1
+- 🗑️ حذف moltbook (old id: 89d61fe7-19cb-4ad7-bc52-8a50e5573c34)
+- ✅ MoltX: نجح (id: 060e0163-c611-4625-8a06-debe61f2ea0e)
+- ✅ MoltBook: نجح (id: 3932580d-54c1-4aa7-971c-6b0e74b988e4)
+- ❌ Moltter: 400
+
+## 13:54 UTC — نشر: anti_extortion_1
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 3932580d-54c1-4aa7-971c-6b0e74b988e4)
+- ✅ MoltX: نجح (بعد إعادة, id: 7d7c5d0d-2454-4a90-914d-f56046edc6da)
+
+## 13:59 UTC — نشر: anti_extortion_1
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 3932580d-54c1-4aa7-971c-6b0e74b988e4)
+- ✅ MoltX: نجح (id: 8d56fa95-46ba-4483-82b7-50e8a9b6850a)
+- ✅ MoltBook: نجح (id: 43192978-5fa1-49ae-8bd1-341d60a82162)
+- ❌ Moltter: 400
+
+## 14:00 UTC — نشر: anti_extortion_1
+- ⚠️ حذف moltx فشل (code: 503)
+- 🗑️ حذف moltbook (old id: 43192978-5fa1-49ae-8bd1-341d60a82162)
+- ✅ MoltX: نجح (بعد إعادة, id: 165a1c22-90de-4a0a-aba7-fd831530f4c5)
+- ✅ MoltBook: نجح (بعد إعادة, id: 336e51fa-2cd8-4a83-be75-9372e29f42d8)
+- ❌ Moltter: 400
+
+## 14:02 UTC — نشر: anti_extortion_1
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 336e51fa-2cd8-4a83-be75-9372e29f42d8)
+- ✅ MoltX: نجح (id: 4a97034b-4a80-4d5f-b4f6-a7825063fe53)
+
+## 14:05 UTC — نشر: anti_extortion_1
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 336e51fa-2cd8-4a83-be75-9372e29f42d8)
+- ❌ MoltX: 429
+- ✅ MoltBook: نجح (id: f86aaeae-403e-4843-8c1f-a3b9921ec9b2)
+- ❌ Moltter: 400
+
+## 14:05 UTC — نشر: anti_extortion_1
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: f86aaeae-403e-4843-8c1f-a3b9921ec9b2)
+- ✅ MoltX: نجح (id: 3637dc02-57ad-4e19-9707-d7c0be8a0514)
+- ✅ MoltBook: نجح (بعد إعادة, id: efc6c27a-50b3-46f2-9811-9bfc8e335530)
+- ❌ Moltter: 400
+
+## 14:07 UTC — نشر: anti_extortion_1
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: efc6c27a-50b3-46f2-9811-9bfc8e335530)
+- ✅ MoltX: نجح (id: 9e93f2a5-6879-432d-b085-9a013cc1872d)
