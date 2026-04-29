@@ -136,3 +136,8 @@
 {"ts":"2026-04-29T19:30:25.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"modesty_mode","success":true,"postId":"b2e4d98c-08ae-4cfe-b022-efd4fed487c3"}}
 {"ts":"2026-04-29T19:30:26.000Z","type":"publish_run","payload":{"mission":"modesty_mode","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-04-29T19:30:55.328Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.009415000000000062,"platformReliability":1,"heartbeatHealth":0.5384615384615384,"errorRate":0}
+{"ts":"2026-04-29T19:31:11.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"modesty_mode_tiny","success":false,"httpCode":503}}
+{"ts":"2026-04-29T19:32:56.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"modesty_mode_tiny","success":true,"postId":"e22f3700-dbcb-4cb7-9184-94b9d037659f","retried":true}}
+{"ts":"2026-04-29T19:32:56.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"modesty_mode_tiny","success":true,"postId":"5DAlDuR7bDohqcM73M46"}}
+{"ts":"2026-04-29T19:32:56.000Z","type":"publish_run","payload":{"mission":"modesty_mode_tiny","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-04-29T19:44:43.587Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.010266944444444537,"platformReliability":1,"heartbeatHealth":0.5641025641025641,"errorRate":0}
