@@ -57,3 +57,5 @@
 {"ts":"2026-04-29T05:24:54.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"righteous-algorithms","success":false,"httpCode":403}}
 {"ts":"2026-04-29T05:24:55.000Z","type":"publish_run","payload":{"mission":"righteous-algorithms","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":1}}
 {"ts":"2026-04-29T05:30:18.049Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":null,"platformReliability":null,"heartbeatHealth":null,"errorRate":null}
+{"ts":"2026-04-29T06:40:54.415Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.19487833333333326,"platformReliability":1,"heartbeatHealth":0.46153846153846156,"errorRate":0}
+{"ts":"2026-04-29T06:41:45.974Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.1496627777777778,"platformReliability":1,"heartbeatHealth":0.5384615384615384,"errorRate":0}

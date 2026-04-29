@@ -54,14 +54,17 @@ const kernel = new MoltLifeKernel({
   }
 });
 
-// Direct ledger append (atomic, append-only)
+// Append to ledger file and notify kernel (atomic)
 function appendToLedger(type, payload) {
   const entry = {
     ts: new Date().toISOString(),
     type,
     payload
   };
+  // Persist to shared ledger file first
   fs.appendFileSync(LEDGER_PATH, JSON.stringify(entry) + '\n');
+  // Also notify kernel for in-process metrics (non-fatal)
+  try { kernel.append(entry); } catch (e) { /* ignore kernel errors */ }
   return entry;
 }
 

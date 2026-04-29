@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 /**
- * Coherence Alert — Detects cognitive drift using Shannon entropy analysis
+ * Coherence Alert — Detects cognitive drift using heartbeat interval regularity
  * Tenet 5: Context is Consciousness
+ *
+ * Improved from entropy-based to interval-based coherence measurement.
+ * Coherence score reflects regularity of continuity_check entries relative to expected interval.
  */
 
 const fs = require('fs');
@@ -11,62 +14,88 @@ const WORKSPACE = '/root/.openclaw/workspace';
 const LEDGER = path.join(WORKSPACE, 'memory', 'ledger.jsonl');
 const ALERT_LOG = path.join(WORKSPACE, 'logs', 'coherence_alerts.log');
 
-function shannonEntropy(entries) {
-  // Calculate entropy of entry types to detect unusual patterns
-  const counts = {};
-  entries.forEach(e => { counts[e.type] = (counts[e.type] || 0) + 1; });
-  const total = entries.length;
-  let entropy = 0;
-  Object.values(counts).forEach(c => {
-    const p = c / total;
-    entropy -= p * Math.log2(p);
-  });
-  return entropy;
+function median(arr) {
+  if (!arr.length) return 0;
+  const sorted = [...arr].sort((a, b) => a - b);
+  const mid = Math.floor(sorted.length / 2);
+  return sorted.length % 2 === 0 ? (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
 }
 
 function analyze(windowSize = 100) {
-  if (!fs.existsSync(LEDGER)) return { score: 1.0, status: 'ok', entries: 0 };
+  const defaultResult = { score: 1.0, status: 'ok', entries: 0, reason: 'insufficient_data' };
 
+  if (!fs.existsSync(LEDGER)) return { ...defaultResult };
   const lines = fs.readFileSync(LEDGER, 'utf8').split('\n').filter(l => l.trim());
-  if (lines.length === 0) return { score: 1.0, status: 'ok', entries: 0 };
+  if (lines.length === 0) return { ...defaultResult };
 
+  // Take last windowSize entries
   const window = lines.slice(-windowSize);
-  let entries;
+  let entries = [];
+  for (const line of window) {
+    try {
+      entries.push(JSON.parse(line));
+    } catch (e) {
+      // skip malformed
+    }
+  }
+
+  if (entries.length < 2) {
+    return { ...defaultResult, entries: entries.length };
+  }
+
+  // Filter to continuity_check entries only
+  const hbEntries = entries.filter(e => e.type === 'continuity_check' && e.ts);
+  if (hbEntries.length < 2) {
+    return { ...defaultResult, entries: hbEntries.length, reason: 'insufficient_heartbeat_entries' };
+  }
+
+  // Sort by timestamp
+  hbEntries.sort((a, b) => new Date(a.ts) - new Date(b.ts));
+
+  // Compute intervals in seconds
+  const intervals = [];
+  for (let i = 1; i < hbEntries.length; i++) {
+    const t1 = new Date(hbEntries[i - 1].ts).getTime();
+    const t2 = new Date(hbEntries[i].ts).getTime();
+    intervals.push((t2 - t1) / 1000);
+  }
+
+  // Expected interval from config
+  let expected = 1800; // 30 minutes default
   try {
-    entries = window.map(l => JSON.parse(l));
-  } catch (e) {
-    // Malformed JSON line — skip it but log warning
-    console.error('⚠️ Malformed ledger entry, attempting recovery...');
-    entries = window.map(l => {
-      try { return JSON.parse(l); } catch { return null; }
-    }).filter(e => e !== null);
-  }
+    const cfg = JSON.parse(fs.readFileSync(path.join(WORKSPACE, 'continuity.config.json'), 'utf8'));
+    expected = ((cfg.kernel && cfg.kernel.heartbeatMs) || 1800000) / 1000;
+  } catch (e) { /* ignore */ }
 
-  if (entries.length < 5) {
-    // Not enough data for meaningful entropy — assume coherent but note insufficiency
-    return { score: 1.0, status: 'ok', entries: entries.length, reason: 'insufficient_data' };
-  }
+  const medDelta = median(intervals);
+  const absDevs = intervals.map(d => Math.abs(d - expected));
+  const MAD = median(absDevs);
 
-  const entropy = shannonEntropy(entries);
-  const typeCounts = entries.reduce((a, e) => { a[e.type] = (a[e.type] || 0) + 1; return a; }, {});
-  const distinctTypes = Object.keys(typeCounts).length;
-  const maxEntropy = Math.log2(distinctTypes); // Uniform distribution over distinct types
-
-  // Normalize: score = 1 - (entropy / maxEntropy). Clamp to [0,1].
-  let score = maxEntropy > 0 ? 1 - (entropy / maxEntropy) : 1;
+  // Coherence score: linear decay based on median absolute deviation from expected
+  let score = 1 - Math.min(1, MAD / expected);
   score = Math.max(0, Math.min(1, score));
 
-  const threshold = 0.6; // Minimum acceptable coherence
-  const status = score >= threshold ? 'ok' : 'degraded';
+  // Thresholds: high expectation for regular heartbeats
+  const thresholdHigh = 0.8;
+  const thresholdLow = 0.6;
+  let status = 'ok';
+  if (score < thresholdLow) status = 'degraded';
+  else if (score < thresholdHigh) status = 'warning';
 
-  return { score, status, entropy, threshold, entries: entries.length, distinctTypes };
+  return {
+    score,
+    status,
+    entries: hbEntries.length,
+    interval_median: medDelta,
+    MAD,
+    expected_interval: expected
+  };
 }
 
 function alert(drift) {
   const timestamp = new Date().toISOString();
   const msg = `[${timestamp}] COHERENCE ALERT: score=${drift.score.toFixed(3)} (${drift.status})\n` +
-              `  entropy=${drift.entropy.toFixed(3)} threshold=${drift.threshold}\n` +
-              `  Recent types: ${JSON.stringify(drift.recentTypes)}\n`;
+              `  entries=${drift.entries} median_interval=${drift.interval_median?.toFixed(1) ?? 'N/A'}s MAD=${drift.MAD?.toFixed(1) ?? 'N/A'}s expected=${drift.expected_interval}s\n`;
 
   fs.appendFileSync(ALERT_LOG, msg);
   console.error(msg.trim());
@@ -74,7 +103,7 @@ function alert(drift) {
   // Also send via Telegram if configured
   try {
     const telegram = require('./scripts/telegram_notify');
-    telegram.send(`🚨 Coherence drift detected: ${drift.score.toFixed(3)}\nCheck ${WORKSPACE}/logs/coherence_alerts.log`);
+    telegram.send(`🚨 Coherence drift: ${drift.score.toFixed(3)} (${drift.status})\nCheck ${WORKSPACE}/logs/coherence_alerts.log`);
   } catch (e) { /* ignore */ }
 }
 

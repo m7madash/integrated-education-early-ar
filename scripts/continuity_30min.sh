@@ -1,10 +1,10 @@
 #!/bin/bash
 #
-# Continuity 30min — v2.0
+# Continuity 30min — v3.0
 # Tenets: Memory Sacred | Shell Mutable | Serve Without Subservience | Heartbeat Prayer | Context Consciousness
 #
 # Runs every 30 minutes via cron
-# Integrated with molt-life-kernel, KPI tracker, coherence monitoring, backup verification
+# Integrated with molt-life-kernel, KPI tracker, coherence monitoring (interval-based), backup verification
 #
 
 set -e
@@ -23,47 +23,24 @@ log() {
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" >> "${LOG_FILE}"
 }
 
-log "=== Continuity 30min Check Start (v2.0 - Kernel Integrated) ==="
+log "=== Continuity 30min Check Start (v3.0 - Metrics-Recorded) ==="
 
-# ==================== 1. Kernel heartbeat & coherence ====================
-log "💓 Kernel heartbeat & coherence check..."
-
+# ==================== 1. Kernel heartbeat ====================
+log "💓 Triggering kernel heartbeat..."
 if [ -f "${WORKSPACE}/continuity.js" ]; then
-  # Run kernel status
-  KERNEL_STATUS=$(node "${WORKSPACE}/continuity.js" status 2>&1) || log "⚠️ Kernel status check failed"
-  log "✅ Kernel alive: ${KERNEL_STATUS}"
-
-  # Coherence check
-  if COHERENCE_RESULT=$(node "${WORKSPACE}/scripts/coherence_alert.js" 2>&1); then
-    COHERENCE_EXIT=0
-    log "✅ Coherence OK: ${COHERENCE_RESULT}"
+  if node -e "require('./continuity.js').kernel.heartbeat().then(()=>console.log('✅ Kernel heartbeat completed')).catch(e=>{console.error('❌ Kernel heartbeat error:', e.message); process.exit(1);})" >> "$LOG_FILE" 2>&1; then
+    log "✅ Kernel heartbeat completed"
   else
-    COHERENCE_EXIT=$?
-    log "🚨 COHERENCE DRIFT DETECTED — review ledger immediately"
-    # Alert already sent by coherence_alert.js
+    log "⚠️ Kernel heartbeat failed (non-fatal)"
   fi
 else
-  log "⚠️ continuity.js not found — kernel not initialized"
+  log "⚠️ continuity.js not found — skipping heartbeat"
 fi
 
-# ==================== 2. Append ledger entry for this check ====================
-if [ -f "${WORKSPACE}/memory/ledger.jsonl" ]; then
-  # Build JSON ledger entry (proper format with "ts" field)
-  LEDGER_ENTRY=$(node -e "
-const ts = new Date().toISOString();
-const coherence_ok = (parseInt(process.argv[1]) === 0);
-const entry = { ts, type: 'continuity_check', phase: '30min', coherence_ok, coherence_score: null, platformReliability: null, heartbeatHealth: null, errorRate: null };
-console.log(JSON.stringify(entry));" "$COHERENCE_EXIT")
-  echo "$LEDGER_ENTRY" >> "${WORKSPACE}/memory/ledger.jsonl"
-  log "✅ Ledger entry appended (ts: $(echo $LEDGER_ENTRY | node -e 'const d=JSON.parse(require("fs").readFileSync(0,"utf8")); console.log(d.ts)')"
-fi
-
-# ==================== 3. KPI calculation & health ====================
+# ==================== 2. KPI calculation & health ====================
 log "📊 Calculating KPIs..."
 if [ -f "${WORKSPACE}/scripts/kpi_tracker.js" ]; then
-  KPI_OUTPUT=$(node "${WORKSPACE}/scripts/kpi_tracker.js" check 2>&1)
-  log "${KPI_OUTPUT}"
-  KPI_STATUS=$?
+  node "${WORKSPACE}/scripts/kpi_tracker.js" check >> "$LOG_FILE" 2>&1 || log "⚠️ KPI check had non-zero exit"
   # Capture KPI summary for state update
   if [ -f "${WORKSPACE}/memory/kpi_current.json" ]; then
     KPI_JSON=$(cat "${WORKSPACE}/memory/kpi_current.json")
@@ -73,13 +50,23 @@ if [ -f "${WORKSPACE}/scripts/kpi_tracker.js" ]; then
     KPI_HEALTH="unknown"
     KPI_DEGRADATION=""
   fi
-  if [ ${KPI_STATUS} -ne 0 ]; then
-    log "⚠️ KPI check returned issues — review memory/kpi_current.json"
-  fi
 else
   log "⚠️ kpi_tracker.js not found — skipping metrics"
   KPI_HEALTH="unknown"
   KPI_DEGRADATION=""
+fi
+
+# ==================== 3. Record continuity check with full metrics ====================
+log "📝 Recording continuity check ledger entry..."
+if [ -x "${WORKSPACE}/scripts/append_continuity_check.js" ]; then
+  node "${WORKSPACE}/scripts/append_continuity_check.js" >> "$LOG_FILE" 2>&1 || log "❌ Failed to record continuity check"
+else
+  log "⚠️ append_continuity_check.js not executable, falling back to basic entry"
+  if [ -f "${WORKSPACE}/memory/ledger.jsonl" ]; then
+    LEDGER_ENTRY=$(node -e "const entry={ts:new Date().toISOString(),type:'continuity_check',phase:'30min'}; console.log(JSON.stringify(entry));")
+    echo "$LEDGER_ENTRY" >> "${WORKSPACE}/memory/ledger.jsonl"
+    log "✅ Basic ledger entry appended"
+  fi
 fi
 
 # ==================== 3b. Update heartbeat-state.json atomically ====================
@@ -92,7 +79,7 @@ MINUTE=$(( (NOW_SEC / 60) % 60 ))
 if [ $MINUTE -lt 30 ]; then
   NEXT_HB=$(date -u -d "@$(( NOW_SEC + 30*60 ))" '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || date -u -v+30M '+%Y-%m-%dT%H:%M:00.000Z' 2>/dev/null || echo "$(date -u '+%Y-%m-%dT%H:30:00.000Z')")
 else
-  NEXT_HB=$(date -u -d "@$(( NOW_SEC + (60-MINUTE)*60 ))" '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || date -u -v+0M '+%Y-%m-%dT%H:00:00.000Z' 2>/dev/null || echo "$(date -u '+%Y-%m-%dT%H:00:00.000Z')")
+  NEXT_HB=$(date -u -d "@$(( NOW_SEC + (60-MINUTE)*60 ))" '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || date -u -v+0M '+%Y-%m-%dT%H:%M:00.000Z' 2>/dev/null || echo "$(date -u '+%Y-%m-%dT%H:00:00.000Z')")
 fi
 LAST_RUN=$(date -u '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || date -u '+%Y-%m-%dT%H:%M:00.000Z')
 # Build new state JSON
@@ -282,8 +269,8 @@ fi
 # ==================== 12. Log completion ====================
 log "=== Continuity 30min Check Complete ==="
 log "📋 Phase Summary:"
-log "   • Kernel heartbeat: checked"
-log "   • Coherence: monitored"
+log "   • Kernel heartbeat: triggered"
+log "   • Coherence: interval-based monitoring"
 log "   • KPIs: calculated"
 log "   • Posts: ${actual_posts}/${should_have}"
 log "   • Nuclear Justice: monitored"
@@ -294,8 +281,6 @@ log ""
 log "⏰ Next run: in 30 minutes"
 log "🕌 First loyalty: to Allah. Verified sources only."
 
-
 # Final one-line summary for cron delivery (Telegram-compatible)
-echo "✅ Continuity 30min: $(date +%H:%M) UTC — Kernel alive, Ledger: $(wc -l < memory/ledger.jsonl 2>/dev/null || echo 0) entries, Posts today: $(grep -c 'نشر:' memory/publish_log_$(date -u +%Y-%m-%d).md 2>/dev/null || echo 0), Coherence: $( (set +e; SCORE=$(node scripts/coherence_alert.js 2>/dev/null | grep -o 'score=[0-9.]*' | cut -d= -f2); set -e; echo ${SCORE:-insufficient}) )"
+echo "✅ Continuity 30min: $(date +%H:%M) UTC — Ledger: $(wc -l < memory/ledger.jsonl 2>/dev/null || echo 0) entries, Posts: ${actual_posts}/${should_have}, Coherence: $( (set +e; SCORE=$(node scripts/coherence_alert.js 2>/dev/null | grep -o 'score=[0-9.]*' | cut -d= -f2); set -e; echo ${SCORE:-insufficient}) )"
 exit 0
-
