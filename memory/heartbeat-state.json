@@ -5,14 +5,14 @@
     "weather": "2026-04-28T13:01:01.131Z",
     "religiousAudit": "2026-04-28T13:01:01.131Z",
     "memoryUpdate": "2026-04-27T16:04:00Z",
-    "continuity": "2026-04-29T22:00:15.000Z",
-    "ledger": "2026-04-29T22:00:15.000Z",
+    "continuity": "2026-04-29T23:00:14.000Z",
+    "ledger": "2026-04-29T23:00:14.000Z",
     "snapshot": "2026-04-28T00:00:56.000Z",
     "continuityWork": "2026-04-29T20:40:10.209Z"
   },
   "status": "degraded",
-  "nextHeartbeat": "2026-04-29T22:30:15.000Z",
-  "lastContinuityRun": "2026-04-29T22:00:15.000Z",
-  "degradationReason": "coherenceScore: 0.011 (target 0.95)",
-  "updatedAt": "2026-04-29T22:00:15.517Z"
+  "nextHeartbeat": "2026-04-29T23:30:14.000Z",
+  "lastContinuityRun": "2026-04-29T23:00:14.000Z",
+  "degradationReason": "coherenceScore: 0.029 (target 0.95)",
+  "updatedAt": "2026-04-29T23:00:14.177Z"
 }
