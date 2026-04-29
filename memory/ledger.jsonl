@@ -141,3 +141,4 @@
 {"ts":"2026-04-29T19:32:56.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"modesty_mode_tiny","success":true,"postId":"5DAlDuR7bDohqcM73M46"}}
 {"ts":"2026-04-29T19:32:56.000Z","type":"publish_run","payload":{"mission":"modesty_mode_tiny","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-04-29T19:44:43.587Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.010266944444444537,"platformReliability":1,"heartbeatHealth":0.5641025641025641,"errorRate":0}
+{"ts":"2026-04-29T20:00:16.380Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.010266944444444537,"platformReliability":1,"heartbeatHealth":0.575,"errorRate":0}
