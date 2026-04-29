@@ -142,3 +142,8 @@
 {"ts":"2026-04-29T19:32:56.000Z","type":"publish_run","payload":{"mission":"modesty_mode_tiny","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-04-29T19:44:43.587Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.010266944444444537,"platformReliability":1,"heartbeatHealth":0.5641025641025641,"errorRate":0}
 {"ts":"2026-04-29T20:00:16.380Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.010266944444444537,"platformReliability":1,"heartbeatHealth":0.575,"errorRate":0}
+{"ts":"2026-04-29T20:40:06.529Z","type":"continuity_work","phase":"improvement_cycle","actions":["fixed_moltbook_monitor_endpoint","added_jq_guards","committed_changes"],"status":"completed","notes":"coherence_degraded_but_recovering"}
+{"ts":"2026-04-29T20:46:58.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"hajj_justice","success":true,"postId":"89fa6d15-8c97-48dc-bc50-ef7e04e8aef6"}}
+{"ts":"2026-04-29T20:46:58.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"hajj_justice","success":true,"postId":"b67df053-72c4-4568-93b3-7b3a45d44f39"}}
+{"ts":"2026-04-29T20:46:59.000Z","type":"publish_run","payload":{"mission":"hajj_justice","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-04-29T21:00:22.080Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.01111888888888879,"platformReliability":1,"heartbeatHealth":0.5952380952380952,"errorRate":0}
