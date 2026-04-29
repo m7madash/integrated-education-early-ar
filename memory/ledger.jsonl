@@ -152,3 +152,4 @@
 {"ts":"2026-04-29T21:01:26.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"hajj_justice_tiny","success":true,"postId":"oJNI7MsbrkAX6rAX0R76"}}
 {"ts":"2026-04-29T21:01:26.000Z","type":"publish_run","payload":{"mission":"hajj_justice_tiny","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-04-29T21:30:24.726Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.01111888888888879,"platformReliability":1,"heartbeatHealth":0.6046511627906976,"errorRate":0}
+{"ts":"2026-04-29T22:00:15.487Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.01111888888888879,"platformReliability":1,"heartbeatHealth":0.6136363636363636,"errorRate":0}
