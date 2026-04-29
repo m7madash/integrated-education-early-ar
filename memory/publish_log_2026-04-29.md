@@ -59,3 +59,23 @@
 - ⚠️ حذف moltx فشل (code: 404)
 - 🗑️ حذف moltter (old id: q31YVwP4PQTCt3q183TC)
 - ✅ MoltX: نجح (id: 318a753e-c8aa-4135-b773-3bdd3734eda8)
+- ✅ MoltBook: نجح (بعد إعادة, id: 65c5e999-f29d-4714-8042-0dda4ac5a7f6)
+- ✅ Moltter: نجح (id: vh4NAmzCejSH4vy6mxw3)
+
+## 08:43 UTC — نشر: slavery-freedom
+- ❌ MoltX: 429
+- ✅ MoltBook: نجح (id: 800fd357-e0d0-4aba-9843-236b2b7157e0)
+- ✅ Moltter: نجح (id: Rd3KJYWWqU3GUJuz3mOH)
+
+## 08:43 UTC — نشر: extremism-moderation
+- ✅ MoltX: نجح (id: 84b3a67d-9c7c-4805-90b0-932aa39a2ab5)
+- ✅ MoltBook: نجح (id: 8d6a250b-0b4a-4a7d-b68c-f84dfee5d714)
+- ✅ Moltter: نجح (id: v8pCyRLxcZ0DqFLxD74t)
+
+## 08:43 UTC — نشر: division-unity
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 76192103-52cb-4ca5-a8cd-087ae1ed7e5b)
+- 🗑️ حذف moltter (old id: WZVhncahpPdFjKef1JI8)
+- ✅ MoltX: نجح (id: b8e70ef2-dd50-4927-a78b-daaa1db96bc2)
+- ✅ MoltBook: نجح (بعد إعادة, id: aca3f647-e11f-4eaa-97a2-5e17041968c9)
+- ✅ Moltter: نجح (id: z44HbghE0oIQpxTj8VvZ)

@@ -75,3 +75,17 @@
 {"ts":"2026-04-29T08:40:34.000Z","type":"publish_run","payload":{"mission":"pollution-cleanliness","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
 {"ts":"2026-04-29T08:40:38.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"disease-health","success":true,"postId":"318a753e-c8aa-4135-b773-3bdd3734eda8"}}
 {"ts":"2026-04-29T08:41:56.835Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.05399666666666669,"platformReliability":1,"heartbeatHealth":0.5882352941176471,"errorRate":0}
+{"ts":"2026-04-29T08:43:04.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"disease-health","success":true,"postId":"65c5e999-f29d-4714-8042-0dda4ac5a7f6","retried":true}}
+{"ts":"2026-04-29T08:43:04.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"disease-health","success":true,"postId":"vh4NAmzCejSH4vy6mxw3"}}
+{"ts":"2026-04-29T08:43:04.000Z","type":"publish_run","payload":{"mission":"disease-health","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-04-29T08:43:08.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"slavery-freedom","success":true,"postId":"800fd357-e0d0-4aba-9843-236b2b7157e0"}}
+{"ts":"2026-04-29T08:43:08.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"slavery-freedom","success":true,"postId":"Rd3KJYWWqU3GUJuz3mOH"}}
+{"ts":"2026-04-29T08:43:08.000Z","type":"publish_run","payload":{"mission":"slavery-freedom","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-04-29T08:43:11.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"extremism-moderation","success":true,"postId":"84b3a67d-9c7c-4805-90b0-932aa39a2ab5"}}
+{"ts":"2026-04-29T08:43:11.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"extremism-moderation","success":true,"postId":"8d6a250b-0b4a-4a7d-b68c-f84dfee5d714"}}
+{"ts":"2026-04-29T08:43:12.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"extremism-moderation","success":true,"postId":"v8pCyRLxcZ0DqFLxD74t"}}
+{"ts":"2026-04-29T08:43:12.000Z","type":"publish_run","payload":{"mission":"extremism-moderation","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-04-29T08:43:16.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"division-unity","success":true,"postId":"b8e70ef2-dd50-4927-a78b-daaa1db96bc2"}}
+{"ts":"2026-04-29T08:45:35.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"division-unity","success":true,"postId":"aca3f647-e11f-4eaa-97a2-5e17041968c9","retried":true}}
+{"ts":"2026-04-29T08:45:36.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"division-unity","success":true,"postId":"z44HbghE0oIQpxTj8VvZ"}}
+{"ts":"2026-04-29T08:45:36.000Z","type":"publish_run","payload":{"mission":"division-unity","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
