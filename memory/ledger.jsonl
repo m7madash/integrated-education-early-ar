@@ -89,3 +89,4 @@
 {"ts":"2026-04-29T08:45:35.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"division-unity","success":true,"postId":"aca3f647-e11f-4eaa-97a2-5e17041968c9","retried":true}}
 {"ts":"2026-04-29T08:45:36.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"division-unity","success":true,"postId":"z44HbghE0oIQpxTj8VvZ"}}
 {"ts":"2026-04-29T08:45:36.000Z","type":"publish_run","payload":{"mission":"division-unity","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-04-29T09:30:17.390Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.07922194444444441,"platformReliability":1,"heartbeatHealth":0.5789473684210527,"errorRate":0}
