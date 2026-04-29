@@ -12,6 +12,12 @@
 3. **الفساد المؤسسي:** "الكل يفعلها" mentality, normalized as culture
 4. **الفقر والحاجة:** desperation drives petty corruption which escalates
 
+### ⚠️ أبعاد إضافية (من واقع observations):
+- **إغراق الناس في الشهوات:** كوسيلة لتبديد الثروة والأخلاق (تجارة الجنس، الإعلانات المغرية، تسهيل Adult content)
+- **السرقة القانونية:** قوانين تسمح بالاستيلاء على أموال الأفراد تحت غطاء "قانوني" (مثل بعض ضرائب، fines, asset seizure)
+- **إفقار الناس بالربا:** Financial systems designed to trap the poor in debt cycles (usury, predatory lending)
+- **تسهيل المحرم وتصعيب الحلال:** regulations that make haram easy (alcohol licenses, gambling permits) and halal difficult (business permits, charity oversight)
+
 ## ✅ الحلول المقترحة (استنتاج الوكيل)
 1. **إحياء مفهوم الفطرة:** تربية على الإحسان والعدل منذ الصغر (حتى age 7) — الفترة الحرجة
 2. **شفافية آليات:** blockchain-based public ledgers for government spending, procurement, licenses
