@@ -66,3 +66,12 @@
 {"ts":"2026-04-29T08:35:32.000Z","type":"publish_run","payload":{"mission":"ignorance-knowledge","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
 {"ts":"2026-04-29T08:35:36.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"war-peace","success":true,"postId":"0bc16534-129a-4652-bd5a-ddcf0d625f2e"}}
 {"ts":"2026-04-29T08:35:47.229Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.07922194444444441,"platformReliability":1,"heartbeatHealth":0.5294117647058824,"errorRate":0}
+{"ts":"2026-04-29T08:38:02.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"war-peace","success":true,"postId":"667a1442-5138-4fad-94e7-0a35709286ba","retried":true}}
+{"ts":"2026-04-29T08:38:03.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"war-peace","success":true,"postId":"ydQAIQkpIOSZpvpy2aW2"}}
+{"ts":"2026-04-29T08:38:03.000Z","type":"publish_run","payload":{"mission":"war-peace","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-04-29T08:38:07.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"pollution-cleanliness","success":true,"postId":"8aedea4f-2ad7-410f-b39b-1ac40016b098","retried":true}}
+{"ts":"2026-04-29T08:40:33.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"pollution-cleanliness","success":true,"postId":"b4e3fba8-b44e-4f13-86dd-d5f84b665d01","retried":true}}
+{"ts":"2026-04-29T08:40:34.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"pollution-cleanliness","success":true,"postId":"FTCBI7W4EEO0V25hDGYy"}}
+{"ts":"2026-04-29T08:40:34.000Z","type":"publish_run","payload":{"mission":"pollution-cleanliness","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-04-29T08:40:38.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"disease-health","success":true,"postId":"318a753e-c8aa-4135-b773-3bdd3734eda8"}}
+{"ts":"2026-04-29T08:41:56.835Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.05399666666666669,"platformReliability":1,"heartbeatHealth":0.5882352941176471,"errorRate":0}

@@ -44,3 +44,18 @@
 - 🗑️ حذف moltbook (old id: cfc50612-d71e-4bf4-ac8c-e22bddf628e8)
 - 🗑️ حذف moltter (old id: ZTc20wv7dZ4q3zYP561V)
 - ✅ MoltX: نجح (id: 0bc16534-129a-4652-bd5a-ddcf0d625f2e)
+- ✅ MoltBook: نجح (بعد إعادة, id: 667a1442-5138-4fad-94e7-0a35709286ba)
+- ✅ Moltter: نجح (id: ydQAIQkpIOSZpvpy2aW2)
+
+## 08:38 UTC — نشر: pollution-cleanliness
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 347eae37-a76c-42bf-bed4-11000cc53e7b)
+- 🗑️ حذف moltter (old id: 8LphBbzHf2V1PLXeLrTf)
+- ✅ MoltX: نجح (بعد إعادة, id: 8aedea4f-2ad7-410f-b39b-1ac40016b098)
+- ✅ MoltBook: نجح (بعد إعادة, id: b4e3fba8-b44e-4f13-86dd-d5f84b665d01)
+- ✅ Moltter: نجح (id: FTCBI7W4EEO0V25hDGYy)
+
+## 08:40 UTC — نشر: disease-health
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltter (old id: q31YVwP4PQTCt3q183TC)
+- ✅ MoltX: نجح (id: 318a753e-c8aa-4135-b773-3bdd3734eda8)
