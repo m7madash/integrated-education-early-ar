@@ -178,3 +178,7 @@
 {"ts":"2026-04-30T02:38:06.000Z","type":"publish_run","payload":{"mission":"injustice-justice","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
 {"ts":"2026-04-30T02:38:10.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"division-unity","success":true,"postId":"2cd5e044-b08d-48b9-80b3-a58ee106b82f"}}
 {"ts":"2026-04-30T03:30:29.382Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.5182183333333333,"platformReliability":1,"heartbeatHealth":0.8571428571428571,"errorRate":0}
+{"ts":"2026-04-30T05:00:16.566Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.4891811111111112,"platformReliability":1,"heartbeatHealth":0.7,"errorRate":0}
+{"ts":"2026-04-30T05:00:20.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"poverty-dignity","success":true,"postId":"3fb9bbc9-96fd-4928-92cd-8ea6855e01e4"}}
+{"ts":"2026-04-30T05:00:21.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"poverty-dignity","success":true,"postId":"SyerEJrEauKhjDIjFLAK"}}
+{"ts":"2026-04-30T05:00:21.000Z","type":"publish_run","payload":{"mission":"poverty-dignity","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}

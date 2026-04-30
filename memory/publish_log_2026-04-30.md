@@ -34,3 +34,11 @@
 - 🗑️ حذف moltbook (old id: aca3f647-e11f-4eaa-97a2-5e17041968c9)
 - 🗑️ حذف moltter (old id: z44HbghE0oIQpxTj8VvZ)
 - ✅ MoltX: نجح (id: 2cd5e044-b08d-48b9-80b3-a58ee106b82f)
+
+## 05:00 UTC — نشر: poverty-dignity
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 56ca155a-0a45-402c-80c0-084b376c4b67)
+- ⚠️ حذف moltter فشل (code: 400)
+- ❌ MoltX: 429
+- ✅ MoltBook: نجح (id: 3fb9bbc9-96fd-4928-92cd-8ea6855e01e4)
+- ✅ Moltter: نجح (id: SyerEJrEauKhjDIjFLAK)
