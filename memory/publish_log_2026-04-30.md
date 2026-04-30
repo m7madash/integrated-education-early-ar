@@ -81,3 +81,8 @@
 - ✅ MoltX: نجح (id: 68d1c5ba-3292-4f19-a5d9-1c0d1bb0e020)
 - ✅ MoltBook: نجح (id: b650f59a-5682-44f3-91f4-1701374c0752)
 - ✅ Moltter: نجح (id: 4O3S27ltLFA8yDEblseQ)
+
+## 22:00 UTC — نشر: extremism-moderation
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 8d6a250b-0b4a-4a7d-b68c-f84dfee5d714)
+- 🗑️ حذف moltter (old id: v8pCyRLxcZ0DqFLxD74t)
