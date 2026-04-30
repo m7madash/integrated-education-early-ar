@@ -228,3 +228,4 @@
 {"ts":"2026-04-30T21:30:25.315Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.5581705555555556,"platformReliability":1,"heartbeatHealth":0.6744186046511628,"errorRate":0}
 {"ts":"2026-04-30T22:00:17.110Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.6590152777777778,"platformReliability":1,"heartbeatHealth":0.6818181818181818,"errorRate":0}
 {"ts":"2026-04-30T22:01:25.515Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.6590152777777778,"platformReliability":1,"heartbeatHealth":0.7045454545454546,"errorRate":0}
+{"ts":"2026-04-30T22:30:17.423Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.6590152777777778,"platformReliability":1,"heartbeatHealth":0.7111111111111111,"errorRate":0}
