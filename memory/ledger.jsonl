@@ -200,3 +200,4 @@
 {"ts":"2026-04-30T10:00:24.000Z","type":"publish_run","payload":{"mission":"war-peace","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-04-30T11:00:13.986Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8923044444444445,"platformReliability":1,"heartbeatHealth":0.7272727272727273,"errorRate":0}
 {"ts":"2026-04-30T11:30:18.536Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8590877777777778,"platformReliability":1,"heartbeatHealth":0.7391304347826086,"errorRate":0}
+{"ts":"2026-04-30T12:30:14.768Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8923044444444445,"platformReliability":1,"heartbeatHealth":0.72,"errorRate":0}
