@@ -128,60 +128,62 @@ fi
 
 # ==================== 5. Daily mission posts verification ====================
 log "📅 Verifying daily mission posts..."
-TODAY=$(date +%Y-%m-%d)
-# Build EXPECTED_MISSIONS dynamically from enabled cron jobs that have a mission file
-CRON_JOBS_FILE="/root/.openclaw/cron/jobs.json"
-MISSIONS_DIR="${WORKSPACE}/missions"
-EXPECTED_MISSIONS=()
-if [ -f "$CRON_JOBS_FILE" ] && [ -d "$MISSIONS_DIR" ]; then
-  while IFS= read -r name; do
-    if [ -n "$name" ] && ([ -f "${MISSIONS_DIR}/${name}_ar.md" ] || [ -f "${MISSIONS_DIR}/${name}_tiny.md" ]); then
-      EXPECTED_MISSIONS+=("$name")
-    fi
-  done < <(jq -r '.jobs[] | select(.enabled==true) | .name' "$CRON_JOBS_FILE" 2>/dev/null)
-fi
-# Fallback to core missions if dynamic detection fails
-if [ ${#EXPECTED_MISSIONS[@]} -eq 0 ]; then
-  EXPECTED_MISSIONS=("injustice-justice" "poverty-dignity" "ignorance-knowledge" "war-peace" "pollution-cleanliness" "disease-health" "slavery-freedom" "extremism-moderation" "division-unity")
-fi
-log "🔍 Expected missions: ${EXPECTED_MISSIONS[*]}"
+
+# Core daily justice missions with scheduled hour (24h UTC)
+# Only these 9 core missions are managed by continuity auto-republish
+declare -A CORE_MISSION_HOUR=(
+  ["injustice-justice"]=0
+  ["division-unity"]=0
+  ["poverty-dignity"]=3
+  ["ignorance-knowledge"]=6
+  ["war-peace"]=9
+  ["pollution-cleanliness"]=12
+  ["disease-health"]=15
+  ["slavery-freedom"]=18
+  ["extremism-moderation"]=21
+)
+CORE_MISSION_NAMES=(injustice-justice division-unity poverty-dignity ignorance-knowledge war-peace pollution-cleanliness disease-health slavery-freedom extremism-moderation)
+
 CURRENT_HOUR=$(date +%H)
 
-# Determine expected posts by current hour
-should_have=0
-for h in 0 3 6 9 12 15 18 21; do
+# Determine how many core missions should have been published by now (hour <= current hour)
+expected_core_count=0
+for m in "${CORE_MISSION_NAMES[@]}"; do
+  h=${CORE_MISSION_HOUR[$m]}
   if [ "$CURRENT_HOUR" -ge "$h" ]; then
-    should_have=$((should_have+1))
+    expected_core_count=$((expected_core_count+1))
   fi
 done
 
-actual_posts=0
-for mission in "${EXPECTED_MISSIONS[@]}"; do
-  if grep -q "نشر: $mission" "$WORKSPACE/memory/publish_log_$(date -u '+%Y-%m-%d').md" 2>/dev/null; then
-    actual_posts=$((actual_posts+1))
+# Count how many of those core missions are actually present in today's publish log
+actual_core_posts=0
+for m in "${CORE_MISSION_NAMES[@]}"; do
+  h=${CORE_MISSION_HOUR[$m]}
+  if [ "$CURRENT_HOUR" -ge "$h" ] && grep -q "نشر: $m" "$WORKSPACE/memory/publish_log_$(date -u '+%Y-%m-%d').md" 2>/dev/null; then
+    actual_core_posts=$((actual_core_posts+1))
   fi
 done
 
-log "📊 Posts: ${actual_posts}/${should_have} published"
+log "🔍 Core mission posts: ${actual_core_posts}/${expected_core_count} published (hours <= $CURRENT_HOUR)"
 
-if [ "$actual_posts" -lt "$should_have" ]; then
-  missing=$((should_have-actual_posts))
-  log "⚠️ MISSING: ${missing} post(s)"
+if [ "$actual_core_posts" -lt "$expected_core_count" ]; then
+  missing=$((expected_core_count-actual_core_posts))
+  log "⚠️ MISSING: ${missing} core mission post(s)"
 
-  # Outside mission hour → auto-republish
-  MINUTE=$(date +%M)
+  # Only auto-republish outside core mission hours to avoid interfering with scheduled runs
   if [[ ! "00 03 06 09 12 15 18 21" =~ (^| )$(date +%H)($| ) ]]; then
-    log "🔧 Outside mission hour — auto-republishing..."
+    log "🔧 Outside core mission hour — auto-republishing missing core missions..."
 
     MISSING_MISSIONS=()
-    for mission in "${EXPECTED_MISSIONS[@]}"; do
-      if ! grep -q "نشر: $mission" "$WORKSPACE/memory/publish_log_$(date -u '+%Y-%m-%d').md" 2>/dev/null; then
-        MISSING_MISSIONS+=("$mission")
+    for m in "${CORE_MISSION_NAMES[@]}"; do
+      h=${CORE_MISSION_HOUR[$m]}
+      if [ "$CURRENT_HOUR" -ge "$h" ] && ! grep -q "نشر: $m" "$WORKSPACE/memory/publish_log_$(date -u '+%Y-%m-%d').md" 2>/dev/null; then
+        MISSING_MISSIONS+=("$m")
       fi
     done
 
     for miss in "${MISSING_MISSIONS[@]}"; do
-      log "🚀 Publishing: ${miss}"
+      log "🚀 Publishing core mission: ${miss}"
       if [ -f "scripts/publish_daily_post_multi_target.sh" ]; then
         bash scripts/publish_daily_post_multi_target.sh "$miss" >> "${LOG_FILE}" 2>&1 || log "❌ Failed: ${miss}"
         sleep 2
@@ -190,10 +192,10 @@ if [ "$actual_posts" -lt "$should_have" ]; then
       fi
     done
   else
-    log "⏰ Within mission hour $(date +%H):00 — will republish in next cycle"
+    log "⏰ Within core mission hour $(date +%H):00 — will republish in next cycle"
   fi
 else
-  log "✅ All expected posts published"
+  log "✅ All expected core mission posts published"
 fi
 
 # ==================== 6. Nuclear Justice tools monitoring ====================
