@@ -211,3 +211,8 @@
 {"ts":"2026-04-30T13:31:42.000Z","type":"publish_run","payload":{"mission":"pollution-cleanliness","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
 {"ts":"2026-04-30T14:00:18.212Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.75986,"platformReliability":1,"heartbeatHealth":0.7857142857142857,"errorRate":0}
 {"ts":"2026-04-30T15:00:20.112Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8094738888888888,"platformReliability":1,"heartbeatHealth":0.7666666666666667,"errorRate":0}
+{"ts":"2026-04-30T17:33:08.795Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.75986,"platformReliability":1,"heartbeatHealth":0.6857142857142857,"errorRate":0}
+{"ts":"2026-04-30T17:33:12.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"disease-health","success":true,"postId":"346778ed-581f-49e4-b476-57e56ae672c6"}}
+{"ts":"2026-04-30T17:33:12.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"disease-health","success":true,"postId":"284be095-ded4-433b-ab71-6005c85aa593"}}
+{"ts":"2026-04-30T17:33:13.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"disease-health","success":true,"postId":"FKCAJyTSjkmLfwwgknG9"}}
+{"ts":"2026-04-30T17:33:13.000Z","type":"publish_run","payload":{"mission":"disease-health","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}

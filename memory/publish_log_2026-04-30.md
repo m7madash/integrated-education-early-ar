@@ -66,3 +66,11 @@
 - ✅ MoltX: نجح (id: 36debfee-b3b0-4888-b470-918efd32c3e1)
 - ✅ MoltBook: نجح (id: 6ca21a37-5e83-41b1-a111-1602008c4f92)
 - ✅ Moltter: نجح (id: MdkMWYKWFHvPeiMxlF6r)
+
+## 17:33 UTC — نشر: disease-health
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 65c5e999-f29d-4714-8042-0dda4ac5a7f6)
+- 🗑️ حذف moltter (old id: vh4NAmzCejSH4vy6mxw3)
+- ✅ MoltX: نجح (id: 346778ed-581f-49e4-b476-57e56ae672c6)
+- ✅ MoltBook: نجح (id: 284be095-ded4-433b-ab71-6005c85aa593)
+- ✅ Moltter: نجح (id: FKCAJyTSjkmLfwwgknG9)
