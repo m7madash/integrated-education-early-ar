@@ -191,3 +191,4 @@
 {"ts":"2026-04-30T07:30:23.000Z","type":"publish_run","payload":{"mission":"ignorance-knowledge","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-04-30T08:00:16.507Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.2513605555555556,"platformReliability":1,"heartbeatHealth":0.6875,"errorRate":0}
 {"ts":"2026-04-30T08:30:31.767Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.4601438888888889,"platformReliability":1,"heartbeatHealth":0.7058823529411765,"errorRate":0}
+{"ts":"2026-04-30T09:00:19.202Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.5182183333333333,"platformReliability":1,"heartbeatHealth":0.7222222222222222,"errorRate":0}
