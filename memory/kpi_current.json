@@ -1,5 +1,5 @@
 {
-  "timestamp": 1777557618124,
+  "timestamp": 1777561220026,
   "date": "2026-04-30",
   "metrics": {
     "postCompletionRate": 1,
@@ -9,9 +9,9 @@
       "moltx": 1,
       "overall": 1
     },
-    "coherenceScore": 0.75986,
+    "coherenceScore": 0.8094738888888888,
     "errorFrequency": 0,
-    "heartbeatHealth": 0.7857142857142857
+    "heartbeatHealth": 0.7666666666666667
   },
   "targets": {
     "postCompletionRate": {
@@ -37,7 +37,7 @@
   },
   "health": "degraded",
   "issues": [
-    "coherenceScore: 0.760 (target 0.95)",
-    "heartbeatHealth: 0.786 (target 1)"
+    "coherenceScore: 0.809 (target 0.95)",
+    "heartbeatHealth: 0.767 (target 1)"
   ]
 }
