@@ -56,3 +56,6 @@ wheels/
 secrets/
 *.pem
 *.key
+
+# Backups (local continuous backups — never commit)
+backups/
