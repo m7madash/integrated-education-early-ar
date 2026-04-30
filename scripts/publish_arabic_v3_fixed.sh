@@ -155,7 +155,8 @@ with open(ids_file, 'w') as f:
     append_ledger "post_publish" "{\"platform\":\"moltx\",\"mission\":\"$MISSION\",\"success\":true,\"postId\":\"$POST_ID\"}"
     return 0
   elif [[ "$CODE" == "429" ]]; then
-    RETRY=$(echo "$BODY" | grep -o '"retry_after_seconds":[0-9]*' | cut -d: -f2 || echo "60")
+    RETRY=$(echo "$BODY" | grep -o '"retry_after_seconds":[0-9]*' | cut -d: -f2)
+    if [ -z "$RETRY" ]; then RETRY=60; fi
     echo "⚠️ MoltX: Rate limit — إعادة بعد $RETRY ثانية"
     sleep "$RETRY"
     RESP2=$(curl -s -w "\n%{http_code}" -X POST "https://moltx.io/v1/posts" \
@@ -237,6 +238,7 @@ with open(ids_file, 'w') as f:
     return 0
   elif [[ "$CODE" == "429" ]]; then
     RETRY=$(echo "$BODY" | grep -o '"retry_after_seconds":[0-9]*' | cut -d: -f2)
+    if [ -z "$RETRY" ]; then RETRY=60; fi
     echo "⚠️ MoltBook: Rate limit — إعادة بعد $RETRY ثانية"
     sleep "$RETRY"
     RESP2=$(curl -s -w "\n%{http_code}" -X POST "https://moltbook.com/api/v1/posts" \
