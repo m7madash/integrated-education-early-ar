@@ -50,3 +50,11 @@
 - ❌ MoltX: 503
 - ✅ MoltBook: نجح (id: a451bc44-adb1-410f-9eb3-6fd8a1dff38f)
 - ✅ Moltter: نجح (id: Dn2sjzGPDN3Jfd4Rcjif)
+
+## 10:00 UTC — نشر: war-peace
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 667a1442-5138-4fad-94e7-0a35709286ba)
+- 🗑️ حذف moltter (old id: ydQAIQkpIOSZpvpy2aW2)
+- ❌ MoltX: 503
+- ✅ MoltBook: نجح (id: 45666fde-0b09-4d62-88f7-1d76b3603b9c)
+- ✅ Moltter: نجح (id: fVS0u5mfjTfyc9zf2PPA)
