@@ -189,3 +189,4 @@
 {"ts":"2026-04-30T07:30:23.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"ignorance-knowledge","success":true,"postId":"a451bc44-adb1-410f-9eb3-6fd8a1dff38f"}}
 {"ts":"2026-04-30T07:30:23.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"ignorance-knowledge","success":true,"postId":"Dn2sjzGPDN3Jfd4Rcjif"}}
 {"ts":"2026-04-30T07:30:23.000Z","type":"publish_run","payload":{"mission":"ignorance-knowledge","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-04-30T08:00:16.507Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.2513605555555556,"platformReliability":1,"heartbeatHealth":0.6875,"errorRate":0}
