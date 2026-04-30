@@ -234,3 +234,4 @@
 {"ts":"2026-04-30T22:46:29.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"extremism-moderation","success":true,"postId":"i1NhsoWtDudOl6mYjsrS"}}
 {"ts":"2026-04-30T22:46:29.000Z","type":"publish_run","payload":{"mission":"extremism-moderation","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
 {"ts":"2026-04-30T23:00:18.969Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.5581705555555556,"platformReliability":1,"heartbeatHealth":0.717391304347826,"errorRate":0}
+{"ts":"2026-04-30T23:30:17.449Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.6590152777777778,"platformReliability":1,"heartbeatHealth":0.723404255319149,"errorRate":0}
