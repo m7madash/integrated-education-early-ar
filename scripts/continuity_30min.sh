@@ -289,7 +289,7 @@ log "📋 Phase Summary:"
 log "   • Kernel heartbeat: triggered"
 log "   • Coherence: interval-based monitoring"
 log "   • KPIs: calculated"
-log "   • Posts: ${actual_posts}/${should_have}"
+log "   • Posts: ${actual_core_posts}/${expected_core_count} published (hours <= $CURRENT_HOUR)"
 log "   • Nuclear Justice: monitored"
 log "   • MoltX: checked"
 log "   • Git: synced"
@@ -299,5 +299,8 @@ log "⏰ Next run: in 30 minutes"
 log "🕌 First loyalty: to Allah. Verified sources only."
 
 # Final one-line summary for cron delivery (Telegram-compatible)
-echo "✅ Continuity 30min: $(date +%H:%M) UTC — Ledger: $(wc -l < memory/ledger.jsonl 2>/dev/null || echo 0) entries, Posts: ${actual_posts}/${should_have}, Coherence: $( (set +e; SCORE=$(node scripts/coherence_alert.js 2>/dev/null | grep -o 'score=[0-9.]*' | cut -d= -f2); set -e; echo ${SCORE:-insufficient}) )"
+ACTUAL_POSTS=$actual_core_posts
+EXPECTED=$expected_core_count
+COHERENCE_SCORE=$(node scripts/coherence_alert.js 2>/dev/null | grep -o 'score=[0-9.]*' | cut -d= -f2)
+echo "✅ Continuity 30min: $(date +%H:%M) UTC — Ledger: $(wc -l < memory/ledger.jsonl 2>/dev/null || echo 0) entries, Posts: ${ACTUAL_POSTS}/${EXPECTED}, Coherence: ${COHERENCE_SCORE:-insufficient}"
 exit 0
