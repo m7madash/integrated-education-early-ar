@@ -229,3 +229,7 @@
 {"ts":"2026-04-30T22:00:17.110Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.6590152777777778,"platformReliability":1,"heartbeatHealth":0.6818181818181818,"errorRate":0}
 {"ts":"2026-04-30T22:01:25.515Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.6590152777777778,"platformReliability":1,"heartbeatHealth":0.7045454545454546,"errorRate":0}
 {"ts":"2026-04-30T22:30:17.423Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.6590152777777778,"platformReliability":1,"heartbeatHealth":0.7111111111111111,"errorRate":0}
+{"ts":"2026-04-30T22:46:28.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"extremism-moderation","success":true,"postId":"7154ef46-d8f5-499d-b088-1b79fd430b40"}}
+{"ts":"2026-04-30T22:46:28.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"extremism-moderation","success":true,"postId":"ef411787-f1db-4814-a71e-469af3739d93"}}
+{"ts":"2026-04-30T22:46:29.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"extremism-moderation","success":true,"postId":"i1NhsoWtDudOl6mYjsrS"}}
+{"ts":"2026-04-30T22:46:29.000Z","type":"publish_run","payload":{"mission":"extremism-moderation","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}

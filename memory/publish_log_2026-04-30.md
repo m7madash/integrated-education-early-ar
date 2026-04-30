@@ -86,3 +86,11 @@
 - ⚠️ حذف moltx فشل (code: 404)
 - 🗑️ حذف moltbook (old id: 8d6a250b-0b4a-4a7d-b68c-f84dfee5d714)
 - 🗑️ حذف moltter (old id: v8pCyRLxcZ0DqFLxD74t)
+
+## 22:46 UTC — نشر: extremism-moderation
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 8d6a250b-0b4a-4a7d-b68c-f84dfee5d714)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ MoltX: نجح (id: 7154ef46-d8f5-499d-b088-1b79fd430b40)
+- ✅ MoltBook: نجح (id: ef411787-f1db-4814-a71e-469af3739d93)
+- ✅ Moltter: نجح (id: i1NhsoWtDudOl6mYjsrS)
