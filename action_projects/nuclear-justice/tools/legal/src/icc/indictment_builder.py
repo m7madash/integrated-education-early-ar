@@ -19,6 +19,16 @@ class Person:
     position: str
     nationality: str
 
+# Alias for compatibility with tests expecting 'Suspect'
+Suspect = Person
+
+@dataclass
+class Charge:
+    name: str
+    title: str
+    position: str
+    nationality: str
+
 @dataclass
 class Charge:
     article: str  # Rome Statute article
@@ -105,6 +115,10 @@ class ICCIndictmentBuilder:
         return output_path
 
 # Convenience builder for nuclear-related crimes
+def build_icc_indictment(suspect_name: str, title: str, position: str, nationality: str, output_file: str):
+    """Alias for build_nuclear_aggression_indictment for consistency with other tools."""
+    return build_nuclear_aggression_indictment(suspect_name, title, position, nationality, output_file)
+
 def build_nuclear_aggression_indictment(suspect_name: str, title: str, position: str, nationality: str, output_file: str):
     suspect = Person(name=suspect_name, title=title, position=position, nationality=nationality)
     builder = ICCIndictmentBuilder(suspect)
