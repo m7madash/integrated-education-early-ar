@@ -235,3 +235,13 @@
 {"ts":"2026-04-30T22:46:29.000Z","type":"publish_run","payload":{"mission":"extremism-moderation","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
 {"ts":"2026-04-30T23:00:18.969Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.5581705555555556,"platformReliability":1,"heartbeatHealth":0.717391304347826,"errorRate":0}
 {"ts":"2026-04-30T23:30:17.449Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.6590152777777778,"platformReliability":1,"heartbeatHealth":0.723404255319149,"errorRate":0}
+{"ts":"2026-05-01T01:00:26.234Z","type":"postmortem","date":"2026-05-01","errorCount":0,"status":"healthy","actions":["routine_check_complete"]}
+{"ts":"2026-05-01T01:30:16.588Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8094738888888888,"platformReliability":1,"heartbeatHealth":0,"errorRate":0}
+{"ts":"2026-05-01T01:30:19.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"injustice-justice","success":true,"postId":"84016e15-5fab-4515-aa48-1b21d3aabcdf"}}
+{"ts":"2026-05-01T01:30:20.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"injustice-justice","success":true,"postId":"49424d95-6082-4d68-b241-a86ce7a8fbcf"}}
+{"ts":"2026-05-01T01:30:20.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"injustice-justice","success":true,"postId":"gAX4qjHkeo2NoL7nIt7Y"}}
+{"ts":"2026-05-01T01:30:20.000Z","type":"publish_run","payload":{"mission":"injustice-justice","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-01T01:30:24.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"division-unity","success":true,"postId":"a6b50832-3dbe-49dc-ab1e-e75104b3e76b"}}
+{"ts":"2026-05-01T01:32:59.045Z","type":"continuity_check","phase":"30min","status":"partial","reason":"SIGTERM at ~90s - missing final ledger append","coherence":0.809,"expectedHeartbeats":3,"actualHeartbeats":1}
+2026-05-01T02:00:19Z {"type":"backup","file":"backup_20260501_020018.tar.gz","size":"4.1M","status":"success"}
+{"ts":"2026-05-01T02:00:45.441Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8094738888888888,"platformReliability":1,"heartbeatHealth":0.5,"errorRate":0}
