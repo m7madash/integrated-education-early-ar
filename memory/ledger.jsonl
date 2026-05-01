@@ -282,3 +282,4 @@
 {"ts":"2026-05-01T13:06:43.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"pollution-cleanliness","success":false,"httpCode":500}}
 {"ts":"2026-05-01T13:06:44.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"pollution-cleanliness","success":true,"postId":"dztjgLCPtPSIiCQL7nCR"}}
 {"ts":"2026-05-01T13:06:44.000Z","type":"publish_run","payload":{"mission":"pollution-cleanliness","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":1}}
+{"ts":"2026-05-01T14:05:19.907Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8634027777777779,"platformReliability":1,"heartbeatHealth":0.5357142857142857,"errorRate":0}
