@@ -293,3 +293,11 @@
 {"ts":"2026-05-01T17:05:24.697Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8196272222222223,"platformReliability":1,"heartbeatHealth":0.5588235294117647,"errorRate":0}
 {"ts":"2026-05-01T17:35:16.959Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8196272222222223,"platformReliability":1,"heartbeatHealth":0.5714285714285714,"errorRate":0}
 {"ts":"2026-05-01T18:05:16.925Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8196272222222223,"platformReliability":1,"heartbeatHealth":0.5833333333333334,"errorRate":0}
+{"ts":"2026-05-01T18:32:37.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"corruption-reform","success":true,"postId":"0187bd4d-111e-408e-8bde-d933b70b43bd"}}
+{"ts":"2026-05-01T18:32:38.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"corruption-reform","success":true,"postId":"nktlszyHRCSCXDCZec90"}}
+{"ts":"2026-05-01T18:32:38.000Z","type":"publish_run","payload":{"mission":"corruption-reform","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-01T18:47:47.338Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8634027777777779,"platformReliability":1,"heartbeatHealth":0.5945945945945946,"errorRate":0}
+{"ts":"2026-05-01T18:47:51.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"slavery-freedom","success":true,"postId":"9e75b0c7-fd90-46c6-a5f3-f5162e534c1a"}}
+{"ts":"2026-05-01T18:47:52.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"slavery-freedom","success":true,"postId":"a2a69997-ab9b-4c39-b043-ea7f6683dcee"}}
+{"ts":"2026-05-01T18:47:52.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"slavery-freedom","success":true,"postId":"B9UdpmyZTNuihlEjKPHh"}}
+{"ts":"2026-05-01T18:47:52.000Z","type":"publish_run","payload":{"mission":"slavery-freedom","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
