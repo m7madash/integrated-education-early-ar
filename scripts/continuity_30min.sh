@@ -30,7 +30,7 @@ if [ -f "$LOCK_FILE" ]; then
   fi
 fi
 # Create lock
-$$ > "$LOCK_FILE"
+echo $$ > "$LOCK_FILE"
 # Ensure lockfile removed on exit (including errors)
 trap 'rm -f "$LOCK_FILE" 2>/dev/null' EXIT
 
