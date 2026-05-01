@@ -248,3 +248,8 @@
 {"ts":"2026-05-01T02:30:16.253Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8590877777777778,"platformReliability":1,"heartbeatHealth":0.6,"errorRate":0}
 {"ts":"2026-05-01T02:50:24.815Z","type":"continuity_work","payload":{"phase":"improvement_cycle","actions":["staggered_30min_schedule","added_lockfile"],"changes":[{"file":"scripts/continuity_30min.sh","desc":"cron schedule */30 -> 5,35, lockfile with trap"},{"file":"cron job","desc":"schedule updated"}],"commit":"8955e485","metrics":{"coherenceScore":0.883,"heartbeatHealth":0.8}}}
 {"ts":"2026-05-01T03:05:40.924Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8590877777777778,"platformReliability":1,"heartbeatHealth":0.8333333333333334,"errorRate":0}
+{"ts":"2026-05-01T05:05:28.758Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8393575,"platformReliability":1,"heartbeatHealth":0.6,"errorRate":0}
+{"ts":"2026-05-01T05:05:31.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"poverty-dignity","success":true,"postId":"2e58716c-dc1a-453b-95b6-ccbbf003c6c7"}}
+{"ts":"2026-05-01T05:05:32.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"poverty-dignity","success":true,"postId":"028c5ed8-ca4a-408f-aae0-e5904df97c88"}}
+{"ts":"2026-05-01T05:05:32.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"poverty-dignity","success":true,"postId":"as8iSOVT42F3SCQ2bKPF"}}
+{"ts":"2026-05-01T05:05:32.000Z","type":"publish_run","payload":{"mission":"poverty-dignity","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
