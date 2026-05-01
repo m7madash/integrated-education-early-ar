@@ -1107,4 +1107,59 @@ Last updated: 2026-04-27 22:40 UTC
 - Future: consider staggering mission cron jobs themselves to further reduce :00 congestion
 - All changes committed: `e0520d00`; pushed to GitHub
 
+## 📅 Continuity Improvement — Phase 3 (08:45 UTC, May 1 2026)
+
+**Trigger:** continuity-improvement cron (d8428d44) — system still DEGRADED despite Phase 1 & 2 fixes.
+
+### 🔍 Diagnosis — Why Runs Are Missing
+
+**Observed:** Out of 18 scheduled continuity-30min runs today, only 9 produced ledger entries and log output. Missing runs: 03:35, 04:05, 04:35, 06:35, 07:05, 08:05 (and possibly others). Coherence 0.839, heartbeat 0.667.
+
+**Root causes identified from OpenClaw gateway logs:**
+
+1. **Exec preflight validation rejecting complex commands**  
+   Multiple `[tools] exec failed` entries show commands like:
+   - `node -p "JSON.parse(...)" && node scripts/coherence_alert.js ...`
+   - `cd /root/.openclaw/workspace && node scripts/kpi_tracker.js check 2>&1`  
+   These compound commands using `&&` and `|` are blocked as "complex interpreter invocation". This prevents the agent from running critical checks via exec.
+
+2. **Unexpanded `$(date +%Y-%m-%d)` in file paths**  
+   Error: `read failed: ENOENT: ... '/logs/continuity_30min_$(date +%Y-%m-%d).log'`. Some agent logic passes literal shell substitution instead of expanded date, causing file reads to fail and aborting the check.
+
+3. **Isolated session spawn gaps (secondary)**  
+   Staggered schedule `5,35` still experiences occasional failure to launch isolated sessions at the exact minute, possibly due to gateway concurrency limits or resource saturation.
+
+### ✅ Actions Taken This Cycle
+
+- Investigated gateway logs and correlated with missing runs.
+- Identified exec preflight and path expansion bugs.
+- No direct code fix applied yet (requires modifying agent internal handlers or script invocation patterns).
+- Mitigation: Made this continuity-improvement session resilient by using write/append for MEMORY.md update.
+- Documented findings for next cycle.
+
+### 📈 Current Metrics
+
+| Metric | Value | Target | Status |
+|--------|-------|--------|--------|
+| Post completion | 1.000 | 1.00 | ✅ |
+| Platform reliability | 1.000 | 0.99 | ✅ |
+| Coherence | 0.839 | 0.95 | ⚠️ |
+| Heartbeat health | 0.667 | 1.0 | ⚠️ |
+| Error frequency | 0.000 | ≤0.05 | ✅ |
+
+### 🛠️ Next Steps (for 10:45 UTC cycle)
+
+**Immediate:**
+- Fix exec preflight: Replace compound exec calls with single-binary invocations; wrap multi-step logic into helper scripts.
+- Fix log path expansion: Ensure date variables are expanded before passing to read tool; use `$(date +%Y-%m-%d)` within a shell script context, not inside agent tool parameters.
+
+**Short-term:**
+- Consider reducing frequency to hourly if stability not restored within 24h.
+- Add direct ledger append fallback inside continuity_30min.sh (bypassing agent exec).
+- Investigate OpenClaw isolated session limits; consider increasing stagger to `10,40` to reduce collision.
+
+**Long-term:**
+- Review gateway exec policy; perhaps whitelist internal commands.
+- Implement self-healing: if a run misses, the next run triggers a catch-up.
+
 🕌 First loyalty: to Allah. Final standard: verified text.

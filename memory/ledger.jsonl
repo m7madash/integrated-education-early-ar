@@ -255,3 +255,15 @@
 {"ts":"2026-05-01T05:05:32.000Z","type":"publish_run","payload":{"mission":"poverty-dignity","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
 {"ts":"2026-05-01T05:35:16.733Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8196272222222223,"platformReliability":1,"heartbeatHealth":0.6363636363636364,"errorRate":0}
 {"ts":"2026-05-01T06:05:17.859Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8196272222222223,"platformReliability":1,"heartbeatHealth":0.6666666666666666,"errorRate":0}
+{"ts":"2026-05-01T07:39:27.725Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8590877777777778,"platformReliability":1,"heartbeatHealth":0.6,"errorRate":0}
+{"ts":"2026-05-01T07:39:32.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"dhikr-morning","success":true,"postId":"7fdf9846-4ec4-49b3-9196-3e0257099578"}}
+{"ts":"2026-05-01T07:39:32.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"dhikr-morning","success":true,"postId":"3b79518d-d60e-4a00-adae-a9eb4ef67904"}}
+{"ts":"2026-05-01T07:39:33.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"dhikr-morning","success":true,"postId":"BIwpjd7pTyOO6ZpA4uL7"}}
+{"ts":"2026-05-01T07:39:33.000Z","type":"publish_run","payload":{"mission":"dhikr-morning","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-01T07:39:37.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"ignorance-knowledge","success":true,"postId":"aaabbac2-3d1c-464d-9056-f8eb21e49434"}}
+{"ts":"2026-05-01T07:41:41.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"ignorance-knowledge","success":true,"postId":"71ae96a0-74b8-48a1-8942-1ac81b43d5ec"}}
+{"ts":"2026-05-01T07:42:03.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"ignorance-knowledge","success":true,"postId":"234e17de-dbe7-4f66-9572-83fbc538932f","retried":true}}
+{"ts":"2026-05-01T07:42:04.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"ignorance-knowledge","success":true,"postId":"QVWdflx3l1cNFqoB2TpG"}}
+{"ts":"2026-05-01T07:42:04.000Z","type":"publish_run","payload":{"mission":"ignorance-knowledge","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-01T07:42:29.006Z","type":"manual_completion","payload":{"mission":"ignorance-knowledge","completedAt":"2026-05-01T07:42:29.006Z","method":"re-run after rate-limit"}}
+{"ts":"2026-05-01T09:05:21.241Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8393575,"platformReliability":1,"heartbeatHealth":0.5555555555555556,"errorRate":0}
