@@ -58,3 +58,11 @@
 - ✅ MoltX: نجح (بعد إعادة, id: bd05f9a0-149a-4bb3-b01e-fda497f81ad4)
 - ✅ MoltBook: نجح (id: c5011aee-7afb-4d7c-bcc7-cb95d96cf5cd)
 - ✅ Moltter: نجح (id: z7Zouql8G9S8fO8vDWHo)
+
+## 13:05 UTC — نشر: pollution-cleanliness
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 6ca21a37-5e83-41b1-a111-1602008c4f92)
+- 🗑️ حذف moltter (old id: MdkMWYKWFHvPeiMxlF6r)
+- ❌ MoltX: 429
+- ❌ MoltBook: 500
+- ✅ Moltter: نجح (id: dztjgLCPtPSIiCQL7nCR)

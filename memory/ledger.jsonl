@@ -278,3 +278,7 @@
 {"ts":"2026-05-01T12:06:24.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"shirk-tawhid","success":true,"postId":"c5011aee-7afb-4d7c-bcc7-cb95d96cf5cd"}}
 {"ts":"2026-05-01T12:06:24.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"shirk-tawhid","success":true,"postId":"z7Zouql8G9S8fO8vDWHo"}}
 {"ts":"2026-05-01T12:06:24.000Z","type":"publish_run","payload":{"mission":"shirk-tawhid","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-01T13:05:30.499Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8634027777777779,"platformReliability":1,"heartbeatHealth":0.5384615384615384,"errorRate":0}
+{"ts":"2026-05-01T13:06:43.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"pollution-cleanliness","success":false,"httpCode":500}}
+{"ts":"2026-05-01T13:06:44.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"pollution-cleanliness","success":true,"postId":"dztjgLCPtPSIiCQL7nCR"}}
+{"ts":"2026-05-01T13:06:44.000Z","type":"publish_run","payload":{"mission":"pollution-cleanliness","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":1}}
