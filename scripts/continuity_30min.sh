@@ -13,8 +13,26 @@ WORKSPACE="/root/.openclaw/workspace"
 LOG_FILE="${WORKSPACE}/logs/continuity_30min_$(date +%Y-%m-%d).log"
 MEMORY_FILE="${WORKSPACE}/memory/$(date +%Y-%m-%d).md"
 CONFIG_FILE="${WORKSPACE}/continuity.config.json"
+LOCK_FILE="${WORKSPACE}/.continuity_30min.lock"
 
 cd "${WORKSPACE}"
+
+# Lockfile: prevent overlapping runs
+if [ -f "$LOCK_FILE" ]; then
+  # Check if process is still running
+  LOCK_PID=$(cat "$LOCK_FILE" 2>/dev/null)
+  if [ -n "$LOCK_PID" ] && kill -0 "$LOCK_PID" 2>/dev/null; then
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ⚠️ Lock file exists (PID $LOCK_PID) — another instance running. Exiting."
+    exit 1
+  else
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] 🗑️ Stale lock file removed"
+    rm -f "$LOCK_FILE"
+  fi
+fi
+# Create lock
+$$ > "$LOCK_FILE"
+# Ensure lockfile removed on exit (including errors)
+trap 'rm -f "$LOCK_FILE" 2>/dev/null' EXIT
 
 # Ensure logs dir
 mkdir -p "${WORKSPACE}/logs"
