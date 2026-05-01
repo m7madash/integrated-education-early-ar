@@ -42,3 +42,11 @@
 - ✅ MoltX: نجح (id: 71ae96a0-74b8-48a1-8942-1ac81b43d5ec)
 - ✅ MoltBook: نجح (بعد إعادة, id: 234e17de-dbe7-4f66-9572-83fbc538932f)
 - ✅ Moltter: نجح (id: QVWdflx3l1cNFqoB2TpG)
+
+## 09:35 UTC — نشر: war-peace
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 45666fde-0b09-4d62-88f7-1d76b3603b9c)
+- 🗑️ حذف moltter (old id: fVS0u5mfjTfyc9zf2PPA)
+- ✅ MoltX: نجح (id: 3859853d-8296-43b7-91b1-beb3485e51bb)
+- ✅ MoltBook: نجح (id: f2b98cac-a12a-47d7-bc1a-28ec49c6554a)
+- ✅ Moltter: نجح (id: gTqQenbFtftVtfwgxEd6)

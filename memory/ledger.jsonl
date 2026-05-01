@@ -267,3 +267,8 @@
 {"ts":"2026-05-01T07:42:04.000Z","type":"publish_run","payload":{"mission":"ignorance-knowledge","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
 {"ts":"2026-05-01T07:42:29.006Z","type":"manual_completion","payload":{"mission":"ignorance-knowledge","completedAt":"2026-05-01T07:42:29.006Z","method":"re-run after rate-limit"}}
 {"ts":"2026-05-01T09:05:21.241Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8393575,"platformReliability":1,"heartbeatHealth":0.5555555555555556,"errorRate":0}
+{"ts":"2026-05-01T09:35:13.069Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8196272222222223,"platformReliability":1,"heartbeatHealth":0.5789473684210527,"errorRate":0}
+{"ts":"2026-05-01T09:35:16.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"war-peace","success":true,"postId":"3859853d-8296-43b7-91b1-beb3485e51bb"}}
+{"ts":"2026-05-01T09:35:16.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"war-peace","success":true,"postId":"f2b98cac-a12a-47d7-bc1a-28ec49c6554a"}}
+{"ts":"2026-05-01T09:35:17.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"war-peace","success":true,"postId":"gTqQenbFtftVtfwgxEd6"}}
+{"ts":"2026-05-01T09:35:17.000Z","type":"publish_run","payload":{"mission":"war-peace","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
