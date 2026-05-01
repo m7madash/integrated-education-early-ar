@@ -1012,3 +1012,49 @@ Last updated: 2026-04-27 22:40 UTC
 4. Check if any recent changes introduced instability in continuity.js or related scripts
 
 🕌 First loyalty: to Allah. Final standard: verified text.
+
+## 📅 Continuity Heartbeat Regularization — May 1, 2026
+
+**Trigger:** continuity-improvement cron (d8428d44) — system health DEGRADED (coherence 0.859, heartbeat 0.600)
+
+**Audit findings:**
+- Intervals between continuity checks showed high variance (MAD 256s) due to scheduler contention at :00/:30
+- 11 of 95 checks delayed >5min; major outliers: +29min (hour 18), +16min (hour 12), +14min (hour 19)
+- Correlation with mission post publish times suggests isolated session startup queueing during peak load
+- Actual script duration ~49s — fast; delay is at scheduler level
+
+**Fixes deployed:**
+1. **Staggered cron schedule** for continuity-30min-check from `*/30` → `5,35 * * * *`
+   - Avoids :00/:30 rushes when many cron jobs fire simultaneously
+   - Maintains ~30-minute spacing while reducing contention
+   - Next runs: 03:05, 03:35, 04:05, 04:35 UTC
+2. **Added lockfile** to `scripts/continuity_30min.sh`
+   - Prevents overlapping runs if script ever overruns
+   - Uses `trap` to guarantee cleanup on EXIT
+   - Detects and clears stale locks
+3. **Committed & pushed:** `8955e485`
+
+**Metrics before fix (snapshot):**
+| Metric | Value | Target |
+|--------|-------|--------|
+| Coherence | 0.859 | 0.95 |
+| Heartbeat health | 0.600 | 1.0 |
+| Platform reliability | 1.000 | 0.99 |
+| Post completion | 1.000 | 1.00 |
+| Error frequency | 0.000 | ≤0.05 |
+
+**Expected improvements:**
+- Heartbeat on-time rate should rise from ~88% to >95% within 24h
+- Coherence score should trend upward as intervals stabilize (MAD decrease)
+- No adverse impact on other systems (backup, posts, KPI tracking)
+
+**Monitoring:**
+- Check next 6 runs (03:05–05:35) for on-time start
+- Reassess coherence after 20 stabilized intervals (~10h)
+- If degraded persists, investigate script duration or system load
+
+**No human action required** — autonomous fix deployed.
+
+---
+
+🕌 First loyalty: to Allah. Final standard: verified text.
