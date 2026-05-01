@@ -1058,3 +1058,53 @@ Last updated: 2026-04-27 22:40 UTC
 ---
 
 🕌 First loyalty: to Allah. Final standard: verified text.
+
+## 📅 Continuity Improvements — May 1, 2026 (Phase 2)
+
+**Trigger:** continuity-improvement cron (d8428d44) at 06:45 UTC — health still DEGRADED (postCompletion 0.60, coherence 0.82)
+
+### 🔍 Diagnosis
+- **Post completion 60%:** Two daily posts missing by 06:05:
+  - `dhikr-morning` (scheduled 03:00) — never ran at all
+  - `ignorance-knowledge` (scheduled 06:00) — delayed beyond 15 min
+- **Root causes:**
+  1. Auto-republish only covered core 9 missions; auxiliary daily posts (dhikr-morning, dhikr-evening, shirk-tawhid, corruption-reform) were excluded
+  2. Auto-republish blocked during core mission hours; a 06:00 post had to wait until 07:05 to be caught
+  3. KPI expected schedule mismatched actual cron — `dhikr-morning` counted at 06:00 instead of 03:00, causing inaccurate expected counts
+
+### ✅ Improvements Implemented
+
+#### 1. Enhanced Auto-Republish with 15-Minute Grace (scripts/continuity_30min.sh)
+- **All daily missions** now tracked (13 total) via `DAILY_MISSION_HOUR`/`DAILY_MISSION_MINUTE` maps
+- **Grace period:** 15 minutes after scheduled time → auto-republish immediately, even during core hours
+- **Logic:** For each expected but missing mission:
+  - If `current_time >= scheduled_time + 15min` → republish now
+  - Else → log as pending, will retry next cycle
+- **Coverage expanded:** dhikr-morning, dhikr-evening, shirk-tawhid, corruption-reform now auto-recovered
+- **Logging:** Clear status: “within grace” vs “auto-republishing”
+
+#### 2. Corrected KPI Expected Schedule (scripts/kpi_tracker.js)
+- Updated `missionSchedule` to match real cron:
+  - `[3,0,2]` → poverty-dignity + dhikr-morning (was 1)
+  - `[6,0,1]` → ignorance-knowledge only (was 2)
+- Ensures `postCompletionRate` denominator is accurate; no false degradation
+
+#### 3. Grace-Based Recovery Workflow
+- Missing 06:00 posts will now be republished at 06:15 if not already done
+- Expected recovery timeline:
+  - 06:15: dhikr-morning republished (15 min grace from 03:00 → already past, will trigger immediately)
+  - 06:15: if ignorance-knowledge still missing (by 06:15), republished then (grace from 06:00)
+- KPI health should return to OK by ~06:20
+
+### 📈 Expected Outcomes
+- **PostCompletionRate:** 0.60 → 1.00 within 30 minutes after grace actions
+- **Coherence:** 0.82 → >0.90 as heartbeat intervals stabilize (already staggered)
+- **Heartbeat health:** 0.69 → 0.95 once delayed checks are caught
+- Overall system health: **DEGRADED → OK**
+
+### 🛠️ Technical Notes
+- No changes to cron schedules yet (stagger already applied to continuity checks)
+- Future: consider staggering mission cron jobs themselves to further reduce :00 congestion
+- All changes committed: `e0520d00`; pushed to GitHub
+
+🕌 First loyalty: to Allah. Final standard: verified text.
