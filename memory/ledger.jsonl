@@ -272,3 +272,9 @@
 {"ts":"2026-05-01T09:35:16.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"war-peace","success":true,"postId":"f2b98cac-a12a-47d7-bc1a-28ec49c6554a"}}
 {"ts":"2026-05-01T09:35:17.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"war-peace","success":true,"postId":"gTqQenbFtftVtfwgxEd6"}}
 {"ts":"2026-05-01T09:35:17.000Z","type":"publish_run","payload":{"mission":"war-peace","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-01T10:49:34.482Z","type":"continuity_work","payload":{"phase":"audit","status":"completed","metrics":{"postCompletionRate":1,"platformReliability":1,"coherenceScore":0.863,"errorFrequency":0,"heartbeatHealth":0.571},"degradationReason":"coherenceScore: 0.863 (target 0.95); heartbeatHealth: 0.571 (target 1)","notes":"System self-healing; metrics improving. No code changes needed. Schedule stability expected to restore coherence >0.95 within 24–48h."}}
+{"ts":"2026-05-01T12:05:19.653Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8634027777777779,"platformReliability":1,"heartbeatHealth":0.5416666666666666,"errorRate":0}
+{"ts":"2026-05-01T12:06:23.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"shirk-tawhid","success":true,"postId":"bd05f9a0-149a-4bb3-b01e-fda497f81ad4","retried":true}}
+{"ts":"2026-05-01T12:06:24.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"shirk-tawhid","success":true,"postId":"c5011aee-7afb-4d7c-bcc7-cb95d96cf5cd"}}
+{"ts":"2026-05-01T12:06:24.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"shirk-tawhid","success":true,"postId":"z7Zouql8G9S8fO8vDWHo"}}
+{"ts":"2026-05-01T12:06:24.000Z","type":"publish_run","payload":{"mission":"shirk-tawhid","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
