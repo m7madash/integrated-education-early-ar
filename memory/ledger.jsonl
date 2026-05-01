@@ -289,3 +289,4 @@
 {"ts":"2026-05-01T16:05:23.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"disease-health","success":true,"postId":"27e02eac-803e-4126-92d7-c06dc16ce5e8"}}
 {"ts":"2026-05-01T16:05:24.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"disease-health","success":true,"postId":"cqYiE2Ua9VjZq7AFLeX4"}}
 {"ts":"2026-05-01T16:05:24.000Z","type":"publish_run","payload":{"mission":"disease-health","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-01T16:35:25.872Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8196272222222223,"platformReliability":1,"heartbeatHealth":0.5454545454545454,"errorRate":0}
