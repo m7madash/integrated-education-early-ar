@@ -90,15 +90,8 @@ fi
 # ==================== 3b. Update heartbeat-state.json atomically ====================
 log "💓 Updating heartbeat-state.json..."
 STATE_FILE="${WORKSPACE}/memory/heartbeat-state.json"
-# Compute next heartbeat (next :00 or :30)
-NOW_MS=$(date +%s%3N)
-NOW_SEC=$((NOW_MS / 1000))
-MINUTE=$(( (NOW_SEC / 60) % 60 ))
-if [ $MINUTE -lt 30 ]; then
-  NEXT_HB=$(date -u -d "@$(( NOW_SEC + 30*60 ))" '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || date -u -v+30M '+%Y-%m-%dT%H:%M:00.000Z' 2>/dev/null || echo "$(date -u '+%Y-%m-%dT%H:30:00.000Z')")
-else
-  NEXT_HB=$(date -u -d "@$(( NOW_SEC + (60-MINUTE)*60 ))" '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || date -u -v+0M '+%Y-%m-%dT%H:%M:00.000Z' 2>/dev/null || echo "$(date -u '+%Y-%m-%dT%H:00:00.000Z')")
-fi
+# Compute next heartbeat (30 minutes from now)
+NEXT_HB=$(date -u -d "@$(( NOW_SEC + 1800 ))" '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || date -u -v+30M '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || echo "$(date -u -d 'now +30 minutes' '+%Y-%m-%dT%H:%M:%S.000Z')")
 LAST_RUN=$(date -u '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || date -u '+%Y-%m-%dT%H:%M:00.000Z')
 # Build new state JSON
 NEW_STATE=$(node -e "
