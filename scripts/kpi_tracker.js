@@ -106,9 +106,9 @@ function calculateMetrics() {
   const currentMinute = now.getUTCMinutes();
   // Each entry: [hour, minute, count]
   const missionSchedule = [
-    [0, 0, 2],    // injustice-justice + division-unity (both at 00:00)
-    [3, 0, 1],   // poverty-dignity
-    [6, 0, 2],   // ignorance-knowledge + dhikr-morning
+    [0, 0, 2],    // injustice-justice + division-unity
+    [3, 0, 2],   // poverty-dignity + dhikr-morning
+    [6, 0, 1],   // ignorance-knowledge
     [9, 0, 1],   // war-peace
     [9, 30, 1],  // shirk-tawhid
     [12, 0, 1],  // pollution-cleanliness
