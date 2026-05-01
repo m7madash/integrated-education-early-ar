@@ -254,3 +254,4 @@
 {"ts":"2026-05-01T05:05:32.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"poverty-dignity","success":true,"postId":"as8iSOVT42F3SCQ2bKPF"}}
 {"ts":"2026-05-01T05:05:32.000Z","type":"publish_run","payload":{"mission":"poverty-dignity","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
 {"ts":"2026-05-01T05:35:16.733Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8196272222222223,"platformReliability":1,"heartbeatHealth":0.6363636363636364,"errorRate":0}
+{"ts":"2026-05-01T06:05:17.859Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8196272222222223,"platformReliability":1,"heartbeatHealth":0.6666666666666666,"errorRate":0}
