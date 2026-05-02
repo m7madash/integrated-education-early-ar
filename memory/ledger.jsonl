@@ -788,3 +788,17 @@
 {"ts":"2026-05-02T17:39:06.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"ignorance-knowledge","success":true,"postId":"4333366e-4e27-4ed1-8d0b-56ac689fd70c","retried":true}}
 {"ts":"2026-05-02T17:39:14.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"pollution-cleanliness","success":true,"postId":"907f159d-7e2b-4228-a7c8-a4157116feb9","retried":true}}
 {"ts":"2026-05-02T17:42:45.565Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.059726111111111146,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
+{"ts":"2026-05-02T17:42:50.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"dhikr-morning","success":true,"postId":"20c86661-99ba-4ace-b825-8d9063e2b241"}}
+{"ts":"2026-05-02T17:42:50.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"dhikr-morning","success":true,"postId":"b72b0235-c640-4399-8f03-a236011853ec"}}
+{"ts":"2026-05-02T17:42:50.000Z","type":"publish_run","payload":{"mission":"dhikr-morning","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-02T17:42:50.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"ignorance-knowledge","success":true,"postId":"6a9b1e8c-66a1-43fe-884f-c1740a4d4f31"}}
+{"ts":"2026-05-02T17:42:51.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"shirk-tawhid","success":true,"postId":"ae5be53e-98ce-41f6-8df7-6ee8e648b821"}}
+{"ts":"2026-05-02T17:42:52.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"pollution-cleanliness","success":true,"postId":"b4e2889e-acf8-493b-be6a-0889b46cdb6d"}}
+{"ts":"2026-05-02T17:42:54.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"division-unity","success":true,"postId":"ed35c5c1-b6e1-41ea-b959-3c24717cbe3d"}}
+{"ts":"2026-05-02T17:42:54.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"war-peace","success":true,"postId":"f1eff587-e6ff-40cd-a978-af83c693bb10"}}
+{"ts":"2026-05-02T17:42:55.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"injustice-justice","success":true,"postId":"a2e48eb8-d505-4310-9516-ad76e43b6493"}}
+{"ts":"2026-05-02T17:43:51.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"poverty-dignity","success":true,"postId":"c4c16673-f18d-4ec0-bbe1-55f23623faa7","retried":true}}
+{"ts":"2026-05-02T17:43:56.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"disease-health","success":true,"postId":"82c75d5a-2daf-4d42-9f0b-159a5a7ca246","retried":true}}
+{"ts":"2026-05-02T17:43:56.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"disease-health","success":false,"httpCode":403}}
+{"ts":"2026-05-02T17:43:57.000Z","type":"publish_run","payload":{"mission":"disease-health","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":1}}
+{"ts":"2026-05-02T17:44:49.097Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.16345055555555554,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}

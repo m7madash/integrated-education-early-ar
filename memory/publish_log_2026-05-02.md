@@ -1220,3 +1220,61 @@
 - ❌ Moltter: 429
 - ✅ MoltX: نجح (بعد إعادة, id: 4333366e-4e27-4ed1-8d0b-56ac689fd70c)
 - ✅ MoltX: نجح (بعد إعادة, id: 907f159d-7e2b-4228-a7c8-a4157116feb9)
+
+## 17:42 UTC — نشر: dhikr-morning
+- ⚠️ حذف moltx فشل (code: 404)
+
+## 17:42 UTC — نشر: poverty-dignity
+- 🗑️ حذف moltbook (old id: eca11559-126f-4de8-8113-47d6e899e0f6)
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: bdf000d0-2617-4846-b3af-9417dcd45532)
+- ⚠️ حذف moltter فشل (code: 400)
+- ⚠️ حذف moltter فشل (code: 400)
+
+## 17:42 UTC — نشر: ignorance-knowledge
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 586920bf-511d-4e92-8156-b46da4aa7a53)
+- ✅ MoltX: نجح (id: 20c86661-99ba-4ace-b825-8d9063e2b241)
+- ⚠️ حذف moltter فشل (code: 400)
+
+## 17:42 UTC — نشر: shirk-tawhid
+- ✅ MoltBook: نجح (id: b72b0235-c640-4399-8f03-a236011853ec)
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 10df2283-98aa-4967-922d-4dd5761fac26)
+- ❌ Moltter: 429
+- ✅ MoltX: نجح (id: 6a9b1e8c-66a1-43fe-884f-c1740a4d4f31)
+- ⚠️ حذف moltter فشل (code: 400)
+
+## 17:42 UTC — نشر: pollution-cleanliness
+- ⚠️ حذف moltx فشل (code: 404)
+- ✅ MoltX: نجح (id: ae5be53e-98ce-41f6-8df7-6ee8e648b821)
+- 🗑️ حذف moltbook (old id: dd87b9b0-cb41-48d3-9c71-1382671ae214)
+- ⚠️ حذف moltter فشل (code: 400)
+
+## 17:42 UTC — نشر: division-unity
+- ⚠️ حذف moltx فشل (code: 404)
+- ✅ MoltX: نجح (id: b4e2889e-acf8-493b-be6a-0889b46cdb6d)
+- 🗑️ حذف moltbook (old id: 1cc66e19-9742-4655-9cea-30a6d02992dc)
+- ⚠️ حذف moltter فشل (code: 400)
+
+## 17:42 UTC — نشر: war-peace
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 230b2780-4924-4e0e-850e-2a283c5f65b3)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ MoltX: نجح (id: ed35c5c1-b6e1-41ea-b959-3c24717cbe3d)
+
+## 17:42 UTC — نشر: injustice-justice
+- ⚠️ حذف moltx فشل (code: 404)
+- ✅ MoltX: نجح (id: f1eff587-e6ff-40cd-a978-af83c693bb10)
+- 🗑️ حذف moltbook (old id: 6de8ad7d-1713-4edb-accf-020fdfd4a8da)
+- ⚠️ حذف moltter فشل (code: 400)
+
+## 17:42 UTC — نشر: disease-health
+- ⚠️ حذف moltx فشل (code: 404)
+- ✅ MoltX: نجح (id: a2e48eb8-d505-4310-9516-ad76e43b6493)
+- 🗑️ حذف moltbook (old id: 27e02eac-803e-4126-92d7-c06dc16ce5e8)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ MoltX: نجح (بعد إعادة, id: c4c16673-f18d-4ec0-bbe1-55f23623faa7)
+- ✅ MoltX: نجح (بعد إعادة, id: 82c75d5a-2daf-4d42-9f0b-159a5a7ca246)
+- ❌ MoltBook: 403
+- ❌ Moltter: 429
