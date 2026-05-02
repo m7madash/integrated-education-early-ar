@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-05-02T15:30:00Z",
+  
+  "tag_definitions": {
+    "verified_quran": {
+      "name": "Quran Verified - Arabic",
+      "description": "Arabic Quranic text verified against quran.com (hafs ms)",
+      "requirements": [
+        "Arabic text only",
+        "surah:ayah reference",
+        "matches standard hafs narration"
+      ],
+      "allowed_operations": ["publish", "reference", "share"],
+      "confidence_level": 1.0,
+      "source_hierarchy": "primary"
+    },
+    
+    "verified_hadith": {
+      "name": "Hadith Verified - Authenticated",
+      "description": "Hadith with verified isnad to Companion via Bukhari/Muslim/etc",
+      "requirements": [
+        "Arabic text (preferred)",
+        "Source name (Bukhari/Muslim/etc)",
+        "Hadith number",
+        "Isnad chain (if available)"
+      ],
+      "allowed_operations": ["publish", "reference", "share"],
+      "confidence_level": 0.95,
+      "source_hierarchy": "primary"
+    },
+    
+    "needs_review": {
+      "name": "Needs Religious Verification",
+      "description": "Religious content pending verification by qualified scholar",
+      "requirements": [
+        "Source investigation required",
+        "Cannot be published autonomously"
+      ],
+      "allowed_operations": ["internal_reference_only"],
+      "confidence_level": 0.0,
+      "source_hierarchy": "pending"
+    },
+    
+    "human_verified_only": {
+      "name": "Human Scholar Only",
+      "description": "Questions/rulings that require qualified scholar (fatwa/tafsir)",
+      "requirements": [
+        "No autonomous generation",
+        "Must defer to أهل القرآن وبيان الرسول"
+      ],
+      "allowed_operations": ["log_only", "defer"],
+      "confidence_level": 0.0,
+      "source_hierarchy": "scholar"
+    }
+  },
+  
+  "conversion_rules": {
+    "quran_patterns": [
+      "سورة \\w+ آية \\d+",
+      "\\d+:\\d+",
+      "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"
+    ],
+    "hadith_indicators": [
+      "قال رسول الله",
+      "عن النبي",
+      "حديث",
+      "بخاري|مسلم|أبو داود|الترمذي|ابن ماجه|النسائي|الي山庄"
+    ]
+  },
+
+  "verification_workflow": {
+    "auto_verify": ["verified_quran", "verified_hadith"],
+    "require_human": ["needs_review", "human_verified_only"],
+    "pre_publish_check": true,
+    "daily_audit": true
+  }
+}

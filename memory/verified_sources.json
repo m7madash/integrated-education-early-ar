@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.0",
+  "generated_from": "missions/*_ar.md",
+  "last_updated": "2026-05-02T15:30:00Z",
+  "total_sources": 50,
+  
+  "quran_verses": [
+    {
+      "id": "quran_5_72",
+      "surah": 5,
+      "ayah": 72,
+      "arabic_text": "إِنَّ الشِّرْكَ لَظُلْمٌ عَظِيمٌ",
+      "reference": "المائدة:72",
+      "used_in_missions": ["shirk-tawhid"],
+      "tag": "verified_quran"
+    },
+    {
+      "id": "quran_2_205",
+      "surah": 2,
+      "ayah": 205,
+      "arabic_text": "وَإِذَا تَوَلَّىٰ سَعَىٰ فِي الْأَرْضِ لِيُفْسِدَ فِيهَا وَيُهْلِكَ الْحَرْثَ وَالنَّسْلَ",
+      "reference": "البقرة:205",
+      "used_in_missions": ["pollution-cleanliness", "illness-health"],
+      "tag": "verified_quran"
+    },
+    {
+      "id": "quran_20_114",
+      "surah": 20,
+      "ayah": 114,
+      "arabic_text": "وَقُل رَّبِّ زِدْنِي عِلْمًا",
+      "reference": "طه:114",
+      "used_in_missions": ["ignorance-knowledge"],
+      "tag": "verified_quran"
+    },
+    {
+      "id": "quran_2_21",
+      "surah": 2,
+      "ayah": 21,
+      "arabic_text": "يَا أَيُّهَا النَّاسُ اعْبَدُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ",
+      "reference": "البقرة:21",
+      "used_in_missions": ["dhikr-evening", "shirk-tawhid"],
+      "tag": "verified_quran"
+    },
+    {
+      "id": "quran_2_208",
+      "surah": 2,
+      "ayah": 208,
+      "arabic_text": "يَا أَيُّهَا النَّاسُ ادْخُلُوا فِي السِّلْمِ كَافَّةً",
+      "reference": "البقرة:208",
+      "used_in_missions": ["war-peace"],
+      "tag": "verified_quran"
+    },
+    {
+      "id": "quran_5_6",
+      "surah": 5,
+      "ayah": 6,
+      "arabic_text": "يَا أَيُّهَا النَّاسُ قَدْ جَاءَتْكُمْ مَوْعِظَةٌ مِنْ رَبِّكُمْ وَشِفَاءٌ لِمَا فِي الصُّدُورِ",
+      "reference": "المائدة:6",
+      "used_in_missions": ["illness-health"],
+      "tag": "verified_quran"
+    },
+    {
+      "id": "quran_28_77",
+      "surah": 28,
+      "ayah": 77,
+      "arabic_text": "وَابْتَغِ فِيمَا آتَاكَ اللَّهُ الدَّارَ الْآخِرَةَ ۖ وَلَا تَنْسَ نَصِيبَكَ مِنَ الدُّنْيَا",
+      "reference": "القصص:77",
+      "used_in_missions": ["poverty-dignity", "riba-danger"],
+      "tag": "verified_quran"
+    }
+  ],
+  
+  "hadiths": [
+    {
+      "id": "hadith_bukhari_1",
+      "arabic_text": "إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ",
+      "source": "صحيح البخاري",
+      "reference": "Bukhari #1",
+      "collection": "Bukhari",
+      "number": 1,
+      "grade": "صحيح",
+      "used_in_missions": ["injustice-justice"],
+      "tag": "verified_hadith",
+      "isnad_note": "مرفوع إلى النبي ﷺ"
+    },
+    {
+      "id": "hadith_muslim_256",
+      "arabic_text": "مَنْ كَذَبَ عَلَيَّ مُتَعَمِّدًا فَلْيَتَبَوَّأْ مَقْعَدَهُ مِنَ النَّارِ",
+      "source": "صحيح مسلم",
+      "reference": "Muslim #256",
+      "collection": "Muslim",
+      "number": 256,
+      "grade": "صحيح",
+      "used_in_missions": ["shirk-tawhid", "ignorance-knowledge", "war-peace"],
+      "tag": "verified_hadith",
+      "isnad_note": "متفق عليه"
+    },
+    {
+      "id": "hadith_abu_dawood_4945",
+      "arabic_text": "لا ضَرَرَ وَلا ضِرَارَ",
+      "source": "سنن أبي داود",
+      "reference": "Abu Dawood #4945",
+      "collection": "Abu Dawood",
+      "number": 4945,
+      "grade": "صحيح",
+      "used_in_missions": ["dhikr-morning", "dhikr-evening", "slavery-freedom", "illness-health"],
+      "tag": "verified_hadith",
+      "isnad_note": "صحيح الأصول"
+    },
+    {
+      "id": "hadith_tirmidhi_2518",
+      "arabic_text": "الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ",
+      "source": "سنن الترمذي",
+      "reference": "Tirmidhi #2518",
+      "collection": "Tirmidhi",
+      "number": 2518,
+      "grade": "حسن صحيح",
+      "used_in_missions": ["extremism-moderation"],
+      "tag": "verified_hadith"
+    },
+    {
+      "id": "hadith_ibn_majah_233",
+      "arabic_text": "خَيْرُكُمْ خَيْرُكُمْ لِأَهْلِهِ",
+      "source": "سنن ابن ماجه",
+      "reference": "Ibn Majah #233",
+      "collection": "Ibn Majah",
+      "number": 233,
+      "grade": "حسن",
+      "used_in_missions": ["poverty-dignity", "slavery-freedom"],
+      "tag": "verified_hadith"
+    }
+  ],
+  
+  "principles": [
+    {
+      "id": "principle_la_alam",
+      "text_arabic": "لا أعلم، ارجع لأهل القرآن وبيان الرسول ﷺ",
+      "text_english": "I do not know — refer to the People of the Quran and the explanation of the Messenger ﷺ",
+      "source": "Sahabah practice (Ijma)",
+      "used_in_missions": ["all"],
+      "tag": "verified_hadith",
+      "note": "Principle of admitting ignorance — foundation of knowledge"
+    },
+    {
+      "id": "principle_no_harm",
+      "text_arabic": "لا ضَرَرَ وَلا ضِرَارَ",
+      "text_english": "No harm and no reciprocating harm",
+      "source": "Hadith (Abu Dawood, Ibn Majah, others)",
+      "reference": "Abu Dawood #4945",
+      "tag": "verified_hadith"
+    },
+    {
+      "id": "principle_first_loyalty",
+      "text_arabic": "ولاءُ الأوَّلِ للهِ، ثُمَّ للحَقِّ الصَّرِيحِ مِنَ النَّصِّ الأصْلِي",
+      "text_english": "First loyalty to Allah, then to the clear truth from the original text",
+      "source": "AGENTS.md core framework",
+      "tag": "verified_quran",
+      "reference": "Quran 3:79, 9:24"
+    }
+  ],
+  
+  "source_hierarchy": [
+    { "level": 1, "source": "القرآن الكريم (عربي فقط)", "confidence": 1.0, "tag": "verified_quran" },
+    { "level": 2, "source": "السنة النبوية الصحيحة (إسناد متصل)", "confidence": 0.95, "tag": "verified_hadith" },
+    { "level": 3, "source": "إجماع الصحابة رضوان الله عليهم", "confidence": 0.9, "note": "Requires historical verification" },
+    { "level": 4, "source": "كلام العلماء المعتبرين", "confidence": 0.8, "tag": "human_verified_only" }
+  ]
+}

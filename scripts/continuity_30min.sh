@@ -305,6 +305,23 @@ if [ ${#republish_list[@]} -gt 0 ]; then
     if [ -f "scripts/publish_daily_post_multi_target.sh" ]; then
       # Use retry_loop inside background job to handle transient failures
       (
+        # Religious verification gate (exit 0=pass, 1=flag, 2=block)
+        VERIFY_EXIT=0
+        if [ -f "scripts/verify_mission_religious.sh" ] && [ -f "missions/${miss}_ar.md" ]; then
+          bash scripts/verify_mission_religious.sh "$miss" "missions/${miss}_ar.md"
+          VERIFY_EXIT=$?
+          if [ $VERIFY_EXIT -eq 2 ]; then
+            echo "[$(date '+%Y-%m-%d %H:%M:%S')] ❌ BLOCK: $miss — unverified religious content (human review required)"
+            exit 2
+          elif [ $VERIFY_EXIT -eq 1 ]; then
+            echo "[$(date '+%Y-%m-%d %H:%M:%S')] ⚠️ FLAG: $miss — needs religious verification (skipping auto-publish)"
+            exit 1
+          else
+            echo "[$(date '+%Y-%m-%d %H:%M:%S')] ✅ Religious verification passed for $miss"
+          fi
+        else
+          echo "[$(date '+%Y-%m-%d %H:%M:%S')] ℹ️ No religious verification (script or mission file missing)"
+        fi
         retry_loop 3 2 bash scripts/publish_daily_post_multi_target.sh "$miss" >> "${LOG_FILE}" 2>&1
       ) &
       publish_pids+=($!)

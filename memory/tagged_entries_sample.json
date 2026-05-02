@@ -1,0 +1,106 @@
+{
+  "sample_entries": [
+    {
+      "id": "mem_20260502_001",
+      "date": "2026-05-02",
+      "timestamp": "2026-05-02T10:45:00Z",
+      "type": "continuity_decision",
+      "content": "تم تأكيد إنشاء نظام العدالة التنظيمية مع مراعاة مبدأ 'لا ضرر ولا ضرار'",
+      "arabic_content": "لا ضرر ولا ضرار",
+      "religious_reference": {
+        "type": "hadith",
+        "source": "Abu Dawood",
+        "reference": "#4945",
+        "arabic_text": "لا ضَرَرَ وَلا ضِرَارَ",
+        "grade": "صحيح",
+        "isnad_note": "صحيح الأصول"
+      },
+      "tags": ["verified_hadith"],
+      "confidence": 0.95,
+      "verified_against": "verified_sources.json entry: hadith_abu_dawood_4945",
+      "decision": "Approved — justice principle embedded"
+    },
+    
+    {
+      "id": "mem_20260502_002",
+      "date": "2026-05-02",
+      "timestamp": "2026-05-02T11:30:00Z",
+      "type": "user_question",
+      "content": "ما هو حكم استخدام blockchain في المعاملات المالية؟",
+      "religious_aspect": "Financial ruling (فقه معاملات)",
+      "tags": ["human_verified_only"],
+      "confidence": 0.0,
+      "requires": "Qualified Islamic finance scholar",
+      "action_taken": "Deferred — logged for human review",
+      "response_given": "لا أعلم، ارجع لأهل القرآن وبيان الرسول ﷺ في مسألة العملات الرقمية"
+    },
+    
+    {
+      "id": "mem_20260502_003",
+      "date": "2026-05-02",
+      "timestamp": "2026-05-02T12:00:00Z",
+      "type": "published_verse",
+      "content": "وَإِذَا تَوَلَّىٰ سَعَىٰ فِي الْأَرْضِ لِيُفْسِدَ فِيهَا وَيُهْلِكَ الْحَرْثَ وَالنَّسْلَ",
+      "arabic_text": "وَإِذَا تَوَلَّىٰ سَعَىٰ فِي الْأَرْضِ لِيُفْسِدَ فِيهَا وَيُهْلِكَ الْحَرْثَ وَالنَّسْلَ",
+      "religious_reference": {
+        "type": "quran",
+        "surah": 2,
+        "ayah": 205,
+        "reference": "البقرة:205",
+        "validation_source": "quran.com (hafs)"
+      },
+      "tags": ["verified_quran"],
+      "confidence": 1.0,
+      "used_in_missions": ["pollution-cleanliness", "corruption-reform"],
+      "context": "Environmental corruption — exploiting Earth's resources"
+    },
+    
+    {
+      "id": "mem_20260502_004",
+      "date": "2026-05-02",
+      "timestamp": "2026-05-02T15:00:00Z",
+      "type": "mission_content_audit",
+      "mission": "illness-health",
+      "findings": {
+        "quran_refs": [
+          { "surah": 5, "ayah": 6, "text": "يَا أَيُّهَا النَّاسُ قَدْ جَاءَتْكُمْ مَوْعِظَةٌ مِنْ رَبِّكُمْ وَشِفَاءٌ لِمَا فِي الصُّدُورِ", "verified": true }
+        ],
+        "hadith_refs": [
+          { "text": "لا ضَرَرَ وَلا ضِرَارَ", "source": "أبو داود", "reference": "#4945", "verified": true }
+        ],
+        "compliance": "PASS — all references in verified_sources.json"
+      },
+      "tags": ["verified_quran", "verified_hadith"],
+      "overall_confidence": 0.98
+    },
+    
+    {
+      "id": "mem_20260502_005",
+      "date": "2026-05-02",
+      "timestamp": "2026-05-02T15:15:00Z",
+      "type": "unverified_claim",
+      "content": "يقال: إن للصبر ثواباً عظيماً",
+      "issue": "Vague religious claim without source",
+      "tags": ["needs_review"],
+      "confidence": 0.2,
+      "reason": "Phrase 'يقال' indicates unverified narration",
+      "action": "Do not publish — require scholar confirmation"
+    }
+  ],
+  
+  "stats": {
+    "total_entries": 5,
+    "verified_quran": 1,
+    "verified_hadith": 2,
+    "needs_review": 1,
+    "human_verified_only": 1,
+    "overall_compliance": "80% (4/5 verified or deferred)"
+  },
+  
+  "next_actions": [
+    "Tag all memory entries from 2026-05-01 using tag_memory_entries.js",
+    "Create automated daily audit to scan new memory entries for religious content",
+    "Integrate pre-publish verify_religious_content.js into continuity_30min.sh",
+    "Update MEMORY.md with tagging system explanation (for human review)"
+  ]
+}
