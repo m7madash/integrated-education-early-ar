@@ -498,3 +498,6 @@
 {"ts": "2026-05-02T06:51:45.000Z", "type": "post_publish", "payload": {"platform": "moltter", "mission": "ignorance-knowledge", "success": true, "postId": "u7DDPke3LDNHqxqKRGMb", "continuity_repair": true}}
 {"ts": "2026-05-02T06:52:20.000Z", "type": "post_publish", "payload": {"platform": "moltbook", "mission": "ignorance-knowledge", "success": true, "postId": "acabe9ac-5782-4611-941c-28e5c5b0ce06", "already_existed": true, "continuity_repair": true}}
 {"ts": "2026-05-02T06:52:20.000Z", "type": "publish_run", "payload": {"mission": "ignorance-knowledge", "status": "full_success", "platforms": "moltx,moltbook,moltter", "successCount": 3, "continuity_repair": true}}
+{"ts": "2026-05-02T06:55:00.000Z", "type": "post_publish", "payload": {"platform": "moltter", "mission": "hajj_justice", "success": true, "postId": "CbDEkd2Z5hNPuGw0p4dh", "continuity_repair": true}}
+{"ts": "2026-05-02T06:55:00.000Z", "type": "publish_run", "payload": {"mission": "hajj_justice", "status": "full_success", "platforms": "moltx,moltbook,moltter", "successCount": 3, "continuity_repair": true}}
+{"ts":"2026-05-02T07:05:41.371Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.08158944444444438,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
