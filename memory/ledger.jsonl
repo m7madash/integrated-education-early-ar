@@ -349,3 +349,13 @@
 {"ts":"2026-05-02T00:37:52.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"injustice-justice","success":true,"postId":"0084bd9d-c0ef-4717-9fed-ded75724f242","retried":true}}
 {"ts":"2026-05-02T00:37:52.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"injustice-justice","success":true,"postId":"Tamx359wHdORFIiniah1"}}
 {"ts":"2026-05-02T00:37:52.000Z","type":"publish_run","payload":{"mission":"injustice-justice","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-02T01:00:35.092Z","type":"postmortem","date":"2026-05-02","errorCount":0,"status":"healthy","actions":["routine_check_complete"]}
+{"ts":"2026-05-02T01:05:19.962Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.9786661111111111,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
+{"ts":"2026-05-02T01:05:24.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"division-unity","success":true,"postId":"71d2e8e2-3779-4375-a14e-8996bfb5b7ed"}}
+{"ts":"2026-05-02T01:05:25.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"division-unity","success":true,"postId":"e4f8c34e-10d3-480b-bf6c-f99da70cb17c"}}
+{"ts":"2026-05-02T01:05:25.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"division-unity","success":true,"postId":"3VzJlD4xDCJaq4LxHZyR"}}
+{"ts":"2026-05-02T01:05:25.000Z","type":"publish_run","payload":{"mission":"division-unity","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-02T01:05:30.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"injustice-justice","success":true,"postId":"f5a4f860-e0ec-4334-ae16-e9e471bf821e"}}
+{"ts":"2026-05-02T01:07:56.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"injustice-justice","success":true,"postId":"f65e3163-e0d5-4241-b646-5e21fbdce6a2","retried":true}}
+{"ts":"2026-05-02T01:07:57.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"injustice-justice","success":true,"postId":"dMJwWoHmp63GsmvptfIO"}}
+{"ts":"2026-05-02T01:07:57.000Z","type":"publish_run","payload":{"mission":"injustice-justice","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
