@@ -47,22 +47,22 @@ retry_loop() {
   local delay="$base_delay"
 
   while [ $attempt -le $max_attempts ]; do
-    log "🔁 Retry attempt ${attempt}/${max_attempts}: ${cmd[*]}"
-    if "${cmd[@]}" 2>>"${LOG_FILE}"; then
-      log "✅ Retry succeeded on attempt ${attempt}"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] 🔁 Retry attempt ${attempt}/${max_attempts}: ${cmd[*]}" >&2
+    if "${cmd[@]}" 2>&1; then
+      echo "[$(date '+%Y-%m-%d %H:%M:%S')] ✅ Retry succeeded on attempt ${attempt}" >&2
       return 0
     else
       local exit_code=$?
-      log "⚠️ Retry failed (exit ${exit_code}) — attempt ${attempt}/${max_attempts}"
+      echo "[$(date '+%Y-%m-%d %H:%M:%S')] ⚠️ Retry failed (exit ${exit_code}) — attempt ${attempt}/${max_attempts}" >&2
       if [ $attempt -lt $max_attempts ]; then
-        log "⏳ Waiting ${delay}s before retry..."
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] ⏳ Waiting ${delay}s before retry..." >&2
         sleep "$delay"
         delay=$((delay * 2))  # exponential backoff
       fi
     fi
     attempt=$((attempt + 1))
   done
-  log "❌ All ${max_attempts} attempts failed for: ${cmd[*]}"
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] ❌ All ${max_attempts} attempts failed for: ${cmd[*]}" >&2
   return 1
 }
 
@@ -163,7 +163,7 @@ if git status --porcelain | grep -q '^'; then
   git commit -m "auto: continuity 30min — $(date '+%Y-%m-%d %H:%M:%S')" 2>/dev/null || log "ℹ️ No changes to commit"
 
   # Try push with retry (non-blocking; failures will retry later)
-  retry_loop 3 5 "git push origin main" >/dev/null 2>&1 || log "⚠️ Push failed after retries — will retry later"
+  retry_loop 3 5 "git push origin main" >> "${LOG_FILE}" 2>&1 || log "⚠️ Push failed after 3 retries — will retry later"
 else
   log "✅ Workspace clean"
 fi
@@ -278,7 +278,10 @@ if [ ${#republish_list[@]} -gt 0 ]; then
   for miss in "${republish_list[@]}"; do
     log "🚀 Publishing (async): ${miss}"
     if [ -f "scripts/publish_daily_post_multi_target.sh" ]; then
-      bash "scripts/publish_daily_post_multi_target.sh" "$miss" >> "${LOG_FILE}" 2>&1 &
+      # Use retry_loop inside background job to handle transient failures
+      (
+        retry_loop 3 2 "bash scripts/publish_daily_post_multi_target.sh \"$miss\"" >> "${LOG_FILE}" 2>&1
+      ) &
       publish_pids+=($!)
       sleep 1  # stagger starts to avoid burst contention
     else
