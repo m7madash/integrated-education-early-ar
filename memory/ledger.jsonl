@@ -557,3 +557,4 @@
 {"ts":"2026-05-02T10:47:18.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"shirk-tawhid","success":true,"postId":"d1LDGFDD6d194QzkAzLZ"}}
 {"ts":"2026-05-02T10:47:18.000Z","type":"publish_run","payload":{"mission":"shirk-tawhid","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 2026-05-02T10:49:29Z {"type":"backup","file":"backup_20260502_104928.tar.gz","size":"6.6M","status":"success"}
+{"ts":"2026-05-02T11:35:17.597Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.9860694444444444,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
