@@ -534,3 +534,4 @@
 {"ts":"2026-05-02T10:42:15.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"shirk-tawhid","success":true,"postId":"244d3137-f2ed-4151-9585-90f52e2de405","retried":true}}
 {"ts":"2026-05-02T10:42:16.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"shirk-tawhid","success":true,"postId":"m9Gx4SJIFIHv6gTJ6uM4"}}
 {"ts":"2026-05-02T10:42:16.000Z","type":"publish_run","payload":{"mission":"shirk-tawhid","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-02T10:42:24.398Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.31972222222222224,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
