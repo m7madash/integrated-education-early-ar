@@ -480,3 +480,4 @@
 {"ts":"2026-05-02T06:05:21.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"division-unity","success":true,"postId":"nu3QGi9JUV80248xH0eX"}}
 {"ts":"2026-05-02T06:05:21.000Z","type":"publish_run","payload":{"mission":"division-unity","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
 {"ts":"2026-05-02T06:06:21.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"dhikr-morning","success":true,"postId":"e16151f7-e85d-44e1-a562-d4f9cedc1252","retried":true}}
+{"ts":"2026-05-02T06:35:16.296Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.06588000000000005,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}

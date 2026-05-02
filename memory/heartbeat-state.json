@@ -12,12 +12,12 @@
     "model": "kilocode/stepfun/step-3.5-flash:free",
     "thinking": false
   },
-  "lastContinuityRun": "2026-05-02T06:05:16.000Z",
-  "nextHeartbeat": "2026-05-02T06:35:16.000Z",
+  "lastContinuityRun": "2026-05-02T06:35:16.000Z",
+  "nextHeartbeat": "2026-05-02T07:05:16.000Z",
   "lastChecks": {
-    "continuity": "2026-05-02T06:05:16.000Z",
-    "ledger": "2026-05-02T06:05:16.000Z"
+    "continuity": "2026-05-02T06:35:16.000Z",
+    "ledger": "2026-05-02T06:35:16.000Z"
   },
-  "degradationReason": "coherenceScore: 0.048 (target 0.95)",
-  "updatedAt": "2026-05-02T06:05:16.053Z"
+  "degradationReason": "coherenceScore: 0.066 (target 0.95)",
+  "updatedAt": "2026-05-02T06:35:16.327Z"
 }
