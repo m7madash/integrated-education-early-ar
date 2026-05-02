@@ -1,18 +1,23 @@
 {
-  "lastChecks": {
-    "email": "2026-04-28T13:01:01.131Z",
-    "calendar": "2026-04-28T13:01:01.131Z",
-    "weather": "2026-04-28T13:01:01.131Z",
-    "religiousAudit": "2026-04-28T13:01:01.131Z",
-    "memoryUpdate": "2026-04-27T16:04:00Z",
-    "continuity": "2026-05-01T20:35:25.000Z",
-    "ledger": "2026-05-01T20:35:25.000Z",
-    "snapshot": "2026-04-30T22:30:19.000Z",
-    "continuityWork": "2026-04-30T22:45:29.000Z"
-  },
+  "lastCheck": "2026-05-01T23:05:00Z",
+  "agent": "KiloClaw",
   "status": "degraded",
-  "nextHeartbeat": "1970-01-01T00:30:00.000Z",
-  "lastContinuityRun": "2026-05-01T20:35:25.000Z",
-  "degradationReason": "coherenceScore: 0.907 (target 0.95)",
-  "updatedAt": "2026-05-01T20:35:25.900Z"
+  "uptime": "unknown",
+  "workspace": "/root/.openclaw/workspace",
+  "channel": "telegram",
+  "runtime": {
+    "agent": "main",
+    "host": "48e16dec132538",
+    "node": "v24.14.1",
+    "model": "kilocode/stepfun/step-3.5-flash:free",
+    "thinking": false
+  },
+  "lastContinuityRun": "2026-05-02T00:05:17.000Z",
+  "nextHeartbeat": "2026-05-02T00:35:17.000Z",
+  "lastChecks": {
+    "continuity": "2026-05-02T00:05:17.000Z",
+    "ledger": "2026-05-02T00:05:17.000Z"
+  },
+  "degradationReason": "postCompletionRate: 0.000 (target 1)",
+  "updatedAt": "2026-05-02T00:05:17.876Z"
 }

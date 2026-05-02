@@ -14,6 +14,7 @@ LOG_FILE="${WORKSPACE}/logs/continuity_30min_$(date +%Y-%m-%d).log"
 MEMORY_FILE="${WORKSPACE}/memory/$(date +%Y-%m-%d).md"
 CONFIG_FILE="${WORKSPACE}/continuity.config.json"
 LOCK_FILE="${WORKSPACE}/.continuity_30min.lock"
+LEDGER_FILE="${WORKSPACE}/memory/ledger.jsonl"
 
 cd "${WORKSPACE}"
 
@@ -91,7 +92,8 @@ fi
 log "💓 Updating heartbeat-state.json..."
 STATE_FILE="${WORKSPACE}/memory/heartbeat-state.json"
 # Compute next heartbeat (30 minutes from now)
-NEXT_HB=$(date -u -d "@$(( NOW_SEC + 1800 ))" '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || date -u -v+30M '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || echo "$(date -u -d 'now +30 minutes' '+%Y-%m-%dT%H:%M:%S.000Z')")
+NOW_SEC=$(date -u +%s 2>/dev/null || date +%s)
+NEXT_HB=$(date -u -d "@$(( NOW_SEC + 1800 ))" '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || date -u -v+30M '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || date -u -d 'now +30 minutes' '+%Y-%m-%dT%H:%M:%S.000Z')
 LAST_RUN=$(date -u '+%Y-%m-%dT%H:%M:%S.000Z' 2>/dev/null || date -u '+%Y-%m-%dT%H:%M:00.000Z')
 # Build new state JSON
 NEW_STATE=$(node -e "
@@ -191,9 +193,19 @@ for m in "${DAILY_MISSION_NAMES[@]}"; do
   sched_minutes=$((10#$h * 60 + 10#$min))
   if [ "$CURRENT_MINUTES" -ge "$sched_minutes" ]; then
     expected_count=$((expected_count+1))
-    # Check if mission already published today
-    if ! grep -Fq "نشر: $m" "$WORKSPACE/memory/publish_log_${TODAY}.md" 2>/dev/null; then
-      missing_missions+=("$m")
+    # Check if mission already fully published today using ledger (publish_run with full_success)
+    if [ -f "$LEDGER_FILE" ] && command -v jq &>/dev/null; then
+      # Filter only well-formed JSONL entries (those starting with {"ts":) to avoid parse errors from malformed lines
+      if grep -q '^\{"ts":' "$LEDGER_FILE" && grep '^\{"ts":' "$LEDGER_FILE" | jq -e --arg m "$m" --arg today "$TODAY" 'select(.type=="publish_run" and .payload.mission==$m and .payload.status=="full_success" and ((.ts // "") | startswith($today)))' > /dev/null; then
+        : # mission complete
+      else
+        missing_missions+=("$m")
+      fi
+    else
+      # Fallback to publish_log check (less reliable)
+      if ! grep -Fq "نشر: $m" "$WORKSPACE/memory/publish_log_${TODAY}.md" 2>/dev/null; then
+        missing_missions+=("$m")
+      fi
     fi
   fi
 done
