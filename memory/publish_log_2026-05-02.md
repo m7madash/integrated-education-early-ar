@@ -328,3 +328,62 @@
 - ✅ Moltter: نجح (id: aoYiAXGejzyI9bn1CFar)
 - ✅ Moltter: نجح (id: nu3QGi9JUV80248xH0eX)
 - ✅ MoltX: نجح (بعد إعادة, id: e16151f7-e85d-44e1-a562-d4f9cedc1252)
+
+## 06:35 UTC — نشر: dhikr-morning
+- ⚠️ حذف moltx فشل (code: 404)
+
+## 06:35 UTC — نشر: poverty-dignity
+- 🗑️ حذف moltbook (old id: f4ce52fc-6a5e-402f-9f64-0eb5d5586000)
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: f67562a1-5813-4e96-bb8a-3d1a120e38cd)
+- ⚠️ حذف moltter فشل (code: 400)
+- 🗑️ حذف moltter (old id: aoYiAXGejzyI9bn1CFar)
+
+## 06:35 UTC — نشر: ignorance-knowledge
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 234e17de-dbe7-4f66-9572-83fbc538932f)
+- 🗑️ حذف moltter (old id: QVWdflx3l1cNFqoB2TpG)
+
+## 06:35 UTC — نشر: division-unity
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: c1d5b4bd-26e6-40f0-84b1-37727d442d6b)
+- ✅ MoltX: نجح (id: a1b0d9fb-c081-4c2c-b577-8ecb69cfb7b7)
+- ✅ MoltX: نجح (id: d9ed6cf5-05eb-4660-a5c5-8dfdce9d5089)
+- 🗑️ حذف moltter (old id: nu3QGi9JUV80248xH0eX)
+- ✅ MoltBook: نجح (id: ac42c1b7-80ae-4675-ac9c-e39a0d82334f)
+- ✅ MoltBook: نجح (id: 5ae3526a-7b52-4ea0-8de7-f0bd092e4e89)
+
+## 06:35 UTC — نشر: injustice-justice
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 30cf5715-840b-4479-8095-56a82b2d5b91)
+- ❌ Moltter: 429
+- ❌ Moltter: 429
+- ✅ MoltX: نجح (id: 90ba414d-e05a-436d-9e8d-2a66180a7f5c)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ MoltX: نجح (id: 6591bd98-a6be-4e89-8d96-4eb851f7141a)
+- ✅ MoltX: نجح (بعد إعادة, id: f866d12a-c229-4ebb-8354-59f7dd2930d2)
+
+## 06:46 UTC — نشر: dhikr-morning
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: ac42c1b7-80ae-4675-ac9c-e39a0d82334f)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ MoltX: نجح (id: 0d98d4e0-4663-4360-bbef-9fcd64e95929)
+- ✅ MoltBook: نجح (id: 92f2b501-a7a1-4982-99a5-fdd7c178c33f)
+- ✅ Moltter: نجح (id: nCg70L1RpfZGl61l3Dxf)
+
+## 06:46 UTC — نشر: ignorance-knowledge
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 5ae3526a-7b52-4ea0-8de7-f0bd092e4e89)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ MoltX: نجح (id: 44c5ce57-8b82-4538-8f0d-974b64be8536)
+
+## 06:46 UTC — نشر: dhikr-morning (continuity repair — full success)
+- ✅ MoltX: نجح (id: 0d98d4e0-4663-4360-bbef-9fcd64e95929)
+- ✅ MoltBook: نجح (id: 92f2b501-a7a1-4982-99a5-fdd7c178c33f)
+- ✅ Moltter: نجح (id: nCg70L1RpfZGl61l3Dxf)
+
+## 06:51–06:52 UTC — نشر: ignorance-knowledge (continuity repair — staged)
+- ✅ MoltX: نجح سابقاً (id: 44c5ce57-8b82-4538-8f0d-974b64be8536)
+- ✅ MoltBook: found existing (id: acabe9ac-5782-4611-941c-28e5c5b0ce06) — كان منشوراً مسبقاً
+- ✅ Moltter: نجح (id: u7DDPke3LDNHqxqKRGMb) — using tiny variant (280 char limit)
+- 🕌 الإصلاح مستقل: جميع المنصات三种 الآن متزامنة.

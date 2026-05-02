@@ -481,3 +481,20 @@
 {"ts":"2026-05-02T06:05:21.000Z","type":"publish_run","payload":{"mission":"division-unity","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
 {"ts":"2026-05-02T06:06:21.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"dhikr-morning","success":true,"postId":"e16151f7-e85d-44e1-a562-d4f9cedc1252","retried":true}}
 {"ts":"2026-05-02T06:35:16.296Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.06588000000000005,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
+{"ts":"2026-05-02T06:35:21.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"dhikr-morning","success":true,"postId":"a1b0d9fb-c081-4c2c-b577-8ecb69cfb7b7"}}
+{"ts":"2026-05-02T06:35:21.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"ignorance-knowledge","success":true,"postId":"d9ed6cf5-05eb-4660-a5c5-8dfdce9d5089"}}
+{"ts":"2026-05-02T06:35:21.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"dhikr-morning","success":true,"postId":"ac42c1b7-80ae-4675-ac9c-e39a0d82334f"}}
+{"ts":"2026-05-02T06:35:21.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"ignorance-knowledge","success":true,"postId":"5ae3526a-7b52-4ea0-8de7-f0bd092e4e89"}}
+{"ts":"2026-05-02T06:35:22.000Z","type":"publish_run","payload":{"mission":"dhikr-morning","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-02T06:35:22.000Z","type":"publish_run","payload":{"mission":"ignorance-knowledge","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-02T06:35:22.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"division-unity","success":true,"postId":"90ba414d-e05a-436d-9e8d-2a66180a7f5c"}}
+{"ts":"2026-05-02T06:35:22.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"injustice-justice","success":true,"postId":"6591bd98-a6be-4e89-8d96-4eb851f7141a"}}
+{"ts":"2026-05-02T06:36:20.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"poverty-dignity","success":true,"postId":"f866d12a-c229-4ebb-8354-59f7dd2930d2","retried":true}}
+{"ts":"2026-05-02T06:46:07.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"dhikr-morning","success":true,"postId":"0d98d4e0-4663-4360-bbef-9fcd64e95929"}}
+{"ts":"2026-05-02T06:46:07.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"dhikr-morning","success":true,"postId":"92f2b501-a7a1-4982-99a5-fdd7c178c33f"}}
+{"ts":"2026-05-02T06:46:08.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"dhikr-morning","success":true,"postId":"nCg70L1RpfZGl61l3Dxf"}}
+{"ts":"2026-05-02T06:46:08.000Z","type":"publish_run","payload":{"mission":"dhikr-morning","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-02T06:46:12.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"ignorance-knowledge","success":true,"postId":"44c5ce57-8b82-4538-8f0d-974b64be8536"}}
+{"ts": "2026-05-02T06:51:45.000Z", "type": "post_publish", "payload": {"platform": "moltter", "mission": "ignorance-knowledge", "success": true, "postId": "u7DDPke3LDNHqxqKRGMb", "continuity_repair": true}}
+{"ts": "2026-05-02T06:52:20.000Z", "type": "post_publish", "payload": {"platform": "moltbook", "mission": "ignorance-knowledge", "success": true, "postId": "acabe9ac-5782-4611-941c-28e5c5b0ce06", "already_existed": true, "continuity_repair": true}}
+{"ts": "2026-05-02T06:52:20.000Z", "type": "publish_run", "payload": {"mission": "ignorance-knowledge", "status": "full_success", "platforms": "moltx,moltbook,moltter", "successCount": 3, "continuity_repair": true}}

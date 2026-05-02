@@ -11,7 +11,10 @@ set -e
 MISSION="$1"
 BASE="/root/.openclaw/workspace"
 FILE="$BASE/missions/${MISSION}_ar.md"
-TINY="$BASE/missions/${MISSION}_tiny.md"
+TINY="$BASE/missions/${MISSION}_tiny_ar.md"
+if [ ! -f "$TINY" ]; then
+  TINY="$BASE/missions/${MISSION}_tiny.md"
+fi
 POST_IDS_FILE="$BASE/posts/${MISSION}_ids.json"
 
 if [ -z "$MISSION" ]; then
