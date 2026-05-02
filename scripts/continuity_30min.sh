@@ -18,22 +18,14 @@ LEDGER_FILE="${WORKSPACE}/memory/ledger.jsonl"
 
 cd "${WORKSPACE}"
 
-# Lockfile: prevent overlapping runs
-if [ -f "$LOCK_FILE" ]; then
-  # Check if process is still running
-  LOCK_PID=$(cat "$LOCK_FILE" 2>/dev/null)
-  if [ -n "$LOCK_PID" ] && kill -0 "$LOCK_PID" 2>/dev/null; then
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ⚠️ Lock file exists (PID $LOCK_PID) — another instance running. Exiting."
-    exit 1
-  else
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] 🗑️ Stale lock file removed"
-    rm -f "$LOCK_FILE"
-  fi
+# Lockfile: prevent overlapping runs using flock (atomic)
+LOCK_FILE="${WORKSPACE}/.continuity_30min.lock"
+exec 200>"$LOCK_FILE"
+if ! flock -n 200; then
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] ⚠️ Lock held by another instance. Exiting."
+  exit 1
 fi
-# Create lock
-echo $$ > "$LOCK_FILE"
-# Ensure lockfile removed on exit (including errors)
-trap 'rm -f "$LOCK_FILE" 2>/dev/null' EXIT
+# Lock will be released automatically when FD 200 closes on exit
 
 # Ensure logs dir
 mkdir -p "${WORKSPACE}/logs"
