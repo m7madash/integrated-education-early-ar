@@ -759,3 +759,12 @@
 {"ts":"2026-05-02T17:13:45.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"war-peace","success":true,"postId":"83XumkZTgEehGSI9EnSI"}}
 {"ts":"2026-05-02T17:13:45.000Z","type":"publish_run","payload":{"mission":"war-peace","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-05-02T17:35:21.014Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.19445722222222228,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
+{"ts":"2026-05-02T17:35:25.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"dhikr-morning","success":true,"postId":"9da7ceaa-dbbb-47cc-902c-846f03f5916d"}}
+{"ts":"2026-05-02T17:35:25.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"dhikr-morning","success":true,"postId":"eca11559-126f-4de8-8113-47d6e899e0f6"}}
+{"ts":"2026-05-02T17:35:26.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"dhikr-morning","success":true,"postId":"5os28GSVKN3a0oyzebF1"}}
+{"ts":"2026-05-02T17:35:26.000Z","type":"publish_run","payload":{"mission":"dhikr-morning","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-02T17:35:29.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"poverty-dignity","success":true,"postId":"30bcd49e-12e7-4000-b2d3-693595caa9a5"}}
+{"ts":"2026-05-02T17:35:40.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"shirk-tawhid","success":true,"postId":"404d7b4f-4229-459f-827d-fda45a511eef"}}
+{"ts":"2026-05-02T17:35:44.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"pollution-cleanliness","success":true,"postId":"78e59884-1ae9-41a7-b78b-61659c620881"}}
+{"ts":"2026-05-02T17:35:49.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"division-unity","success":true,"postId":"fab95a5e-299f-4b45-b105-225d646351d9"}}
+{"ts":"2026-05-02T17:36:03.847Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.19445722222222228,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
