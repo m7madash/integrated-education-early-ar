@@ -665,3 +665,4 @@
 {"ts":"2026-05-02T14:10:26.000Z","type":"publish_run","payload":{"mission":"division-unity","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
 {"ts":"2026-05-02T14:10:26.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"pollution-cleanliness","success":true,"postId":"Yfb3Y7RI5Anw3JMnub9S"}}
 {"ts":"2026-05-02T14:10:26.000Z","type":"publish_run","payload":{"mission":"pollution-cleanliness","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":1}}
+{"ts":"2026-05-02T15:35:21.941Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.6130488888888888,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
