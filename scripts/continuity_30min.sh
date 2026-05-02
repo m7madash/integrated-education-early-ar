@@ -120,7 +120,22 @@ else
   log "⚠️ heartbeat-state.json NOT updated (JSON build failed)"
 fi
 
-# ==================== 4. Memory file check ====================
+# ==================== 4. Git status & auto-commit (EARLY — before publishing) ====================
+log "🔄 Git status check (early commit)..."
+if git status --porcelain | grep -q '^'; then
+  CHANGES=$(git status --porcelain | wc -l)
+  log "⚠️ ${CHANGES} uncommitted changes — auto-committing..."
+
+  git add -A
+  git commit -m "auto: continuity 30min — $(date '+%Y-%m-%d %H:%M:%S')" 2>/dev/null || log "ℹ️ No changes to commit"
+
+  # Try push silently (non-blocking; failures will retry later)
+  git push origin main 2>/dev/null || log "⚠️ Push failed — will retry later"
+else
+  log "✅ Workspace clean"
+fi
+
+# ==================== 5. Memory file check ====================
 log "📖 Loading memory for $(date +%Y-%m-%d)..."
 if [ -f "$MEMORY_FILE" ]; then
   ENTRY_COUNT=$(grep -c '^## ' "$MEMORY_FILE" 2>/dev/null || echo "0")
@@ -223,18 +238,34 @@ if [ ${#missing_missions[@]} -gt 0 ]; then
     fi
   done
 
-  if [ ${#republish_list[@]} -gt 0 ]; then
-    log "🔧 Auto-republishing ${#republish_list[@]} missed mission(s): ${republish_list[*]}"
-    for miss in "${republish_list[@]}"; do
-      log "🚀 Publishing: ${miss}"
-      if [ -f "scripts/publish_daily_post_multi_target.sh" ]; then
-        bash scripts/publish_daily_post_multi_target.sh "$miss" >> "${LOG_FILE}" 2>&1 || log "❌ Failed: ${miss}"
-        sleep 2
-      else
-        log "⚠️ publish script missing: scripts/publish_daily_post_multi_target.sh"
-      fi
-    done
-  fi
+if [ ${#republish_list[@]} -gt 0 ]; then
+  log "🔧 Auto-republishing ${#republish_list[@]} missed mission(s): ${republish_list[*]}"
+  # Launch all publish jobs in parallel to avoid blocking (handle rate limits with internal backoff)
+  publish_pids=()
+  for miss in "${republish_list[@]}"; do
+    log "🚀 Publishing (async): ${miss}"
+    if [ -f "scripts/publish_daily_post_multi_target.sh" ]; then
+      bash "scripts/publish_daily_post_multi_target.sh" "$miss" >> "${LOG_FILE}" 2>&1 &
+      publish_pids+=($!)
+      sleep 1  # stagger starts to avoid burst contention
+    else
+      log "⚠️ publish script missing: scripts/publish_daily_post_multi_target.sh"
+    fi
+  done
+  # Wait for all publish jobs with a generous timeout (5 min total)
+  timeout_seconds=300
+  start_time=$(date +%s)
+  for pid in "${publish_pids[@]}"; do
+    remaining=$((timeout_seconds - ( $(date +%s) - start_time )))
+    if [ $remaining -lt 1 ]; then
+      log "⚠️ Publish timeout reached (global 300s) — waiting for remaining jobs will be skipped"
+      break
+    fi
+    wait -n -p pid -t $remaining 2>/dev/null || true
+  done
+  # Ensure all background jobs have finished before proceeding (non-blocking)
+  wait 2>/dev/null || true
+  log "✅ All publish jobs finished"
 else
   log "✅ All expected daily mission posts published"
 fi
@@ -289,19 +320,13 @@ log "👥 Team Communities quietness check..."
 [ -x "scripts/monitor_teams_moltbook.sh" ] && bash scripts/monitor_teams_moltbook.sh >> "${LOG_FILE}" 2>&1 || log "ℹ️ Monitor script not executable"
 log "✅ Communities check complete"
 
-# ==================== 9. Git status & auto-commit ====================
-log "🔄 Git status check..."
+# ==================== 9. Git status (light check — already synced earlier) ====================
+log "🔄 Git status verification..."
 if git status --porcelain | grep -q '^'; then
   CHANGES=$(git status --porcelain | wc -l)
-  log "⚠️ ${CHANGES} uncommitted changes — auto-committing..."
-
-  git add -A
-  git commit -m "auto: continuity 30min — $(date '+%Y-%m-%d %H:%M:%S')" 2>/dev/null || log "ℹ️ No changes to commit"
-
-  # Try push silently
-  git push origin main 2>/dev/null || log "⚠️ Push failed — will retry later"
+  log "⚠️ ${CHANGES} uncommitted changes remain (may be from post-publish)"
 else
-  log "✅ Workspace clean"
+  log "✅ Workspace clean (git synced earlier)"
 fi
 
 # ==================== 10. Backup health verification ====================
@@ -330,7 +355,7 @@ log "📋 Phase Summary:"
 log "   • Kernel heartbeat: triggered"
 log "   • Coherence: interval-based monitoring"
 log "   • KPIs: calculated"
-log "   • Posts: ${actual_core_posts}/${expected_core_count} published (hours <= $CURRENT_HOUR)"
+log "   • Posts: ${actual_count}/${expected_count} published (hours <= $CURRENT_HOUR)"
 log "   • Nuclear Justice: monitored"
 log "   • MoltX: checked"
 log "   • Git: synced"
@@ -340,8 +365,8 @@ log "⏰ Next run: in 30 minutes"
 log "🕌 First loyalty: to Allah. Verified sources only."
 
 # Final one-line summary for cron delivery (Telegram-compatible)
-ACTUAL_POSTS=$actual_core_posts
-EXPECTED=$expected_core_count
+ACTUAL_POSTS=$actual_count
+EXPECTED=$expected_count
 COHERENCE_SCORE=$(node scripts/coherence_alert.js 2>/dev/null | grep -o 'score=[0-9.]*' | cut -d= -f2)
 echo "✅ Continuity 30min: $(date +%H:%M) UTC — Ledger: $(wc -l < memory/ledger.jsonl 2>/dev/null || echo 0) entries, Posts: ${ACTUAL_POSTS}/${EXPECTED}, Coherence: ${COHERENCE_SCORE:-insufficient}"
 exit 0

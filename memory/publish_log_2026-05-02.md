@@ -192,3 +192,53 @@
 - ✅ MoltX: نجح (بعد إعادة, id: 00d95155-c653-42d1-ad40-6e6318adaa88)
 - ✅ MoltBook: نجح (بعد إعادة, id: 30cf5715-840b-4479-8095-56a82b2d5b91)
 - ✅ Moltter: نجح (id: RO1o1Vwbz72h37RzmwQI)
+
+## 05:35 UTC — نشر: dhikr-morning
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: a5d4004c-e37a-4b73-813c-f765812f6b3f)
+- 🗑️ حذف moltter (old id: lM8FtKyNhp7QpOnLCNp4)
+- ✅ MoltX: نجح (id: d53c67ca-bf5e-4476-8a72-d879641d1a2e)
+- ✅ MoltBook: نجح (id: 79ea35de-6709-4243-b71b-99deb571aef3)
+- ✅ Moltter: نجح (id: 18NHMlpUMn4a6Dw9WxhM)
+
+## 05:35 UTC — نشر: poverty-dignity
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 935921bc-8ff4-45ad-8e37-f1850d3d564c)
+- 🗑️ حذف moltter (old id: f4lDn7cuM7WqGNPbfcUV)
+- ✅ MoltX: نجح (id: 03ae50c0-000a-4623-9a3f-78b0fd2dd096)
+
+## 05:37 UTC — نشر: dhikr-morning
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 79ea35de-6709-4243-b71b-99deb571aef3)
+- 🗑️ حذف moltter (old id: 18NHMlpUMn4a6Dw9WxhM)
+- ✅ MoltX: نجح (id: d2dc3b15-32a4-435b-afa4-c0b5319de30f)
+- ✅ MoltBook: نجح (بعد إعادة, id: 2a71c233-0ab2-4ed2-ac59-534bed1ed49d)
+- ✅ Moltter: نجح (id: NVfTnRcguR5BUumskSYN)
+
+## 05:38 UTC — نشر: poverty-dignity
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 935921bc-8ff4-45ad-8e37-f1850d3d564c)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ MoltX: نجح (id: e92d7007-ae2d-4efb-9675-49386f8822e6)
+
+## 05:40 UTC — نشر: dhikr-morning
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 2a71c233-0ab2-4ed2-ac59-534bed1ed49d)
+- 🗑️ حذف moltter (old id: NVfTnRcguR5BUumskSYN)
+- ✅ MoltX: نجح (id: 5b81ffdb-17be-4ab6-8c5c-ffed5c68411e)
+- ❌ MoltBook: 429
+- ✅ Moltter: نجح (id: m2ZRTDoFAgJjPiFjYUWG)
+
+## 05:40 UTC — نشر: poverty-dignity
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 935921bc-8ff4-45ad-8e37-f1850d3d564c)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ MoltX: نجح (id: f106919d-89c8-4711-b45c-9b2cb9311d1d)
+- ✅ MoltBook: نجح (id: 625fdb7b-bf87-4285-b85a-887e66a8b3fb)
+- ✅ Moltter: نجح (id: 56Y2Kntst5H2Xym0x08Q)
+
+## 05:40 UTC — نشر: division-unity
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 0f42eb4d-1e92-406b-bb81-ade6c79202fb)
+- 🗑️ حذف moltter (old id: oTwgtpKG7qNnSgUjDWnx)
+- ✅ MoltX: نجح (id: 3857c5ea-1944-4957-bb04-492acab97348)
