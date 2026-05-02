@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "analysis_date": "2026-05-02",
+  "total_population_served": 500000,
+  "total_families_registered": 0,
+  "estimated_total_families": 100000,
+  
+  "caloric_requirements": {
+    "total_kcal_per_day": 1050000000,
+    "total_kcal_per_month": 31500000000
+  },
+  
+  "local_production": {
+    "available_weekly_kg": {
+      "vegetables": 2000,
+      "dairy_liters": 2000,
+      "grains_kg": 10000,
+      "fish_kg": 800,
+      "olive_oil_liters": 500
+    },
+    "estimated_calories_per_week": 157500000,
+    "percentage_of_need": 15
+  },
+  
+  "import_requirements": {
+    "remaining_calories_needed_kcal_per_month": 26775000000,
+    "equivalent_tonnes_of_rice": 12000,
+    "equivalent_tonnes_of_lentils": 8000,
+    "equivalent_liters_of_oil": 5000,
+    "estimated_cost_nis": 1500000
+  },
+  
+  "gap_analysis": {
+    "immediate_shortfall_kg": {
+      "rice": 10000,
+      "lentils": 8000,
+      "vegetable_oil": 5000,
+      "milk_powder": 3000,
+      "sugar": 4000
+    },
+    "critical_items": ["rice", "lentils", "vegetable_oil"],
+    "funding_gap_nis": 1200000
+  },
+  
+  "recommendations": [
+    "Activate smart card system within 72 hours",
+    "Procure 12,000 tonnes rice immediately via humanitarian corridor",
+    "Deploy 10 vertical farms within 2 weeks",
+    "Establish 10 distribution centers across Gaza"
+  ]
+}

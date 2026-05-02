@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "project": "Gaza Food Security",
+  "description": "Community food banks for emergency reserves and local pooling",
+  
+  "banks": [
+    {
+      "bank_id": "bank_01_zeitoun",
+      "neighborhood": "الزيتون",
+      "location": "مدرسة الفاروق، الزيتون",
+      "coordinates": {"lat": 31.5017, "lng": 34.4667},
+      "capacity_kg": 5000,
+      "current_stock_kg": 1200,
+      "families_served": 500,
+      "manager": "أبو سالم",
+      "phone": "0599123456",
+      "volunteers_count": 8,
+      "operating_hours": "08:00-20:00",
+      "stock_items": {
+        "rice_kg": 800,
+        "lentils_kg": 200,
+        "oil_liters": 100,
+        "milk_powder_kg": 100,
+        "flour_kg": 500,
+        "dates_kg": 200
+      },
+      "last_audit": "2026-05-01T10:00:00Z",
+      "status": "active"
+    },
+    {
+      "bank_id": "bank_02_khan_yunis",
+      "neighborhood": "خانيونس",
+      "location": "مركز شباب خانيونس",
+      "coordinates": {"lat": 31.3456, "lng": 34.2833},
+      "capacity_kg": 6000,
+      "current_stock_kg": 800,
+      "families_served": 600,
+      "manager": "أم خالد",
+      "phone": "0598123456",
+      "volunteers_count": 10,
+      "operating_hours": "08:00-20:00",
+      "stock_items": {
+        "rice_kg": 500,
+        "lentils_kg": 300,
+        "oil_liters": 150,
+        "milk_powder_kg": 150,
+        "flour_kg": 600,
+        "dates_kg": 300
+      },
+      "last_audit": "2026-05-02T09:00:00Z",
+      "status": "active"
+    },
+    {
+      "bank_id": "bank_03_rafah",
+      "neighborhood": "رفح",
+      "location": "مدرسة عبد الرحمن بن عوف",
+      "coordinates": {"lat": 31.2725, "lng": 34.2444},
+      "capacity_kg": 4000,
+      "current_stock_kg": 600,
+      "families_served": 400,
+      "manager": "أبو ياسر",
+      "phone": "0599123457",
+      "volunteers_count": 6,
+      "operating_hours": "08:00-19:00",
+      "stock_items": {
+        "rice_kg": 400,
+        "lentils_kg": 200,
+        "oil_liters": 100,
+        "milk_powder_kg": 100,
+        "flour_kg": 300,
+        "dates_kg": 150
+      },
+      "last_audit": "2026-05-02T08:30:00Z",
+      "status": "active"
+    }
+  ],
+  
+  "total_capacity_kg": 15000,
+  "total_current_stock_kg": 2600,
+  "utilization_percent": 17.33,
+  
+  "governance": {
+    "withdrawal_policy": "Each family can withdraw 5kg/month in emergencies only",
+    "emergency_rules": "During crisis (war, siege), limits increase to 10kg/month",
+    "audit_frequency": "weekly",
+    "transparency": "All stocks published weekly on community board"
+  },
+  
+  "donation_acceptance": {
+    "accepted_items": ["rice", "lentils", "oil", "flour", "dates", "milk_powder", "canned_fish"],
+    "rejected_items": ["expired", "damaged", "non-food"],
+    "quality_check": "visual inspection + smell test + expiry check"
+  }
+}

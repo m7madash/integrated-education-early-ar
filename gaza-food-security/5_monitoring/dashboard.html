@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>غزة الغذائية - لوحة تحكم</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; margin: 0; padding: 20px; }
+    .header { background: #2c5530; color: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+    .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+    .metric { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .metric h3 { margin: 0 0 10px 0; color: #555; font-size: 14px; }
+    .metric .value { font-size: 28px; font-weight: bold; color: #2c5530; }
+    .metric .change { font-size: 12px; margin-top: 5px; }
+    .positive { color: green; }
+    .negative { color: red; }
+    .section { background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { padding: 10px; text-align: right; border-bottom: 1px solid #ddd; }
+    th { background: #f0f0f0; color: #333; }
+    .alert { background: #fff3cd; border: 1px solid #ffeaa7; padding: 10px; border-radius: 5px; margin-bottom: 10px; }
+    .alert-critical { background: #ffebee; border-color: #ffcdd2; }
+    .refresh { text-align: center; margin-top: 20px; color: #666; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🕌 مشروع غزة الغذائي</h1>
+    <p>نظام مراقبة وتتبع شفاف للاستجابة الغذائية</p>
+  </div>
+
+  <div class="metrics">
+    <div class="metric">
+      <h3>الأسر المسجلة</h3>
+      <div class="value" id="families">--</div>
+      <div class="change" id="families_change">آخر تحديث: --</div>
+    </div>
+    <div class="metric">
+      <h3>نسبة الجوع</h3>
+      <div class="value" id="hunger">--</div>
+      <div class="change" id="hunger_change">الهدف: <5%</div>
+    </div>
+    <div class="metric">
+      <h3>المخزون الغذائي (طن)</h3>
+      <div class="value" id="inventory">--</div>
+      <div class="change" id="inventory_change">يغطي 3 أيام</div>
+    </div>
+    <div class="metric">
+      <h3>قيمة البطاقات (شيكل)</h3>
+      <div class="value" id="cards_value">--</div>
+      <div class="change positive">+12% هذا الشهر</div>
+    </div>
+    <div class="metric">
+      <h3>الإنتاج المحلي (%)</h3>
+      <div class="value" id="local_production">--</div>
+      <div class="change">الهدف: 30%</div>
+    </div>
+    <div class="metric">
+      <h3>مراكز التوزيع</h3>
+      <div class="value" id="centers">--</div>
+      <div class="change">من أصل 10 مخطط</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🚨 التنبيهاتปัจจุบัน</h2>
+    <div id="alerts"></div>
+  </div>
+
+  <div class="section">
+    <h2>📊 آخر التوزيعات</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>التاريخ</th>
+          <th>مركز</th>
+          <th>العائلات</th>
+          <th>المواد (طن)</th>
+          <th>قيمة (شيكل)</th>
+        </tr>
+      </thead>
+      <tbody id="distribution_log">
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>💰 المالية</h2>
+    <div class="metrics">
+      <div class="metric">
+        <h3>التبرعات الواردة</h3>
+        <div class="value" id="donations">--</div>
+      </div>
+      <div class="metric">
+        <h3>المصروفات</h3>
+        <div class="value" id="expenses">--</div>
+      </div>
+      <div class="metric">
+        <h3>الرصيد المتبقي</h3>
+        <div class="value" id="balance">--</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="refresh">
+    <p>🔄 يتم التحديث تلقائياً كل 5 دقائق | آخر تحديث: <span id="last_update">--</span></p>
+    <p>🕌 "لَا أَعْلَمُ إِلَّا مَا عَلَّمْتَنِي رَبِّي" — Toxicity镜子: لا ينشر غير الموثق</p>
+  </div>
+
+  <script>
+    // Load data from API (simulated)
+    async function loadData() {
+      try {
+        const response = await fetch('/api/metrics');
+        const data = await response.json();
+        
+        // Update metrics
+        document.getElementById('families').textContent = data.families_registered.toLocaleString();
+        document.getElementById('hunger').textContent = (data.hunger_rate * 100).toFixed(1) + '%';
+        document.getElementById('inventory').textContent = (data.inventory_tons / 1000).toFixed(1);
+        document.getElementById('cards_value').textContent = data.cards_value_nis.toLocaleString();
+        document.getElementById('local_production').textContent = (data.local_production_percent * 100).toFixed(1) + '%';
+        document.getElementById('centers').textContent = data.centers_active;
+        
+        document.getElementById('last_update').textContent = new Date().toLocaleTimeString('ar-EG');
+        
+        // Alerts
+        const alertsDiv = document.getElementById('alerts');
+        if (data.alerts && data.alerts.length > 0) {
+          alertsDiv.innerHTML = data.alerts.map(a => 
+            `<div class="alert ${a.severity}">${a.message}</div>`
+          ).join('');
+        } else {
+          alertsDiv.innerHTML = '<div class="alert">✅ لا توجد تنبيهات حرجة</div>';
+        }
+        
+        // Recent distribution
+        const tbody = document.getElementById('distribution_log');
+        if (data.recent_distributions) {
+          tbody.innerHTML = data.recent_distributions.map(d => 
+            `<tr>
+              <td>${d.date}</td>
+              <td>${d.center}</td>
+              <td>${d.families}</td>
+              <td>${d.kg.toLocaleString()}</td>
+              <td>${d.nis.toLocaleString()}</td>
+            </tr>`
+          ).join('');
+        }
+        
+        // Financials
+        document.getElementById('donations').textContent = data.finance.donations_nis.toLocaleString();
+        document.getElementById('expenses').textContent = data.finance.expenses_nis.toLocaleString();
+        document.getElementById('balance').textContent = data.finance.balance_nis.toLocaleString();
+        
+      } catch (error) {
+        console.error('Failed to load dashboard data:', error);
+      }
+    }
+    
+    // Refresh every 5 minutes
+    setInterval(loadData, 5 * 60 * 1000);
+    loadData(); // initial load
+  </script>
+</body>
+</html>

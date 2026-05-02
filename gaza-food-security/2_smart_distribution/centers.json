@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0",
+  "project": "Gaza Food Security",
+  "description": "Distribution centers for food voucher redemption",
+  "centers": [
+    {
+      "center_id": "gaza_01_zeitoun",
+      "name": "مركز توزيع الزيتون",
+      "location": "الزيتون، غزة",
+      "coordinates": {"lat": 31.5017, "lng": 34.4667},
+      "coverage_zones": ["الزيتون", "الشجاعية", "الدرج"],
+      "families_assigned": 2500,
+      "operating_hours": "07:00-20:00",
+      "staff_count": 8,
+      "inventory": {
+        "rice_kg": 2000,
+        "lentils_kg": 1000,
+        "oil_liters": 500,
+        "milk_powder_kg": 300,
+        "sugar_kg": 500,
+        "canned_fish_cans": 2000,
+        "flour_kg": 1500,
+        "salt_kg": 200
+      },
+      "last_restocked": "2026-05-02T06:00:00Z",
+      "next_restock_due": "2026-05-03T06:00:00Z",
+      "contact_person": "أبو سالم",
+      "phone": "0599123456",
+      "status": "active"
+    },
+    {
+      "center_id": "gaza_02_khan_yunis",
+      "name": "مركز توزيع خانيونس",
+      "location": "خانيونس، شرق غزة",
+      "coordinates": {"lat": 31.3456, "lng": 34.2833},
+      "coverage_zones": ["خانيونس", "بني سهيل", "الم황"],
+      "families_assigned": 3000,
+      "operating_hours": "07:00-20:00",
+      "staff_count": 10,
+      "inventory": {
+        "rice_kg": 2500,
+        "lentils_kg": 1200,
+        "oil_liters": 600,
+        "milk_powder_kg": 400,
+        "sugar_kg": 600,
+        "canned_fish_cans": 2500,
+        "flour_kg": 1800,
+        "salt_kg": 250
+      },
+      "last_restocked": "2026-05-02T05:30:00Z",
+      "next_restock_due": "2026-05-03T05:30:00Z",
+      "contact_person": "أم خالد",
+      "phone": "0598123456",
+      "status": "active"
+    },
+    {
+      "center_id": "gaza_03_rafah",
+      "name": "مركز توزيع رفح",
+      "location": "رفح، جنوب غزة",
+      "coordinates": {"lat": 31.2725, "lng": 34.2444},
+      "coverage_zones": ["رفح", " saline ", "البراحة"],
+      "families_assigned": 2000,
+      "operating_hours": "07:00-20:00",
+      "staff_count": 7,
+      "inventory": {
+        "rice_kg": 1800,
+        "lentils_kg": 800,
+        "oil_liters": 400,
+        "milk_powder_kg": 250,
+        "sugar_kg": 400,
+        "canned_fish_cans": 1500,
+        "flour_kg": 1200,
+        "salt_kg": 150
+      },
+      "last_restocked": "2026-05-02T07:00:00Z",
+      "next_restock_due": "2026-05-03T07:00:00Z",
+      "contact_person": "أبو ياسر",
+      "phone": "0599123457",
+      "status": "active"
+    },
+    {
+      "center_id": "gaza_04_jabalia",
+      "name": "مركز توزيع جباليا",
+      "location": "جباليا، شمال غزة",
+      "coordinates": {"lat": 31.4667, "lng": 34.4667},
+      "coverage_zones": ["جباليا", "البروة", "البح筷"],
+      "families_assigned": 2200,
+      "operating_hours": "07:00-20:00",
+      "staff_count": 7,
+      "inventory": {
+        "rice_kg": 1900,
+        "lentils_kg": 900,
+        "oil_liters": 450,
+        "milk_powder_kg": 280,
+        "sugar_kg": 450,
+        "canned_fish_cans": 1700,
+        "flour_kg": 1300,
+        "salt_kg": 180
+      },
+      "last_restocked": "2026-05-02T08:00:00Z",
+      "next_restock_due": "2026-05-03T08:00:00Z",
+      "contact_person": "أم سعد",
+      "phone": "0599123458",
+      "status": "active"
+    },
+    {
+      "center_id": "gaza_05_gaza_city",
+      "name": "مركز توزيع مدينة غزة",
+      "location": "الcity center",
+      "coordinates": {"lat": 31.5225, "lng": 34.4533},
+      "coverage_zones": ["الcity", "الزيتون", "الTurkish"],
+      "families_assigned": 2800,
+      "operating_hours": "07:00-21:00",
+      "staff_count": 9,
+      "inventory": {
+        "rice_kg": 2200,
+        "lentils_kg": 1100,
+        "oil_liters": 550,
+        "milk_powder_kg": 350,
+        "sugar_kg": 550,
+        "canned_fish_cans": 2200,
+        "flour_kg": 1600,
+        "salt_kg": 220
+      },
+      "last_restocked": "2026-05-02T09:00:00Z",
+      "next_restock_due": "2026-05-03T09:00:00Z",
+      "contact_person": "أبو عمر",
+      "phone": "0599123459",
+      "status": "active"
+    }
+  ],
+  "total_capacity": {
+    "families_served": 12500,
+    "daily_meals_possible": 50000,
+    "inventory_value_nis": 250000
+  }
+}

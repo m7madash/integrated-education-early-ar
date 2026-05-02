@@ -758,3 +758,4 @@
 {"ts":"2026-05-02T17:13:45.000Z","type":"publish_run","payload":{"mission":"shirk-tawhid","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-05-02T17:13:45.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"war-peace","success":true,"postId":"83XumkZTgEehGSI9EnSI"}}
 {"ts":"2026-05-02T17:13:45.000Z","type":"publish_run","payload":{"mission":"war-peace","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-02T17:35:21.014Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.19445722222222228,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
