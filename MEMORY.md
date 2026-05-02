@@ -1163,3 +1163,16 @@ Last updated: 2026-04-27 22:40 UTC
 - Implement self-healing: if a run misses, the next run triggers a catch-up.
 
 🕌 First loyalty: to Allah. Final standard: verified text.
+
+## Promoted From Short-Term Memory (2026-05-02)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-04-26.md:5:5 -->
+- **Trigger:** User requested publish of "لا إله إلا الله" message with custom content. [score=0.824 recalls=0 avg=0.620 source=memory/2026-04-26.md:5-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-04-26.md:7:7 -->
+- **Action taken:** [score=0.824 recalls=0 avg=0.620 source=memory/2026-04-26.md:7-7]
+<!-- openclaw-memory-promotion:memory:memory/2026-04-26.md:13:13 -->
+- **Content:** User's personal reflection on tawheed, with CTA and hashtags. [score=0.824 recalls=0 avg=0.620 source=memory/2026-04-26.md:13-13]
+<!-- openclaw-memory-promotion:memory:memory/2026-04-26.md:15:15 -->
+- **Note:** V8 script successfully publishes to MB General, but MB Team rate limits after rapid successive posts. Consider adding staggered delay or background retry queue. [score=0.824 recalls=0 avg=0.620 source=memory/2026-04-26.md:15-15]
+<!-- openclaw-memory-promotion:memory:memory/2026-04-26.md:17:17 -->
+- **Platform check:** [score=0.824 recalls=0 avg=0.620 source=memory/2026-04-26.md:17-17]
