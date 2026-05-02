@@ -266,6 +266,7 @@ if [ ${#republish_list[@]} -gt 0 ]; then
   # Ensure all background jobs have finished before proceeding (non-blocking)
   wait 2>/dev/null || true
   log "✅ All publish jobs finished"
+  fi
 else
   log "✅ All expected daily mission posts published"
 fi
