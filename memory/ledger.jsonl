@@ -470,3 +470,13 @@
 {"ts":"2026-05-02T05:55:46.000Z","type":"publish_run","payload":{"mission":"dhikr-morning","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-05-02T05:55:47.000Z","type":"publish_run","payload":{"mission":"division-unity","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-05-02T06:05:16.023Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.0480922222222222,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
+{"ts":"2026-05-02T06:05:20.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"poverty-dignity","success":true,"postId":"993edc73-0bae-4f2d-a8e5-5ba234dae243"}}
+{"ts":"2026-05-02T06:05:20.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"division-unity","success":true,"postId":"35035e5f-7b22-4ef3-bb16-f4f4a17958b8"}}
+{"ts":"2026-05-02T06:05:21.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"poverty-dignity","success":true,"postId":"f67562a1-5813-4e96-bb8a-3d1a120e38cd"}}
+{"ts":"2026-05-02T06:05:21.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"division-unity","success":true,"postId":"c1d5b4bd-26e6-40f0-84b1-37727d442d6b"}}
+{"ts":"2026-05-02T06:05:21.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"injustice-justice","success":true,"postId":"19cc101d-ab13-405a-b341-27d4fd06b174"}}
+{"ts":"2026-05-02T06:05:21.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"poverty-dignity","success":true,"postId":"aoYiAXGejzyI9bn1CFar"}}
+{"ts":"2026-05-02T06:05:21.000Z","type":"publish_run","payload":{"mission":"poverty-dignity","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-02T06:05:21.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"division-unity","success":true,"postId":"nu3QGi9JUV80248xH0eX"}}
+{"ts":"2026-05-02T06:05:21.000Z","type":"publish_run","payload":{"mission":"division-unity","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-02T06:06:21.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"dhikr-morning","success":true,"postId":"e16151f7-e85d-44e1-a562-d4f9cedc1252","retried":true}}
