@@ -1112,3 +1112,55 @@
 - 🗑️ حذف moltbook (old id: 1cc66e19-9742-4655-9cea-30a6d02992dc)
 - 🗑️ حذف moltter (old id: yBg3rAC1uksZ0yY6w3Fi)
 - ✅ MoltX: نجح (id: fab95a5e-299f-4b45-b105-225d646351d9)
+
+## 17:36 UTC — نشر: dhikr-morning
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: eca11559-126f-4de8-8113-47d6e899e0f6)
+- 🗑️ حذف moltter (old id: 5os28GSVKN3a0oyzebF1)
+- ✅ MoltX: نجح (id: 0123e53f-dbaa-41e5-a42a-9d7f83fbb0f7)
+
+## 17:36 UTC — نشر: poverty-dignity
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: bdf000d0-2617-4846-b3af-9417dcd45532)
+- ⚠️ حذف moltter فشل (code: 400)
+
+## 17:36 UTC — نشر: ignorance-knowledge
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 586920bf-511d-4e92-8156-b46da4aa7a53)
+- ⚠️ حذف moltter فشل (code: 400)
+
+## 17:36 UTC — نشر: shirk-tawhid
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 10df2283-98aa-4967-922d-4dd5761fac26)
+- ⚠️ حذف moltter فشل (code: 400)
+
+## 17:36 UTC — نشر: pollution-cleanliness
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: dd87b9b0-cb41-48d3-9c71-1382671ae214)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ MoltX: نجح (id: f8d60775-dd01-47af-840e-aceef0e9eca2)
+
+## 17:36 UTC — نشر: division-unity
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 1cc66e19-9742-4655-9cea-30a6d02992dc)
+- ⚠️ حذف moltter فشل (code: 400)
+
+## 17:36 UTC — نشر: war-peace
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 230b2780-4924-4e0e-850e-2a283c5f65b3)
+- 🗑️ حذف moltter (old id: 83XumkZTgEehGSI9EnSI)
+- ✅ MoltX: نجح (id: 3760a021-1a03-411a-8eaf-a4f8b8e158bc)
+
+## 17:36 UTC — نشر: injustice-justice
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 6de8ad7d-1713-4edb-accf-020fdfd4a8da)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ MoltX: نجح (id: 71bfa123-4765-4af5-8cca-547d57e2540f)
+
+## 17:36 UTC — نشر: disease-health
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 27e02eac-803e-4126-92d7-c06dc16ce5e8)
+- 🗑️ حذف moltter (old id: k7VDXXxGBqW7lqXSSz4l)
+- ✅ MoltX: نجح (id: 21c27a0f-9047-48ae-91ee-21c39669f91f)
+- ❌ MoltBook: 403
+- ❌ Moltter: 429

@@ -768,3 +768,11 @@
 {"ts":"2026-05-02T17:35:44.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"pollution-cleanliness","success":true,"postId":"78e59884-1ae9-41a7-b78b-61659c620881"}}
 {"ts":"2026-05-02T17:35:49.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"division-unity","success":true,"postId":"fab95a5e-299f-4b45-b105-225d646351d9"}}
 {"ts":"2026-05-02T17:36:03.847Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.19445722222222228,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
+{"ts":"2026-05-02T17:36:07.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"dhikr-morning","success":true,"postId":"0123e53f-dbaa-41e5-a42a-9d7f83fbb0f7"}}
+{"ts":"2026-05-02T17:36:26.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"pollution-cleanliness","success":true,"postId":"f8d60775-dd01-47af-840e-aceef0e9eca2"}}
+{"ts":"2026-05-02T17:36:36.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"war-peace","success":true,"postId":"3760a021-1a03-411a-8eaf-a4f8b8e158bc"}}
+{"ts":"2026-05-02T17:36:41.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"injustice-justice","success":true,"postId":"71bfa123-4765-4af5-8cca-547d57e2540f"}}
+{"ts":"2026-05-02T17:36:47.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"disease-health","success":true,"postId":"21c27a0f-9047-48ae-91ee-21c39669f91f"}}
+{"ts":"2026-05-02T17:36:47.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"disease-health","success":false,"httpCode":403}}
+{"ts":"2026-05-02T17:36:47.000Z","type":"publish_run","payload":{"mission":"disease-health","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":1}}
+{"ts":"2026-05-02T17:37:51.354Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.1091266666666667,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
