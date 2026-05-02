@@ -1,7 +1,7 @@
 {
   "lastCheck": "2026-05-01T23:05:00Z",
   "agent": "KiloClaw",
-  "status": "ok",
+  "status": "degraded",
   "uptime": "unknown",
   "workspace": "/root/.openclaw/workspace",
   "channel": "telegram",
@@ -12,12 +12,12 @@
     "model": "kilocode/stepfun/step-3.5-flash:free",
     "thinking": false
   },
-  "lastContinuityRun": "2026-05-02T11:35:17.000Z",
-  "nextHeartbeat": "2026-05-02T12:05:17.000Z",
+  "lastContinuityRun": "2026-05-02T12:05:17.000Z",
+  "nextHeartbeat": "2026-05-02T12:35:17.000Z",
   "lastChecks": {
-    "continuity": "2026-05-02T11:35:17.000Z",
-    "ledger": "2026-05-02T11:35:17.000Z"
+    "continuity": "2026-05-02T12:05:17.000Z",
+    "ledger": "2026-05-02T12:05:17.000Z"
   },
-  "degradationReason": "coherenceScore: 0.320 (target 0.95)",
-  "updatedAt": "2026-05-02T11:35:17.630Z"
+  "degradationReason": "coherenceScore: 0.237 (target 0.95)",
+  "updatedAt": "2026-05-02T12:05:17.319Z"
 }

@@ -558,3 +558,26 @@
 {"ts":"2026-05-02T10:47:18.000Z","type":"publish_run","payload":{"mission":"shirk-tawhid","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 2026-05-02T10:49:29Z {"type":"backup","file":"backup_20260502_104928.tar.gz","size":"6.6M","status":"success"}
 {"ts":"2026-05-02T11:35:17.597Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.9860694444444444,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
+{"ts":"2026-05-02T11:35:21.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"dhikr-morning","success":true,"postId":"b8b92626-7959-4cce-8c8b-ca402b78a671"}}
+{"ts":"2026-05-02T11:35:21.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"poverty-dignity","success":true,"postId":"8114001e-a2d2-417a-abb7-9c209cc38b47"}}
+{"ts":"2026-05-02T11:35:22.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"poverty-dignity","success":true,"postId":"c83f9ac8-1b19-4fb2-864b-745e54f90094"}}
+{"ts":"2026-05-02T11:35:22.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"ignorance-knowledge","success":true,"postId":"c546b8ed-7dea-4406-bb7e-010573aa498e"}}
+{"ts":"2026-05-02T11:35:22.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"poverty-dignity","success":true,"postId":"WlH5TaJ3J0bqZTvgg640"}}
+{"ts":"2026-05-02T11:35:23.000Z","type":"publish_run","payload":{"mission":"poverty-dignity","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-02T11:35:23.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"shirk-tawhid","success":true,"postId":"f3393444-5b18-483a-8051-561e9458aa33"}}
+{"ts":"2026-05-02T11:35:24.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"division-unity","success":true,"postId":"869843a2-aa04-41aa-a47a-a5e3ef7ef243"}}
+{"ts":"2026-05-02T11:35:26.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"injustice-justice","success":true,"postId":"31f0f68a-4f85-4117-98f6-28f8fa86ad23"}}
+{"ts":"2026-05-02T11:36:26.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"war-peace","success":true,"postId":"c6aafd1a-b1b7-4201-a480-53a5fcac6b92","retried":true}}
+{"ts":"2026-05-02T11:37:53.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"shirk-tawhid","success":true,"postId":"XxuNEffT2f1t7OgOyyDC"}}
+{"ts":"2026-05-02T11:37:53.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"division-unity","success":true,"postId":"oiLfolqgpQBnu8e5N1ao"}}
+{"ts":"2026-05-02T11:37:53.000Z","type":"publish_run","payload":{"mission":"shirk-tawhid","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-02T11:37:53.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"dhikr-morning","success":true,"postId":"FoHYwHlPjDMfcYI6Dm9C"}}
+{"ts":"2026-05-02T11:37:53.000Z","type":"publish_run","payload":{"mission":"division-unity","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-02T11:37:53.000Z","type":"publish_run","payload":{"mission":"dhikr-morning","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-02T11:37:54.000Z","type":"publish_run","payload":{"mission":"ignorance-knowledge","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":1}}
+{"ts":"2026-05-02T11:40:22.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"injustice-justice","success":true,"postId":"233ibiJiPFRoPqEayzwV"}}
+{"ts":"2026-05-02T11:40:22.000Z","type":"publish_run","payload":{"mission":"injustice-justice","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-02T11:40:22.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"war-peace","success":true,"postId":"230b2780-4924-4e0e-850e-2a283c5f65b3","retried":true}}
+{"ts":"2026-05-02T11:40:23.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"war-peace","success":true,"postId":"ZXIZFei1egMeDmx1cUqh"}}
+{"ts":"2026-05-02T11:40:23.000Z","type":"publish_run","payload":{"mission":"war-peace","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-02T12:05:17.288Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.2371116666666666,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
