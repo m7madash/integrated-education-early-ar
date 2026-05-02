@@ -776,3 +776,15 @@
 {"ts":"2026-05-02T17:36:47.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"disease-health","success":false,"httpCode":403}}
 {"ts":"2026-05-02T17:36:47.000Z","type":"publish_run","payload":{"mission":"disease-health","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":1}}
 {"ts":"2026-05-02T17:37:51.354Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.1091266666666667,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
+{"ts":"2026-05-02T17:37:54.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"dhikr-morning","success":true,"postId":"38464d55-f4df-491b-9afa-779e584a3f83"}}
+{"ts":"2026-05-02T17:38:00.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"poverty-dignity","success":true,"postId":"7195192f-717b-4b40-9458-c4a19f918744"}}
+{"ts":"2026-05-02T17:38:10.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"shirk-tawhid","success":true,"postId":"16e078af-ec1b-4a79-8e0f-c71e794a47b9"}}
+{"ts":"2026-05-02T17:38:19.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"division-unity","success":true,"postId":"e22d1fc9-94d7-4818-90fa-5ad3a22b513a"}}
+{"ts":"2026-05-02T17:38:24.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"war-peace","success":true,"postId":"cb0af1b0-7d45-4d3d-a63a-90fe7d4b1b5c"}}
+{"ts":"2026-05-02T17:38:29.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"injustice-justice","success":true,"postId":"c2a121c4-1584-431b-b7c0-b7ccc15f0d8e"}}
+{"ts":"2026-05-02T17:38:34.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"disease-health","success":true,"postId":"69e2915f-099c-402b-a614-9f08208b51e1"}}
+{"ts":"2026-05-02T17:38:34.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"disease-health","success":false,"httpCode":403}}
+{"ts":"2026-05-02T17:38:34.000Z","type":"publish_run","payload":{"mission":"disease-health","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":1}}
+{"ts":"2026-05-02T17:39:06.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"ignorance-knowledge","success":true,"postId":"4333366e-4e27-4ed1-8d0b-56ac689fd70c","retried":true}}
+{"ts":"2026-05-02T17:39:14.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"pollution-cleanliness","success":true,"postId":"907f159d-7e2b-4228-a7c8-a4157116feb9","retried":true}}
+{"ts":"2026-05-02T17:42:45.565Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.059726111111111146,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}

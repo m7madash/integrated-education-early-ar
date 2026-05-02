@@ -324,26 +324,14 @@ if [ ${#republish_list[@]} -gt 0 ]; then
         fi
         retry_loop 3 2 bash scripts/publish_daily_post_multi_target.sh "$miss" >> "${LOG_FILE}" 2>&1
       ) &
+      disown $!
       publish_pids+=($!)
-      sleep 5  # stagger starts to avoid burst contention
+      sleep 1  # stagger starts to avoid burst contention
     else
       log "⚠️ publish script missing: scripts/publish_daily_post_multi_target.sh"
     fi
   done
-  # Wait for all publish jobs with a generous timeout (5 min total)
-  timeout_seconds=300
-  start_time=$(date +%s)
-  for pid in "${publish_pids[@]}"; do
-    remaining=$((timeout_seconds - ( $(date +%s) - start_time )))
-    if [ $remaining -lt 1 ]; then
-      log "⚠️ Publish timeout reached (global 300s) — waiting for remaining jobs will be skipped"
-      break
-    fi
-    wait -n -p pid -t $remaining 2>/dev/null || true
-  done
-  # Ensure all background jobs have finished before proceeding (non-blocking)
-  wait 2>/dev/null || true
-  log "✅ All publish jobs finished"
+  log "🚀 ${#republish_list[@]} publish job(s) launched (detached). They will continue independently."
   fi
 else
   log "✅ All expected daily mission posts published"
