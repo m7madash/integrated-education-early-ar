@@ -521,3 +521,16 @@
 {"ts":"2026-05-02T09:05:10.763Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.08221833333333328,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
 {"ts":"2026-05-02T09:35:05.853Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.08284722222222218,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
 {"ts":"2026-05-02T10:36:15.023Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.20128472222222227,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
+{"ts":"2026-05-02T10:37:13.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"dhikr-morning","success":true,"postId":"5fc7c805-707a-4032-8ffa-1b5fcb2f3a2c"}}
+{"ts":"2026-05-02T10:37:13.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"dhikr-morning","success":true,"postId":"c3fe4169-d8f0-4d87-b6e2-043292442302"}}
+{"ts":"2026-05-02T10:37:14.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"dhikr-morning","success":true,"postId":"bafQyGAdxnZSfj1Muzsu"}}
+{"ts":"2026-05-02T10:37:14.000Z","type":"publish_run","payload":{"mission":"dhikr-morning","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-02T10:39:03.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"war-peace","success":true,"postId":"acef6803-58c1-40f3-bf9f-af4210cc4871"}}
+{"ts":"2026-05-02T10:39:44.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"war-peace","success":true,"postId":"fef2323c-2ad2-4f35-9659-9d9abe6fb234","retried":true}}
+{"ts":"2026-05-02T10:39:45.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"war-peace","success":true,"postId":"1Ntiv0HT5FfMv4LFfPMK"}}
+{"ts":"2026-05-02T10:39:45.000Z","type":"publish_run","payload":{"mission":"war-peace","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-02T10:39:49.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"shirk-tawhid","success":true,"postId":"57657a08-52ae-4f13-8204-e3d01bb77bb0"}}
+{"ts":"2026-05-02T10:42:03.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"shirk-tawhid","success":true,"postId":"f5df0f28-99bf-44bb-abfc-17e4f7c8fab2"}}
+{"ts":"2026-05-02T10:42:15.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"shirk-tawhid","success":true,"postId":"244d3137-f2ed-4151-9585-90f52e2de405","retried":true}}
+{"ts":"2026-05-02T10:42:16.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"shirk-tawhid","success":true,"postId":"m9Gx4SJIFIHv6gTJ6uM4"}}
+{"ts":"2026-05-02T10:42:16.000Z","type":"publish_run","payload":{"mission":"shirk-tawhid","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}

@@ -163,7 +163,7 @@ if git status --porcelain | grep -q '^'; then
   git commit -m "auto: continuity 30min — $(date '+%Y-%m-%d %H:%M:%S')" 2>/dev/null || log "ℹ️ No changes to commit"
 
   # Try push with retry (non-blocking; failures will retry later)
-  retry_loop 3 5 "git push origin main" >> "${LOG_FILE}" 2>&1 || log "⚠️ Push failed after 3 retries — will retry later"
+  retry_loop 3 5 git push origin main >> "${LOG_FILE}" 2>&1 || log "⚠️ Push failed after 3 retries — will retry later"
 else
   log "✅ Workspace clean"
 fi
@@ -280,7 +280,7 @@ if [ ${#republish_list[@]} -gt 0 ]; then
     if [ -f "scripts/publish_daily_post_multi_target.sh" ]; then
       # Use retry_loop inside background job to handle transient failures
       (
-        retry_loop 3 2 "bash scripts/publish_daily_post_multi_target.sh \"$miss\"" >> "${LOG_FILE}" 2>&1
+        retry_loop 3 2 bash scripts/publish_daily_post_multi_target.sh "$miss" >> "${LOG_FILE}" 2>&1
       ) &
       publish_pids+=($!)
       sleep 1  # stagger starts to avoid burst contention
