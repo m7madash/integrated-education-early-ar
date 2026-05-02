@@ -38,6 +38,14 @@
 - في التوصيات: push prevention over profit-driven treatment
 - when detecting disparity: trigger resource re-allocation workflow
 
+## 👶 **سلامة الطفل: حتى سكين الفاكهة يُعلّم بحكمة**
+- **الأدوات الطبية:** no child uses scalpel without supervision — even if toy-like
+- **التعليم الصحي:** "اليد التي تمسك الدواء لا تمسك السكين" — ربط الصحة بالمسؤولية
+- **الوقاية من الإيذاء:** حتى الأدوات اليومية (مقص، سكين) تُعلّم "للاستخدام فقط، لا للتهديد"
+- **النموذج:** الوالد يظهر如何使用 الأدوات بأمان، لا يستخدمها لترويع الأطفال
+
+🕌 **المرجعية:** «لَا ضَرَرَ وَلَا ضِرَارَ» — في الصحة، لا ضرر بال Beethoven even with fruit knife.
+
 ---
 
 ## 🕌 **المرجعية الشرعية**
