@@ -457,3 +457,16 @@
 {"ts":"2026-05-02T05:53:16.000Z","type":"publish_run","payload":{"mission":"dhikr-morning","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
 {"ts":"2026-05-02T05:54:17.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"injustice-justice","success":true,"postId":"c74540e2-e164-4e92-8fe1-282a38dae067","retried":true}}
 {"ts":"2026-05-02T05:55:40.523Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.0319397222222223,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
+{"ts":"2026-05-02T05:55:43.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"dhikr-morning","success":true,"postId":"e2775ce9-c7dd-49e3-ad04-80f846d9f793"}}
+{"ts":"2026-05-02T05:55:45.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"poverty-dignity","success":true,"postId":"097b840a-57db-4dc5-bfcc-3f85b5f75a96"}}
+{"ts":"2026-05-02T05:55:46.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"division-unity","success":true,"postId":"dc2205ae-a0b1-44d6-99db-ab9d0edec596"}}
+{"ts":"2026-05-02T05:55:46.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"injustice-justice","success":true,"postId":"b133eefa-3068-4f06-9840-c8bee8554318"}}
+{"ts":"2026-05-02T05:55:46.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"poverty-dignity","success":true,"postId":"fV1VeM3h1WGddUbKwMvq"}}
+{"ts":"2026-05-02T05:55:46.000Z","type":"publish_run","payload":{"mission":"poverty-dignity","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-02T05:55:46.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"injustice-justice","success":true,"postId":"HbCMThUvfc6uPNSeVP9e"}}
+{"ts":"2026-05-02T05:55:46.000Z","type":"publish_run","payload":{"mission":"injustice-justice","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-02T05:55:46.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"dhikr-morning","success":true,"postId":"QxzOWitvyfPA0ezwiQPs"}}
+{"ts":"2026-05-02T05:55:46.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"division-unity","success":true,"postId":"AQ65O43FQMhBSil1CDJl"}}
+{"ts":"2026-05-02T05:55:46.000Z","type":"publish_run","payload":{"mission":"dhikr-morning","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-02T05:55:47.000Z","type":"publish_run","payload":{"mission":"division-unity","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-02T06:05:16.023Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.0480922222222222,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
