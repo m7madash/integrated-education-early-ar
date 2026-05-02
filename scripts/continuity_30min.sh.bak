@@ -266,11 +266,19 @@ for m in "${DAILY_MISSION_NAMES[@]}"; do
   sched_minutes=$((10#$h * 60 + 10#$min))
   if [ "$CURRENT_MINUTES" -ge "$sched_minutes" ]; then
     expected_count=$((expected_count+1))
-    # Check if mission already fully published today using ledger (publish_run full_success OR all platforms' post_publish)
-    if is_mission_complete "$m"; then
-      : # mission complete
+    # Check if mission already fully published today using ledger (publish_run with full_success)
+    if [ -f "$LEDGER_FILE" ] && command -v jq &>/dev/null; then
+      # Filter only well-formed JSONL entries (those starting with {"ts":) to avoid parse errors from malformed lines
+      if grep -q '^\{"ts":' "$LEDGER_FILE" && grep '^\{"ts":' "$LEDGER_FILE" | jq -e --arg m "$m" --arg today "$TODAY" 'select(.type=="publish_run" and .payload.mission==$m and .payload.status=="full_success" and ((.ts // "") | startswith($today)))' > /dev/null; then
+        : # mission complete
+      else
+        missing_missions+=("$m")
+      fi
     else
-      missing_missions+=("$m")
+      # Fallback to publish_log check (less reliable)
+      if ! grep -Fq "نشر: $m" "$WORKSPACE/memory/publish_log_${TODAY}.md" 2>/dev/null; then
+        missing_missions+=("$m")
+      fi
     fi
   fi
 done
@@ -308,7 +316,7 @@ if [ ${#republish_list[@]} -gt 0 ]; then
         retry_loop 3 2 bash scripts/publish_daily_post_multi_target.sh "$miss" >> "${LOG_FILE}" 2>&1
       ) &
       publish_pids+=($!)
-      sleep 5  # stagger starts to avoid burst contention
+      sleep 1  # stagger starts to avoid burst contention
     else
       log "⚠️ publish script missing: scripts/publish_daily_post_multi_target.sh"
     fi
