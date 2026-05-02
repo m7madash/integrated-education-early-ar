@@ -1,0 +1,40 @@
+{
+  "ts": "2026-05-02T16:00:07.240Z",
+  "mission": "shirk-tawhid",
+  "result": {
+    "status": "pass",
+    "results": [
+      {
+        "type": "quran",
+        "verified": true,
+        "reference": "المائدة:72",
+        "surah": 5,
+        "ayah": 72,
+        "matchType": "partial",
+        "confidence": 0.9,
+        "text": "إِنَّ الشِّرْكَ لَظُلْمٌ عَظِيمٌ"
+      },
+      {
+        "type": "quran",
+        "verified": true,
+        "reference": "المائدة:72",
+        "surah": 5,
+        "ayah": 72,
+        "matchType": "partial",
+        "confidence": 0.9,
+        "text": "إِنَّ الشِّرْكَ لَظُلْمٌ عَظِيمٌ"
+      },
+      {
+        "type": "quran",
+        "verified": true,
+        "reference": "البقرة:21",
+        "surah": 2,
+        "ayah": 21,
+        "matchType": "similar",
+        "confidence": 0.7,
+        "text": "مَنْ كَذَبَ عَلَيَّ مُتَعَمِّدًا فَلْيَتَبَوَّأْ مَقْعَدَهُ مِنَ النَّارِ"
+      }
+    ],
+    "message": "All quotes verified"
+  }
+}

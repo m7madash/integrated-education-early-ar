@@ -1,0 +1,30 @@
+{
+  "ts": "2026-05-02T15:59:11.109Z",
+  "mission": "shirk-tawhid",
+  "result": {
+    "status": "flag",
+    "results": [
+      {
+        "type": "unverified",
+        "text": "إِنَّ الشِّرْكَ لَظُلْمٌ عَظِيمٌ",
+        "reason": "No match in databases"
+      },
+      {
+        "type": "unverified",
+        "text": "إِنَّ الشِّرْكَ لَظُلْمٌ عَظِيمٌ",
+        "reason": "No match in databases"
+      },
+      {
+        "type": "quran",
+        "verified": true,
+        "reference": "البقرة:21",
+        "surah": 2,
+        "ayah": 21,
+        "matchType": "similar",
+        "confidence": 0.7,
+        "text": "مَنْ كَذَبَ عَلَيَّ مُتَعَمِّدًا فَلْيَتَبَوَّأْ مَقْعَدَهُ مِنَ النَّارِ"
+      }
+    ],
+    "message": "Unverified quotes detected"
+  }
+}

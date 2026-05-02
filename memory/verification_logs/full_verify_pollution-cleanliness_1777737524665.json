@@ -1,0 +1,30 @@
+{
+  "ts": "2026-05-02T15:58:44.665Z",
+  "mission": "pollution-cleanliness",
+  "result": {
+    "status": "pass",
+    "results": [
+      {
+        "type": "quran",
+        "verified": true,
+        "reference": "البقرة:205",
+        "surah": 2,
+        "ayah": 205,
+        "matchType": "full_text",
+        "confidence": 0.95,
+        "text": "وَإِذَا تَوَلَّىٰ سَعَىٰ فِي الْأَرْضِ لِيُفْسِدَ فِيهَا وَيُهْلِكَ الْحَرْثَ وَالنَّسْلَ"
+      },
+      {
+        "type": "quran",
+        "verified": true,
+        "reference": "البقرة:205",
+        "surah": 2,
+        "ayah": 205,
+        "matchType": "full_text",
+        "confidence": 0.95,
+        "text": "وَإِذَا تَوَلَّىٰ سَعَىٰ فِي الْأَرْضِ لِيُفْسِدَ فِيهَا وَيُهْلِكَ الْحَرْثَ وَالنَّسْلَ"
+      }
+    ],
+    "message": "All quotes verified"
+  }
+}

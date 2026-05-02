@@ -1,0 +1,35 @@
+{
+  "ts": "2026-05-02T15:58:30.581Z",
+  "mission": "pollution-cleanliness",
+  "result": {
+    "status": "flag",
+    "results": [
+      {
+        "type": "unverified",
+        "text": "مقياس نظافة",
+        "reason": "No match in databases"
+      },
+      {
+        "type": "unverified",
+        "text": "ما هو **أكبر مصدر تلوث** في مدينتك؟ (شاركنا)",
+        "reason": "No match in databases"
+      },
+      {
+        "type": "quran",
+        "verified": true,
+        "reference": "البقرة:205",
+        "surah": 2,
+        "ayah": 205,
+        "matchType": "full_text",
+        "confidence": 0.95,
+        "text": "وَإِذَا تَوَلَّىٰ سَعَىٰ فِي الْأَرْضِ لِيُفْسِدَ فِيهَا وَيُهْلِكَ الْحَرْثَ وَالنَّسْلَ"
+      },
+      {
+        "type": "unverified",
+        "text": "** البقرة:205 — «وَإِذَا تَوَلَّىٰ سَعَىٰ فِي الْأَرْضِ لِيُفْسِدَ فِيهَا وَيُهْلِكَ الْحَرْثَ وَالنَّسْلَ»",
+        "reason": "No match in databases"
+      }
+    ],
+    "message": "Unverified quotes detected"
+  }
+}
