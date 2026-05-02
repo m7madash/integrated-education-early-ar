@@ -688,3 +688,4 @@
 {"ts":"2026-05-02T15:37:59.000Z","type":"publish_run","payload":{"mission":"shirk-tawhid","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-05-02T15:37:59.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"pollution-cleanliness","success":true,"postId":"M1hgxZOT7JycxVsrdtvV"}}
 {"ts":"2026-05-02T15:37:59.000Z","type":"publish_run","payload":{"mission":"pollution-cleanliness","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-02T15:45:44.254Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.6130488888888888,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
