@@ -884,3 +884,4 @@
 {"ts":"2026-05-02T20:39:21.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"disease-health","success":false,"httpCode":403}}
 {"ts":"2026-05-02T20:39:22.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"disease-health","success":true,"postId":"4hMXpvThUiZ6a6fUcAGq"}}
 {"ts":"2026-05-02T20:39:22.000Z","type":"publish_run","payload":{"mission":"disease-health","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-02T23:35:21.428Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
