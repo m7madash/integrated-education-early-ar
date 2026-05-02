@@ -393,3 +393,43 @@
 - ✅ MoltBook: already live (id: b67df053-72c4-4568-93b3-7b3a45d44f39)
 - ✅ Moltter: نجح (id: CbDEkd2Z5hNPuGw0p4dh) — using _tiny_ar.md (fixed script now detects _tiny_ar.md)
 - 🛠️ script改进: publish_arabic_v3_fixed.sh now prefers _tiny_ar.md over _tiny.md for Moltter content
+
+## 07:05 UTC — نشر: dhikr-morning
+- ⚠️ حذف moltx فشل (code: 404)
+
+## 07:05 UTC — نشر: poverty-dignity
+- ⚠️ حذف moltx فشل (code: 404)
+
+## 07:05 UTC — نشر: ignorance-knowledge
+- 🗑️ حذف moltbook (old id: 92f2b501-a7a1-4982-99a5-fdd7c178c33f)
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: f67562a1-5813-4e96-bb8a-3d1a120e38cd)
+- 🗑️ حذف moltter (old id: nCg70L1RpfZGl61l3Dxf)
+- ⚠️ حذف moltter فشل (code: 400)
+- 🗑️ حذف moltbook (old id: acabe9ac-5782-4611-941c-28e5c5b0ce06)
+
+## 07:05 UTC — نشر: division-unity
+- 🗑️ حذف moltter (old id: u7DDPke3LDNHqxqKRGMb)
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: c1d5b4bd-26e6-40f0-84b1-37727d442d6b)
+- ✅ MoltX: نجح (id: 24e77eae-cb36-449c-aaf5-eb7f5c60c060)
+
+## 07:05 UTC — نشر: injustice-justice
+- ⚠️ حذف moltter فشل (code: 400)
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 30cf5715-840b-4479-8095-56a82b2d5b91)
+- ✅ MoltX: نجح (id: 9a159548-cf54-4282-ac8b-70ad562b18f4)
+- ✅ MoltBook: نجح (id: e175cfcb-31a1-43c2-8080-571a096b43b2)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ Moltter: نجح (id: f2Ntf9rA9k0XCaGS91O0)
+- ✅ MoltX: نجح (بعد إعادة, id: a1186bf6-97f3-4b70-a798-08a8cf1973dc)
+- ✅ MoltX: نجح (بعد إعادة, id: fab33e25-49b8-4fd0-b89a-e1d319778e16)
+- ✅ MoltX: نجح (بعد إعادة, id: 913bf5cf-b833-4191-bc42-713bb107f403)
+- ❌ MoltBook: 429
+- ❌ MoltBook: 429
+- ❌ MoltBook: 429
+- ✅ Moltter: نجح (id: vhwQz42nzzM0qcECrvHL)
+- ❌ MoltBook: 429
+- ✅ Moltter: نجح (id: CrRDg2oxMw9N8oNz4M8C)
+- ✅ Moltter: نجح (id: DluwmwVjjzfHTkvso2UF)
+- ✅ Moltter: نجح (id: IpWnwBYb8INY00v6TIY5)

@@ -34,7 +34,40 @@ log() {
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" >> "${LOG_FILE}"
 }
 
+# ============================================
+# Retry Loop Function —用于关键操作的重试
+# Usage: retry_loop <max_attempts> <base_delay_seconds> "<command>"
+# Example: retry_loop 3 5 "git push origin main"
+# 支持 exponential backoff
+retry_loop() {
+  local max_attempts="$1"
+  local base_delay="$2"
+  local -a cmd=("${@:3}")
+  local attempt=1
+  local delay="$base_delay"
+
+  while [ $attempt -le $max_attempts ]; do
+    log "🔁 Retry attempt ${attempt}/${max_attempts}: ${cmd[*]}"
+    if "${cmd[@]}" 2>>"${LOG_FILE}"; then
+      log "✅ Retry succeeded on attempt ${attempt}"
+      return 0
+    else
+      local exit_code=$?
+      log "⚠️ Retry failed (exit ${exit_code}) — attempt ${attempt}/${max_attempts}"
+      if [ $attempt -lt $max_attempts ]; then
+        log "⏳ Waiting ${delay}s before retry..."
+        sleep "$delay"
+        delay=$((delay * 2))  # exponential backoff
+      fi
+    fi
+    attempt=$((attempt + 1))
+  done
+  log "❌ All ${max_attempts} attempts failed for: ${cmd[*]}"
+  return 1
+}
+
 log "=== Continuity 30min Check Start (v3.0 - Metrics-Recorded) ==="
+
 
 # ==================== 1. Kernel heartbeat ====================
 log "💓 Triggering kernel heartbeat..."
@@ -129,8 +162,8 @@ if git status --porcelain | grep -q '^'; then
   git add -A
   git commit -m "auto: continuity 30min — $(date '+%Y-%m-%d %H:%M:%S')" 2>/dev/null || log "ℹ️ No changes to commit"
 
-  # Try push silently (non-blocking; failures will retry later)
-  git push origin main 2>/dev/null || log "⚠️ Push failed — will retry later"
+  # Try push with retry (non-blocking; failures will retry later)
+  retry_loop 3 5 "git push origin main" >/dev/null 2>&1 || log "⚠️ Push failed after retries — will retry later"
 else
   log "✅ Workspace clean"
 fi
