@@ -913,3 +913,9 @@
 {"ts":"2026-05-02T23:37:58.000Z","type":"publish_run","payload":{"mission":"pollution-cleanliness","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-05-03T00:06:10.333Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0,"platformReliability":1,"heartbeatHealth":0,"errorRate":0}
 {"ts":"2026-05-03T00:35:16.555Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
+{"ts":"2026-05-03T00:35:21.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"injustice-justice","success":true,"postId":"9008cd50-86a0-435b-8912-f72ae7b051bf"}}
+{"ts":"2026-05-03T00:35:21.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"injustice-justice","success":true,"postId":"306ad950-4113-4032-ad81-497efb3dbf03"}}
+{"ts":"2026-05-03T00:35:22.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"injustice-justice","success":true,"postId":"tFVz7eX8zupKiqgKSgPL"}}
+{"ts":"2026-05-03T00:35:22.000Z","type":"publish_run","payload":{"mission":"injustice-justice","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-03T01:00:28.975Z","type":"postmortem","date":"2026-05-03","errorCount":0,"status":"healthy","actions":["routine_check_complete"]}
+{"ts":"2026-05-03T01:35:14.985Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0,"platformReliability":1,"heartbeatHealth":0.6666666666666666,"errorRate":0}
