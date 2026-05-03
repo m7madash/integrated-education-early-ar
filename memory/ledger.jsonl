@@ -919,3 +919,12 @@
 {"ts":"2026-05-03T00:35:22.000Z","type":"publish_run","payload":{"mission":"injustice-justice","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
 {"ts":"2026-05-03T01:00:28.975Z","type":"postmortem","date":"2026-05-03","errorCount":0,"status":"healthy","actions":["routine_check_complete"]}
 {"ts":"2026-05-03T01:35:14.985Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0,"platformReliability":1,"heartbeatHealth":0.6666666666666666,"errorRate":0}
+{"ts":"2026-05-03T01:35:21.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"injustice-justice","success":true,"postId":"17c971f1-b4bb-4482-8c38-78505359a597"}}
+{"ts":"2026-05-03T01:35:22.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"division-unity","success":true,"postId":"c386dc8f-5c77-4e93-8063-1d11ca4f744d"}}
+{"ts":"2026-05-03T01:35:22.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"injustice-justice","success":true,"postId":"d1e160d6-4d4d-43a6-953c-18ad7281e537"}}
+{"ts":"2026-05-03T01:35:23.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"injustice-justice","success":true,"postId":"L9qK2AJqyiHUEbDbi0bg"}}
+{"ts":"2026-05-03T01:35:23.000Z","type":"publish_run","payload":{"mission":"injustice-justice","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-03T01:37:52.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"division-unity","success":true,"postId":"70041da6-f721-4888-acfe-b90d380f4b79","retried":true}}
+{"ts":"2026-05-03T01:37:53.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"division-unity","success":true,"postId":"xuRYnAeoX8y0WsGZaT8S"}}
+{"ts":"2026-05-03T01:37:53.000Z","type":"publish_run","payload":{"mission":"division-unity","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-03T02:35:20.894Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.0008722222222222742,"platformReliability":1,"heartbeatHealth":0.6,"errorRate":0}
