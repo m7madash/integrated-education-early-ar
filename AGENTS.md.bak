@@ -271,16 +271,3 @@ You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it
     "religiousAudit": 1703275200
   }
 }
-## Exec Tool Policy
-
-**CRITICAL:** The OpenClaw `exec` tool has a preflight validation that rejects complex shell syntax. To ensure continuity infrastructure reliability, follow these rules strictly:
-
-1. **Single binary only**: Provide a command like `node /absolute/path/to/script.js arg1 arg2` or `bash /path/to/script.sh`. Do NOT use shell operators: `&&`, `||`, `|`, `;`, or redirections like `2>&1`.
-2. **No `cd` in command**: Instead of `cd /path && node script.js`, either:
-   - Use absolute paths: `node /root/.openclaw/workspace/scripts/script.js`
-   - OR set the `workdir` parameter of the exec tool to `/root/.openclaw/workspace` and run `node script.js`
-3. **No shell substitutions**: Do not include `$(command)` or `${variable}` in the command string. Compute values (like today's date) in your reasoning and pass the literal string. For example, compute the date string `2026-05-03` and use `node /path/to/script.js 2026-05-03`.
-4. **Capture stderr natively**: The exec tool captures stderr separately; no need for `2>&1`.
-5. **Prefer script wrappers for multi-step logic**: If you need to run several commands, create a small shell or Node script in the workspace and exec that single script.
-
-These rules prevent `exec preflight` failures that abort continuity runs.
