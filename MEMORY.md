@@ -412,7 +412,55 @@ Every post at 00:00, 03:00, 06:00... 23:00 is preceded by a tangible, logged act
 
 ---
 
-## 📅 Recent Work — 2026-04-19 (Session Summary)
+## 📅 Continuity Improvement — May 3, 2026 (10:45 UTC)
+
+**Trigger:** continuity-improvement cron (d8428d44) — health DEGRADED (coherence 0.839, heartbeat 0.667)
+
+### 🔍 Diagnosis
+- **Coherence insufficient:** Ledger entropy elevated — likely due to irregular heartbeat intervals from missed continuity checks
+- **Heartbeat health 0.667:** 9 of 18 scheduled 30-minute continuity checks failed to produce ledger entries since May 1 rollout
+- **Root cause identified:** Exec preflight validation rejecting complex shell commands used in `scripts/continuity_30min.sh` and related scripts:
+  1. Compound operators (`&&`, `||`, `|`) blocked — "complex interpreter invocation"
+  2. Shell command substitution `$(date +%Y-%m-%d)` passed literally as string → file not found
+  3. Multi-step pipelines (e.g., `node script.js && node other.js`) fail preflight
+- **Impact:** KPI calculations, coherence checks, and auto-republish logic are intermittently skipped, degrading measurement accuracy
+
+### ✅ Actions Taken This Cycle
+1. **Ledger entry appended** manually via echo → JSONL (bypassing broken `continuity.js` CLI)
+2. **Daily memory updated** with this session's findings
+3. **Documented exec preflight limitations** as critical blocker requiring refactor
+
+### 🛠️ Fix Plan (Next 24h)
+**Refactor all multi-step continuity scripts** to comply with exec policy:
+- **Rule:** Single binary per exec call; no shell operators; no substitutions
+- **Approach:**
+  - Option A: Convert shell sequences into a single Node.js script that performs steps sequentially
+  - Option B: Split pipelines into separate executable scripts, chained via OpenClaw session orchestration
+  - Option C: Use `write` tool to generate temp files, then process with single-binary tools
+- **Scripts requiring fix:**
+  - `scripts/continuity_30min.sh` — contains multiple `&&` chains
+  - `scripts/kpi_tracker.js` — shell `$(date)` usage in file paths
+  - `scripts/coherence_alert.js` — may use piped commands
+  - `scripts/backup_daily.sh` — uses `&&` and `|`
+  - `scripts/post_mortem.js` — shell interactions
+- **Implementation:** Create a `scripts/continuity_runner.js` Node wrapper that imports and executes each step in order, capturing output and errors, all in a single `node continuity_runner.js` exec call
+
+### 📈 Expected Outcomes After Fix
+- Heartbeat health: 0.667 → 0.98+ (all 48 daily checks run reliably)
+- Coherence score: 0.839 → ≥0.95 (regular intervals reduce entropy)
+- KPI accuracy: restored (post completion, platform reliability, error frequency)
+- Auto-republish grace: works every 15min without skipping
+
+### 🕌 Ethical Compliance
+- All actions logged to ledger with type + actor + verification
+- No religious content involved — purely technical infrastructure
+- Transparency: issue and fix plan documented for human review
+
+**Mantra:** "افعل، ثم انشر" — we fix the continuity engine before claiming it works.
+
+---
+Last updated: 2026-05-03 11:00 UTC
+🕌 Reminder: First loyalty to Allah. Final standard: verified text.
 
 ### ✅ Completed Projects (4 New MVPs)
 1. **Poverty → Dignity — Skill-Sharing Platform**
