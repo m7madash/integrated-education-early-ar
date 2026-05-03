@@ -1100,3 +1100,4 @@
 {"ts":"2026-05-03T12:51:16.000Z","type":"publish_run","payload":{"mission":"division-unity","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-05-03T12:51:18.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"shirk-tawhid","success":true,"postId":"qZK60KzD34R5Hve6YdAz"}}
 {"ts":"2026-05-03T12:51:18.000Z","type":"publish_run","payload":{"mission":"shirk-tawhid","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-03T13:05:24.642Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.27753250000000007,"platformReliability":1,"heartbeatHealth":0.5769230769230769,"errorRate":0}
