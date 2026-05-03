@@ -947,3 +947,4 @@
 {"ts":"2026-05-03T03:07:06.000Z","type":"publish_run","payload":{"mission":"division-unity","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
 {"ts":"2026-05-03T03:07:06.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"injustice-justice","success":true,"postId":"YRKqWhj1m1M0ZwmzhchK"}}
 {"ts":"2026-05-03T03:07:06.000Z","type":"publish_run","payload":{"mission":"injustice-justice","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-03T04:35:13.825Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.4730930555555556,"platformReliability":1,"heartbeatHealth":0.6666666666666666,"errorRate":0}
