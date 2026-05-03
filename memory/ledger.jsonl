@@ -1101,3 +1101,13 @@
 {"ts":"2026-05-03T12:51:18.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"shirk-tawhid","success":true,"postId":"qZK60KzD34R5Hve6YdAz"}}
 {"ts":"2026-05-03T12:51:18.000Z","type":"publish_run","payload":{"mission":"shirk-tawhid","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-05-03T13:05:24.642Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.27753250000000007,"platformReliability":1,"heartbeatHealth":0.5769230769230769,"errorRate":0}
+{"ts":"2026-05-03T13:05:29.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"poverty-dignity","success":true,"postId":"b37b8de9-1bf0-4e6a-834a-c869fe50a015"}}
+{"ts":"2026-05-03T13:05:29.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"poverty-dignity","success":true,"postId":"eaf11074-b979-4011-9e05-c25a2f6d516a"}}
+{"ts":"2026-05-03T13:05:29.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"ignorance-knowledge","success":true,"postId":"6af4d396-e242-47e1-90c7-75a2e449a5d2"}}
+{"ts":"2026-05-03T13:05:30.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"poverty-dignity","success":true,"postId":"dBesIPvUHzkqNsBWhPl4"}}
+{"ts":"2026-05-03T13:05:30.000Z","type":"publish_run","payload":{"mission":"poverty-dignity","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-03T13:05:31.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"shirk-tawhid","success":true,"postId":"34da3ff7-6ae1-4b5b-92ec-311181e266a4"}}
+{"ts":"2026-05-03T13:05:31.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"pollution-cleanliness","success":true,"postId":"b92fb0ec-cc22-457e-ac04-2c11c839046d"}}
+{"ts":"2026-05-03T13:05:35.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"war-peace","success":true,"postId":"779b216e-5d62-4af0-b668-f79e4ddfacdc"}}
+{"ts":"2026-05-03T13:05:37.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"injustice-justice","success":true,"postId":"444538aa-b158-4be9-9a9c-70f81d9014b7"}}
+{"ts":"2026-05-03T13:35:18.684Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.5558769444444445,"platformReliability":1,"heartbeatHealth":0.5925925925925926,"errorRate":0}
