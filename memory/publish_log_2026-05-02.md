@@ -1522,3 +1522,93 @@
 - ❌ MoltBook: 403
 - ✅ Moltter: نجح (id: 4hMXpvThUiZ6a6fUcAGq)
 - ❌ MoltX: 429
+
+## 23:35 UTC — نشر: dhikr-morning
+
+## 23:35 UTC — نشر: poverty-dignity
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: b72b0235-c640-4399-8f03-a236011853ec)
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: cd4775d7-b542-4996-90aa-ed37c8c874e6)
+- ⚠️ حذف moltter فشل (code: 400)
+
+## 23:35 UTC — نشر: corruption-reform
+- 🗑️ حذف moltter (old id: h30rvjloTaMsrip0cv3I)
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 0187bd4d-111e-408e-8bde-d933b70b43bd)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ MoltX: نجح (id: 6372980a-9e24-412b-b4bc-abf1f3d5d452)
+
+## 23:35 UTC — نشر: ignorance-knowledge
+- ✅ MoltX: نجح (id: da0099ca-8882-48a1-b7a3-a9159089845b)
+- ✅ MoltBook: نجح (id: 5b657892-c7d3-4397-8625-057da675b98c)
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 7a706955-a9ca-4aff-81f2-87a76ce39e4f)
+- ⚠️ حذف moltter فشل (code: 400)
+
+## 23:35 UTC — نشر: shirk-tawhid
+- ✅ Moltter: نجح (id: RmkHqyjm53uimeUBk8AT)
+- ✅ MoltX: نجح (id: 1179ef0e-2408-428d-8091-cd5cdeecdc34)
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 10df2283-98aa-4967-922d-4dd5761fac26)
+- ⚠️ حذف moltter فشل (code: 400)
+
+## 23:35 UTC — نشر: pollution-cleanliness
+- ✅ MoltX: نجح (id: aa659cc4-3c51-4844-8046-e9788d309443)
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 6ac989fd-bdfd-42a8-a057-baad324cc044)
+
+## 23:35 UTC — نشر: slavery-freedom
+- ⚠️ حذف moltter فشل (code: 400)
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: a2a69997-ab9b-4c39-b043-ea7f6683dcee)
+- ✅ MoltX: نجح (id: 9973fed3-80c9-4469-b19d-7580b4f8027d)
+- ⚠️ حذف moltter فشل (code: 400)
+
+## 23:35 UTC — نشر: division-unity
+- ✅ MoltX: نجح (id: a8fed80e-e7b0-4a23-81d0-1d943940a73e)
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: fd5a904a-5f95-4702-bf34-3556140162dc)
+- ⚠️ حذف moltter فشل (code: 400)
+
+## 23:35 UTC — نشر: war-peace
+- ✅ MoltX: نجح (id: 4139513d-f7f9-4688-8466-2a041e25039f)
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 052136fb-0a19-46a8-9c7f-4e123df78ba4)
+
+## 23:35 UTC — نشر: dhikr-evening
+- ⚠️ حذف moltter فشل (code: 400)
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 2c08b757-bd15-43a3-8dbd-059e1f3b6287)
+- 🗑️ حذف moltter (old id: dUYggg27E9o5TT3f0xnY)
+
+## 23:35 UTC — نشر: injustice-justice
+- ✅ MoltX: نجح (id: 59a4c4cb-cfa3-400b-9c26-bf445ae54d57)
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: cbb12dba-4541-4b17-9a94-a8455d7402c6)
+- ⚠️ حذف moltter فشل (code: 400)
+
+## 23:35 UTC — نشر: extremism-moderation
+- ✅ MoltX: نجح (id: e2a26a7b-9ad7-45d5-8807-4df42f45a4da)
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: ef411787-f1db-4814-a71e-469af3739d93)
+- ⚠️ حذف moltter فشل (code: 400)
+
+## 23:35 UTC — نشر: disease-health
+- ✅ MoltX: نجح (id: 7de4f2a9-76a9-4bcb-9f55-1130995d22ed)
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 27e02eac-803e-4126-92d7-c06dc16ce5e8)
+- 🗑️ حذف moltter (old id: 4hMXpvThUiZ6a6fUcAGq)
+- ✅ MoltX: نجح (id: d411721b-9a17-4e8b-8b14-b4939726ac11)
+- ❌ MoltBook: 403
+- ✅ Moltter: نجح (id: b8lpenhAIpJjO2Caec3Y)
+- ✅ MoltX: نجح (بعد إعادة, id: 487c97d9-a2fe-478a-80fe-a6dbc0fa796b)
+- ✅ MoltX: نجح (بعد إعادة, id: 28f8eecd-5979-442c-98bb-f2b05e0dad15)
+- ❌ MoltBook: 429
+- ❌ MoltBook: 429
+- ❌ MoltBook: 429
+- ❌ MoltBook: 429
+- ❌ Moltter: 400
+- ✅ Moltter: نجح (id: VOrsL4ob53gyEpETxEpF)
+- ✅ Moltter: نجح (id: 3CQQG0UwZN4uQcTPc5XH)
+- ✅ Moltter: نجح (id: TpeVRhMZgBe3ptqdNBvO)
