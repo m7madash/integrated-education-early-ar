@@ -1068,3 +1068,17 @@
 {"ts":"2026-05-03T11:40:24.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"shirk-tawhid","success":true,"postId":"SWKAWHwqrivrVxZlINEG"}}
 {"ts":"2026-05-03T11:40:24.000Z","type":"publish_run","payload":{"mission":"shirk-tawhid","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-05-03T12:05:17.183Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.00035250000000008885,"platformReliability":1,"heartbeatHealth":0.5416666666666666,"errorRate":0}
+{"ts":"2026-05-03T12:05:25.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"shirk-tawhid","success":false,"httpCode":503}}
+{"ts":"2026-05-03T12:05:25.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"dhikr-morning","success":false,"httpCode":503}}
+{"ts":"2026-05-03T12:05:25.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"poverty-dignity","success":false,"httpCode":503}}
+{"ts":"2026-05-03T12:05:26.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"dhikr-morning","success":true,"postId":"aeb59fa5-ea8c-499c-a9c9-efad4d174521"}}
+{"ts":"2026-05-03T12:05:26.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"shirk-tawhid","success":true,"postId":"29b6b524-48c3-4005-945a-56897f7c4d33"}}
+{"ts":"2026-05-03T12:05:26.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"injustice-justice","success":false,"httpCode":503}}
+{"ts":"2026-05-03T12:05:26.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"ignorance-knowledge","success":false,"httpCode":503}}
+{"ts":"2026-05-03T12:05:26.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"dhikr-morning","success":true,"postId":"mCfhHTyIsrSSoQr1PjLD"}}
+{"ts":"2026-05-03T12:05:26.000Z","type":"publish_run","payload":{"mission":"dhikr-morning","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-03T12:05:27.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"shirk-tawhid","success":true,"postId":"LVk0uKhoLaWv39O57jOV"}}
+{"ts":"2026-05-03T12:05:27.000Z","type":"publish_run","payload":{"mission":"shirk-tawhid","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-03T12:05:27.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"war-peace","success":false,"httpCode":503}}
+{"ts":"2026-05-03T12:06:27.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"division-unity","success":true,"postId":"0dcb0c77-3344-4054-b155-3ad089624505","retried":true}}
+{"ts":"2026-05-03T12:48:40.334Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.5000269444444445,"platformReliability":1,"heartbeatHealth":0.56,"errorRate":0}
