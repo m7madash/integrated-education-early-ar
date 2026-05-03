@@ -284,3 +284,38 @@ You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it
 5. **Prefer script wrappers for multi-step logic**: If you need to run several commands, create a small shell or Node script in the workspace and exec that single script.
 
 These rules prevent `exec preflight` failures that abort continuity runs.
+
+## 📦 Continuity Helper Scripts
+
+When performing continuity checks, always use these wrapper scripts instead of constructing compound shell commands:
+
+| Task | Safe invocation |
+|------|----------------|
+| Coherence check | `bash scripts/run_coherence_with_head.sh` |
+| KPI check | `bash scripts/run_kpi_check.sh` |
+| Post-mortem | `bash scripts/run_post_mortem_js.sh` |
+| Continuity status | `bash scripts/run_continuity_js_status.sh` |
+| Read today's memory | `bash scripts/read_today_memory.sh` |
+
+These wrappers handle file-existence checks, output limiting, and error fallbacks internally, keeping the outer exec call simple and preflight-safe.
+
+## 📁 File Path Construction
+
+- **Never** include shell substitution syntax (`$(...)`, `` `...` ``) in any tool parameter (read, write, exec, etc.).
+- **Always** compute date strings explicitly from the current time provided in the session context, then use the literal path. For example, if today is 2026-05-03, the memory file path is `/root/.openclaw/workspace/memory/2026-05-03.md`.
+- For recurring operations, prefer the helper scripts above which handle date expansion internally.
+
+## 🛠️ Exec Preflight Verification
+
+Before calling the `exec` tool:
+1. Is the command a single binary with absolute path? ✅
+2. Does the command avoid `&&`, `||`, `|`, `;`, `>`, `<`, `2>&1`? ✅
+3. Does it avoid `cd` (use absolute paths or `workdir`)? ✅
+4. Does it avoid `$(...)` or backticks? ✅
+5. If multi-step, is it wrapped in a script file? ✅
+
+If any answer is ❌, revise the command or create a wrapper script.
+
+---
+
+*This AGENTS.md is your operating manual. Follow it precisely to maintain system reliability and Islamic ethical boundaries.*
