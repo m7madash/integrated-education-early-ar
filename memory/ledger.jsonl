@@ -912,3 +912,4 @@
 {"ts":"2026-05-02T23:37:58.000Z","type":"publish_run","payload":{"mission":"shirk-tawhid","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-05-02T23:37:58.000Z","type":"publish_run","payload":{"mission":"pollution-cleanliness","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-05-03T00:06:10.333Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0,"platformReliability":1,"heartbeatHealth":0,"errorRate":0}
+{"ts":"2026-05-03T00:35:16.555Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
