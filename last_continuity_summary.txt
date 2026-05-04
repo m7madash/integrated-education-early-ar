@@ -1,1 +1,1 @@
-✅ Continuity 30min: 02:35 UTC — Ledger: 1350 entries, Posts: 2/2, Coherence: 0.446 (degraded)
+✅ Continuity 30min: 11:35 UTC — Ledger: 1382 entries, Posts: 6/7, Coherence: 0.019 (degraded)
