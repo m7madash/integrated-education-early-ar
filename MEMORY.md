@@ -1238,3 +1238,17 @@ Last updated: 2026-04-27 22:40 UTC
 - **Built 8 core components:** [score=0.829 recalls=0 avg=0.620 source=memory/2026-04-27.md:16-16]
 <!-- openclaw-memory-promotion:memory:memory/2026-04-27.md:18:18 -->
 - 1️⃣ **continuity.js** — Kernel integration wrapper [score=0.829 recalls=0 avg=0.620 source=memory/2026-04-27.md:18-18]
+
+## Promoted From Short-Term Memory (2026-05-04)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-04-28.md:1:1 -->
+- 🕌 First loyalty: Truth (fix bugs), humility (acknowledge oversights), continuous improvement. No unverified religious content. [score=0.839 recalls=0 avg=0.620 source=memory/2026-04-28.md:1-1]
+<!-- openclaw-memory-promotion:memory:memory/2026-04-28.md:10:10 -->
+- **Fixes applied:** [score=0.839 recalls=0 avg=0.620 source=memory/2026-04-28.md:10-10]
+<!-- openclaw-memory-promotion:memory:memory/2026-04-29.md:5:5 -->
+- **Run:** 06:41 UTC — logged automatically [score=0.835 recalls=0 avg=0.620 source=memory/2026-04-29.md:5-5]
+
+## Promoted From Short-Term Memory (2026-05-04)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-04-29.md:7:7 -->
+- **Health:** DEGRADED [score=0.835 recalls=0 avg=0.620 source=memory/2026-04-29.md:7-7]

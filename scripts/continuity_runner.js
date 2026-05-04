@@ -481,6 +481,7 @@ async function stepTeamCommunities() {
 async function stepGitVerify() {
   log('🔄 Git status verification...');
   try {
+    const { spawnSync } = require('child_process');
     const gitStatus = spawnSync('git', ['status', '--porcelain'], { cwd: WORKSPACE, encoding: 'utf8' });
     if (gitStatus.status === 0) {
       const changes = gitStatus.stdout.trim();
