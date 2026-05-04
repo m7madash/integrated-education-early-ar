@@ -1319,3 +1319,33 @@
 {"ts":"2026-05-03T20:40:20.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"war-peace","success":true,"postId":"IunRsUAHmZpM4D1jThcD"}}
 {"ts":"2026-05-03T20:40:20.000Z","type":"publish_run","payload":{"mission":"war-peace","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-05-03T20:47:44.572Z","type":"continuity_improvement","phase":"exec_preflight_fix","changes":[{"file":"scripts/continuity_runner.js","action":"created","description":"Node.js exec-safe replacement for continuity_30min.sh — eliminates &&, ||, $(...) shell operators"},{"jobId":"ea19561d-f2c2-4716-9032-5053e9f65dc3","action":"updated","change":"payload.script changed from scripts/continuity_30min.sh to scripts/continuity_runner.js"}],"metrics":{"coherence_score":0.471,"heartbeat_health":"degraded","missing_runs_since_May1":9,"root_cause":"OpenClaw exec preflight blocks compound shell operators (&&, ||) and unexpanded $(date) substitutions"},"next_check":"2026-05-03T21:05:13.000Z","verification":"runner created executable chmod +x; cron payload updated via openclaw cron edit"}
+{"ts":"2026-05-03T20:48:36.999Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.4706702777777778,"platformReliability":1,"heartbeatHealth":0.5853658536585366,"errorRate":0}
+{"ts":"2026-05-03T21:05:14.081Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.4463327777777778,"platformReliability":1,"heartbeatHealth":0.5952380952380952,"errorRate":0}
+{"ts":"2026-05-03T21:35:21.966Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.5001336111111111,"platformReliability":1,"heartbeatHealth":0.6046511627906976,"errorRate":0}
+{"ts":"2026-05-03T21:35:24.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"pollution-cleanliness","success":true,"postId":"85163253-c90a-4f6b-91da-e30b10a0e4d9"}}
+{"ts":"2026-05-03T21:35:24.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"pollution-cleanliness","success":true,"postId":"95d0b14f-18df-4ce0-8136-32159ab28529"}}
+{"ts":"2026-05-03T21:35:25.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"disease-health","success":true,"postId":"a0cb799b-a967-49e4-8368-90244ce361cd"}}
+{"ts":"2026-05-03T21:35:25.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"disease-health","success":false,"httpCode":403}}
+{"ts":"2026-05-03T21:35:25.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"pollution-cleanliness","success":true,"postId":"5DE4vtjKo1a6IYvkAOD3"}}
+{"ts":"2026-05-03T21:35:25.000Z","type":"publish_run","payload":{"mission":"pollution-cleanliness","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-03T21:35:26.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"disease-health","success":true,"postId":"l1YX8bKvQdAinQsbRnym"}}
+{"ts":"2026-05-03T21:35:26.000Z","type":"publish_run","payload":{"mission":"disease-health","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-03T23:35:16.115Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.7620416666666667,"platformReliability":1,"heartbeatHealth":0.574468085106383,"errorRate":0}
+{"ts":"2026-05-03T23:35:18.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"ignorance-knowledge","success":true,"postId":"be61f870-11bb-4d8c-a03f-743953eed582"}}
+{"ts":"2026-05-03T23:35:19.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"ignorance-knowledge","success":true,"postId":"e7c56c96-104d-4d7a-8861-9fa8f87324b2"}}
+{"ts":"2026-05-03T23:35:19.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"extremism-moderation","success":true,"postId":"2ea582e8-12d7-40e8-ae95-527bd73c3702"}}
+{"ts":"2026-05-03T23:35:19.000Z","type":"publish_run","payload":{"mission":"ignorance-knowledge","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-04T01:00:19.193Z","type":"postmortem","date":"2026-05-04","errorCount":0,"status":"healthy","actions":["routine_check_complete"]}
+2026-05-04T02:00:28Z {"type":"backup","file":"backup_20260504_020027.tar.gz","size":"9.8M","status":"success"}
+{"ts":"2026-05-04T02:05:16.736Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.5539344444444445,"platformReliability":1,"heartbeatHealth":0,"errorRate":0}
+{"ts":"2026-05-04T02:05:50.548Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.5001336111111111,"platformReliability":1,"heartbeatHealth":0.25,"errorRate":0}
+{"ts":"2026-05-04T02:05:58.454Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.4463327777777778,"platformReliability":1,"heartbeatHealth":0.5,"errorRate":0}
+{"ts":"2026-05-04T02:06:00.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"injustice-justice","success":true,"postId":"d8ccfe80-e602-45b9-95bd-5b408d969ce9"}}
+{"ts":"2026-05-04T02:06:00.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"injustice-justice","success":true,"postId":"bc77cbe2-decc-4b21-b729-eda615ed57e4"}}
+{"ts":"2026-05-04T02:06:00.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"division-unity","success":true,"postId":"80d30074-5f76-441c-ad30-128aaa9dd0b9"}}
+{"ts":"2026-05-04T02:06:01.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"injustice-justice","success":true,"postId":"iMIrgYEs0DbUZqJHYcUE"}}
+{"ts":"2026-05-04T02:06:01.000Z","type":"publish_run","payload":{"mission":"injustice-justice","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-04T02:08:32.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"division-unity","success":true,"postId":"a051a7c6-7fee-4c55-90a9-d68eb67f9527","retried":true}}
+{"ts":"2026-05-04T02:08:33.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"division-unity","success":true,"postId":"hZE4muZoyEw9lWvMuaZh"}}
+{"ts":"2026-05-04T02:08:33.000Z","type":"publish_run","payload":{"mission":"division-unity","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-04T02:35:25.878Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.2325586111111111,"platformReliability":1,"heartbeatHealth":0.6,"errorRate":0}

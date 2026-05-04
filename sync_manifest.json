@@ -1,0 +1,37 @@
+{
+  "timestamp": 1777855532265,
+  "date": "2026-05-04",
+  "scans": {
+    "Abdullah_projects": {
+      "missions": [],
+      "actionProjects": [
+        "academic-prosecutor",
+        "climate-justice",
+        "division-unity",
+        "evening-dhikr",
+        "extremism-moderation",
+        "ignorance-knowledge",
+        "illness-health",
+        "justice-algorithm",
+        "justice-lens",
+        "media-integrity",
+        "morning-dhikr",
+        "nuclear-justice",
+        "platform-connectivity-check",
+        "pollution-cleanliness",
+        "poverty-dignity",
+        "privacy-shield",
+        "resource-justice",
+        "riba-danger",
+        "shared",
+        "slavery-freedom",
+        "tawheed-anti-shirk",
+        "war-peace",
+        "{justice-lens,poverty-dignity,ignorance-knowledge,war-peace,pollution-cleanliness,illness-health,slavery-freedom,extremism-moderation,division-unity}"
+      ],
+      "skills": [
+        "skills"
+      ]
+    }
+  }
+}
