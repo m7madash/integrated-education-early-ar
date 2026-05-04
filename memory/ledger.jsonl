@@ -1410,3 +1410,9 @@
 {"ts":"2026-05-04T16:06:24.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"disease-health","success":false,"httpCode":403}}
 {"ts":"2026-05-04T16:06:25.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"disease-health","success":true,"postId":"6094M652EWWYdlxkCQeg"}}
 {"ts":"2026-05-04T16:06:25.000Z","type":"publish_run","payload":{"mission":"disease-health","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":1}}
+{"ts":"2026-05-04T17:05:18.729Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.009107777777777826,"platformReliability":1,"heartbeatHealth":0.5294117647058824,"errorRate":0}
+{"ts":"2026-05-04T17:05:25.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"disease-health","success":true,"postId":"94f5724f-37ce-4425-a72f-06a32127a707"}}
+{"ts":"2026-05-04T17:05:25.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"disease-health","success":false,"httpCode":403}}
+{"ts":"2026-05-04T17:05:26.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"disease-health","success":true,"postId":"WonKp0kGgvIISVfxgBFQ"}}
+{"ts":"2026-05-04T17:05:26.000Z","type":"publish_run","payload":{"mission":"disease-health","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-04T18:05:24.687Z","type":"postmortem","date":"2026-05-04","errorCount":0,"status":"healthy","actions":["routine_check_complete"]}

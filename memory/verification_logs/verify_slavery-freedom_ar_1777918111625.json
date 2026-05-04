@@ -1,0 +1,11 @@
+{
+  "ts": "2026-05-04T18:08:31.625Z",
+  "mission": "slavery-freedom_ar",
+  "file": "/root/.openclaw/workspace/missions/slavery-freedom_ar.md",
+  "result": {
+    "status": "flag",
+    "tag": "verified_hadith_pending",
+    "confidence": 0.6,
+    "reason": "Hadith content — isnad verification needed"
+  }
+}

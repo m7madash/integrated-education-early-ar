@@ -1,0 +1,11 @@
+{
+  "ts": "2026-05-04T18:08:58.650Z",
+  "mission": "slavery-freedom_tiny_ar",
+  "file": "/root/.openclaw/workspace/missions/slavery-freedom_tiny_ar.md",
+  "result": {
+    "status": "flag",
+    "tag": "needs_review",
+    "confidence": 0.7,
+    "reason": "Quran ref المائدة:32 not in verified sources"
+  }
+}
