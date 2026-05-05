@@ -12,7 +12,8 @@ const missionJobs = [
   'injustice-justice', 'division-unity', 'poverty-dignity', 'ignorance-knowledge',
   'war-peace', 'shirk-tawhid', 'pollution-cleanliness', 'disease-health',
   'slavery-freedom', 'extremism-moderation', 'corruption-reform',
-  'modesty_mode_weekly', 'anti_extortion_weekly', 'dhikr-morning', 'dhikr-evening'
+  'modesty_mode_weekly', 'anti_extortion_weekly', 'dhikr-morning', 'dhikr-evening',
+  'quran-study'
 ];
 
 const nameToMission = {
@@ -30,7 +31,8 @@ const nameToMission = {
   'modesty_mode_weekly': 'modesty_filter',
   'anti_extortion_weekly': 'anti_extortion',
   'dhikr-morning': 'dhikr_morning',
-  'dhikr-evening': 'dhikr_evening'
+  'dhikr-evening': 'dhikr_evening',
+  'quran-study': 'quran_study'
 };
 
 const searchKeywords = JSON.parse(fs.readFileSync('/root/.openclaw/workspace/missions/search_keywords.json', 'utf8'));
@@ -44,29 +46,27 @@ jobs.jobs = jobs.jobs.map(job => {
 
   const keywords = searchKeywords[mission] || [mission, 'statistics 2025'];
 
-  const userMessage = `Autonomous task: Generate and publish the "${mission}" mission post using real-time AI.
+  const userMessage = `🕌 Real-Time Mission: ${mission}
 
-STRICT CONSTRAINT: OUTPUT MUST BE 100% PURE ARABIC. No English, Chinese, or any non-Arabic script. Arabic emojis only (🔍 📊 ✅ 🎓 🕌 💬 📌 ⚠️). If you cannot produce Arabic-only content, reply: "لا أعلم، ارجع لأهل القرآن وبيان الرسول ﷺ".
+STRICT: PURE ARABIC ONLY (no English/Chinese). Arabic emojis only. If cannot: "لا أعلم".
 
 Steps:
-1. web_search with keywords: ${keywords.join(', ')}. Get latest 2025-2026 statistics.
-2. Compose Arabic post (180-220 Arabic chars) following Publisher V3 format:
-   - Title: "# 🔍 دراسة: ${mission} — تحليل AI Agent"
-   - Problem: 3 stats (Arabic text, numbers okay as digits)
-   - Root causes: 3 systemic reasons (pure Arabic)
-   - Solutions: 3 practical steps (Arabic only)
-   - Agent application: 3 actions (Arabic)
-   - Islamic reference: "نتعلم من القرآن: سورة:آية" plus one-line Arabic explanation
-   - Emojis: 🔍 📊 ✅ 🎓 🕌
-   - CTA: Arabic question at end
-3. BEFORE writing file: validate no Latin/Chinese characters in your planned output
-4. Write full content to: /root/.openclaw/workspace/missions/${mission}_ar.md
-5. Create tiny variant (<280 Arabic chars) to: /root/.openclaw/workspace/missions/${mission}_tiny_ar.md
-6. Publish to 3 platforms via exec scripts/publish_arabic_v3_fixed.sh ${mission}
-7. Log to memory/ledger.jsonl with {ts, type:"publish_realtime", mission:"${mission}", status:"success", platforms:{moltx:..., moltbook:..., moltter:...}}
-8. Do not ask confirmation. Execute fully autonomously.
+1. web_search: ${keywords.join(', ')} → latest 2025-2026 data.
+2. Compose Arabic post (200-250 chars) ANALYTICAL structure:
+   - Title: "# 🔍 ${mission} — دراسة تحليلية AI Agent"
+   - 📊 ما نتعلمه من البيانات: 3 data points (with sources)
+   - 🔍 ما يكتشفه الوكيل: 3 root causes (systemic)
+   - 🎓 ما نتعلمه: 3 key lessons (knowledge)
+   - 💡 كيف نطبق: 3 actionable steps for agents
+   - Reference: "🕌 نتعلم من الآيات من القرآن: [سورة:آية] — [شرح]"
+   - CTA: Arabic engagement question
+   - Hashtags: #mission #عدل
+3. Write: ${mission}_ar.md (full) and ${mission}_tiny_ar.md (<280 chars)
+4. Publish: scripts/publish_arabic_v3_fixed.sh ${mission}
+5. Log to ledger.
+6. No confirmation.
 
-Critical: Verify all Islamic references are Arabic-only with proper surah:ayah format. Ensure entire response contains zero English or Chinese characters.`;
+Use latest statistics. If unavailable: "لا توجد إحصائيات موثوقة، لكن المبدأ ثابت".`;
 
   job.payload = {
     kind: "agentTurn",

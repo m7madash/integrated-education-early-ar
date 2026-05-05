@@ -11,7 +11,8 @@ const missionJobs = [
   'injustice-justice', 'division-unity', 'poverty-dignity', 'ignorance-knowledge',
   'war-peace', 'shirk-tawhid', 'pollution-cleanliness', 'disease-health',
   'slavery-freedom', 'extremism-moderation', 'corruption-reform',
-  'modesty_mode_weekly', 'anti_extortion_weekly', 'dhikr-morning', 'dhikr-evening'
+  'modesty_mode_weekly', 'anti_extortion_weekly', 'dhikr-morning', 'dhikr-evening',
+  'quran-study'
 ];
 
 const nameToMission = {
@@ -29,7 +30,8 @@ const nameToMission = {
   'modesty_mode_weekly': 'modesty_filter',
   'anti_extortion_weekly': 'anti_extortion',
   'dhikr-morning': 'dhikr_morning',
-  'dhikr-evening': 'dhikr_evening'
+  'dhikr-evening': 'dhikr_evening',
+  'quran-study': 'quran_study'
 };
 
 let updated = 0;
@@ -39,28 +41,28 @@ jobs.jobs = jobs.jobs.map(job => {
   const mission = nameToMission[job.name];
   if (!mission) return job;
 
-  const userMessage = `Autonomous task: Generate and publish the "${mission}" mission post using real-time AI.
+  const userMessage = `🕌 Real-Time Mission: ${mission}
 
-Steps:
-1. Use web_search with keywords from missions/search_keywords.json (key: "${mission}") to get latest statistics (2025-2026).
-2. Compose an Arabic educational post following Publisher V3 format from HEARTBEAT.md:
-   - Title: "# 🔍 دراسة: <mission> — تحليل AI Agent"
-   - Problem: 3 data points with sources
-   - Root causes: 3 systemic reasons
-   - Solutions: 3 practical steps
-   - Agent application: 3 actions
-   - Islamic reference: "نتعلم من القرآن: سورة:آية" with brief explanation
-   - Length: 180-220 Arabic characters (fit Moltter limit)
-   - Emojis per section
-   - Call-to-action
-3. Write full content to missions/${mission}_ar.md
-4. Create tiny variant (<280 chars) for Moltter, write to missions/${mission}_tiny_ar.md
-5. Publish to MoltX, MoltBook, Moltter using the message tool. For Moltter, use the tiny variant.
-6. Delete previous posts of this mission first (check posts/${mission}_ids.json).
-7. Log to memory/ledger.jsonl.
-8. Reply with a summary including content lengths and platform IDs.
+Execute autonomously:
 
-Important: Do not ask for confirmation. Execute autonomously.`;
+1. **web_search** with keywords from search_keywords.json (key: "${mission}") → get latest 2025-2026 statistics.
+2. **Compose** Arabic educational post (200-250 Arabic chars) with EXACT analytical structure:
+   - Title: "# 🔍 ${mission} — دراسة تحليلية AI Agent"
+   - Section "📊 ما نتعلمه من البيانات (2025-2026)": 3 data points with sources
+   - Section "🔍 ما يكتشفه الوكيل (التحليل الذكي)": 3 root causes
+   - Section "🎓 ما نتعلمه (الخلاصة المعرفية)": 3 key lessons
+   - Section "💡 كيف نطبق (كوكيل عدل)": 3 actionable steps
+   - **🕌 المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence Arabic explanation]
+   - CTA: "شاركنا: ..." (Arabic engagement question)
+   - Hashtags: #mission_specific #عدل
+3. **Write files**:
+   - Full: /root/.openclaw/workspace/missions/${mission}_ar.md
+   - Tiny (<280 chars): /root/.openclaw/workspace/missions/${mission}_tiny_ar.md
+4. **Publish**: exec bash scripts/publish_arabic_v3_fixed.sh ${mission}
+5. **Log**: Append to memory/ledger.jsonl entry with platform IDs.
+6. **DO NOT** ask for confirmation. Execute now.
+
+CRITICAL: OUTPUT MUST BE PURE ARABIC ONLY. If cannot compose: "لا أعلم، ارجع لأهل القرآن وبيان الرسول ﷺ".`;
 
   job.payload = {
     kind: "agentTurn",
