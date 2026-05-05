@@ -15,7 +15,11 @@ if [ -z "$MISSION" ]; then
   exit 1
 fi
 
-MISSION_FILE="${WORKSPACE}/missions/${MISSION}_ar.md"
+MISSION_FILE="${WORKSPACE}/missions/${MISSION}_analytical_ar.md"
+# Fallback for legacy non-analytical missions
+if [ ! -f "$MISSION_FILE" ]; then
+  MISSION_FILE="${WORKSPACE}/missions/${MISSION}_ar.md"
+fi
 
 if [ ! -f "$MISSION_FILE" ]; then
   echo "❌ Mission file not found: $MISSION_FILE"

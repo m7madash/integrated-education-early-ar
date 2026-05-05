@@ -13,7 +13,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { spawnSync, execFile } = require('child_process');
+const { spawnSync, execFile, spawn } = require('child_process');
 
 const WORKSPACE = '/root/.openclaw/workspace';
 const LOG_DIR = path.join(WORKSPACE, 'logs');
@@ -281,6 +281,116 @@ function recordGapIfNeeded() {
   }
 }
 
+// ── Mission Verification Step ───────────────────────────────────────────────
+async function stepMissionVerification() {
+  log('📅 Verifying daily mission posts...');
+
+  const missionSchedule = [
+    {name: 'injustice-justice', hour: 0, minute: 0},
+    {name: 'division-unity', hour: 0, minute: 0},
+    {name: 'poverty-dignity', hour: 3, minute: 0},
+    {name: 'dhikr-morning', hour: 3, minute: 0},
+    {name: 'ignorance-knowledge', hour: 6, minute: 0},
+    {name: 'war-peace', hour: 9, minute: 0},
+    {name: 'shirk-tawhid', hour: 9, minute: 30},
+    {name: 'pollution-cleanliness', hour: 12, minute: 0},
+    {name: 'disease-health', hour: 15, minute: 0},
+    {name: 'slavery-freedom', hour: 18, minute: 0},
+    {name: 'corruption-reform', hour: 18, minute: 30},
+    {name: 'extremism-moderation', hour: 21, minute: 0},
+    {name: 'dhikr-evening', hour: 22, minute: 0},
+  ];
+
+  const now = new Date();
+  const currentMinutes = now.getUTCHours() * 60 + now.getUTCMinute();
+  const GRACE_MINUTES = 15;
+
+  let expectedCount = 0;
+  const missing = [];
+
+  for (const m of missionSchedule) {
+    const sched = m.hour * 60 + m.minute;
+    if (currentMinutes >= sched) {
+      expectedCount++;
+      const complete = await isMissionComplete(m.name);
+      if (!complete) {
+        missing.push(m);
+      }
+    }
+  }
+
+  const actualCount = expectedCount - missing.length;
+  log(`🔍 Daily mission posts: ${actualCount}/${expectedCount} published (by ${now.getUTCHours().toString().padStart(2,'0')}:${now.getUTCMinute().toString().padStart(2,'0')} UTC)`);
+
+  if (missing.length > 0) {
+    log(`⚠️ MISSING: ${missing.length} post(s): ${missing.map(m=>m.name).join(' ')}`);
+    const toRepublish = [];
+    for (const m of missing) {
+      const sched = m.hour * 60 + m.minute;
+      if (currentMinutes >= sched + GRACE_MINUTES) {
+        toRepublish.push(m.name);
+      } else {
+        log(`⏰ ${m.name} scheduled at ${m.hour.toString().padStart(2,'0')}:${m.minute.toString().padStart(2,'0')} — within ${GRACE_MINUTES}min grace, waiting...`);
+      }
+    }
+    if (toRepublish.length > 0) {
+      log(`🔧 Auto-republishing ${toRepublish.length} missed mission(s): ${toRepublish.join(' ')}`);
+      for (const mission of toRepublish) {
+        log(`🚀 Publishing (async): ${mission}`);
+        try {
+          const child = spawn('bash', ['scripts/publish_daily_post.sh', mission], {
+            cwd: WORKSPACE,
+            detached: true,
+            stdio: 'ignore'
+          });
+          child.unref();
+        } catch (err) {
+          log(`❌ Failed to start publisher for ${mission}: ${err.message}`);
+        }
+        await new Promise(r => setTimeout(r, 2000));
+      }
+    }
+  }
+}
+
+function isMissionComplete(mission) {
+  const today = new Date().toISOString().slice(0,10);
+  // Check ledger for publish_run with full_success today
+  try {
+    const content = fs.readFileSync(LEDGER_FILE, 'utf8');
+    const lines = content.trim().split('\n');
+    for (let line of lines) {
+      if (!line.startsWith('{')) continue;
+      let e;
+      try { e = JSON.parse(line); } catch (e2) { continue; }
+      if (e.type === 'publish_run' && e.payload && e.payload.mission === mission && e.payload.status === 'full_success') {
+        const ts = e.ts || '';
+        if (ts.startsWith(today)) return true;
+      }
+    }
+  } catch (e) { /* ignore */ }
+
+  // Fallback: check publish_log
+  const logPath = path.join(WORKSPACE, 'memory', `publish_log_${today}.md`);
+  if (fs.existsSync(logPath)) {
+    const content = fs.readFileSync(logPath, 'utf8');
+    if (content.includes(`نشر: ${mission}`)) {
+      return true;
+    }
+  }
+
+  // Check posts ID file mtime
+  const idPath = path.join(WORKSPACE, 'posts', `${mission}_ids.json`);
+  if (fs.existsSync(idPath)) {
+    const stat = fs.statSync(idPath);
+    if (stat.mtime.toISOString().slice(0,10) === today) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 // ── Main ─────────────────────────────────────────────────────────────────────
 (async function main() {
   log('=== Continuity 30min Check Start (improved v2) ===');
@@ -314,6 +424,9 @@ function recordGapIfNeeded() {
   await stepKPI();
   await stepRecordLedger();
   await stepUpdateHeartbeatState();
+
+  // NEW: Verify daily missions and auto-repair any gaps
+  await stepMissionVerification();
 
   // NEW: Gap detection after successful run
   recordGapIfNeeded();
