@@ -45,6 +45,23 @@ else
   CONTENT_TINY="$CONTENT_FULL"
 fi
 
+# ========== 🕌 VERIFICATION GATE ==========
+# Run Arabic-only check (pass file path, not stdin)
+if ! node "$BASE/scripts/verify_full_arabic.js" "$MISSION" "$FILE" 2>/dev/null; then
+  echo "❌ فشل التحقق: المحتوى يحتوي على非-Arabic characters أو تنسيق غير صحيح"
+  echo "🛑 نشر [$MISSION] abort due to verification failure" >> "$BASE/memory/verification_errors.log"
+  exit 1
+fi
+
+# Run religious content check (pass mission name AND file path)
+if ! "$BASE/scripts/verify_mission_religious.sh" "$MISSION" "$FILE" 2>/dev/null; then
+  echo "❌ فشل التحقق: مرجعية شرعية غير صحيحة"
+  echo "🛑 نشر [$MISSION] abort — religious verification failed" >> "$BASE/memory/verification_errors.log"
+  exit 1
+fi
+
+# ========== END VERIFICATION ==========
+
 # Ensure posts directory and IDs file
 mkdir -p "$BASE/posts"
 if [ ! -f "$POST_IDS_FILE" ]; then

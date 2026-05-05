@@ -1,0 +1,10 @@
+{
+  "ts": "2026-05-05T10:51:03.694Z",
+  "mission": "poverty-dignity",
+  "result": {
+    "status": "flag",
+    "passed": 0,
+    "failed": 1,
+    "message": "1 quote(s) unverified"
+  }
+}

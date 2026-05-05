@@ -15,8 +15,24 @@ MEMORY_FILE="${WORKSPACE}/memory/$(date +%Y-%m-%d).md"
 CONFIG_FILE="${WORKSPACE}/continuity.config.json"
 LOCK_FILE="${WORKSPACE}/.continuity_30min.lock"
 LEDGER_FILE="${WORKSPACE}/memory/ledger.jsonl"
+DUPLICATE_WINDOW_SEC=60
 
 cd "${WORKSPACE}"
+
+# Duplicate suppression: if last continuity_check was <60s ago, skip
+if [ -f "$LEDGER_FILE" ]; then
+  LAST_RUN_EPOCH=$(awk -F'"' '/"type":"continuity_check"/ {line=$0} END {gsub(/.*"ts":"|".*/, "", line); cmd="date -d '"line"' +%s 2>/dev/null || date -j -f '%Y-%m-%dT%H:%M:%S' '"line"' +%s 2>/dev/null"; cmd | getline epoch; close(cmd); if(epoch>0) print epoch}' "$LEDGER_FILE")
+  if [ -n "$LAST_RUN_EPOCH" ]; then
+    NOW_EPOCH=$(date +%s)
+    DIFF_SEC=$(( NOW_EPOCH - LAST_RUN_EPOCH ))
+    if [ "$DIFF_SEC" -lt "$DUPLICATE_WINDOW_SEC" ] 2>/dev/null; then
+      echo "[$(date '+%Y-%m-%d %H:%M:%S')] ⚠️ Duplicate suppression: last run was ${DIFF_SEC}s ago (< ${DUPLICATE_WINDOW_SEC}s) — exiting" >> "$LOG_FILE"
+      # Record minimal duplicate entry for audit
+      echo "{\"ts\":\"$(date -u +%Y-%m-%dT%H:%M:%S.000Z)\",\"type\":\"continuity_check\",\"phase\":\"30min\",\"duplicate\":true,\"previousInterval\":${DIFF_SEC}}" >> "$LEDGER_FILE"
+      exit 0
+    fi
+  fi
+fi
 
 # Lockfile: prevent overlapping runs using flock (atomic)
 LOCK_FILE="${WORKSPACE}/.continuity_30min.lock"

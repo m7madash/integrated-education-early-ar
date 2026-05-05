@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 
 const WORKSPACE = '/root/.openclaw/workspace';
-const ERROR_LOG = `${WORKSPACE}/logs/errors_$(new Date().toISOString().split('T')[0]).jsonl`;
+const ERROR_LOG = `${WORKSPACE}/logs/errors_${new Date().toISOString().split('T')[0]}.jsonl`;
 const POSTMORTEM_DIR = `${WORKSPACE}/memory/postmortems`;
 const REPORT_FILE = `${WORKSPACE}/reports/postmortem_${new Date().toISOString().split('T')[0]}.md`;
 

@@ -14,7 +14,7 @@ const { spawn } = require('child_process');
 const path = require('path');
 
 const WORKSPACE = '/root/.openclaw/workspace';
-const BACKUP_SCRIPT = path.join(WORKSPACE, 'scripts', 'backup_daily.sh');
+const BACKUP_SCRIPT = path.join(WORKSPACE, 'scripts', 'backup_daily.js');
 
 // Execute backup script via bash
 const child = spawn('bash', [BACKUP_SCRIPT], {

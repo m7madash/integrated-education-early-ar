@@ -1264,3 +1264,8 @@ Last updated: 2026-04-27 22:40 UTC
 - **Affected missions detected:** `ignorance-knowledge` (repeated failures: 07:35, 10:35, 11:35, 12:35 UTC)
 - **Mitigation in place:** Auto-repair publishes to MoltX + MoltBook; Moltter remains failed until `_tiny.md` created
 - **Action item:** Generate concise variants preserving core message while staying under 280 chars (Arabic)
+
+## Promoted From Short-Term Memory (2026-05-05)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-04-29.md:14:14 -->
+- **Findings:** [score=0.856 recalls=0 avg=0.620 source=memory/2026-04-29.md:14-14]
