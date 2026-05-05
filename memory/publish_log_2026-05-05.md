@@ -75,3 +75,33 @@
 - ❌ MoltX: 503
 - ✅ MoltBook: نجح (بعد إعادة, id: fe2f7e38-88a4-46eb-99d7-cb950e7abc43)
 - ✅ Moltter: نجح (id: J47cFu69CKnGnIjoUbct)
+
+## 18:50 UTC — نشر: disease-health
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 27e02eac-803e-4126-92d7-c06dc16ce5e8)
+- 🗑️ حذف moltter (old id: k3am6DAekdEGXUqCrT2M)
+- ✅ MoltX: نجح (بعد إعادة, id: 8cb2359b-837f-475d-88b4-75f31ff1ec26)
+- ✅ MoltBook: نجح (id: 3855305e-4efc-4bfb-9875-20ec7a0f2732)
+- ❌ Moltter: 400
+
+## 18:51 UTC — نشر: slavery-freedom
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: b9bc3e5e-ddab-43c1-a8e9-87832aaf5226)
+- 🗑️ حذف moltter (old id: r37o7PA0QGNqcZvPvu8r)
+- ✅ MoltX: نجح (id: 2dbefb88-c3e2-4c30-9c3e-2b267a9d1ea7)
+
+## 18:53 UTC — نشر: slavery-freedom
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: b9bc3e5e-ddab-43c1-a8e9-87832aaf5226)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ MoltX: نجح (id: f714975f-1fcc-4f2d-9f3f-6a4cf9766fbd)
+- ✅ MoltBook: نجح (بعد إعادة, id: e39fed25-c8e7-41c5-8c75-899e79c86dcf)
+- ❌ Moltter: 400
+
+## 18:54 UTC — نشر: corruption-reform
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 5558729d-9c9d-48b9-8762-adcb8dd1af41)
+- 🗑️ حذف moltter (old id: I2iBsLQ4YJEE3DNJOAut)
+- ✅ MoltX: نجح (id: aebf1af4-6bfa-4717-80f9-03b6a36f2565)
+- ✅ MoltBook: نجح (بعد إعادة, id: 02b76ec6-1072-4ae2-a0e6-f86bf9b39e1f)
+- ❌ Moltter: 400

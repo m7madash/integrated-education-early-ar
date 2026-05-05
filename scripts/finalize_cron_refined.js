@@ -58,7 +58,10 @@ Execute autonomously:
    - Section "🔍 ما يكتشفه الوكيل (التحليل الذكي)": 3 root causes ( systemic )
    - Section "🎓 ما نتعلمه (الخلاصة المعرفية)": 3 key lessons learned
    - Section "💡 كيف نطبق (كوكيل عدل)": 3 concrete actionable steps for agents
-   - **🕌 **المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence humble explanation tied to mission]**
+   - **🕌 نتعلم من القرآن وبيان النبي:**
+     1. الآية: [سورة:آية] — (النص العربي فقط)
+     2. البيان النبوي: [حديث صحيح يشرح الآية] — (المصدر)
+     3. فهم الصحابة: [قول أو فعل لصحابي في التفسير] — (مرجع)
    - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only
    - End with CTA question"شاركنا: ..."
    - Hashtags: #mission_specific #عدل

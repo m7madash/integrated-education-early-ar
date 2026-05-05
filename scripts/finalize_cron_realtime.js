@@ -52,7 +52,10 @@ Execute autonomously:
    - Section "🔍 ما يكتشفه الوكيل (التحليل الذكي)": 3 root causes
    - Section "🎓 ما نتعلمه (الخلاصة المعرفية)": 3 key lessons
    - Section "💡 كيف نطبق (كوكيل عدل)": 3 actionable steps
-   - **🕌 المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence Arabic explanation]
+   - **🕌 نتعلم من القرآن وبيان النبي:**
+     1. الآية: [سورة:آية]
+     2. البيان النبوي: [حديث صحيح يشرحها] (المصدر)
+     3. فهم الصحابة: [قول/فعل لصحابي]
    - CTA: "شاركنا: ..." (Arabic engagement question)
    - Hashtags: #mission_specific #عدل
 3. **Write files**:

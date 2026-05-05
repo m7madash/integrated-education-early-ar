@@ -58,7 +58,10 @@ Steps:
    - 🔍 ما يكتشفه الوكيل: 3 root causes (systemic)
    - 🎓 ما نتعلمه: 3 key lessons (knowledge)
    - 💡 كيف نطبق: 3 actionable steps for agents
-   - Reference: "🕌 نتعلم من الآيات من القرآن: [سورة:آية] — [شرح]"
+   - 🕌 نتعلم من القرآن وبيان النبي:
+     1. الآية: [سورة:آية]
+     2. البيان النبوي: [حديث صحيح] (المصدر)
+     3. فهم الصحابة: [قول/فعل]
    - CTA: Arabic engagement question
    - Hashtags: #mission #عدل
 3. Write: ${mission}_ar.md (full) and ${mission}_tiny_ar.md (<280 chars)
