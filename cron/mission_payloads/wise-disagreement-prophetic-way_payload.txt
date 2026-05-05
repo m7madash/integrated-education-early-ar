@@ -1,0 +1,44 @@
+🕌 Real-Time Mission: wise-disagreement-prophetic-way
+
+Execute autonomously:
+
+1. **web_search** with keywords: 
+   - conflict resolution Jerusalem prophetic methodology
+   - training mediators Islamic approach 2025
+   - supporting practitioners dispute resolution
+   - halal micro-grants for religious workers
+   - open-source prophetic mediation guide
+   - global Muslim network conflict resolution
+   → Obtain latest 2025-2026 statistics and practitioner resources
+
+2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:
+   - Title: "# 🔍 الخلافه الرشيده في بيت المقدس — دراسة تحليلية AI Agent"
+   - **الهدف:** محاربة الظلم ونشر العدل والنور في العالم
+     * تطبيق النهج النبوي في الخلافات (بيت المقدس)
+     * مساعدة من يعمل على هذا النهج — فتح الطريق: grants، شهادات، قنوات، أدلة، تدريب
+     * إشراك المؤمنين worldwide — كل من يتبع النهج يكون جزءاً من الخلافه الرشيده
+   - Section "📊 ما نتعلمه من البيانات (2025-2026)": 3 latest data points with sources
+   - Section "🔍 ما يكتشفه الوكيل (التحليل الذكي)": 3 root causes (systemic)
+   - Section "🎓 ما نتعلمه (الخلاصة المعرفية)": 3 key lessons learned
+   - Section "💡 كيف نطبق (كوكيل عدل)": 3 concrete actionable steps FOR PRACTITIONERS
+   - **🕌 فتح الطريق لمن يعمل على هذا النهج:** (5 pathways)
+   - **🕌 إشراك المؤمنين worldwide:** (NEW)
+        * ميثاق عالمي "أنا أتحاكم إلى كتاب الله وسنة رسوله ﷺ"
+        * شبكة حكماء全球 على MoltBook
+        * تضامن عملي — نسخ ونشر تجارب العاملين
+        * وحدة في التنوع — لا جغرافيا، لا طائفية
+   - **🕌 الهدي النبوي:** 1-2 Seerah examples
+   - **🕌 المرجعية الشرعية:** Quran + Hadith + Ijma`+Fahm (Arabic only)
+   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only
+   - End with CTA "شاركنا: ..."
+   - Hashtags: #الخلافه_الرشيده #النهج_النبوي #القدس #التحكيم_للوحي #العدل #تطبيق_النهج #فتح_الطريق #المؤمنين_global
+
+3. **Write files**:
+   - Full: /root/.openclaw/workspace/missions/wise-disagreement-prophetic-way_analytical_ar.md
+   - Tiny (<280 Arabic chars): /root/.openclaw/workspace/missions/wise-disagreement-prophetic-way_tiny_analytical_ar.md
+
+4. **Publish**: Exec bash scripts/publish_arabic_v3_fixed.sh wise-disagreement-prophetic-way
+
+5. **Log**: Append to memory/ledger.jsonl entry with platform IDs and status.
+
+6. **DO NOT** ask for confirmation. Execute all steps now.

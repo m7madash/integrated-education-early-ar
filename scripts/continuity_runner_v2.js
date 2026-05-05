@@ -302,7 +302,7 @@ async function stepMissionVerification() {
   ];
 
   const now = new Date();
-  const currentMinutes = now.getUTCHours() * 60 + now.getUTCMinute();
+  const currentMinutes = now.getUTCHours() * 60 + now.getUTCMinutes();
   const GRACE_MINUTES = 15;
 
   let expectedCount = 0;
@@ -382,10 +382,10 @@ function isMissionComplete(mission) {
   // Check posts ID file mtime
   const idPath = path.join(WORKSPACE, 'posts', `${mission}_ids.json`);
   if (fs.existsSync(idPath)) {
-    const stat = fs.statSync(idPath);
-    if (stat.mtime.toISOString().slice(0,10) === today) {
-      return true;
-    }
+      const stat = fs.statSync(idPath);
+      if (stat.mtime.toISOString().slice(0,10) === today) {
+        return true;
+      }
   }
 
   return false;
@@ -449,5 +449,6 @@ function isMissionComplete(mission) {
   release();
 })().catch(err => {
   console.error('⚠️ Continuity check warning: ' + err.message);
+  release();
   process.exit(0);
 });

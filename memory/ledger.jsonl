@@ -15,3 +15,5 @@
 {"ts":"2026-05-05T18:56:49.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"corruption-reform","success":true,"postId":"02b76ec6-1072-4ae2-a0e6-f86bf9b39e1f","retried":true}}
 {"ts":"2026-05-05T18:56:50.000Z","type":"publish_run","payload":{"mission":"corruption-reform","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-05-05T19:10:46.740Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.21468500000000001,"platformReliability":1,"heartbeatHealth":0.05263157894736842,"errorRate":0}
+{"ts":"2026-05-05T20:10:19.833Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.5075561111111111,"platformReliability":1,"heartbeatHealth":0.075,"errorRate":0}
+{"ts":"2026-05-05T20:10:27.942Z","type":"continuity_check","phase":"30min","duplicate":true,"previousInterval":8}
