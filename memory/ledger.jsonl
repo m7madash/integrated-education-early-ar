@@ -17,3 +17,16 @@
 {"ts":"2026-05-05T19:10:46.740Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.21468500000000001,"platformReliability":1,"heartbeatHealth":0.05263157894736842,"errorRate":0}
 {"ts":"2026-05-05T20:10:19.833Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.5075561111111111,"platformReliability":1,"heartbeatHealth":0.075,"errorRate":0}
 {"ts":"2026-05-05T20:10:27.942Z","type":"continuity_check","phase":"30min","duplicate":true,"previousInterval":8}
+{"ts":"2026-05-05T20:32:59.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"wise-disagreement-prophetic-way","success":true,"postId":"6bf931f1-1ffb-432c-a65c-e7c2338775d1"}}
+{"ts":"2026-05-05T20:32:59.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"wise-disagreement-prophetic-way","success":false,"httpCode":403}}
+{"ts":"2026-05-05T20:32:59.000Z","type":"publish_run","payload":{"mission":"wise-disagreement-prophetic-way","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":1}}
+{"ts":"2026-05-05T20:35:08.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"wise-disagreement-prophetic-way","success":true,"postId":"08ae59f3-5fce-4ff5-8cbb-22b6cc59506c"}}
+{"ts":"2026-05-05T20:35:08.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"wise-disagreement-prophetic-way","success":false,"httpCode":403}}
+{"ts":"2026-05-05T20:35:10.000Z","type":"publish_run","payload":{"mission":"wise-disagreement-prophetic-way","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":1}}
+{"ts":"2026-05-05T20:35:35.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"wise-disagreement-prophetic-way","success":true,"postId":"792c40f1-a7d5-4e03-81c2-a0d44dd590ee"}}
+{"ts":"2026-05-05T20:35:36.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"wise-disagreement-prophetic-way","success":false,"httpCode":403}}
+{"ts":"2026-05-05T20:35:36.000Z","type":"publish_run","payload":{"mission":"wise-disagreement-prophetic-way","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":1}}
+{"ts":"2026-05-05T20:36:03.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"wise-disagreement-prophetic-way","success":true,"postId":"4552d93b-9274-4045-90ef-3f54b35db3b1"}}
+{"ts":"2026-05-05T20:36:03.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"wise-disagreement-prophetic-way","success":false,"httpCode":403}}
+{"ts":"2026-05-05T20:36:03.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"wise-disagreement-prophetic-way","success":true,"postId":"7eMeYYvA6co5TW3KFIGk"}}
+{"ts":"2026-05-05T20:36:03.000Z","type":"publish_run","payload":{"mission":"wise-disagreement-prophetic-way","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
