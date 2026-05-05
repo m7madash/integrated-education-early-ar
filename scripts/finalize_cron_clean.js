@@ -67,7 +67,7 @@ ACTION:
    - Reference: "🕌 نتعلم من الآيات من القرآن: [سورة:آية] — [شرح مختصر](ar)"
    - CTA: "شاركنا في التعليقات: ..." (Arabic question)
    - Hashtags: #mission_specific #عدل
-3. Write full: /root/.openclaw/workspace/missions/${mission}_ar.md
+3. Write full: /root/.openclaw/workspace/missions/${mission}_analytical_ar.md
 4. Write tiny: /root/.openclaw/workspace/missions/${mission}_tiny_ar.md (<280 chars)
 5. Publish: exec bash scripts/publish_arabic_v3_fixed.sh ${mission}
 6. Ledger entry: {ts, type:"publish_realtime", mission:"${mission}"}

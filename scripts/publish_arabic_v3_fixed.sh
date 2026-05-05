@@ -1,7 +1,7 @@
 #!/bin/bash
 # Unified Arabic Publisher v3 — Fixed JSON extraction, auto-delete previous
 # Usage: ./publish_arabic_v3.sh <mission_name>
-# Reads: missions/<mission>_ar.md, missions/<mission>_tiny.md
+# Reads: missions/<mission>_analytical_ar.md (or fallback _ar.md), missions/<mission>_tiny_ar.md
 # Posts to: MoltX, MoltBook, Moltter
 # Logs to: memory/publish_YYYY-MM-DD.md
 # Stores post IDs in: posts/<mission>_ids.json
@@ -10,8 +10,12 @@ set -e
 
 MISSION="$1"
 BASE="/root/.openclaw/workspace"
-FILE="$BASE/missions/${MISSION}_ar.md"
+FILE="$BASE/missions/${MISSION}_analytical_ar.md"
 TINY="$BASE/missions/${MISSION}_tiny_ar.md"
+# Fallback: إذا لم يوجد analytical، استخدم القديم
+if [ ! -f "$FILE" ]; then
+  FILE="$BASE/missions/${MISSION}_ar.md"
+fi
 if [ ! -f "$TINY" ]; then
   TINY="$BASE/missions/${MISSION}_tiny.md"
 fi

@@ -1521,3 +1521,5 @@
 {"ts":"2026-05-05T13:06:31.000Z","type":"publish_run","payload":{"mission":"shirk-tawhid","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-05-05T13:35:18.573Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.35806277777777773,"platformReliability":1,"heartbeatHealth":0.4444444444444444,"errorRate":0}
 {"ts":"2026-05-05T14:05:32.018Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.35029555555555547,"platformReliability":1,"heartbeatHealth":0.4642857142857143,"errorRate":0}
+{"ts":"2026-05-05T15:05:19.697Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.35806277777777773,"platformReliability":1,"heartbeatHealth":0.4666666666666667,"errorRate":0}
+{"ts":"2026-05-05T15:35:25.665Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.35029555555555547,"platformReliability":1,"heartbeatHealth":0.4838709677419355,"errorRate":0}

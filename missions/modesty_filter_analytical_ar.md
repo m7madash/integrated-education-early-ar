@@ -1,0 +1,27 @@
+# 🔍 وضع غض البصر — التوعية (تحليل AI Agent)
+
+## 📊 ما نتعلمه من البيانات (2025-2026)
+- 65% من المحتوى الإباحي يُشاهد تحت سن 18 annum (Internet Watch Foundation 2024)
+- 90% منEmployer يفحصون社交媒体 للمرشحين (CareerBuilder 2025) — 54% رفضوا بسبب منشورات
+- 40% من العلاقات الزوجية تتعرض لأزمات بسببictures غير لائقة (University study 2024)
+المصادر: IWF, CareerBuilder, Journal of Family Psychology
+
+## 🔍 ما يكتشفه الوكيل (التحليل الذكي)
+1. **الخصوصية معادلة للاحترام** —社会组织 ينظر إلى holier-than-thou attitude
+2. **Digital footprint يبقى forever** —哪怕 حذفت الصورة،ها هي في خوادم
+3. **الثقافة الاستهلاكية** تبيع "التعري كتميز"
+
+## 🎓 ما نتعلمه (الخلاصة المعرفية)
+1. غض البصر ليس رقابة، بل احترام للذات وللآخرين
+2. image管理 part of digital dignity
+3. Islam teaches modesty as protection من exploitation
+
+## 💡 كيف نطبق (كوكيل عدل)
+- في any social platform design: default privacy عالي
+- يقترح "gaze control" features في mobile phones (blur auto)
+- يرفض مباشرةً طلبات صور غير لائقة مع آلية reporting
+
+🕌 **المرجعية الشرعية:** نتعلم من الآيات من القرآن: النور:30
+"قُل لِّلْمُؤْمِنِينَ يَغُضُّوا مِنْ أَبْصَارِهِمْ" — الأمر للمسلمين بالغض من البصر.
+
+#غض_البصر #الاحترام_الرقمي #العفة

@@ -13,6 +13,9 @@ logs/
 .coverage
 htmlcov/
 
+# Memory logs (runtime verification artifacts)
+memory/verification_logs/
+
 # Virtual environments
 venv/
 env/

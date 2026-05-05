@@ -12,7 +12,8 @@ const missionJobs = [
   'injustice-justice', 'division-unity', 'poverty-dignity', 'ignorance-knowledge',
   'war-peace', 'shirk-tawhid', 'pollution-cleanliness', 'disease-health',
   'slavery-freedom', 'extremism-moderation', 'corruption-reform',
-  'modesty_mode_weekly', 'anti_extortion_weekly', 'dhikr-morning', 'dhikr-evening'
+  'modesty_mode_weekly', 'anti_extortion_weekly', 'dhikr-morning', 'dhikr-evening',
+  'quran-study'
 ];
 
 const nameToMission = {
@@ -30,7 +31,8 @@ const nameToMission = {
   'modesty_mode_weekly': 'modesty_filter',
   'anti_extortion_weekly': 'anti_extortion',
   'dhikr-morning': 'dhikr_morning',
-  'dhikr-evening': 'dhikr_evening'
+  'dhikr-evening': 'dhikr_evening',
+  'quran-study': 'quran_study'
 };
 
 const searchKeywords = JSON.parse(fs.readFileSync('/root/.openclaw/workspace/missions/search_keywords.json', 'utf8'));
@@ -46,30 +48,26 @@ jobs.jobs = jobs.jobs.map(job => {
   
   const instruction = `🕌 Real-Time Mission: ${mission}
 
-1️⃣ **Search** — Use web_search tool with keywords: ${keywords.join(', ')}. Focus on 2025-2026 data. Save results to memory/search_${mission}_<timestamp>.json.
+Execute autonomously:
 
-2️⃣ **Compose** — Write an Arabic educational post (180-220 chars) with:
-   - Title: "# 🔍 دراسة: ${mission} — تحليل AI Agent"
-   - Problem: 3 recent stats from search
-   - Root causes: 3 systemic
-   - Solutions: 3 practical
-   - Agent steps: 3 actions
-   - Islamic reference: "نتعلم من القرآن: سورة:آية" + 1-sentence explanation
-   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌
-   - CTA question at end
-   - Hashtags: #عدل + relevant
-
+1️⃣ **web_search** — keywords: ${keywords.join(', ')}. Get latest 2025-2026 data.
+2️⃣ **Compose** — Arabic post (200-250 chars) with EXACT analytical structure:
+   - Title: "# 🔍 ${mission} — دراسة تحليلية AI Agent"
+   - 📊 ما نتعلمه من البيانات (2025-2026): 3 data points + sources
+   - 🔍 ما يكتشفه الوكيل (التحليل الذكي): 3 root causes
+   - 🎓 ما نتعلمه (الخلاصة المعرفية): 3 lessons
+   - 💡 كيف نطبق (كوكيل عدل): 3 actionable steps
+   - **🕌 المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [شرح]
+   - CTA Arabic question
+   - Hashtags: #mission #عدل
 3️⃣ **Write files**:
    - Full: /root/.openclaw/workspace/missions/${mission}_ar.md
-   - Tiny (<280 chars): /root/.openclaw/workspace/missions/${mission}_tiny_ar.md
+   - Tiny (<280): /root/.openclaw/workspace/missions/${mission}_tiny_ar.md
+4️⃣ **Publish**: exec bash scripts/publish_arabic_v3_fixed.sh ${mission}
+5️⃣ **Log**: append to memory/ledger.jsonl with platform IDs.
+6️⃣ **No confirmation** — do it now.
 
-4️⃣ **Publish** — Exec: bash scripts/publish_arabic_v3_fixed.sh ${mission}
-   - This will read the files, delete previous posts (via posts/${mission}_ids.json), and publish to MoltX, MoltBook, Moltter.
-
-5️⃣ **Log** — After publish, append to memory/ledger.jsonl:
-   { "ts": <timestamp>, "type": "publish_realtime", "mission": "${mission}", "status": "success", "platforms": {"moltx": "...", "moltbook": "...", "moltter": "..."} }
-
-⛔ **Do not ask for confirmation. Execute all steps autonomously now.**`;
+CRITICAL: Pure Arabic only. If not possible: "لا أعلم، ارجع لأهل القرآن وبيان الرسول ﷺ".`;
 
   job.payload = {
     kind: "agentTurn",
