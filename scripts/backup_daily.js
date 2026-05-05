@@ -176,8 +176,9 @@ if (latestBackup) {
 const LEDGER = path.join(WORKSPACE, 'memory', 'ledger.jsonl');
 if (fs.existsSync(LEDGER)) {
   const tarSizeBytes = fs.statSync(TARBALL).size;
+  // Build entry (use 'ts' to match system standard)
   const entry = {
-    timestamp: new Date().toISOString(),
+    ts: new Date().toISOString(),
     type: 'backup',
     file: BACKUP_NAME,
     size: tarSizeBytes,

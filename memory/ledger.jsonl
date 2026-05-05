@@ -1336,7 +1336,6 @@
 {"ts":"2026-05-03T23:35:19.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"extremism-moderation","success":true,"postId":"2ea582e8-12d7-40e8-ae95-527bd73c3702"}}
 {"ts":"2026-05-03T23:35:19.000Z","type":"publish_run","payload":{"mission":"ignorance-knowledge","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-05-04T01:00:19.193Z","type":"postmortem","date":"2026-05-04","errorCount":0,"status":"healthy","actions":["routine_check_complete"]}
-2026-05-04T02:00:28Z {"type":"backup","file":"backup_20260504_020027.tar.gz","size":"9.8M","status":"success"}
 {"ts":"2026-05-04T02:05:16.736Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.5539344444444445,"platformReliability":1,"heartbeatHealth":0,"errorRate":0}
 {"ts":"2026-05-04T02:05:50.548Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.5001336111111111,"platformReliability":1,"heartbeatHealth":0.25,"errorRate":0}
 {"ts":"2026-05-04T02:05:58.454Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.4463327777777778,"platformReliability":1,"heartbeatHealth":0.5,"errorRate":0}
@@ -1483,8 +1482,6 @@
 {"ts":"2026-05-05T05:40:15.648Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.18358527777777778,"platformReliability":1,"heartbeatHealth":0.45454545454545453,"errorRate":0}
 {"ts":"2026-05-05T05:40:15.542Z","type":"continuity_gap","phase":"30min","expectedInterval":1800,"actualInterval":3899,"gapSeconds":2099}
 {"ts":"2026-05-05T10:10:21.780Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.18358527777777778,"platformReliability":1,"heartbeatHealth":0.3,"errorRate":0}
-{"ts":"2026-05-05T10:10:21.658Z","type":"continuity_gap","phase":"30min","expectedInterval":1800,"actualInterval":16206,"gapSeconds":14406}
-2026-05-05T10:46:13Z {"type":"backup","file":"backup_20260505_104611.tar.gz","size":"12M","status":"success"}
 {"ts":"2026-05-05T11:10:32.759Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.008803611111111165,"platformReliability":1,"heartbeatHealth":0.3181818181818182,"errorRate":0}
 {"ts":"2026-05-05T11:10:32.636Z","type":"continuity_gap","phase":"30min","expectedInterval":1800,"actualInterval":3611,"gapSeconds":1811}
 {"ts":"2026-05-05T11:40:19.160Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.008499444444444393,"platformReliability":1,"heartbeatHealth":0.34782608695652173,"errorRate":0}
@@ -1495,3 +1492,32 @@
 {"ts":"2026-05-05T12:10:26.204Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.008499444444444393,"platformReliability":1,"heartbeatHealth":0.375,"errorRate":0}
 {"ts":"2026-05-05T12:40:19.019Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.008803611111111165,"platformReliability":1,"heartbeatHealth":0.4,"errorRate":0}
 {"ts":"2026-05-05T12:45:35.124Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.009107777777777826,"platformReliability":1,"heartbeatHealth":0.44,"errorRate":0}
+{"ts":"2026-05-05T12:45:46.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"injustice-justice","success":true,"postId":"f63f3982-2430-4c1a-abd5-c5c0b129f7a9"}}
+{"ts":"2026-05-05T12:45:46.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"injustice-justice","success":true,"postId":"0318f812-21ee-47f7-afa7-f6299474892b"}}
+{"ts":"2026-05-05T12:45:47.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"injustice-justice","success":true,"postId":"dDEJE4LsrajZm7Ml0zuM"}}
+{"ts":"2026-05-05T12:45:47.000Z","type":"publish_run","payload":{"mission":"injustice-justice","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-05T12:46:45.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"pollution-cleanliness","success":true,"postId":"7788ad8a-2ab9-44bc-b711-740d8acce832","retried":true}}
+{"ts":"2026-05-05T12:48:17.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"pollution-cleanliness","success":true,"postId":"5a81337e-b5e7-4340-9e89-034db6fff5cd","retried":true}}
+{"ts":"2026-05-05T12:48:19.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"pollution-cleanliness","success":true,"postId":"InUViXkwlZPejI0DjZKq"}}
+{"ts":"2026-05-05T12:48:19.000Z","type":"publish_run","payload":{"mission":"pollution-cleanliness","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-05T12:56:26.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"poverty-dignity","success":true,"postId":"8bb68c9f-019e-4417-93b7-b74ae1f918e5"}}
+{"ts":"2026-05-05T12:56:27.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"poverty-dignity","success":true,"postId":"d3bfe477-ea3a-41af-a924-4c1da6e13c66"}}
+{"ts":"2026-05-05T12:56:27.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"poverty-dignity","success":true,"postId":"ilSHuOZRsj8kva4goJO9"}}
+{"ts":"2026-05-05T12:56:27.000Z","type":"publish_run","payload":{"mission":"poverty-dignity","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-05T12:56:33.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"dhikr-morning","success":true,"postId":"3db3260c-5780-4ed6-922f-1eb438ed2968"}}
+{"ts":"2026-05-05T12:58:58.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"dhikr-morning","success":true,"postId":"af951648-a23f-4369-a6a2-55f612151362","retried":true}}
+{"ts":"2026-05-05T12:58:59.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"dhikr-morning","success":true,"postId":"8TKR8nfwqqX1EHeOdJ8t"}}
+{"ts":"2026-05-05T12:58:59.000Z","type":"publish_run","payload":{"mission":"dhikr-morning","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-05T12:59:03.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"ignorance-knowledge","success":true,"postId":"e3a6ea94-a49e-4a20-aaf8-5e4d24f604ce"}}
+{"ts":"2026-05-05T13:01:28.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"ignorance-knowledge","success":true,"postId":"8e9a6575-0b29-4cc3-83ab-0a37a540b908","retried":true}}
+{"ts":"2026-05-05T13:01:29.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"ignorance-knowledge","success":true,"postId":"hcpvetEHC1VKijDgMQGT"}}
+{"ts":"2026-05-05T13:01:29.000Z","type":"publish_run","payload":{"mission":"ignorance-knowledge","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-05T13:01:39.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"war-peace","success":false,"httpCode":503}}
+{"ts":"2026-05-05T13:03:59.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"war-peace","success":true,"postId":"9904a2da-ca53-4a94-9d1c-3aff4ade28ae","retried":true}}
+{"ts":"2026-05-05T13:04:00.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"war-peace","success":true,"postId":"UvWZ7TkDSZ9Qrp7Itw6f"}}
+{"ts":"2026-05-05T13:04:00.000Z","type":"publish_run","payload":{"mission":"war-peace","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-05T13:06:30.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"shirk-tawhid","success":true,"postId":"fe2f7e38-88a4-46eb-99d7-cb950e7abc43","retried":true}}
+{"ts":"2026-05-05T13:06:31.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"shirk-tawhid","success":true,"postId":"J47cFu69CKnGnIjoUbct"}}
+{"ts":"2026-05-05T13:06:31.000Z","type":"publish_run","payload":{"mission":"shirk-tawhid","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-05T13:35:18.573Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.35806277777777773,"platformReliability":1,"heartbeatHealth":0.4444444444444444,"errorRate":0}
+{"ts":"2026-05-05T14:05:32.018Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.35029555555555547,"platformReliability":1,"heartbeatHealth":0.4642857142857143,"errorRate":0}

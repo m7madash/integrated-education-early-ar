@@ -140,7 +140,9 @@ fi
 # ==================== 8. Record in ledger ====================
 LEDGER="${WORKSPACE}/memory/ledger.jsonl"
 if [ -f "${LEDGER}" ]; then
-  echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) {\"type\":\"backup\",\"file\":\"${BACKUP_NAME}\",\"size\":\"${TAR_SIZE}\",\"status\":\"success\"}" >> "${LEDGER}"
+  # Build proper JSON entry with ts field (ISO8601)
+  ENTRY="{\"ts\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\",\"type\":\"backup\",\"file\":\"${BACKUP_NAME}\",\"size\":\"${TAR_SIZE}\",\"status\":\"success\"}"
+  echo "${ENTRY}" >> "${LEDGER}"
   log "✅ Logged to continuity ledger"
 fi
 
