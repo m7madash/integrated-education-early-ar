@@ -391,20 +391,47 @@ function isMissionComplete(mission) {
   return false;
 }
 
+// ── Early Heartbeat Entry ────────────────────────────────────────────────
+// Write a minimal ledger entry immediately to guarantee a heartbeat record,
+// even if the script crashes later. Duplicate suppression is handled later.
+function recordEarlyHeartbeat() {
+  try {
+    const entry = {
+      ts: nowISO,
+      type: 'continuity_check',
+      phase: '30min',
+      early: true
+    };
+    fs.appendFileSync(LEDGER_FILE, JSON.stringify(entry) + '\n');
+    log('✅ Early heartbeat entry recorded');
+  } catch (e) {
+    log('⚠️ Early heartbeat record failed: ' + e.message);
+  }
+}
+
 // ── Main ─────────────────────────────────────────────────────────────────────
 (async function main() {
   log('=== Continuity 30min Check Start (improved v2) ===');
 
-  // Duplicate suppression
+  // Duplicate suppression (records its own entry and exits if duplicate)
   if (wasRunRecently()) {
     log('✅ Duplicate run skipped — exiting cleanly');
     process.exit(0);
   }
 
+  // Record early heartbeat now that we know this is a genuine run
+  recordEarlyHeartbeat();
+
   // Acquire robust lock
   const lockInfo = acquireLock();
   if (!lockInfo.held) {
     log('⚠️ Could not acquire lock — exiting (another instance running)');
+    // Record attempt so heartbeat health counts it
+    try {
+      appendLedger({ type: 'continuity_check', phase: '30min', error: 'lock_contention' });
+    } catch (e) {
+      log('⚠️ Failed to append lock-failure ledger: ' + e.message);
+    }
     process.exit(0);
   }
 
@@ -452,6 +479,20 @@ function isMissionComplete(mission) {
   release();
 })().catch(err => {
   console.error('⚠️ Continuity check warning: ' + err.message);
+  // Record failure in ledger so heartbeat health reflects this attempt.
+  try {
+    const entry = {
+      ts: new Date().toISOString(),
+      type: 'continuity_check',
+      phase: '30min',
+      error: err.message,
+      stack: err.stack
+    };
+    fs.appendFileSync(LEDGER_FILE, JSON.stringify(entry) + '\n');
+    console.log('✅ Error recorded in ledger');
+  } catch (e) {
+    console.error('❌ Failed to write error ledger:', e.message);
+  }
   release();
   process.exit(0);
 });
