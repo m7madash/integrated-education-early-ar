@@ -391,36 +391,15 @@ function isMissionComplete(mission) {
   return false;
 }
 
-// ── Early Heartbeat Entry ────────────────────────────────────────────────
-// Write a minimal ledger entry immediately to guarantee a heartbeat record,
-// even if the script crashes later. Duplicate suppression is handled later.
-function recordEarlyHeartbeat() {
-  try {
-    const entry = {
-      ts: nowISO,
-      type: 'continuity_check',
-      phase: '30min',
-      early: true
-    };
-    fs.appendFileSync(LEDGER_FILE, JSON.stringify(entry) + '\n');
-    log('✅ Early heartbeat entry recorded');
-  } catch (e) {
-    log('⚠️ Early heartbeat record failed: ' + e.message);
-  }
-}
-
 // ── Main ─────────────────────────────────────────────────────────────────────
 (async function main() {
   log('=== Continuity 30min Check Start (improved v2) ===');
 
-  // Duplicate suppression (records its own entry and exits if duplicate)
+  // Duplicate suppression
   if (wasRunRecently()) {
     log('✅ Duplicate run skipped — exiting cleanly');
     process.exit(0);
   }
-
-  // Record early heartbeat now that we know this is a genuine run
-  recordEarlyHeartbeat();
 
   // Acquire robust lock
   const lockInfo = acquireLock();
