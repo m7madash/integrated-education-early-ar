@@ -391,6 +391,41 @@ function isMissionComplete(mission) {
   return false;
 }
 
+// ── Ensure Ledger Entry Written ────────────────────────────────────────
+// After stepRecordLedger, verify that a fresh continuity_check entry exists.
+// If not (or too old), write a minimal fallback entry to guarantee heartbeat tracking.
+async function ensureLedgerEntry() {
+  try {
+    if (!fs.existsSync(LEDGER_FILE)) throw new Error('Ledger file missing');
+    const content = fs.readFileSync(LEDGER_FILE, 'utf8');
+    const lines = content.trim().split('\n').filter(l => l.trim());
+    if (lines.length === 0) throw new Error('Empty ledger');
+    const lastLine = lines[lines.length-1];
+    let lastEntry;
+    try { lastEntry = JSON.parse(lastLine); } catch(e) { throw new Error('Last line not valid JSON'); }
+    if (lastEntry.type !== 'continuity_check') throw new Error('Last entry not continuity_check (type=' + lastEntry.type + ')');
+    const entryTime = new Date(lastEntry.ts);
+    const diffSec = Math.abs(now - entryTime) / 1000;
+    if (diffSec > 30) {
+      throw new Error('Entry too old (' + Math.round(diffSec) + 's)');
+    }
+    log('✅ Ledger entry verified (age ' + Math.round(diffSec) + 's)');
+  } catch (e) {
+    log('⚠️ Ledger verification failed: ' + e.message + ' — writing fallback');
+    try {
+      appendLedger({
+        type: 'continuity_check',
+        phase: '30min',
+        fallback: true,
+        verification_error: e.message
+      });
+      log('✅ Fallback ledger entry written');
+    } catch (e2) {
+      log('❌ Fallback ledger write failed: ' + e2.message);
+    }
+  }
+}
+
 // ── Main ─────────────────────────────────────────────────────────────────────
 (async function main() {
   log('=== Continuity 30min Check Start (improved v2) ===');
@@ -429,6 +464,8 @@ function isMissionComplete(mission) {
   await stepKernelHeartbeat();
   await stepKPI();
   await stepRecordLedger();
+  // Verify ledger entry exists; if not, write fallback
+  await ensureLedgerEntry();
   await stepUpdateHeartbeatState();
 
   // CRITICAL: Verify daily missions and auto-repair any gaps

@@ -116,3 +116,4 @@
 {"ts":"2026-05-06T14:20:28.271Z","type":"continuity_gap","phase":"30min","expectedInterval":1800,"actualInterval":3605,"gapSeconds":1805}
 {"ts":"2026-05-06T14:45:38.537.000Z","type":"continuity_work_start","payload":{"phase":"improvement_cycle"}}
 {"ts":"2026-05-06T14:45:38.587.000Z","type":"continuity_work","payload":{"phase":"improvement_cycle","status":"completed"}}
+{"ts":"2026-05-06T15:02:27.186Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0,"platformReliability":1,"heartbeatHealth":0.7142857142857143,"errorRate":0}
