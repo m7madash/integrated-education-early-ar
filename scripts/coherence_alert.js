@@ -44,7 +44,7 @@ function analyze(windowSize = 100) {
   }
 
   // Filter to continuity_check entries only
-  const hbEntries = entries.filter(e => e.type === 'continuity_check' && e.ts);
+  const hbEntries = entries.filter(e => e.type === 'continuity_check' && e.ts && e.duplicate !== true);
   if (hbEntries.length < 2) {
     return { ...defaultResult, entries: hbEntries.length, reason: 'insufficient_heartbeat_entries' };
   }
