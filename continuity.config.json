@@ -11,7 +11,7 @@
   ],
   "kernel": {
     "heartbeatMs": 1800000,
-    "coherenceWindow": 100,
+    "coherenceWindow": 20,
     "snapshotInterval": 3600000,
     "witnessRequire": true,
     "ledgerPath": "./memory/ledger.jsonl",

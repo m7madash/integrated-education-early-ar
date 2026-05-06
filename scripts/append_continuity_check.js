@@ -22,7 +22,7 @@ let coherenceScore = 1.0;
 let coherenceOk = true;
 try {
   const ca = require('./coherence_alert');
-  const res = ca.analyze(100);
+  const res = ca.analyze();
   coherenceScore = res.score;
   coherenceOk = res.status === 'ok';
 } catch (e) {

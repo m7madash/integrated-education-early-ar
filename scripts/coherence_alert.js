@@ -14,6 +14,16 @@ const WORKSPACE = '/root/.openclaw/workspace';
 const LEDGER = path.join(WORKSPACE, 'memory', 'ledger.jsonl');
 const ALERT_LOG = path.join(WORKSPACE, 'logs', 'coherence_alerts.log');
 
+// Load continuity config for defaults
+let DEFAULT_WINDOW = 100;
+let CFG_EXPECTED = 1800;
+try {
+  const cfgPath = path.join(WORKSPACE, 'continuity.config.json');
+  const cfg = JSON.parse(fs.readFileSync(cfgPath, 'utf8'));
+  DEFAULT_WINDOW = (cfg.kernel && cfg.kernel.coherenceWindow) || DEFAULT_WINDOW;
+  CFG_EXPECTED = ((cfg.kernel && cfg.kernel.heartbeatMs) || 1800000) / 1000;
+} catch (e) { /* ignore, use defaults */ }
+
 function median(arr) {
   if (!arr.length) return 0;
   const sorted = [...arr].sort((a, b) => a - b);
@@ -21,7 +31,7 @@ function median(arr) {
   return sorted.length % 2 === 0 ? (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
 }
 
-function analyze(windowSize = 100) {
+function analyze(windowSize = DEFAULT_WINDOW) {
   const defaultResult = { score: 1.0, status: 'ok', entries: 0, reason: 'insufficient_data' };
 
   if (!fs.existsSync(LEDGER)) return { ...defaultResult };
@@ -61,11 +71,7 @@ function analyze(windowSize = 100) {
   }
 
   // Expected interval from config
-  let expected = 1800; // 30 minutes default
-  try {
-    const cfg = JSON.parse(fs.readFileSync(path.join(WORKSPACE, 'continuity.config.json'), 'utf8'));
-    expected = ((cfg.kernel && cfg.kernel.heartbeatMs) || 1800000) / 1000;
-  } catch (e) { /* ignore */ }
+  const expected = CFG_EXPECTED;
 
   const medDelta = median(intervals);
   const absDevs = intervals.map(d => Math.abs(d - expected));
@@ -109,7 +115,7 @@ function alert(drift) {
 
 // If called directly
 if (require.main === module) {
-  const result = analyze(100);
+  const result = analyze(DEFAULT_WINDOW);
   console.log(`🔍 Coherence: ${result.score.toFixed(3)} [${result.status}]`);
 
   if (result.status !== 'ok') {

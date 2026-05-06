@@ -59,3 +59,14 @@
 {"ts":"2026-05-06T02:41:25.603Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.009726666666666661,"platformReliability":1,"heartbeatHealth":0.8,"errorRate":0}
 {"ts":"2026-05-06T02:41:25.491Z","type":"continuity_gap","phase":"30min","expectedInterval":1800,"actualInterval":3666,"gapSeconds":1866}
 {"ts":"2026-05-06T02:45:53.382Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.004504999999999981,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
+{"ts":"2026-05-06T03:51:01.117Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.014948333333333452,"platformReliability":1,"heartbeatHealth":0.8571428571428571,"errorRate":0}
+{"ts":"2026-05-06T03:51:03.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"poverty-dignity","success":true,"postId":"86726d32-6221-418b-9e3d-cc2d9ac8fc43"}}
+{"ts":"2026-05-06T03:51:04.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"poverty-dignity","success":true,"postId":"77aee4ef-9e71-4a37-84c7-1eca268bd300"}}
+{"ts":"2026-05-06T03:51:04.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"dhikr-morning","success":true,"postId":"8e46d99e-5673-452a-adfc-d84dbedb4342"}}
+{"ts":"2026-05-06T03:51:04.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"poverty-dignity","success":true,"postId":"1lkCchzj0Ptgr30vED2c"}}
+{"ts":"2026-05-06T03:51:04.000Z","type":"publish_run","payload":{"mission":"poverty-dignity","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-06T03:51:00.995Z","type":"continuity_gap","phase":"30min","expectedInterval":1800,"actualInterval":3908,"gapSeconds":2108}
+{"ts":"2026-05-06T03:53:35.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"dhikr-morning","success":true,"postId":"2795b8b6-38f8-4737-82c3-8a2674bf4caa","retried":true}}
+{"ts":"2026-05-06T03:53:36.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"dhikr-morning","success":true,"postId":"I4hWy95bzu6UbNVKemul"}}
+{"ts":"2026-05-06T03:53:36.000Z","type":"publish_run","payload":{"mission":"dhikr-morning","status":"full_success","platforms":"moltx,moltbook,moltter","successCount":3}}
+{"ts":"2026-05-06T04:20:22.086Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.007598055555555594,"platformReliability":1,"heartbeatHealth":0.875,"errorRate":0}

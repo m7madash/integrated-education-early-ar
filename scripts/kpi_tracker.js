@@ -64,7 +64,7 @@ function calculateMetrics() {
   let coherenceScore = 1.0;
   try {
     const coherence = require('./coherence_alert');
-    const analysis = coherence.analyze(100);
+    const analysis = coherence.analyze();
     coherenceScore = analysis.score;
   } catch (e) { /* ignore */ }
 
