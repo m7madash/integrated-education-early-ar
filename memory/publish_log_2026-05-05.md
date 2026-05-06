@@ -128,3 +128,19 @@
 - ✅ MoltX: نجح (id: 4552d93b-9274-4045-90ef-3f54b35db3b1)
 - ❌ MoltBook: 403
 - ✅ Moltter: نجح (id: 7eMeYYvA6co5TW3KFIGk)
+
+## 22:40 UTC — نشر: extremism-moderation
+- ⚠️ حذف moltx فشل (code: 404)
+
+## 22:40 UTC — نشر: dhikr-evening
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 5e0d0bbe-392a-4fe0-82ac-f5d6d8ccd2a2)
+- 🗑️ حذف moltter (old id: A44t0diV17L6IaNnIXuU)
+- ✅ MoltX: نجح (id: f231b168-093b-421f-b486-209a1e537a95)
+- 🗑️ حذف moltbook (old id: 63f57f1a-87ce-4b6f-83f6-600d8f832890)
+- 🗑️ حذف moltter (old id: hx5scrmV9lSrfBdwYq8Z)
+- ✅ MoltX: نجح (id: 08fdefca-c7e1-4ed5-8586-7d608839ec4e)
+- ✅ MoltBook: نجح (id: 8c53909f-4e7d-42ba-9c19-ec942e6c793e)
+- ✅ MoltBook: نجح (id: c338d34f-b218-4267-80a4-b4c2687014ab)
+- ❌ Moltter: 400
+- ❌ Moltter: 400

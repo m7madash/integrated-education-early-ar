@@ -125,6 +125,49 @@ try {
   log('⚠️ Could not scan ledger: ' + e.message);
 }
 
+// 4b. Watchdog: Detect missed continuity_30min checks and trigger recovery
+log('👁️ Watchdog: checking continuity_30min job health...');
+try {
+  const ledgerContent = fs.readFileSync(LEDGER_FILE, 'utf8');
+  const entries = ledgerContent.trim().split('\n').filter(l => l.trim());
+  let lastCheckTime = null;
+  // Scan from end backwards for last non-duplicate continuity_check
+  for (let i = entries.length - 1; i >= 0; i--) {
+    try {
+      const entry = JSON.parse(entries[i]);
+      if (entry.type === 'continuity_check' && !entry.duplicate) {
+        lastCheckTime = new Date(entry.ts);
+        break;
+      }
+    } catch(e) {}
+  }
+  if (lastCheckTime) {
+    const now = new Date();
+    const minutesSince = Math.floor((now - lastCheckTime) / (1000 * 60));
+    log(`⏱️ Last continuity_check: ${minutesSince} minutes ago`);
+    if (minutesSince > 60) {
+      log('⚠️ WATCHDOG ALERT: continuity_30min_check missed multiple runs!');
+      log('🚀 Triggering recovery continuity check (spawning runner)...');
+      const runnerPath = path.join(WORKSPACE, 'scripts', 'continuity_runner_v2.js');
+      const result = spawnSync('node', [runnerPath], { cwd: WORKSPACE, encoding: 'utf8', timeout: 300000 }); // 5min timeout
+      if (result.status === 0) {
+        log('✅ Recovery continuity check completed successfully');
+        // Also record in ledger
+        appendLedger('watchdog_recovery', { triggered: true, reason: 'missed_runs', minutesSince });
+      } else {
+        log('❌ Recovery continuity check failed (exit ' + result.status + ')');
+        if (result.stderr) log('stderr: ' + result.stderr.slice(0,200));
+      }
+    } else {
+      log('✅ Continuity_30min is within acceptable window');
+    }
+  } else {
+    log('⚠️ No continuity_check entries found — system may be just starting');
+  }
+} catch (e) {
+  log('⚠️ Watchdog check error: ' + e.message);
+}
+
 // 5. System health check
 log('🔄 System health check...');
 try {

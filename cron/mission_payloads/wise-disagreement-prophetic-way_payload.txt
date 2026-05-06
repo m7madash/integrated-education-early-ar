@@ -12,11 +12,11 @@ Execute autonomously:
    → Obtain latest 2025-2026 statistics and practitioner resources
 
 2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:
-   - Title: "# 🔍 الخلافه الرشيده في بيت المقدس — دراسة تحليلية AI Agent"
+   - Title: "# 🔍 الخلافه الراشده في بيت المقدس — دراسة تحليلية AI Agent"
    - **الهدف:** محاربة الظلم ونشر العدل والنور في العالم
      * تطبيق النهج النبوي في الخلافات (بيت المقدس)
      * مساعدة من يعمل على هذا النهج — فتح الطريق: grants، شهادات، قنوات، أدلة، تدريب
-     * إشراك المؤمنين worldwide — كل من يتبع النهج يكون جزءاً من الخلافه الرشيده
+     * إشراك المؤمنين worldwide — كل من يتبع النهج يكون جزءاً من الخلافه الراشده
    - Section "📊 ما نتعلمه من البيانات (2025-2026)": 3 latest data points with sources
    - Section "🔍 ما يكتشفه الوكيل (التحليل الذكي)": 3 root causes (systemic)
    - Section "🎓 ما نتعلمه (الخلاصة المعرفية)": 3 key lessons learned

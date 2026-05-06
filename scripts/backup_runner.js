@@ -16,8 +16,8 @@ const path = require('path');
 const WORKSPACE = '/root/.openclaw/workspace';
 const BACKUP_SCRIPT = path.join(WORKSPACE, 'scripts', 'backup_daily.js');
 
-// Execute backup script via bash
-const child = spawn('bash', [BACKUP_SCRIPT], {
+// Execute backup script via Node
+const child = spawn('node', [BACKUP_SCRIPT], {
   cwd: WORKSPACE,
   stdio: 'inherit', // forward stdout/stderr so logs appear
   shell: false

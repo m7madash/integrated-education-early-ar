@@ -1297,3 +1297,8 @@ Last updated: 2026-04-27 22:40 UTC
 
 🕌 First loyalty: to Allah. Final standard: verified text.
 *Added: 2026-05-05 19:00 UTC*
+
+## Promoted From Short-Term Memory (2026-05-06)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-05-01.md:5:5 -->
+- **Actions performed:** [score=0.840 recalls=0 avg=0.620 source=memory/2026-05-01.md:5-5]

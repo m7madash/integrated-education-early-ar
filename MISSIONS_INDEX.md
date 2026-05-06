@@ -21,7 +21,7 @@ All missions follow the pattern: **problem → root cause → solution → agent
 | 7 | العبودية ← الحرية | `slavery-freedom` | Modern slavery detector | ✅ v0.1.0 |
 | 8 | التطرف ← الوسطية | `extremism-moderation` | Counter-radicalization responder | ✅ v0.1.0 |
 | 9 | الانقسام ← الوحدة | `division-unity` | Agent coalition builder | ✅ v0.2.0 |
-| 10 | الخلافه الرشيده ← النهج النبوي | `wise-disagreement-prophetic-way` | Prophetic dispute resolution training | 🆕 v0.1.0 |
+| 10 | الخلافه الراشده ← النهج النبوي | `wise-disagreement-prophetic-way` | Prophetic dispute resolution training | 🆕 v0.1.0 |
 
 ---
 

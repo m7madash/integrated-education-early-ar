@@ -320,7 +320,7 @@ async function stepMissionVerification() {
   }
 
   const actualCount = expectedCount - missing.length;
-  log(`🔍 Daily mission posts: ${actualCount}/${expectedCount} published (by ${now.getUTCHours().toString().padStart(2,'0')}:${now.getUTCMinute().toString().padStart(2,'0')} UTC)`);
+  log(`🔍 Daily mission posts: ${actualCount}/${expectedCount} published (by ${now.getUTCHours().toString().padStart(2,'0')}:${now.getUTCMinutes().toString().padStart(2,'0')} UTC)`);
 
   if (missing.length > 0) {
     log(`⚠️ MISSING: ${missing.length} post(s): ${missing.map(m=>m.name).join(' ')}`);
@@ -425,8 +425,11 @@ function isMissionComplete(mission) {
   await stepRecordLedger();
   await stepUpdateHeartbeatState();
 
-  // NEW: Verify daily missions and auto-repair any gaps
+  // CRITICAL: Verify daily missions and auto-repair any gaps
+  // This was defined but occasionally skipped due to async flow issues
+  log('📋 Step: Mission verification (ensuring all daily posts published)');
   await stepMissionVerification();
+  log('✅ Mission verification complete');
 
   // NEW: Gap detection after successful run
   recordGapIfNeeded();
