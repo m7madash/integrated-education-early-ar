@@ -289,7 +289,7 @@ These rules prevent `exec preflight` failures that abort continuity runs.
 
 ## 📦 Continuity Helper Scripts
 
-When performing continuity checks, always use these wrapper scripts instead of constructing compound shell commands:
+When performing **manual** continuity checks (e.g., on user request), always use these wrapper scripts instead of constructing compound shell commands:
 
 | Task | Safe invocation |
 |------|----------------|
@@ -299,7 +299,7 @@ When performing continuity checks, always use these wrapper scripts instead of c
 | Continuity status | `bash scripts/run_continuity_js_status.sh` |
 | Read today's memory | `bash scripts/read_today_memory.sh` |
 
-These wrappers handle file-existence checks, output limiting, and error fallbacks internally, keeping the outer exec call simple and preflight-safe.
+**Important:** These wrappers are for diagnostic purposes only. Automated cron jobs (e.g., `continuity-30min-check-v2`) include a specific `script` field in their payload — always execute that script directly, never substitute with a wrapper.
 
 ## 📁 File Path Construction
 

@@ -21,7 +21,7 @@ const LEDGER_FILE = path.join(WORKSPACE, 'memory', 'ledger.jsonl');
 const MEMORY_DIR = path.join(WORKSPACE, 'memory');
 const HEARTBEAT_STATE_FILE = path.join(WORKSPACE, 'memory', 'heartbeat-state.json');
 const LOCK_DIR_BASE = path.join(WORKSPACE, '.lock', 'continuity_30min');
-const DUPLICATE_WINDOW_SEC = 60; // Suppress runs within 60s of previous
+const DUPLICATE_WINDOW_SEC = 30; // Suppress runs within 30s of previous (aligned with 30min schedule)
 
 fs.mkdirSync(LOG_DIR, { recursive: true });
 
@@ -291,6 +291,7 @@ async function stepMissionVerification() {
     {name: 'poverty-dignity', hour: 3, minute: 0},
     {name: 'dhikr-morning', hour: 3, minute: 0},
     {name: 'ignorance-knowledge', hour: 6, minute: 0},
+    {name: 'wise-disagreement-prophetic-way', hour: 6, minute: 50},
     {name: 'war-peace', hour: 9, minute: 0},
     {name: 'shirk-tawhid', hour: 9, minute: 30},
     {name: 'pollution-cleanliness', hour: 12, minute: 0},
@@ -433,6 +434,8 @@ async function ensureLedgerEntry() {
   // Duplicate suppression
   if (wasRunRecently()) {
     log('✅ Duplicate run skipped — exiting cleanly');
+    // CRITICAL: Still clear any stale running flag even on duplicate skip
+    clearCronRunningFlag();
     process.exit(0);
   }
 
@@ -446,6 +449,8 @@ async function ensureLedgerEntry() {
     } catch (e) {
       log('⚠️ Failed to append lock-failure ledger: ' + e.message);
     }
+    // CRITICAL: Clear running flag even on lock contention to avoid getting stuck
+    clearCronRunningFlag();
     process.exit(0);
   }
 
@@ -492,6 +497,39 @@ async function ensureLedgerEntry() {
   console.log(summary);
   fs.writeFileSync(path.join(WORKSPACE, 'last_continuity_summary.txt'), summary + '\n', 'utf8');
 
+  // ── Clear Cron Running Flag ──────────────────────────────────────────────
+  // The OpenClaw cron service sometimes leaves runningAtMs set if the session
+  // doesn't report completion back. We clear it explicitly to prevent missed runs.
+  function clearCronRunningFlag() {
+    try {
+      const STATE_FILE = path.join('/root', '.openclaw', 'cron', 'jobs-state.json');
+      if (!fs.existsSync(STATE_FILE)) {
+        log('⚠️ Cron state file not found: ' + STATE_FILE);
+        return;
+      }
+      const data = JSON.parse(fs.readFileSync(STATE_FILE, 'utf8'));
+      // Find this job by ID (known continuity job)
+      const JOB_ID = 'ea19561d-f2c2-4716-9032-5053e9f65dc3';
+      const job = data.jobs[JOB_ID];
+      if (job && job.state && job.state.runningAtMs) {
+        const oldFlag = job.state.runningAtMs;
+        delete job.state.runningAtMs;
+        data.jobs[JOB_ID].updatedAtMs = Date.now();
+        const tmp = STATE_FILE + '.tmp';
+        fs.writeFileSync(tmp, JSON.stringify(data, null, 2), 'utf8');
+        fs.renameSync(tmp, STATE_FILE);
+        log(`🔓 Cleared stale runningAtMs flag (was ${new Date(oldFlag).toISOString()})`);
+      } else {
+        // log('✅ No stale runningAtMs flag found'); // optional verbose
+      }
+    } catch (e) {
+      log('⚠️ Failed to clear running flag: ' + e.message);
+    }
+  }
+
+  // CRITICAL: Clear cron running flag to prevent schedule skipping
+  clearCronRunningFlag();
+
   release();
 })().catch(err => {
   console.error('⚠️ Continuity check warning: ' + err.message);
@@ -510,5 +548,7 @@ async function ensureLedgerEntry() {
     console.error('❌ Failed to write error ledger:', e.message);
   }
   release();
+  // CRITICAL: Clear running flag even on error
+  clearCronRunningFlag();
   process.exit(0);
 });

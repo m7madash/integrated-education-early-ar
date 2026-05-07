@@ -1,0 +1,31 @@
+{
+  "locations": [
+    {
+      "id": "jerusalem",
+      "city": "القدس",
+      "latitude": 31.7683,
+      "longitude": 35.2137,
+      "timezone": "Asia/Jerusalem",
+      "observer_name": "مؤذن المسجد الأقصى",
+      "active": true
+    },
+    {
+      "id": "mecca",
+      "city": "مكة المكرمة",
+      "latitude": 21.4225,
+      "longitude": 39.8262,
+      "timezone": "Asia/Riyadh",
+      "observer_name": "مؤذن الحرم المكي",
+      "active": false
+    },
+    {
+      "id": "medina",
+      "city": "المدينة المنورة",
+      "latitude": 24.5247,
+      "longitude": 39.5692,
+      "timezone": "Asia/Riyadh",
+      "observer_name": "مؤذن الحرم النبوي",
+      "active": false
+    }
+  ]
+}

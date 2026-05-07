@@ -26,7 +26,7 @@ async function syncRepos() {
 
   const repos = {
     'Abdullah_projects': '/root/.openclaw/workspace', // main workspace
-    'm7mad-ai-work': '/root/m7mad-ai-work' // assumed path
+    'm7mad-ai-work': '/root/Abduallh-projects' // public repository
   };
 
   // Check if m7mad-ai-work exists

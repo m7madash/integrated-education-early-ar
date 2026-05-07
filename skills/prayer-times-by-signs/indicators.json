@@ -1,0 +1,100 @@
+{
+  "version": "1.0.0",
+  "hadith_source": {
+    "reference": "صحيح البخاري 524، صحيح مسلم 639",
+    "narrator": "عبدالله بن عمرو بن العاص رضي الله عنهما",
+    "text_arabic": "وَقْتُ صَلاَةِ الْفَجْرِ مَا لَمْ يَطْلُعْ قَرْنُ الشَّمْسِ الأَوَّلُ وَوْقْتُ صَلاَةِ الظُّهْرِ إِذَا زَالَتِ الشَّمْسُ عَنْ بَطْنِ السَّمَاءِ مَا لَمْ يَحْضُرِ الْعَصْرُ وَوْقْتُ صَلاَةِ الْعَصْرِ مَا لَمْ تَصْفَرَّ الشَّمْسُ وَيَسْقُطْ قَرْنُهَا الأَوَّلُ وَوْقْتُ صَلاَةِ الْمَغْرِبِ إِذَا غَابَتِ الشَّمْسُ مَا لَمْ يَسْقُطِ الشَّفَقُ وَوْقْتُ صَلاَةِ الْعِشَاءِ إِلَى نِصْفِ اللَّيْلِ",
+    "source_url": null
+  },
+  "prayers": {
+    "fajr": {
+      "start_sign": {
+        "description": "لم يطلع قرن الشمس الأول",
+        "visual_description": "الضوء العمودي الأول في الأفق الشرقي (قبل أن يتحول إلى ضوء عريض)",
+        "before_start": "الليل حالك",
+        "after_start": "يظهر ضوء عمودي (كذنب السرحان) — هذا ليس فجر صادق",
+        "end_sign": "طلوع الشمس",
+        "notes": "قرن الشمس الأول: أول ضوء يظهر في السماء بشكل عمودي. إذا طلع، انتهى وقت الفجر (للكاذب)"
+      },
+      "end_sign": {
+        "description": "طلوع الشمس",
+        "visual": "شمس تظهر قرصاً من الأفق"
+      }
+    },
+    "dhuhr": {
+      "start_sign": {
+        "description": "زالت الشمس عن بطن السماء",
+        "visual_description": "ظلال الأشياء تصغر/تختفي (زوال الشمس)",
+        "before_start": "الشمس في كبد السماء (ظلال طويلة)",
+        "after_start": "الظلال قصيرة أو معدومة",
+        "end_sign": "حضور وقت العصر",
+        "notes": "زوال الشمس: عندما تكون الشمس في أعلى سماء (منتصف النهار تقريباً)"
+      },
+      "end_sign": {
+        "description": "حضور وقت العصر",
+        "visual": "بداية اصفرار الشمس/ظل الشيء يساويه"
+      }
+    },
+    "asr": {
+      "start_sign": {
+        "description": "تصفر الشمس ويسقط قرنها الأول",
+        "visual_description": "اصفرار الشمس واختفاء آخر ضوء",
+        "before_start": "الشمس بيضاء/صفراء خفيفة",
+        "after_start": "الشمس تصفر تماماً، يختفي اللمعان",
+        "end_sign": "غروب الشمس",
+        "notes": "قرن الشمس الأول: آخر ضوء من الشمس قبل الغروب (الذيل)"
+      },
+      "end_sign": {
+        "description": "غروب الشمس",
+        "visual": "شمس تغيب تماماً"
+      }
+    },
+    "maghrib": {
+      "start_sign": {
+        "description": "غابت الشمس",
+        "visual_description": "القرص الشمسي يختفي عن الأفق",
+        "before_start": "الشمس مرئية",
+        "after_start": "الليل يدخل",
+        "end_sign": "سقوط الشفق",
+        "notes": "الشفق: اللون الأحمر في السماء بعد الغروب"
+      },
+      "end_sign": {
+        "description": "يسقط الشفق",
+        "visual": "اختفاء اللون الأحمر من السماء"
+      }
+    },
+    "isha": {
+      "start_sign": {
+        "description": "بعد المغرب",
+        "visual_description": "الليل يبدأ بعد المغرب",
+        "before_start": "غروب الشمس",
+        "after_start": "ظلمة الليل",
+        "end_sign": "إلى نصف الليل",
+        "notes": "لا علامة بداية explicit — Time starts immediately after maghrib ends"
+      },
+      "end_sign": {
+        "description": "نصف الليل",
+        "visual": "منتصف الليل (الوقت من الغروب إلى طلوع الفجر مقسوم على 2)"
+      }
+    }
+  },
+  "observation": {
+    "required_conditions": [
+      "sky_visible",
+      "no_heavy_clouds",
+      "clear_horizon"
+    ],
+    "confidence_thresholds": {
+      "visual_high": 0.9,
+      "visual_medium": 0.7,
+      "calculated": 0.5
+    }
+  },
+  "safety": {
+    "never_call_adhan_automatically": true,
+    "always_require_human_confirmation": true,
+    "log_all_observations": true,
+    "allow_calculated_fallback": true,
+    "fuzzy_confidence_decay": 0.1
+  }
+}

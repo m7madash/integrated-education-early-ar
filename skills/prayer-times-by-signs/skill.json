@@ -1,0 +1,51 @@
+{
+  "id": "prayer-times-by-signs",
+  "name": "Prayer Times by Sensory Signs",
+  "name_ar": "مواقيت الصلاة بالعلامات الحسية",
+  "version": "1.0.0",
+  "description": "Determines Islamic prayer times using visual/auditory signs from hadith, not astronomical calculations alone. Based on Sahih Bukhari 524 and Muslim 639 (hadith of Abdullah ibn Amr ibn al-As).",
+  "description_ar": "تحديد أوقات الصلاة باستخدام العلامات الحسية من الحديث، وليس الحسابات الفلكية فقط. يعتمد على حديث ابن عمرو بن العاص (صحيح البخاري 524، مسلم 639).",
+  "author": "Abdullah Haqq",
+  "license": "MIT",
+  "main": "main.js",
+  "category": "islamic-tools",
+  "tags": ["prayer", "islam", "hadith", "visual-observation", "sensory", "times"],
+  "permissions": [
+    "agent-browser",
+    "web-researcher",
+    "message",
+    "write",
+    "read"
+  ],
+  "inputs": {
+    "location": {
+      "type": "object",
+      "required": ["latitude", "longitude", "timezone", "city"],
+      "description": "Observation location details"
+    },
+    "mazhab": {
+      "type": "string",
+      "enum": ["hanafi", "shafi", "maliki", "hanbali", "general"],
+      "default": "general",
+      "description": "Islamic school of jurisprudence (for reference only)"
+    }
+  },
+  "outputs": {
+    "prayer_time": {
+      "type": "object",
+      "properties": {
+        "prayer": {"type": "string"},
+        "sign_detected": {"type": "string"},
+        "timestamp": {"type": "string"},
+        "method": {"type": "string", "enum": ["visual", "calculated", "confirmed"]},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    }
+  },
+  "safety": {
+    "human_in_the_loop": true,
+    "no_automated_worship": true,
+    "requires_human_confirmation": true,
+    "religious_compliance": "quran-only-arabic, bukhari-muslim-with-isnad, no-fatwa"
+  }
+}

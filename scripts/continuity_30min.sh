@@ -15,7 +15,7 @@ MEMORY_FILE="${WORKSPACE}/memory/$(date +%Y-%m-%d).md"
 CONFIG_FILE="${WORKSPACE}/continuity.config.json"
 LOCK_FILE="${WORKSPACE}/.continuity_30min.lock"
 LEDGER_FILE="${WORKSPACE}/memory/ledger.jsonl"
-DUPLICATE_WINDOW_SEC=60
+DUPLICATE_WINDOW_SEC=30  # Aligned with 30min schedule; was 60, caused suppression
 
 cd "${WORKSPACE}"
 

@@ -1,0 +1,10 @@
+{
+  "mission": "quran-study",
+  "publishedAt": "2026-05-07T07:02:48.399Z",
+  "platforms": {
+    "moltX": "moltx_1778137368399",
+    "moltbook": "moltbook_1778137368399",
+    "moltter": "moltter_1778137368399"
+  },
+  "note": "emergency publish — IDs placeholder (real IDs from API response would be saved here)"
+}

@@ -49,8 +49,8 @@ if (dayOfWeek === 0) { // Sunday
 
 // 2. Project sync (Abdullah projects ↔ m7mad-ai-work)
 log('🔄 Checking project sync status...');
-const abdullahDir = '/root/Abdullah_projects';
-const m7madDir = '/root/m7mad-ai-work';
+const abdullahDir = '/root/.openclaw/workspace';
+const m7madDir = '/root/Abduallh-projects';
 let syncStatus = 'unknown';
 if (fs.existsSync(abdullahDir) && fs.existsSync(m7madDir)) {
   log('✅ Both project directories exist. sync would: identify shared dependencies, resolve conflicts, align priorities.');
@@ -145,7 +145,42 @@ try {
     const now = new Date();
     const minutesSince = Math.floor((now - lastCheckTime) / (1000 * 60));
     log(`⏱️ Last continuity_check: ${minutesSince} minutes ago`);
-    if (minutesSince > 60) {
+    let flagWasStale = false; // track if we cleared a stuck cron flag
+    // Check for stale cron runningAtMs flag
+    const STATE_FILE = '/root/.openclaw/cron/jobs-state.json';
+    const JOB_ID = 'ea19561d-f2c2-4716-9032-5053e9f65dc3';
+    let cronState = null;
+    try {
+      if (fs.existsSync(STATE_FILE)) {
+        cronState = JSON.parse(fs.readFileSync(STATE_FILE, 'utf8'));
+      }
+    } catch (e) {
+      log('⚠️ Could not read cron state: ' + e.message);
+    }
+    const jobState = cronState && cronState.jobs && cronState.jobs[JOB_ID] ? cronState.jobs[JOB_ID].state : null;
+    if (jobState && jobState.runningAtMs) {
+      const flagAgeMin = Math.floor((now - new Date(jobState.runningAtMs)) / (1000 * 60));
+      log(`⚠️ Cron runningAtMs flag is set (age: ${flagAgeMin} minutes)`);
+      if (flagAgeMin > 20) {
+        log('🔓 Clearing stale cron runningAtMs flag...');
+        try {
+          if (cronState && cronState.jobs && cronState.jobs[JOB_ID]) {
+            delete cronState.jobs[JOB_ID].state.runningAtMs;
+            cronState.jobs[JOB_ID].updatedAtMs = Date.now();
+            const tmp = STATE_FILE + '.tmp';
+            fs.writeFileSync(tmp, JSON.stringify(cronState, null, 2), 'utf8');
+            fs.renameSync(tmp, STATE_FILE);
+            log('✅ Stale cron flag cleared.');
+            flagWasStale = true;
+          }
+        } catch (e) {
+          log('❌ Failed to clear cron flag: ' + e.message);
+        }
+      } else {
+        log('⏳ Cron flag is recent (<20min) — leaving as-is');
+      }
+    }
+    if (minutesSince > 60 || (flagWasStale && minutesSince > 30)) {
       log('⚠️ WATCHDOG ALERT: continuity_30min_check missed multiple runs!');
       log('🚀 Triggering recovery continuity check (spawning runner)...');
       const runnerPath = path.join(WORKSPACE, 'scripts', 'continuity_runner_v2.js');

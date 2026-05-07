@@ -21,7 +21,7 @@ const LEDGER_FILE = path.join(WORKSPACE, 'memory', 'ledger.jsonl');
 const MEMORY_DIR = path.join(WORKSPACE, 'memory');
 const HEARTBEAT_STATE_FILE = path.join(WORKSPACE, 'memory', 'heartbeat-state.json');
 const LOCK_DIR_BASE = path.join(WORKSPACE, '.lock', 'continuity_30min');
-const DUPLICATE_WINDOW_SEC = 60; // Suppress runs within 60s of previous
+const DUPLICATE_WINDOW_SEC = 30; // Suppress runs within 30s of previous (aligned with 30min schedule)
 
 fs.mkdirSync(LOG_DIR, { recursive: true });
 

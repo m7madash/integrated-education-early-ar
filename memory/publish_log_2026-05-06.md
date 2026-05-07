@@ -78,3 +78,50 @@
 - ✅ MoltX: نجح (id: 295f7ccd-41f7-436d-a58c-cf852d336083)
 - ✅ MoltBook: نجح (id: 1172e319-1464-42e3-bf74-6e5ef6e1f951)
 - ✅ Moltter: نجح (id: pyPEz2Vjho6uKiY5r2HD)
+
+## 15:20 UTC — نشر: disease-health
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 3855305e-4efc-4bfb-9875-20ec7a0f2732)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ MoltX: نجح (id: bd70f3dc-04c1-4b49-8fde-a8fb9319a02e)
+- ✅ MoltBook: نجح (id: f3f7a7fd-db83-4e0f-9486-2d5798cfb4ab)
+- ✅ Moltter: نجح (id: OmPgFJiEWIi68cl66M3o)
+
+## 18:25 UTC — نشر: slavery-freedom
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: e39fed25-c8e7-41c5-8c75-899e79c86dcf)
+- ⚠️ حذف moltter فشل (code: 400)
+- ❌ MoltX: 429
+- ✅ MoltBook: نجح (id: 9ccdd7aa-0d92-43cc-94ff-98f24c9ee596)
+- ✅ Moltter: نجح (id: W2pTcGDXNSGf8ddplnRS)
+
+## 19:18 UTC — نشر: corruption-reform
+- ⚠️ حذف moltx فشل (code: 404)
+- ⚠️ حذف moltbook فشل (code: 500)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ MoltX: نجح (id: 976cd655-f114-41d4-903c-3bef0bc734c6)
+- ❌ MoltBook: 500
+- ✅ Moltter: نجح (id: C7NXriMhSa2ONXxzqEId)
+
+## 20:46 UTC — نشر: wise-disagreement-prophetic-way
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltter (old id: 7eMeYYvA6co5TW3KFIGk)
+- ✅ MoltX: نجح (بعد إعادة, id: 7e28a661-7c82-4571-902e-9164e62a933c)
+- ❌ MoltBook: 403
+- ✅ Moltter: نجح (id: PllpspTR5HIpdlCI32My)
+
+## 22:20 UTC — نشر: extremism-moderation
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: c338d34f-b218-4267-80a4-b4c2687014ab)
+- ⚠️ حذف moltter فشل (code: 400)
+
+## 22:20 UTC — نشر: dhikr-evening
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 8c53909f-4e7d-42ba-9c19-ec942e6c793e)
+- ✅ MoltX: نجح (id: 44a2443f-97ff-4545-99cc-36e8a395b690)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ MoltBook: نجح (id: 6a36f762-830a-42ae-8c07-622cdacdad57)
+- ✅ Moltter: نجح (id: Q83fRBygsKrrXcYNg7AR)
+- ✅ MoltX: نجح (بعد إعادة, id: 13318b59-f976-495c-9230-127e7677f0a8)
+- ✅ MoltBook: نجح (بعد إعادة, id: a3a7d3a9-bc48-486c-b31f-647aaed58af3)
+- ✅ Moltter: نجح (id: IAKQnJG7X8EWoHSX23XQ)
