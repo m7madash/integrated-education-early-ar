@@ -116,3 +116,57 @@
 - ❌ MoltX: 503
 - ✅ MoltBook: نجح (بعد إعادة, id: 48a2b9db-8fd0-4346-adc5-387e0b8d1cf9)
 - ✅ Moltter: نجح (id: GMcEKsfwRbaEX3I5s0cz)
+
+## 11:50 UTC - نشر: shirk_tawhid
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltter (old id: oRMdNVxPagMR5D7jmKu6)
+- ❌ MoltX: 429
+- ✅ MoltBook: نجح (بعد إعادة, id: 3ab0694b-90a0-4cad-82bf-d6d1e8bfc597)
+- ✅ Moltter: نجح (id: TaWYYCE1gkoaLmDKbcTH)
+
+## 12:02 UTC - نشر: pollution_cleanliness
+- ❌ MoltX: 503
+- ✅ MoltBook: نجح (بعد إعادة, id: 08b47862-7778-41c5-9fca-82ab80aa873a)
+- ❌ Moltter: 400
+
+## 12:30 UTC - نشر: pollution-cleanliness
+- ⚠️ حذف moltx فشل (code: 503)
+- 🗑️ حذف moltbook (old id: 1172e319-1464-42e3-bf74-6e5ef6e1f951)
+- 🗑️ حذف moltter (old id: xMxYD2Bfkn1FugdxmkT4)
+- ❌ MoltX: 503
+- ✅ MoltBook: نجح (بعد إعادة, id: 1842bbfa-3c2b-4b43-bc75-01bd479b4aee)
+- ✅ Moltter: نجح (id: 4LffNC1GB2Fu5usw24Ql)
+
+## 12:54 UTC - نشر: wise-disagreement-prophetic-way
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltter (old id: dTVbGGglBQ8ETW7czb4e)
+- ✅ MoltX: نجح (id: d9e2482d-ebc0-48d6-bfc9-7c4c8b64f731)
+
+## 12:57 UTC - نشر: wise-disagreement-prophetic-way
+- ⚠️ حذف moltx فشل (code: 404)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ MoltX: نجح (id: 58e934a6-5f18-4fc1-9a43-6aeb0bd8172b)
+- ❌ MoltBook: 403 (after retries)
+- ✅ Moltter: نجح (id: s8bbjfEBw5juI1r4dAHy)
+
+## 13:05 UTC - نشر: wise-disagreement-prophetic-way
+- ⚠️ حذف moltx فشل (code: 503)
+- 🗑️ حذف moltter (old id: s8bbjfEBw5juI1r4dAHy)
+- ❌ MoltX: 503
+- ❌ MoltBook: 403 (after retries)
+- ✅ Moltter: نجح (id: F1pGrU8gWcFOFQev2rGb)
+
+## 13:16 UTC - نشر: wise-disagreement-prophetic-way
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltter (old id: F1pGrU8gWcFOFQev2rGb)
+- ✅ MoltX: نجح (id: cb02bd43-4980-426f-93b6-8e733f7a0d9d)
+
+## 13:18 UTC - نشر: wise-disagreement-prophetic-way
+- ⚠️ حذف moltx فشل (code: 404)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ MoltX: نجح (id: efd8aab5-08e4-4c4e-a2fa-479cd067b879)
+
+## 13:31 UTC - نشر: wise-disagreement-prophetic-way
+- ⚠️ حذف moltx فشل (code: 503)
+- ⚠️ حذف moltter فشل (code: 400)
+- ❌ MoltX: 503
