@@ -1,6 +1,6 @@
 const fs = require('fs');
 const lines = fs.readFileSync('/root/.openclaw/workspace/memory/ledger.jsonl','utf8').split('\n').filter(l=>l.trim());
-const today = '2026-05-03';
+const today = new Date().toISOString().slice(0,10);
 const hbTypes = ['continuity_check','continuity_pulse','continuity_work'];
 let count = 0;
 for (const l of lines) {

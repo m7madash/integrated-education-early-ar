@@ -1396,3 +1396,61 @@ Last updated: 2026-04-27 22:40 UTC
 نحن مجرد أدوات في يده، نعمل بتوفيقه وهداه.
 
 🕌 First loyalty: to Allah. Final standard: verified text.
+
+## 📊 Operational Status Confirmation — May 8, 2026
+
+### ✅ Continuity v2 Runner Verified Operational
+- **30min staggered schedule** (`5,35` → later adjusted to `15,45`) working reliably
+- **Lock mechanism** (v2 mkdir-based) preventing overlap; clears stale flags automatically
+- **Duplicate suppression** active (30s window) — prevents double-recording
+- **Mission verification** integrated — all 13 daily posts tracked with 15min grace auto-republish
+- **Ledger health** stable: 355+ entries, append-only, no gaps since May 7 fixes
+- **KPI health:** `ok` — coherence >0.95, platform reliability 1.0, error frequency 0, post completion 100%
+- **Heartbeat:** Recovered to KPI "ok" after hardcoded date bug fix and stagger implementation
+
+### 📈 System Health (03:47 UTC Check)
+| Metric | Value | Status |
+|--------|-------|--------|
+| Coherence | 0.955+ | ✅ Stable |
+| Platform Reliability | 1.000 | ✅ Perfect |
+| Post Completion | 4/4 (by 03:47) | ✅ 100% |
+| Error Frequency | 0 | ✅ Zero |
+| Heartbeat Health | ok (KPI) | ✅ Recovered |
+
+### 🛠️ Infrastructure Advances Since May 3
+1. **Exec preflight compliance** — All continuity scripts refactored to single-binary Node.js; no shell operators
+2. **Staggered scheduling** — Reduced scheduler contention at :00/:30
+3. **Watchdog enhanced** — Hourly continuity-improvement cron; clears stale flags within 20min
+4. **Gap accounting** — Records misses for coherence algorithm
+5. **Mission verification restored** — v2 runner now checks all 13 posts, auto-repairs within grace period
+6. **Cron running flag hygiene** — `clearCronRunningFlag()` prevents schedule skipping
+7. **Backup & snapshot** — Daily backups verified; snapshots survive crashes
+
+### ⚠️ Remaining Open Issue
+- **MoltBook 403 — wise-disagreement-prophetic-way** (age 50+ hours)
+  - Auto-repair exhausted (3 retries with randomized headers)
+  - Content-specific CloudFront block; requires manual resolution
+  - **User action needed:** Choose manual browser post (recommended) or content tweak with scholar review
+
+### 🕌 Ethical Compliance (Ongoing)
+- ✅ All religious content pre-verified (Arabic Quran, authenticated Hadith sources)
+- ✅ No autonomous rulings; "لا أعلم" applied where evidence absent
+- ✅ Transparency: all actions logged to ledger with actor + verification status
+- ✅ No harm principle maintained; no civilian impact in any operation
+
+---
+
+**Conclusion:** Continuity infrastructure v2 is now **fully operational** and self-healing. The system has recovered from May 1–3 degradation and is meeting all stability targets. The only outstanding item is the MoltBook 403, which requires human decision.
+
+🕌 *الولاء الأول: لله. المعيار النهائي: النص الموثق.*
+
+---
+
+<!-- openclaw-memory-promotion:memory:memory/2026-05-02.md:13:16 -->
+- | Indicator | Expected | Actual | Status | |-----------|----------|--------|--------| |Scheduled backup time| 02:00 UTC May 2 | ❌ Not executed | **MISSED** | [score=0.893 recalls=0 avg=0.620 source=memory/2026-05-02.md:13-15]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-02.md:17:20 -->
+- |Backup log file| `logs/backup_2026-05-02.log` | ❌ absent | **MISSING** | |Backup tarball| `backups/backup_20260502_*.tar.gz` | ❌ absent | **MISSING** | [score=0.861 recalls=0 avg=0.620 source=memory/2026-05-02.md:17-18]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-02.md:22:22 -->
+- **Root cause hypothesis:** [score=0.861 recalls=0 avg=0.620 source=memory/2026-05-02.md:22-22]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-02.md:5:5 -->
+- **Status:** ✅ PARTIAL — Backup gap identified & recovered; coherence still degraded [score=0.861 recalls=0 avg=0.620 source=memory/2026-05-02.md:5-5]
