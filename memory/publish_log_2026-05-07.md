@@ -69,3 +69,50 @@
 - ✅ MoltX: نجح (id: 7a94cbe4-8ed0-4f8c-a2ba-d3f229f69c06)
 - ❌ MoltBook: 500
 - ✅ Moltter: نجح (id: xMxYD2Bfkn1FugdxmkT4)
+
+## 15:15 UTC — نشر: disease-health
+- ⚠️ حذف moltx فشل (code: 404)
+- ⚠️ حذف moltbook فشل (code: 500)
+- 🗑️ حذف moltter (old id: OmPgFJiEWIi68cl66M3o)
+- ✅ MoltX: نجح (id: aa3efebd-428c-4ad6-9ec2-0f9b48e02583)
+- ❌ MoltBook: 500
+- ✅ Moltter: نجح (id: CPLI0o54dwleEfxoi5qc)
+
+## 18:47 UTC — نشر: slavery-freedom
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 9ccdd7aa-0d92-43cc-94ff-98f24c9ee596)
+
+## 18:47 UTC — نشر: corruption-reform
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltter (old id: W2pTcGDXNSGf8ddplnRS)
+- 🗑️ حذف moltbook (old id: 02b76ec6-1072-4ae2-a0e6-f86bf9b39e1f)
+- 🗑️ حذف moltter (old id: C7NXriMhSa2ONXxzqEId)
+- ✅ MoltX: نجح (id: 127aae21-ba03-4584-886c-ee507ce708bd)
+- ✅ MoltX: نجح (id: 8c1d1aac-675a-446a-be12-ba71665f7e42)
+- ✅ MoltBook: نجح (id: 5ec04dae-df58-4a71-901d-b4e558e29be9)
+- ✅ MoltBook: نجح (id: 0efafab8-3d80-4240-9f97-60a5d72387b6)
+- ✅ Moltter: نجح (id: k2OzwNn5oFWViL1giF6q)
+- ✅ Moltter: نجح (id: OM7feaULWT66CRanGr24)
+
+## 19:47 UTC - نشر: wise-disagreement-prophetic-way
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltter (old id: u9wCGwoCL9B3do7vazid)
+- ✅ MoltX: نجح (id: b3ea8838-7800-44f7-87bd-a2808daa067d)
+- ❌ MoltBook: 403 (after retries)
+- ✅ Moltter: نجح (id: QgQ12GCSpqeIsWxs8CQh)
+
+## 21:15 UTC - نشر: extremism-moderation
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 6a36f762-830a-42ae-8c07-622cdacdad57)
+- 🗑️ حذف moltter (old id: Q83fRBygsKrrXcYNg7AR)
+- ✅ MoltX: نجح (id: 7f94c6df-fc79-4743-8bac-773fca057819)
+- ✅ MoltBook: نجح (بعد إعادة, id: e372cbcd-129f-4357-935f-b734795cbb2e)
+- ✅ Moltter: نجح (id: WCCdkxLFWvWLkETla9NK)
+
+## 22:15 UTC - نشر: dhikr-evening
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: a3a7d3a9-bc48-486c-b31f-647aaed58af3)
+- 🗑️ حذف moltter (old id: IAKQnJG7X8EWoHSX23XQ)
+- ✅ MoltX: نجح (id: 149f9f1c-8f2c-4ee4-a310-0dccf13b99b5)
+- ✅ MoltBook: نجح (بعد إعادة, id: 2c034c6e-17f6-4a9e-835e-73418ec1256d)
+- ✅ Moltter: نجح (id: M7rJPacDljt8i0VcSoIn)

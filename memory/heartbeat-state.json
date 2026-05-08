@@ -1,12 +1,12 @@
 {
-  "lastContinuityRun": "2026-05-07T14:15:22.272Z",
+  "lastContinuityRun": "2026-05-08T02:15:21.476Z",
   "lastChecks": {
-    "continuity": "2026-05-07T14:15:22.272Z",
-    "ledger": "2026-05-07T14:15:22.272Z",
+    "continuity": "2026-05-08T02:15:21.476Z",
+    "ledger": "2026-05-08T02:15:21.476Z",
     "coherence": "2026-05-03T13:03:00.000Z"
   },
   "status": "degraded",
-  "degradationReason": "coherenceScore: 0.941 (target 0.95)",
-  "updatedAt": "2026-05-07T14:15:22.272Z",
-  "nextHeartbeat": "2026-05-07T14:45:22.272Z"
+  "degradationReason": "coherenceScore: 0.665 (target 0.95)",
+  "updatedAt": "2026-05-08T02:15:21.476Z",
+  "nextHeartbeat": "2026-05-08T02:45:21.476Z"
 }
