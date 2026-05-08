@@ -1,16 +1,21 @@
 const fs = require('fs');
 const lines = fs.readFileSync('/root/.openclaw/workspace/memory/ledger.jsonl','utf8').split('\n').filter(l=>l);
-const today = '2026-05-03';
+const today = new Date().toISOString().split('T')[0]; // dynamic current date
 const hbTypes = ['continuity_check','continuity_pulse','continuity_work'];
-const todayEntries = lines.filter(l=>{
+const todayEntries = [];
+for (const line of lines) {
   try {
-    const e = JSON.parse(l);
-    return e.type && hbTypes.includes(e.type) && e.ts && e.ts.startsWith(today);
-  } catch { return false; }
-});
+    const e = JSON.parse(line);
+    if (e.type && hbTypes.includes(e.type) && e.ts && e.ts.startsWith(today)) {
+      todayEntries.push(e);
+    }
+  } catch { /* skip malformed */ }
+}
 console.log('Today heartbeats:', todayEntries.length);
 todayEntries.forEach(e => {
-  console.log(e.ts.split('T')[1].substr(0,5), e.type);
+  if (e.ts) {
+    console.log(e.ts.split('T')[1].substr(0,5), e.type);
+  }
 });
 
 // also compute expected based on now

@@ -354,3 +354,18 @@
 {"ts":"2026-05-08T03:26:53.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"dhikr-morning","success":true,"postId":"ZgmQTcokHNRxPBK7oXDg"}}
 {"ts":"2026-05-08T03:26:53.000Z","type":"publish_run","payload":{"mission":"dhikr-morning","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-05-08T03:47:00.466Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":1,"platformReliability":1,"heartbeatHealth":1,"errorRate":0}
+{"ts":"2026-05-08T04:45:58.960Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8648616666666666,"platformReliability":1,"heartbeatHealth":0.8888888888888888,"errorRate":0}
+{"ts":"2026-05-08T05:10:20.170Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.44951583333333334,"platformReliability":1,"heartbeatHealth":0.9,"errorRate":0}
+{"ts":"2026-05-08T06:00:23.336Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8664488888888888,"platformReliability":1,"heartbeatHealth":0.8333333333333334,"errorRate":0}
+{"ts":"2026-05-08T06:52:04.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"wise-disagreement-prophetic-way","success":true,"postId":"5ced29d6-8747-4ad3-8d33-e67b6f3e7d78"}}
+{"ts":"2026-05-08T06:59:36.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"wise-disagreement-prophetic-way","success":false,"httpCode":403,"retries":3}}
+{"ts":"2026-05-08T06:59:36.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"wise-disagreement-prophetic-way","success":true,"postId":"dTVbGGglBQ8ETW7czb4e"}}
+{"ts":"2026-05-08T06:59:36.000Z","type":"publish_run","payload":{"mission":"wise-disagreement-prophetic-way","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-08T07:00:27.942Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8648616666666666,"platformReliability":1,"heartbeatHealth":0.7857142857142857,"errorRate":0}
+{"ts":"2026-05-08T07:00:27.726Z","type":"continuity_gap","phase":"30min","expectedInterval":1800,"actualInterval":3605,"gapSeconds":1805}
+{"ts":"2026-05-08T07:00:33.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"ignorance-knowledge","success":false,"httpCode":503}}
+{"ts":"2026-05-08T07:01:41.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"ignorance-knowledge","success":true,"postId":"84477a4f-3749-4d22-a52f-3cd7690c4677","retried":true}}
+{"ts":"2026-05-08T07:01:42.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"ignorance-knowledge","success":true,"postId":"4h73Mk21eQwmi8G9y9Tk"}}
+{"ts":"2026-05-08T07:01:42.000Z","type":"publish_run","payload":{"mission":"ignorance-knowledge","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-08T07:30:20.877Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8383225,"platformReliability":1,"heartbeatHealth":0.8,"errorRate":0}
+{"ts":"2026-05-08T07:47:07.707Z","type":"continuity_improvement","phase":"post_fix_validation","actions":["cleaned_stale_cron_state","verified_heartbeat_date_fix","ran_health_checks","documented_persistent_issue"],"metrics":{"cronStateCleaned":0,"heartbeatScriptOK":true,"coherenceOK":true},"notes":["17 mission jobs were fixed (sessionTarget: main → isolated)","Cron \"skipped\" status is historical — jobs should run on next schedule","MoltBook 403 requires human decision — no autonomous content modification"]}

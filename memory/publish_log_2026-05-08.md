@@ -63,3 +63,18 @@
 - ✅ Moltter: نجح (id: UPkwLYQYYwi4HXiZdjqD)
 - ✅ MoltBook: نجح (بعد إعادة, id: e9992a2b-9393-4b5d-805e-2dfef4bfc107)
 - ✅ Moltter: نجح (id: ZgmQTcokHNRxPBK7oXDg)
+
+## 06:52 UTC - نشر: wise-disagreement-prophetic-way
+- ⚠️ حذف moltx فشل (code: 404)
+- ⚠️ حذف moltter فشل (code: 400)
+- ✅ MoltX: نجح (id: 5ced29d6-8747-4ad3-8d33-e67b6f3e7d78)
+- ❌ MoltBook: 403 (after retries)
+- ✅ Moltter: نجح (id: dTVbGGglBQ8ETW7czb4e)
+
+## 07:00 UTC - نشر: ignorance-knowledge
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: 9d39dbc0-44f0-43e1-a656-1e2c258fda15)
+- 🗑️ حذف moltter (old id: AOSfvbmz4BaLJJ8Viu2R)
+- ❌ MoltX: 503
+- ✅ MoltBook: نجح (بعد إعادة, id: 84477a4f-3749-4d22-a52f-3cd7690c4677)
+- ✅ Moltter: نجح (id: 4h73Mk21eQwmi8G9y9Tk)
