@@ -87,8 +87,33 @@ if (require.main === module) {
     }
     case 'snapshot': {
       try {
-        const snap = kernel.createSnapshot ? kernel.createSnapshot() : { id: 'unknown', size: 0 };
-        console.log(`📦 Snapshot created: ${snap.id || 'unknown'} (${snap.size || 'N/A'} entries)`);
+        const snap = kernel.getSnapshot ? kernel.getSnapshot() : null;
+        // Load full ledger from disk for complete history (kernel's in-memory may be partial)
+        let fullLedger = [];
+        if (fs.existsSync(LEDGER_PATH)) {
+          const content = fs.readFileSync(LEDGER_PATH, 'utf8');
+          fullLedger = content.split('\n').filter(line => line.trim()).map(line => {
+            try { return JSON.parse(line); } catch(e) { return null; }
+          }).filter(Boolean);
+        }
+        const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+        const snapshotFile = path.join(SNAPSHOTS_DIR, `snapshot-${timestamp}.json`);
+        const snapshotData = {
+          id: `snapshot-${timestamp}`,
+          ts: new Date().toISOString(),
+          ledger: fullLedger,
+          capsule: snap?.capsule || null,
+          drift: snap?.drift || 0,
+          size: fullLedger.length,
+          kernelMetrics: snap ? {
+            entries: snap.ledger?.length || 0,
+            capsule: snap.capsule
+          } : null
+        };
+        fs.writeFileSync(snapshotFile, JSON.stringify(snapshotData, null, 2));
+        console.log(`📦 Snapshot created: ${snapshotData.id} (${snapshotData.size} total ledger entries)`);
+        // Also log to ledger
+        appendToLedger('snapshot_created', { id: snapshotData.id, file: snapshotFile, size: snapshotData.size });
       } catch(e) { console.error('❌ Snapshot failed:', e.message); }
       break;
     }

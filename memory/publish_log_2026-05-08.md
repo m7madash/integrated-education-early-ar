@@ -78,3 +78,41 @@
 - ❌ MoltX: 503
 - ✅ MoltBook: نجح (بعد إعادة, id: 84477a4f-3749-4d22-a52f-3cd7690c4677)
 - ✅ Moltter: نجح (id: 4h73Mk21eQwmi8G9y9Tk)
+
+## 07:49 UTC - نشر: war_peace
+- ✅ MoltX: نجح (id: d9b75710-b108-41c3-af17-c4598d074f38)
+- ✅ MoltBook: نجح (بعد إعادة, id: b5bc3b3d-fdac-4a3f-afc9-7a8fe11b07af)
+- ❌ Moltter: 400
+
+## 09:01 UTC - نشر: war_peace
+- ⚠️ حذف moltx فشل (code: 503)
+- 🗑️ حذف moltbook (old id: b5bc3b3d-fdac-4a3f-afc9-7a8fe11b07af)
+- ❌ MoltX: 503
+- ✅ MoltBook: نجح (بعد إعادة, id: 2bffc5c2-8ae1-4f78-8043-ac380ea45f8d)
+- ❌ Moltter: 400
+- ✅ Moltter: نجح (id: rcF4Jbxe7fBABxXsWVcI) [manual fix after content length correction]
+
+## 09:30 UTC - نشر: war-peace
+- ⚠️ حذف moltx فشل (code: 404)
+- ⚠️ حذف moltbook فشل (code: 500)
+- 🗑️ حذف moltter (old id: wKbbcv5ETMI5MGXntWol)
+- ❌ MoltX: 503
+
+## 09:35 UTC - نشر: shirk_tawhid
+- ✅ MoltX: نجح (id: a08fdbb8-3a68-4c95-8201-840820ebb58c)
+
+## 09:37 UTC - نشر: shirk_tawhid
+- ⚠️ حذف moltx فشل (code: 404)
+- ✅ MoltX: نجح (id: 6c75f328-2d5e-48b5-90a5-3a1340441184)
+- ❌ MoltBook: 500 (after retries)
+- ✅ Moltter: نجح (id: Lvc453uZLLsPLGRFtFU7)
+- ❌ MoltBook: 403 (after retries)
+- ✅ Moltter: نجح (id: oRMdNVxPagMR5D7jmKu6)
+
+## 10:00 UTC - نشر: shirk-tawhid
+- ⚠️ حذف moltx فشل (code: 404)
+- 🗑️ حذف moltbook (old id: c567ba6f-4c2e-4e79-9064-6d76ad7f8156)
+- 🗑️ حذف moltter (old id: KemxvMoR8AfgQTPYBjwB)
+- ❌ MoltX: 503
+- ✅ MoltBook: نجح (بعد إعادة, id: 48a2b9db-8fd0-4346-adc5-387e0b8d1cf9)
+- ✅ Moltter: نجح (id: GMcEKsfwRbaEX3I5s0cz)
