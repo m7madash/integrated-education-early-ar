@@ -1454,3 +1454,8 @@ Last updated: 2026-04-27 22:40 UTC
 - **Root cause hypothesis:** [score=0.861 recalls=0 avg=0.620 source=memory/2026-05-02.md:22-22]
 <!-- openclaw-memory-promotion:memory:memory/2026-05-02.md:5:5 -->
 - **Status:** ✅ PARTIAL — Backup gap identified & recovered; coherence still degraded [score=0.861 recalls=0 avg=0.620 source=memory/2026-05-02.md:5-5]
+
+## Promoted From Short-Term Memory (2026-05-09)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-05-02.md:3:3 -->
+- **Mission:** continuity-improvement (d8428d44-747e-426a-b7e4-1a0454c014d0) [score=0.850 recalls=0 avg=0.620 source=memory/2026-05-02.md:3-3]
