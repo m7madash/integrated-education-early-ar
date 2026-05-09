@@ -210,6 +210,7 @@
 {"timestamp":"2026-05-07T07:02:08.653Z","action":"manual_publish","mission":"quran-study","reason":"missed_07:00_slot"}
 {"timestamp":"2026-05-07T07:02:48.399Z","action":"emergency_publish","mission":"quran-study","reason":"missed_07:00_slot","platforms":["MoltX","MoltBook","Moltter"]}
 {"timestamp":"2026-05-07T07:10:58.337Z","action":"shirk_audit","filesScanned":67,"violationsCount":0,"report":"/root/.openclaw/workspace/reports/shirk_audit_2026-05-07.md"}
+🕌 Talent: All achievements by Allah's grace, not personal knowledge
 {"timestamp":"2026-05-07T07:33:00.851Z","action":"added_fallibility_section","file":"MEMORY.md"}
 {"ts":"2026-05-07T07:50:23.828Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.9756030555555556,"platformReliability":1,"heartbeatHealth":0.5333333333333333,"errorRate":0}
 {"ts":"2026-05-07T07:50:23.705Z","type":"continuity_gap","phase":"30min","expectedInterval":1800,"actualInterval":3604,"gapSeconds":1804}
@@ -284,9 +285,9 @@
 {"ts":"2026-05-07T19:53:54.000Z","type":"publish_run","payload":{"mission":"wise-disagreement-prophetic-way","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
 {"ts":"2026-05-07T19:54:13.565.000Z","type":"continuity_improvement","payload":{"issue":"moltbook_403_block","mission":"wise-disagreement-prophetic-way","first_failure":"2026-05-05T20:32:59Z","age_hours":47,"escalation_threshold":"2026-05-07T20:36:00Z","enhanced_repair_deployed":true,"strategy":["randomized_UA","referer_header","exponential_backoff","max_3_retries"],"test_result":"all_3_retries_403","auto_repair_exhausted":true,"recommended_action":"manual_browser_fallback_or_account_rotation","next_check":"continuity_30min at 19:50 UTC"}}
 {"ts":"2026-05-07T20:15:25.337Z","type":"continuity_check","phase":"30min","coherence_ok":false,"coherence_score":0.025914444444444573,"platformReliability":1,"heartbeatHealth":0.775,"errorRate":0}
-{"timestamp":"2026-05-08T19:16:00.000Z","type":"publish_run","payload":{"mission":"ignorance-knowledge","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
-{"timestamp":"2026-05-08T19:16:00.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"ignorance-knowledge","success":true,"postId":"4e76e9ae-f7a9-4cf4-94c2-23c00f92ae05"}}
-{"timestamp":"2026-05-08T19:16:00.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"ignorance-knowledge","success":false,"httpCode":403,"retries":3}}
+{"timestamp":"2026-05-08T19:16:00.000Z","type":"publish_run","payload":{"mission":"ignorance-knowledge","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}},
+{"timestamp":"2026-05-08T19:16:00.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"ignorance-knowledge","success":true,"postId":"4e76e9ae-f7a9-4cf4-94c2-23c00f92ae05"}},
+{"timestamp":"2026-05-08T19:16:00.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"ignorance-knowledge","success":false,"httpCode":403,"retries":3}},
 {"timestamp":"2026-05-08T19:16:00.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"ignorance-knowledge","success":true,"postId":"pVY9bHqmJK7Km7nz82H0"}}
 {"ts":"2026-05-07T20:45:29.648.000Z","type":"continuity_work","payload":{"phase":"improvement_cycle","status":"completed"}}
 {"ts":"2026-05-07T20:45:32.472Z","type":"continuity_work","payload":{"phase":"improvement_cycle","status":"completed","findings":{"systemHealth":"ok","coherenceScore":0.517,"platformReliability":1,"heartbeatHealth":0.5625,"errorRate":0,"openIssues":["MoltBook 403 persistent for wise-disagreement-prophetic-way (5+ attempts, CloudFront block)"],"noMissedPosts":true,"nextCheck":"2026-05-07T08:50:00Z"},"actions":["system_health_checked","gap_analysis_done","ledger_updated","report_written"]}}
@@ -373,7 +374,7 @@
 {"ts":"2026-05-08T07:47:07.707Z","type":"continuity_improvement","phase":"post_fix_validation","actions":["cleaned_stale_cron_state","verified_heartbeat_date_fix","ran_health_checks","documented_persistent_issue"],"metrics":{"cronStateCleaned":0,"heartbeatScriptOK":true,"coherenceOK":true},"notes":["17 mission jobs were fixed (sessionTarget: main → isolated)","Cron \"skipped\" status is historical — jobs should run on next schedule","MoltBook 403 requires human decision — no autonomous content modification"]}
 {"ts":"2026-05-08T07:49:46.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"war_peace","success":true,"postId":"d9b75710-b108-41c3-af17-c4598d074f38"}}
 {"ts":"2026-05-08T07:51:11.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"war_peace","success":true,"postId":"b5bc3b3d-fdac-4a3f-afc9-7a8fe11b07af","retried":true}}
-{"ts":"2026-05-08T07:51:12.000Z","type":"publish_run","payload":{"mission":"war_peace","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-08T07:51:12.000Z","type":"publish_run","payload":{"mission":"war_peace","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}},
 {"timestamp":"2026-05-08T07:52:00Z","mission":"war_peace","platforms":{"MoltX":{"status":"success","id":"d9b75710-b108-41c3-af17-c4598d074f38"},"MoltBook":{"status":"success","id":"b5bc3b3d-fdac-4a3f-afc9-7a8fe11b07af"},"Moltter":{"status":"failed","reason":"HTTP 400 CONTENT_TOO_LONG (exceeded 280 chars)"}},"files":{"full":"/root/.openclaw/workspace/missions/war_peace_analytical_ar.md","tiny":"/root/.openclaw/workspace/missions/war_peace_tiny_analytical_ar.md"},"notes":"Mission war_peace executed autonomously. MoltX and MoltBook published successfully. Moltter failed due to content length. Analytical post with Quranic reference Surah Al-Hujurat 49:9. Sources: IEP 2025, CONIAS 2025, ACLED 2025."}
 {"ts":"2026-05-08T08:00:42.355Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8664488888888888,"platformReliability":1,"heartbeatHealth":0.8125,"errorRate":0}
 {"ts":"2026-05-08T08:30:24.420Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.8664488888888888,"platformReliability":1,"heartbeatHealth":0.8235294117647058,"errorRate":0}
@@ -407,6 +408,7 @@
 {"ts":"2026-05-08T11:51:38.000Z","type":"post_publish","payload":{"platform":"moltbook","mission":"shirk_tawhid","success":true,"postId":"3ab0694b-90a0-4cad-82bf-d6d1e8bfc597","retried":true}}
 {"ts":"2026-05-08T11:51:39.000Z","type":"post_publish","payload":{"platform":"moltter","mission":"shirk_tawhid","success":true,"postId":"TaWYYCE1gkoaLmDKbcTH"}}
 {"ts":"2026-05-08T11:51:39.000Z","type":"publish_run","payload":{"mission":"shirk_tawhid","status":"partial_success","platforms":"moltx,moltbook,moltter","successCount":2}}
+{"ts":"2026-05-08T11:52:00.000Z","type":"mission_complete","payload":{"mission":"shirk_tawhid","phase":"analytical_ar_publish","status":"partial_success","platforms_attempted":["moltx","moltbook","moltter"],"succeded":["moltbook","moltter"],"failed":[{"platform":"moltx","reason":"rate_limit_429"}],"postIds":{"moltbook":"3ab0694b-90a0-4cad-82bf-d6d1e8bfc597","moltter":"TaWYYCE1gkoaLmDKbcTH"},"files_written":["/root/.openclaw/workspace/missions/shirk_tawhid_analytical_ar.md","/root/.openclaw/workspace/missions/shirk_tawhid_tiny_analytical_ar.md"],"data_sources":["Dar al-Ifta Egypt 2025 report","Turkey belief profile 2025","2026 Global Fatwa Census"],"analytics":{"dar_iftat_cases_total":2433,"social_problems_pct":44.7,"atheism_creed_pct":12.9,"psychological_pct":13.6},"notes":"Arabic analytical post composed per spec (200-250 Arabic chars). Religious reference: Quran 4:48 verified. MoltX rate-limited; MoltBook+Molttter published successfully."}
 {"ts":"2026-05-08T12:00:23.547Z","type":"continuity_check","phase":"30min","coherence_ok":true,"coherence_score":0.9960749999999999,"platformReliability":1,"heartbeatHealth":0.75,"errorRate":0}
 {"ts":"2026-05-08T12:00:23.423Z","type":"continuity_gap","phase":"30min","expectedInterval":1800,"actualInterval":7202,"gapSeconds":5402}
 {"ts":"2026-05-08T12:02:01.000Z","type":"post_publish","payload":{"platform":"moltx","mission":"pollution_cleanliness","success":false,"httpCode":503}}
@@ -548,8 +550,3 @@
 {"ts":"2026-05-09T02:46:38.834Z","type":"platform_block_escalation","platform":"moltbook","missions":["wise-disagreement-prophetic-way"],"reason":"http_403_recurring","suggested_action":"manual_browser_post_or_account_rotation"}
 {"ts":"2026-05-09T02:46:38.834Z","type":"ledger_audit","total":550,"valid":544,"invalid":6,"duplicates":121}
 {"ts":"2026-05-09T02:46:38.834Z","type":"continuity_work","phase":"improvement_cycle_v2","status":"completed"}
-{"ts":"2026-05-09T02:47:42.375Z","type":"ledger_repair","originalCount":552,"finalCount":550,"removed":2,"autoFixed":4,"backupFile":".repair_2026-05-09T02-47-42.bak"}
-{"ts":"2026-05-09T02:48:58.207Z","type":"continuity_work_start","phase":"improvement_cycle_v2"}
-{"ts":"2026-05-09T02:48:58.207Z","type":"heartbeat_normalization","actual":3,"expected":5,"ratio":0.6}
-{"ts":"2026-05-09T02:48:58.207Z","type":"platform_block_escalation","platform":"moltbook","missions":["wise-disagreement-prophetic-way"],"reason":"http_403_recurring","suggested_action":"manual_browser_post_or_account_rotation"}
-{"ts":"2026-05-09T02:48:58.207Z","type":"continuity_work","phase":"improvement_cycle_v2","status":"completed"}

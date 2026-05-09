@@ -166,7 +166,7 @@ log('📊 Running pre-emptive health checks...');
 
 // Check coherence
 try {
-  const { analyze } = require('./scripts/coherence_alert.js');
+  const { analyze } = require('./coherence_alert.js');
   const coherence = analyze(50);
   log(`   Coherence score: ${coherence.score.toFixed(3)} [${coherence.status}]`);
   if (coherence.status !== 'ok') {

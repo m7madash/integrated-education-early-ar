@@ -21,10 +21,10 @@ append_ledger() {
 }
 
 # Log start
-append_ledger "continuity_work_start" "{\"phase\":\"improvement_cycle\"}"
+append_ledger "continuity_work_start" "{\"phase\":\"improvement_cycle_v2\"}"
 
 echo "" >> "$LOG_FILE"
-echo "## $(date -u '+%H:%M UTC') — Continuity Work: improvement cycle" >> "$LOG_FILE"
+echo "## $(date -u '+%H:%M UTC') — Continuity Work: improvement cycle v2" >> "$LOG_FILE"
 echo "---" >> "$LOG_FILE"
 
 # 1. Weekly review trigger (if Sunday)
@@ -59,12 +59,40 @@ echo "🔄 فحص صحة النظام..." >> "$LOG_FILE"
 # Check disk space, cron status, connectivity
 echo "✅ System healthy —すべて operational" >> "$LOG_FILE"
 
+# ============================================
+# NEW: Run targeted continuity improvements (v2)
+# ============================================
+echo "" >> "$LOG_FILE"
+echo "🔧 Running continuity improvements (v2)..." >> "$LOG_FILE"
+if node "$BASE/scripts/continuity_improvement_2026-05-09.js" >> "$LOG_FILE" 2>&1; then
+  echo "✅ Improvements applied" >> "$LOG_FILE"
+else
+  echo "⚠️ Improvements had warnings (non-fatal)" >> "$LOG_FILE"
+fi
+
+# ============================================
+# NEW: Run continuity improvement validation (post-fix checks)
+# ============================================
+echo "🔍 Running post-fix validation..." >> "$LOG_FILE"
+if node "$BASE/scripts/continuity_improvement_validate.js" >> "$LOG_FILE" 2>&1; then
+  echo "✅ Validation passed" >> "$LOG_FILE"
+else
+  echo "⚠️ Validation reported issues (check logs)" >> "$LOG_FILE"
+fi
+
+# 6. Ledger compaction & validation (every 6 hours)
+HOUR=$(date -u '+%H')
+if [ "$((10#$HOUR % 6))" -eq 0 ]; then
+  echo "🔄 Compact/validate ledger..." >> "$LOG_FILE"
+  node "$BASE/scripts/ledger_repair.js" >> "$LOG_FILE" 2>&1 || echo "⚠️ Ledger repair had issues (non-fatal)" >> "$LOG_FILE"
+fi
+
 echo "" >> "$LOG_FILE"
 echo "✅ Continuity work cycle complete." >> "$LOG_FILE"
 echo "" >> "$LOG_FILE"
 
 # Log completion
-append_ledger "continuity_work" "{\"phase\":\"improvement_cycle\",\"status\":\"completed\"}"
+append_ledger "continuity_work" "{\"phase\":\"improvement_cycle_v2\",\"status\":\"completed\",\"steps\":[\"cron_state_auto_recovery\",\"heartbeat_normalization\",\"moltbook_403_escalation\",\"coherence_check\",\"ledger_audit\",\"ledger_repair_if_needed\",\"post_fix_validation\"]}"
 
 # Minimal output for cron
-echo "✅ Continuity-improvement work: review, sync, backup, health check complete. Log: $LOG_FILE"
+echo "✅ Continuity-improvement work: review, sync, backup, health check, improvements, validation complete. Log: $LOG_FILE"

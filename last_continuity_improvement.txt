@@ -1,0 +1,1 @@
+✅ Continuity improvement (2026-05-09): Cron state auto-recovery, heartbeat normalization, MoltBook 403 tracking applied

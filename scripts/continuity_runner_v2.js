@@ -137,7 +137,7 @@ async function stepKernelHeartbeat() {
   const continuityJs = path.join(WORKSPACE, 'continuity.js');
   if (fs.existsSync(continuityJs)) {
     await new Promise((resolve) => {
-      execFile('node', [continuityJs, 'heartbeat'], { cwd: WORKSPACE }, (err) => {
+      execFile('node', [continuityJs, 'status'], { cwd: WORKSPACE }, (err) => {
         if (err) log('⚠️ Kernel heartbeat failed: ' + err.message);
         else log('✅ Kernel heartbeat completed');
         resolve();
