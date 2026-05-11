@@ -22,17 +22,17 @@ TINY="$BASE/missions/${MISSION}_tiny_ar.md"
 # Load content (with JSON decoding)
 RAW_FULL=$(cat "$FILE")
 if echo "$RAW_FULL" | grep -q '\\n'; then
-  CONTENT_FULL=$(echo "$RAW_FULL" | sed 's/\\n/\n/g' | python3 -c "import json,sys; print(json.dumps(sys.stdin.read()))")
+  CONTENT_FULL=$(echo "$RAW_FULL" | sed 's/\\n/\n/g' | python3 -c "import json,sys; print(json.dumps(sys.stdin.read(), ensure_ascii=False))")
 else
-  CONTENT_FULL=$(echo "$RAW_FULL" | python3 -c "import json,sys; print(json.dumps(sys.stdin.read()))")
+  CONTENT_FULL=$(echo "$RAW_FULL" | python3 -c "import json,sys; print(json.dumps(sys.stdin.read(), ensure_ascii=False))")
 fi
 
 if [ -f "$TINY" ]; then
   RAW_TINY=$(cat "$TINY")
   if echo "$RAW_TINY" | grep -q '\\n'; then
-    CONTENT_TINY=$(echo "$RAW_TINY" | sed 's/\\n/\n/g' | python3 -c "import json,sys; print(json.dumps(sys.stdin.read()))")
+    CONTENT_TINY=$(echo "$RAW_TINY" | sed 's/\\n/\n/g' | python3 -c "import json,sys; print(json.dumps(sys.stdin.read(), ensure_ascii=False))")
   else
-    CONTENT_TINY=$(echo "$RAW_TINY" | python3 -c "import json,sys; print(json.dumps(sys.stdin.read()))")
+    CONTENT_TINY=$(echo "$RAW_TINY" | python3 -c "import json,sys; print(json.dumps(sys.stdin.read(), ensure_ascii=False))")
   fi
 else
   CONTENT_TINY="$CONTENT_FULL"
