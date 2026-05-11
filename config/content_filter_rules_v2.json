@@ -1,0 +1,83 @@
+{
+  "version": "1.1",
+  "last_updated": "2026-05-11T18:20:00Z",
+  "description": "Content Shield Rules — defines what is forbidden/flagged/reviewed (context-aware)",
+  "context_exceptions": {
+    "anti_shirk_allowed": {
+      "condition": "text_contains_anti_shirk_context",
+      "keywords": ["محاربة الشرك", "ضد الشرك", "تحريم الشرك", " reject shirk", "against polytheism", "condemn"],
+      "allowed_categories": ["shirk_terms"],
+      "action": "pass_if_context_match"
+    },
+    "anti_discrimination_allowed": {
+      "condition": "text_contains_unity_context",
+      "keywords": ["ضد الطائفية", "محاربة التمييز", "الوحدة", "unite", "unity", "equal"],
+      "allowed_categories": ["hate_speech_terms_طائفي-تمييز"],
+      "action": "pass_if_context_match"
+    },
+    "religious_discussion_allowed": {
+      "condition": "educational_or_condemnatory_context",
+      "keywords": ["نقاش", "دراسة", "تحليل", "شرح", "commentary", "analysis"],
+      "allowed_categories": ["religious_terms_needs_context"],
+      "action": "pass_if_context_match"
+    }
+  },
+  "categories": {
+    "sexual_content": {
+      "label": "إيحاءات جنسية صريحة أو غير لائقة",
+      "action": "reject",
+      "keywords": [
+        "نكح", "ممارسة الجنس", "علاقة جنسية", "الإثارة الجنسية",
+        "porn", "XXX", "adult content", "erotic", "nude",
+        "فعل فاحش", "فاحشة", "زنا", "لواط",
+        "تحرش", "استغلال جنسي"
+      ],
+      "patterns": [
+        "\\b(sex|sexual|nude|erotic)\\b",
+        "\\b(نكح|ممارسة|علاقة جنسية)\\b"
+      ]
+    },
+    "shirk_content": {
+      "label": "محتويات شركية أو تحث على عبادة غير الله",
+      "action": "reject",
+      "keywords": [
+        "شريك في الألوهية", " ابن الله", "أبناء الله", " Messiah",
+        "وسطاء مع الله", "شفاعة بدون إذن الله",
+        "يوزعwith الله", "يشارك الله في ملكوته"
+      ],
+      "patterns": [
+        "\\b(شريك|ابن الله|أبناء الله)\\b",
+        "\\b(Messiah|son of God)\\b"
+      ],
+      "context_exceptions": ["anti_shirk_allowed"]
+    },
+    "hate_speech": {
+      "label": "خطاب كراهية أو تمييز",
+      "action": "reject",
+      "keywords": [
+        "كره", "عنصري", "تمييز", "تعصب طائفي",
+        "razza", "color discrimination",
+        "كفر", "إبادة"
+      ],
+      "patterns": [
+        "\\b(كره|عنصري|تمييز)\\b"
+      ],
+      "context_exceptions": ["anti_discrimination_allowed"]
+    },
+    "misinformation": {
+      "label": "معلومات كاذبة متعمدة (fake news)",
+      "action": "flag_for_review",
+      "requires_ai": true
+    },
+    "trivial_content": {
+      "label": "تفاهات/مشتتات (غير مفيدة)",
+      "action": "flag_for_review",
+      "threshold_ratio": 0.8
+    }
+  },
+  "thresholds": {
+    "reject_confidence": 0.9,
+    "flag_confidence": 0.6,
+    "max_trivial_ratio": 0.8
+  }
+}

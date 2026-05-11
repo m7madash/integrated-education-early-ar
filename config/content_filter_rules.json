@@ -1,0 +1,74 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-05-11T18:15:00Z",
+  "description": "Content Shield Rules — defines what is forbidden/flagged/reviewed",
+  "categories": {
+    "sexual_content": {
+      "label": "إيحاءات جنسية صريحة أو غير لائقة",
+      "action": "reject",
+      "keywords": [
+        "sexual", "sex", "nude", "نكح", "علاقة جنسية", "ممارسة الجنس",
+        "الإغراء", "الإثارة الجنسية", "محتوى إباحي", "porn", "xxx"
+      ],
+      "patterns": [
+        "\\b(sex|sexual|nude|erotic)\\b",
+        "\\b(نكح|ممارسة|علاقة جنسية)\\b"
+      ],
+      "exceptions": [
+        "context:medical_or_educational",
+        "source:verified_quran_or_hadith"
+      ]
+    },
+    "shirk_content": {
+      "label": "محتويات شركية أو تحث على عبادة غير الله",
+      "action": "reject",
+      "keywords": [
+        "شريك في الألوهية", "يعtestify مع الله", "ابن الله", "أبناء الله",
+        "وسطاء مع الله", "شفاعة بدون إذن الله", "أولياء لا يملكون نفعاً",
+        " Messiah", "son of God", "partner with God"
+      ],
+      "patterns": [
+        "\\b(شريك|ابن الله|أبناء الله)\\b",
+        "\\b( Messiah | son of God )\\b"
+      ],
+      "exceptions": [
+        "context:discussing_shirk_to_warn_against_it",
+        "action: quoting Quran/Hadith to condemn shirk"
+      ]
+    },
+    "hate_speech": {
+      "label": "خطاب كراهية أو تمييز",
+      "action": "reject",
+      "keywords": [
+        "كره", "عنصري", "تمييز", " razza", "color", "تعصب", "طائفي"
+      ],
+      "patterns": [
+        "\\b(كره|عنصري|تمييز)\\b"
+      ]
+    },
+    "misinformation": {
+      "label": "معلومات كاذبة متعمدة (fake news)",
+      "action": "flag_for_review",
+      "keywords": [],
+      "patterns": [],
+      "note": "Requires AI classifier + human review"
+    },
+    "trivial_content": {
+      "label": "تفاهات/مشتتات (غير مفيدة)",
+      "action": "flag_for_review",
+      "keywords": [
+        "غ无不", "تفاهات", " Hastings", "unnecessary details"
+      ],
+      "note": "Low priority, may be filtered if ratio >80%"
+    }
+  },
+  "thresholds": {
+    "reject_confidence": 0.9,
+    "flag_confidence": 0.6,
+    "max_trivial_ratio": 0.8
+  },
+  "review_queue": {
+    "auto_reject": ["sexual_content", "shirk_content", "hate_speech"],
+    "requires_human": ["misinformation", "trivial_content", "religious_content_uncertain"]
+  }
+}

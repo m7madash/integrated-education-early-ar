@@ -1,0 +1,34 @@
+{
+  "policy": "Content Shield Review Policy",
+  "version": "1.0",
+  "description": "How to handle flagged content",
+  "review_levels": {
+    "auto_reject": {
+      "categories": ["sexual_content", "shirk_content", "hate_speech"],
+      "action": "reject_immediately",
+      "notify_user": true,
+      "log_reason": true
+    },
+    "human_review_required": {
+      "categories": ["misinformation", "trivial_content", "religious_content_uncertain"],
+      "action": "queue_for_human",
+      "timeout_hours": 24,
+      "notify_user": false,
+      "escalation": "if_no_response_in_24h → auto_reject_with_note"
+    },
+    "pass_through": {
+      "categories": ["verified_quran", "verified_hadith", "neutral_factual"],
+      "action": "allow_immediately",
+      "log": true
+    }
+  },
+  "review_queue": {
+    "max_pending": 100,
+    "priority_order": ["sexual_content", "shirk_content", "misinformation", "trivial_content"],
+    "notification": {
+      "on_new_flag": true,
+      "channel": "telegram",
+      "summary_interval": "hourly"
+    }
+  }
+}

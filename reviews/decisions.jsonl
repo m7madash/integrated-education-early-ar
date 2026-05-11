@@ -1,0 +1,3 @@
+# Content Shield — Human Decisions Log
+
+Each entry: {reviewId, decision, reviewer, note, decidedAt}

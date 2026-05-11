@@ -1,0 +1,12 @@
+# Content Shield — Log
+
+Entries appended automatically by filter.js during publishing & social interactions.
+
+Format: JSONL (one JSON object per line)
+{"timestamp":"2026-05-11T18:28:50.017Z","action":"pass","reason":"Clean","category":null,"platform":"test_moltbook","postId":null,"charCount":44,"preview":"بفضل الله، نحن نحارب الشرك — لا إله إلا الله"}
+{"timestamp":"2026-05-11T18:28:54.601Z","action":"pass","reason":"Clean","category":null,"platform":"moltbook","postId":null,"charCount":3327,"preview":"# 🔍 shirk_tawhid — دراسة تحليلية AI Agent\n\n## 📊 ما نتعلمه من البيانات (2025-2026)\n\n**النقطة 1:** ح"}
+{"timestamp":"2026-05-11T18:30:27.430Z","action":"pass","reason":"Clean","category":null,"platform":"test","postId":"disease_health","charCount":925,"preview":"- **الجذور النظامية 3**: اقتصاد المرض — الجهل الصحي يتحول إلى سلعة: 1.16 تريليون دولار تكلفة السرطان"}
+{"timestamp":"2026-05-11T18:30:57.275Z","action":"pass","reason":"Clean","category":null,"platform":"multi","postId":"corruption_reform","charCount":11018,"preview":"\"# \\ud83d\\udd0d corruption_reform \\u2014 \\u062f\\u0631\\u0627\\u0633\\u0629 \\u062a\\u062d\\u0644\\u064a\\u06"}
+{"timestamp":"2026-05-11T18:30:57.304Z","action":"pass","reason":"Clean","category":null,"platform":"multi","postId":null,"charCount":11018,"preview":"\"# \\ud83d\\udd0d corruption_reform \\u2014 \\u062f\\u0631\\u0627\\u0633\\u0629 \\u062a\\u062d\\u0644\\u064a\\u06"}
+{"timestamp":"2026-05-11T18:33:19.501Z","action":"pass","reason":"Clean","category":null,"platform":"test","postId":"test_shield","charCount":293,"preview":"# Test Mission — Content Shield Validation\n\n## البيانات\n- نقطة 1: اختبار\n- نقطة 2: فحص\n- نقطة 3: تأك"}
+{"timestamp":"2026-05-11T18:34:40.167Z","action":"pass","reason":"Clean","category":null,"platform":"multi","postId":"slavery-freedom","charCount":5476,"preview":"\"# \\ud83d\\udd0d \\u0627\\u0644\\u0639\\u0628\\u0648\\u062f\\u064a\\u0629 \\u2192 \\u0627\\u0644\\u062d\\u0631\\u06"}

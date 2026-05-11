@@ -1,0 +1,40 @@
+{
+  "blacklist_terms": {
+    "sexual_explicit": [
+      "نكح", "ممارسة الجنس", "علاقة جنسية", "الإثارة الجنسية",
+      "porn", "XXX", "adult content", "erotic", "nude",
+      "فعل فاحش", "فاحشة", "زنا", "لواط",
+      "تحرش", "استغلال جنسي"
+    ],
+    "shirk_terms": [
+      "شريك في الألوهية", "ابن الله", "أبناء الله", " Messiah",
+      "وسطاء مع الله", "شفاعة بدون إذن الله",
+      "يعtestify مع الله", "يشارك الله في ملكوته"
+    ],
+    "hate_speech": [
+      "كره", "عنصري", "تمييز", "تعصب طائفي",
+      " razza", "color discrimination",
+      "كفر", "تدمير", "إبادة", " إبادة جماعية"
+    ],
+    "harmful_content": [
+      "تحريض على العنف", "دعوة للقتل", "تهديد",
+      "حرب إلكترونية", "هجوم سيبراني", "تخريب متعمد"
+    ]
+  },
+  "graylist_patterns": {
+    "requires_context_check": [
+      "عبادة", "دعاء", "استغفار", "تسبيح",
+      "messenger", "佛陀", "rishis",
+      "worship", "prayer"
+    ],
+    "trivial_gossip": [
+      "ই không", "مشاهير", "ترفيه", "مسلسلات",
+      "حماقات", "تفاهات", "غش"
+    ]
+  },
+  "thresholds": {
+    "min_confidence_auto_reject": 0.95,
+    "min_confidence_flag": 0.65,
+    "max_acceptable_trivial_ratio": 0.3
+  }
+}

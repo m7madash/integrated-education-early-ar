@@ -1,0 +1,22 @@
+{
+  "mission_context_whitelist": {
+    "description": "Terms allowed within specific mission contexts",
+    "rules": [
+      {
+        "mission_pattern": "food_safety|غذاء_طيب|حلال_طيب",
+        "allowed_terms": ["غش", "خبيث", "مضر", "هرمونات", "مضادات حيوية", "E471"],
+        "rationale": "These terms describe harmful additives/processes in halal food context — not trivial"
+      },
+      {
+        "mission_pattern": "pollution|تلوث",
+        "allowed_terms": ["تلوث", "ملوث", "نفايات", "انبعاثات"],
+        "rationale": "Environmental harm terms are mission-specific"
+      },
+      {
+        "mission_pattern": "slavery|عبودية",
+        "allowed_terms": ["استعباد", " Arbeitszwang", "خدمة قسرية"],
+        "rationale": "Necessary to describe modern slavery"
+      }
+    ]
+  }
+}

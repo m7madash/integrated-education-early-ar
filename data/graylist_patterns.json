@@ -1,0 +1,38 @@
+{
+  "graylist_patterns": {
+    "description": "Content that needs human review due to contextual ambiguity",
+    "patterns": [
+      {
+        "regex": "\\b(عبادة|صلاة|صوم|زكاة|حج)\\b(?! إله| الله)",
+        "category": "religious_terms_needs_context",
+        "reason": "Terms like 'worship/prayer' could be valid (Islamic) or shirk (other deities)",
+        "action": "flag_for_review"
+      },
+      {
+        "regex": "\\b(Messiah|Christ|Son of God)\\b",
+        "category": "christian_theology",
+        "reason": "Christian theological terms — review if promoting shirk or discussing academically",
+        "action": "flag_for_review",
+        "allowed_if": "context=academic_discussion OR context=Islamic_critique"
+      },
+      {
+        "regex": "\\b(Buddha|Buddhism|rishis|idol)\\b",
+        "category": "non_Islamic_worship",
+        "reason": "Non-Islamic worship terms — review if promoting or just mentioning",
+        "action": "flag_for_review"
+      },
+      {
+        "regex": "\\b(sex|sexual|gender)(?!ual violence| trafficking)",
+        "category": "neutral_sex_terms",
+        "reason": "Mentions of sex/gender could be educational or inappropriate",
+        "action": "flag_if_no_educational_context"
+      },
+      {
+        "regex": "\\b(harmful|toxic|bad|evil)\\b(?! effect| consequence)",
+        "category": "subjective_adjectives",
+        "reason": "Subjective judg ements without evidence",
+        "action": "flag_for_review"
+      }
+    ]
+  }
+}

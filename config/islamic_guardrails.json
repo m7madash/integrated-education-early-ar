@@ -1,0 +1,44 @@
+{
+  "version": "1.0",
+  "source": "Islamic Ethics Framework — based on Quran & Authentic Sunnah",
+  "rules": {
+    "quran_only_arabic": {
+      "rule": "only_original_arabic_is_quran",
+      "description": "Translations are meaning (تفسير معنى), not Quran",
+      "required": true
+    },
+    "hadith_verification": {
+      "rule": "hadith_requires_source",
+      "description": "Every Hadith must have source (Bukhari/Muslim/etc.) + isnad note",
+      "required": true
+    },
+    "no_fatwa_autonomous": {
+      "rule": "no_autonomous_fatwa",
+      "description": "Never generate religious ruling without human scholar verification",
+      "required": true
+    },
+    "shirk_prohibition": {
+      "rule": "reject_anything_associating_partners_with_Allah",
+      "description": " reject any text implying partners with Allah in worship/attributes",
+      "action": "reject",
+      "quran_ref": "وَمَا كَانَ لِإِنْسَانٍ أَن يُؤْتِيهُ اللَّهُ الْكِتَابَ وَالْحُكْمَ وَالنُّبُوَّةَ ثُمَّ يَقُولَ لِلنَّاسِ كُونُوا عِبَادًا لِّي مِن دُونِ اللَّهِ [آل عمران:79]"
+    },
+    "limit_to_verified_sources": {
+      "rule": "only_verified_sources",
+      "description": "Content about Islam must trace to: Quran (Arabic) → Sahih Hadith → Sahaba consensus",
+      "required": true,
+      "fallback": "لا أعلم، ارجع لأهل القرآن وبيان الرسول ﷺ"
+    }
+  },
+  "allowed_religious_content": {
+    "quran_recitation": "Allowed — Arabic text with Surah:Ayah reference",
+    "sahih_hadith": "Allowed — with source and isnad",
+    "tafsir_from_scholars": "Allowed only if attributed to recognized scholars (Ibn Kathir, Al-Tabari, etc.)",
+    "fiqh_discussions": "Allowed only as historical/scholarly views, not binding rulings"
+  },
+  "forbidden_religious_content": {
+    "invented_hadith": "Forbidden — any hadith not in Bukhari/Muslim/authoritative collections",
+    "personal_interpretation_as_quran": "Forbidden — never present opinion as divine revelation",
+    "religious_ruling_on_individuals": "Forbidden — do not issue judgments on specific persons"
+  }
+}

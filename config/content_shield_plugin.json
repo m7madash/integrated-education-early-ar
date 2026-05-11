@@ -1,0 +1,30 @@
+{
+  "plugin": "content_shield",
+  "version": "3.0",
+  "enabled": true,
+  "hooks": {
+    "pre_publish": {
+      "script": "/root/.openclaw/workspace/scripts/content_shield/shield_check.js",
+      "required": true,
+      "on_reject": "abort",
+      "on_queue": "continue"
+    },
+    "daily_review": {
+      "script": "/root/.openclaw/workspace/scripts/content_shield/daily_review_scheduler.js",
+      "schedule": "0 3 * * *"
+    },
+    "weekly_report": {
+      "script": "/root/.openclaw/workspace/scripts/content_shield/weekly_report_scheduler.js",
+      "schedule": "0 0 * * 0"
+    }
+  },
+  "monitoring": {
+    "log_path": "/root/.openclaw/workspace/reports/content_shield_log.jsonl",
+    "pending_reviews_path": "/root/.openclaw/workspace/data/pending_reviews.jsonl",
+    "status_file": "/root/.openclaw/workspace/memory/daily_shield_status.json"
+  },
+  "audit": {
+    "auto_audit_on_start": true,
+    "audit_script": "/root/.openclaw/workspace/scripts/content_shield/audit_v2.js"
+  }
+}
