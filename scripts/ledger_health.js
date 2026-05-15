@@ -40,8 +40,8 @@ function main() {
       const diff = times[i] - times[i-1];
       gaps.push(diff / 1000);
     }
-    const maxGap = Math.max(...gaps);
-    const avgGap = gaps.reduce((a,b)=>a+b,0)/gaps.length;
+    const maxGap = Math.max(...gaps.filter(d => Number.isFinite(d)));
+    const avgGap = gaps.filter(d => Number.isFinite(d)).reduce((a,b)=>a+b,0) / gaps.filter(d => Number.isFinite(d)).length;
     console.log(`⏱️ Max gap: ${Math.round(maxGap)}s, Avg gap: ${Math.round(avgGap)}s`);
     // Expected: ~1800s (30min)
     const expected = 1800;

@@ -35,67 +35,53 @@ function analyze(windowSize = DEFAULT_WINDOW) {
   const defaultResult = { score: 1.0, status: 'ok', entries: 0, reason: 'insufficient_data' };
 
   if (!fs.existsSync(LEDGER)) return { ...defaultResult };
-  const lines = fs.readFileSync(LEDGER, 'utf8').split('\n').filter(l => l.trim());
-  if (lines.length === 0) return { ...defaultResult };
+  const allLines = fs.readFileSync(LEDGER, 'utf8').split('\n').filter(l => l.trim());
+  if (allLines.length === 0) return { ...defaultResult };
 
-  // Take last windowSize entries
-  const window = lines.slice(-windowSize);
-  let entries = [];
-  for (const line of window) {
+  // Parse all entries and filter to continuity_check only first
+  const allHbEntries = [];
+  for (const line of allLines) {
     try {
-      entries.push(JSON.parse(line));
-    } catch (e) {
-      // skip malformed
-    }
+      const obj = JSON.parse(line);
+      if (obj.type === 'continuity_check' && obj.ts && obj.duplicate !== true) {
+        allHbEntries.push({ ts: new Date(obj.ts).getTime() });
+      }
+    } catch (e) { /* skip malformed */ }
   }
 
-  if (entries.length < 2) {
-    return { ...defaultResult, entries: entries.length };
-  }
-
-  // Filter to continuity_check entries only
-  const hbEntries = entries.filter(e => e.type === 'continuity_check' && e.ts && e.duplicate !== true);
-  if (hbEntries.length < 2) {
-    return { ...defaultResult, entries: hbEntries.length, reason: 'insufficient_heartbeat_entries' };
-  }
+  if (allHbEntries.length < 2) return { ...defaultResult, entries: allHbEntries.length, reason: 'insufficient_heartbeat_entries' };
 
   // Sort by timestamp
-  hbEntries.sort((a, b) => new Date(a.ts) - new Date(b.ts));
+  allHbEntries.sort((a, b) => a.ts - b.ts);
+
+  // Take last windowSize heartbeat entries (not ledger lines)
+  const window = allHbEntries.slice(-windowSize);
+  if (window.length < 2) return { ...defaultResult, entries: window.length };
 
   // Compute intervals in seconds
   const intervals = [];
-  for (let i = 1; i < hbEntries.length; i++) {
-    const t1 = new Date(hbEntries[i - 1].ts).getTime();
-    const t2 = new Date(hbEntries[i].ts).getTime();
-    intervals.push((t2 - t1) / 1000);
+  for (let i = 1; i < window.length; i++) {
+    const iv = (window[i].ts - window[i-1].ts) / 1000;
+    if (Number.isFinite(iv) && iv >= 300) { // filter short-interval paired entries (< 5 min) and NaN
+      intervals.push(iv);
+    }
   }
 
-  // Expected interval from config
   const expected = CFG_EXPECTED;
-
-  const medDelta = median(intervals);
+  const sortedIntervals = [...intervals].sort((a,b) => a - b);
+  const medianVal = sortedIntervals[Math.floor(sortedIntervals.length/2)];
   const absDevs = intervals.map(d => Math.abs(d - expected));
-  const MAD = median(absDevs);
+  const MAD = median(absDevs.sort((a,b) => a - b));
 
-  // Coherence score: linear decay based on median absolute deviation from expected
   let score = 1 - Math.min(1, MAD / expected);
   score = Math.max(0, Math.min(1, score));
 
-  // Thresholds: high expectation for regular heartbeats
-  const thresholdHigh = 0.8;
-  const thresholdLow = 0.6;
+  const thresholdHigh = 0.8, thresholdLow = 0.6;
   let status = 'ok';
   if (score < thresholdLow) status = 'degraded';
   else if (score < thresholdHigh) status = 'warning';
 
-  return {
-    score,
-    status,
-    entries: hbEntries.length,
-    interval_median: medDelta,
-    MAD,
-    expected_interval: expected
-  };
+  return { score, status, entries: window.length, interval_median: medianVal, MAD, expected_interval: expected };
 }
 
 function alert(drift) {
