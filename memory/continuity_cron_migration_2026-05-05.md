@@ -1,7 +1,7 @@
-# Continuity Cron Migration — 2026-05-08T04:45:33.481Z
+# Continuity Cron Migration — 2026-05-10T15:49:30.801Z
 
 ## Changes Applied
-- Staggered schedule: `15,45 * * * *` → `10,40 * * * *`
+- Staggered schedule: `0,30 * * * *` → `10,40 * * * *`
 - Runner: continuity_runner.js → continuity_runner_v2.js
 - Improvements: duplicate suppression, gap accounting, robust lock
 

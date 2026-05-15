@@ -13,7 +13,9 @@
 
 const fs = require('fs');
 const path = require('path');
+const util = require('util');
 const { spawnSync, execFile, spawn } = require('child_process');
+const execFileAsync = util.promisify(execFile);
 
 const WORKSPACE = '/root/.openclaw/workspace';
 const LOG_DIR = path.join(WORKSPACE, 'logs');
@@ -21,7 +23,11 @@ const LEDGER_FILE = path.join(WORKSPACE, 'memory', 'ledger.jsonl');
 const MEMORY_DIR = path.join(WORKSPACE, 'memory');
 const HEARTBEAT_STATE_FILE = path.join(WORKSPACE, 'memory', 'heartbeat-state.json');
 const LOCK_DIR_BASE = path.join(WORKSPACE, '.lock', 'continuity_30min');
+const SNAPSHOTS_DIR = path.join(WORKSPACE, '.snapshots');
 const DUPLICATE_WINDOW_SEC = 30; // Suppress runs within 30s of previous (aligned with 30min schedule)
+
+// Load continuity config for snapshot interval, etc.
+const continuityConfig = JSON.parse(fs.readFileSync(path.join(WORKSPACE, 'continuity.config.json'), 'utf8'));
 
 fs.mkdirSync(LOG_DIR, { recursive: true });
 
@@ -240,6 +246,57 @@ async function stepUpdateHeartbeatState() {
   }
 }
 
+// ── Platform Health Monitoring ─────────────────────────────────────────────
+async function stepPlatformHealth() {
+  log('🏥 Running platform health monitor...');
+  try {
+    const healthScript = path.join(WORKSPACE, 'scripts', 'platform_health_monitor.js');
+    if (fs.existsSync(healthScript)) {
+      await new Promise((resolve) => {
+        execFile('node', [healthScript], { cwd: WORKSPACE }, (err, stdout, stderr) => {
+          if (err) log('⚠️ Platform health check failed: ' + err.message);
+          else {
+            try {
+              const healthData = JSON.parse(stdout);
+              log(`📊 MoltX: ${healthData.platformHealth.moltx.status} (${(healthData.platformHealth.moltx.successRate*100).toFixed(1)}%)`);
+              log(`📊 MoltBook: ${healthData.platformHealth.moltbook.status} (${(healthData.platformHealth.moltbook.successRate*100).toFixed(1)}%)`);
+              log(`📊 Moltter: ${healthData.platformHealth.moltter.status} (${(healthData.platformHealth.moltter.successRate*100).toFixed(1)}%)`);
+            } catch (e) { /* ignore JSON parse */ }
+          }
+          resolve();
+        });
+      });
+      log('✅ Platform health check complete');
+    } else {
+      log('⚠️ platform_health_monitor.js not found — skipping');
+    }
+  } catch (e) {
+    log('⚠️ Platform health step error: ' + e.message);
+  }
+}
+
+// ── Auto-Healing: Retry Failed Posts ───────────────────────────────────────
+async function stepRetryFailedPosts() {
+  log('🔧 Scanning for failed posts to auto-retry...');
+  try {
+    const retryScript = path.join(WORKSPACE, 'scripts', 'retry_failed_posts.js');
+    if (fs.existsSync(retryScript)) {
+      await new Promise((resolve) => {
+        execFile('node', [retryScript], { cwd: WORKSPACE }, (err, stdout, stderr) => {
+          if (err) log('⚠️ Retry scan failed: ' + err.message);
+          else log('✅ Retry scan complete');
+          resolve();
+        });
+      });
+    } else {
+      log('⚠️ retry_failed_posts.js not found — skipping');
+    }
+  } catch (e) {
+    log('⚠️ Retry step error: ' + e.message);
+  }
+}
+
+
 // (Other steps remain unchanged for brevity - they would be copied from original)
 // For this improvement cycle, we focus on the lock/duplicate/gap issues.
 
@@ -281,6 +338,77 @@ function recordGapIfNeeded() {
   }
 }
 
+// ── Snapshot creation (hourly) ──────────────────────────────────────────────
+async function stepCreateSnapshot() {
+  log('📦 Checking if snapshot needed...');
+  try {
+    const continuityJs = path.join(WORKSPACE, 'continuity.js');
+    if (!fs.existsSync(continuityJs)) {
+      log('⚠️ continuity.js not found — skipping snapshot');
+      return;
+    }
+
+    // Check last snapshot time to respect interval
+    const snapshotFiles = fs.readdirSync(SNAPSHOTS_DIR).filter(f => f.startsWith('snapshot-') && f.endsWith('.json'));
+    let lastSnapshotTime = null;
+    if (snapshotFiles.length > 0) {
+      // Get most recent snapshot by filename timestamp
+      const sorted = snapshotFiles.sort().reverse();
+      const latest = sorted[0];
+      // Filename: snapshot-YYYY-MM-DDTHH-MM-SS-msZ.json
+      // Extract timestamp portion
+      const ts = latest.replace(/^snapshot-/, '').replace(/\.json$/, '');
+      // Convert filename format (T23-46-40-056Z) to ISO (T23:46:40.056Z)
+      const [datePart, timePart] = ts.split('T');
+      if (timePart) {
+        const parts = timePart.split('-'); // ['23','46','40','056Z']
+        if (parts.length >= 4) {
+          const h = parts[0], m = parts[1], s = parts[2];
+          const msWithZ = parts[3];
+          const ms = msWithZ.replace('Z', '');
+          const isoStr = datePart + 'T' + h + ':' + m + ':' + s + '.' + ms + 'Z';
+          lastSnapshotTime = new Date(isoStr);
+          if (isNaN(lastSnapshotTime.getTime())) {
+            log('⚠️ Invalid snapshot timestamp parsed: ' + latest + ' → ' + isoStr);
+            lastSnapshotTime = null;
+          }
+        }
+      }
+    }
+
+    const now = new Date();
+    const configInterval = (continuityConfig.kernel.snapshotInterval || 3600000); // ms
+    const shouldSnapshot = !lastSnapshotTime || (now - lastSnapshotTime) >= configInterval;
+
+    if (!shouldSnapshot) {
+      const ageMin = Math.floor((now - lastSnapshotTime) / 60000);
+      log(`⏳ Snapshot not needed (last: ${ageMin}min ago, interval: ${configInterval/60000}min)`);
+      return;
+    }
+
+    log(`📸 Creating snapshot (interval elapsed)`);
+    // Call continuity.js snapshot command
+    const { execFile } = require('child_process');
+    const util = require('util');
+    const execFileAsync = util.promisify(execFile);
+
+    try {
+      await execFileAsync('node', [continuityJs, 'snapshot'], { cwd: WORKSPACE, timeout: 30000 });
+      log('✅ Snapshot created successfully');
+    } catch (snapErr) {
+      log('❌ Snapshot creation failed: ' + snapErr.message);
+      // Record failure in ledger for monitoring
+      appendLedger({
+        type: 'snapshot_failed',
+        error: snapErr.message,
+        exitCode: snapErr.code || 'unknown'
+      });
+    }
+  } catch (e) {
+    log('⚠️ Snapshot step error: ' + e.message);
+  }
+}
+
 // ── Mission Verification Step ───────────────────────────────────────────────
 async function stepMissionVerification() {
   log('📅 Verifying daily mission posts...');
@@ -313,7 +441,7 @@ async function stepMissionVerification() {
     const sched = m.hour * 60 + m.minute;
     if (currentMinutes >= sched) {
       expectedCount++;
-      const complete = await isMissionComplete(m.name);
+      const complete = await isMissionComplete(m.name.replace(/-/g, '_'));
       if (!complete) {
         missing.push(m);
       }
@@ -339,7 +467,7 @@ async function stepMissionVerification() {
       for (const mission of toRepublish) {
         log(`🚀 Publishing (async): ${mission}`);
         try {
-          const child = spawn('bash', ['scripts/publish_daily_post.sh', mission], {
+          const child = spawn('bash', ['scripts/publish_daily_post.sh', mission.replace(/-/g, '_')], {
             cwd: WORKSPACE,
             detached: true,
             stdio: 'ignore'
@@ -464,24 +592,21 @@ async function ensureLedgerEntry() {
 
   fs.mkdirSync(path.dirname(LEDGER_FILE), { recursive: true });
 
-  // Run core steps (simplified for this improvement cycle)
+  // Run core steps (v2 improvements)
   log('🔧 Running continuity checks (v2 improved)...');
   await stepKernelHeartbeat();
   await stepKPI();
+  // NEW: Platform health monitoring (gates publishing decisions)
+  await stepPlatformHealth();
   await stepRecordLedger();
-  // Verify ledger entry exists; if not, write fallback
   await ensureLedgerEntry();
   await stepUpdateHeartbeatState();
-
-  // CRITICAL: Verify daily missions and auto-repair any gaps
-  // This was defined but occasionally skipped due to async flow issues
-  log('📋 Step: Mission verification (ensuring all daily posts published)');
   await stepMissionVerification();
   log('✅ Mission verification complete');
-
-  // NEW: Gap detection after successful run
+  // NEW: Auto-healing retry scan for failed posts
+  await stepRetryFailedPosts();
   recordGapIfNeeded();
-
+  await stepCreateSnapshot();
   log('=== Continuity 30min Check Complete (v2) ===');
 
   // Compute summary
@@ -496,6 +621,17 @@ async function ensureLedgerEntry() {
   const summary = `✅ Continuity 30min (v2): ${now.toISOString().slice(11, 16)} UTC — Ledger: ${ledgerCount} entries`;
   console.log(summary);
   fs.writeFileSync(path.join(WORKSPACE, 'last_continuity_summary.txt'), summary + '\n', 'utf8');
+
+  // ── Precise Gap Scan (async, non-blocking) ───────────────────────────────
+  // Runs validate_gaps_v2.js to detect missing :00/:30 slots in last 4 hours
+  try {
+    execFile('node', ['/root/.openclaw/workspace/scripts/continuity/validate_gaps_v2.js'], {
+      stdio: 'ignore'
+    });
+    log('🔍 Precise gap scan triggered (background)');
+  } catch (e) {
+    log('⚠️ Gap scan failed: ' + e.message);
+  }
 
   // ── Clear Cron Running Flag ──────────────────────────────────────────────
   // The OpenClaw cron service sometimes leaves runningAtMs set if the session

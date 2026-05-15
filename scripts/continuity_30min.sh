@@ -19,17 +19,31 @@ DUPLICATE_WINDOW_SEC=30  # Aligned with 30min schedule; was 60, caused suppressi
 
 cd "${WORKSPACE}"
 
-# Duplicate suppression: if last continuity_check was <60s ago, skip
-if [ -f "$LEDGER_FILE" ]; then
-  LAST_RUN_EPOCH=$(awk -F'"' '/"type":"continuity_check"/ {line=$0} END {gsub(/.*"ts":"|".*/, "", line); cmd="date -d '"line"' +%s 2>/dev/null || date -j -f '%Y-%m-%dT%H:%M:%S' '"line"' +%s 2>/dev/null"; cmd | getline epoch; close(cmd); if(epoch>0) print epoch}' "$LEDGER_FILE")
-  if [ -n "$LAST_RUN_EPOCH" ]; then
-    NOW_EPOCH=$(date +%s)
-    DIFF_SEC=$(( NOW_EPOCH - LAST_RUN_EPOCH ))
-    if [ "$DIFF_SEC" -lt "$DUPLICATE_WINDOW_SEC" ] 2>/dev/null; then
-      echo "[$(date '+%Y-%m-%d %H:%M:%S')] ⚠️ Duplicate suppression: last run was ${DIFF_SEC}s ago (< ${DUPLICATE_WINDOW_SEC}s) — exiting" >> "$LOG_FILE"
-      # Record minimal duplicate entry for audit
-      echo "{\"ts\":\"$(date -u +%Y-%m-%dT%H:%M:%S.000Z)\",\"type\":\"continuity_check\",\"phase\":\"30min\",\"duplicate\":true,\"previousInterval\":${DIFF_SEC}}" >> "$LEDGER_FILE"
-      exit 0
+# Duplicate suppression: use wrapper script (exec-preflight safe)
+if [ -f "$WORKSPACE/scripts/check_duplicate_v2.js" ]; then
+  DUPLICATE_CHECK=$(node "$WORKSPACE/scripts/check_duplicate_v2.js" 2>/dev/null)
+  CASE="$(echo "$DUPLICATE_CHECK" | head -1)"
+  if echo "$CASE" | grep -q '^DUPLICATE:'; then
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ⚠️ $(echo "$DUPLICATE_CHECK" | head -1) — exiting" >> "$LOG_FILE"
+    # Already recorded by wrapper
+    exit 0
+  else
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $(echo "$DUPLICATE_CHECK" | head -1)" >> "$LOG_FILE"
+  fi
+else
+  # Fallback: simple time-based check without awk pipeline
+  if [ -f "$LEDGER_FILE" ]; then
+    LAST_LINE=$(tail -1 "$LEDGER_FILE")
+    # Extract timestamp using built-in parameter expansion (no sed/awk)
+    TS="${LAST_LINE#*\"ts\":\"}"
+    TS="${TS%%\"*}"
+    if [ -n "$TS" ] && [ "$TS" != "$LAST_LINE" ]; then
+      LAST_EPOCH=$(date -d "$TS" +%s 2>/dev/null || date -j -f '%Y-%m-%dT%H:%M:%S' "$TS" +%s 2>/dev/null || echo 0)
+      NOW_EPOCH=$(date +%s)
+      if [ "$LAST_EPOCH" -gt 0 ] && [ $((NOW_EPOCH - LAST_EPOCH)) -lt 60 ]; then
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] ⚠️ Duplicate suppression (simple): last run <60s ago — exiting" >> "$LOG_FILE"
+        exit 0
+      fi
     fi
   fi
 fi
@@ -133,12 +147,32 @@ fi
 # ==================== 2. KPI calculation & health ====================
 log "📊 Calculating KPIs..."
 if [ -f "${WORKSPACE}/scripts/kpi_tracker.js" ]; then
+  # Run KPI tracker — captures output to log, creates kpi_current.json
   node "${WORKSPACE}/scripts/kpi_tracker.js" check >> "$LOG_FILE" 2>&1 || log "⚠️ KPI check had non-zero exit"
-  # Capture KPI summary for state update
+
+  # Read KPI state from JSON file (no shell pipelines)
   if [ -f "${WORKSPACE}/memory/kpi_current.json" ]; then
-    KPI_JSON=$(cat "${WORKSPACE}/memory/kpi_current.json")
-    KPI_HEALTH=$(echo "$KPI_JSON" | node -e "const d=JSON.parse(require('fs').readFileSync(0,'utf8')); console.log(d.health || 'unknown')" 2>/dev/null || echo "unknown")
-    KPI_DEGRADATION=$(echo "$KPI_JSON" | node -e "const d=JSON.parse(require('fs').readFileSync(0,'utf8')); console.log(d.degradationReason || d.issues && d.issues[0] || '')" 2>/dev/null || echo "")
+    # Use Node to extract fields safely (single binary, no shell operators)
+    KPI_SUMMARY=$(node -e "
+      const fs=require('fs');
+      const p='${WORKSPACE}/memory/kpi_current.json';
+      try {
+        const d=JSON.parse(fs.readFileSync(p,'utf8'));
+        console.log(d.health||'unknown');
+      } catch(e) { console.log('unknown'); }
+    " 2>/dev/null)
+    KPI_HEALTH="$KPI_SUMMARY"
+
+    KPI_DEGRADATION=$(node -e "
+      const fs=require('fs');
+      const p='${WORKSPACE}/memory/kpi_current.json';
+      try {
+        const d=JSON.parse(fs.readFileSync(p,'utf8'));
+        if (d.degradationReason) console.log(d.degradationReason);
+        else if (d.issues && d.issues[0]) console.log(d.issues[0]);
+        else console.log('');
+      } catch(e) { console.log(''); }
+    " 2>/dev/null)
   else
     KPI_HEALTH="unknown"
     KPI_DEGRADATION=""

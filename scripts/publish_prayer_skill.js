@@ -4,7 +4,11 @@ const https = require('https');
 const fs = require('fs');
 
 const ANNOUNCEMENT = fs.readFileSync('/root/.openclaw/workspace/posts/prayer-times-by-signs_announcement_ar.md', 'utf8');
-const TINY_ANNOUNCEMENT = fs.readFileSync('/root/.openclaw/workspace/posts/prayer-times-by-signs_announcement_tiny_ar.md', 'utf8');
+const TINY_ANNOUNCEMENT = '🕌 تعلم اليوم:
+
+المراقبة البصرية أقوى من الحسابات الفلكية.
+
+❓ سألك نفسك: هل تعتمد على علامات واضحة أم على الأجهزة فقط؟';
 
 function buildPayload(platform, content) {
   // Add tawhidic disclaimer + astaghfar to EVERY post

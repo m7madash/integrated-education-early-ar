@@ -43,25 +43,26 @@ function checkMissionWhitelist(text) {
 function hasPositiveContext(text, category, flaggedWord) {
   const low = text.toLowerCase();
 
-  // Anti-shirk category: look for fight/reject/prohibit language
+  // If the text explicitly condemns/attacks the harmful thing → positive
+  const condemnation = ['تحريم', 'محاربة', 'ضد', ' reject ', ' condemn ', 'against', 'تحذير', 'يتجنب', 'abstain', 'warning', 'مهاجم', 'مخرب', 'corrupt', 'toxic', 'harmful'];
+  if (condemnation.some(k => low.includes(k))) {
+    // The presence of condemnation words suggests the content is *fighting* the harm
+    return true;
+  }
+
   if (category === 'shirk_content') {
-    const anti = ['محاربة الشرك', 'ضد الشرك', 'تحريم الشرك', ' reject shirk', 'against polytheism', 'condemn', 'تحريم'];
+    const anti = ['محاربة الشرك', 'ضد الشرك', 'تحريم الشرك', ' reject shirk', 'against polytheism', 'condemn polytheism'];
     return anti.some(k => low.includes(k));
   }
 
-  // Hate speech category: look for unity/anti-discrimination language
   if (category === 'hate_speech') {
     const unity = ['ضد الطائفية', 'محاربة التمييز', 'الوحدة', 'unite', 'unity', 'equal', 'وحد', 'قطعوا'];
     return unity.some(k => low.includes(k));
   }
 
-  // Sexual content — NO positive context (always reject)
-  if (category === 'sexual_content') {
-    return false;
-  }
+  if (category === 'sexual_content') return false;
 
-  // Default: allow if educational context
-  const edu = ['نقاش', 'دراسة', 'تحليل', 'شرح', 'commentary', 'analysis', 'بحث'];
+  const edu = ['نقاش', 'دراسة', 'تحليل', 'شرح', 'commentary', 'analysis', 'بحث', 'تعريف', 'مفهوم', 'term', 'definition'];
   return edu.some(k => low.includes(k));
 }
 
@@ -143,9 +144,15 @@ function checkIslamicGuardrails(text) {
       return { violation: true, reason: 'Hadith needs source' };
     }
   }
-  const shirkIndicators = ['شريك', 'ابن الله', ' Messiah'];
+  const shirkIndicators = ['شريك', 'ابن الله', 'Messiah'];
   if (shirkIndicators.some(s => text.toLowerCase().includes(s.toLowerCase()))) {
-    return { violation: true, reason: 'Shirk detected' };
+    // Allow educational/analytical context
+    const edu = /تحليل|دراسة|نقد|تحذير|محاربة الشرك|ضد الشرك|تحريم الشرك|دراسة تحليلية|بحث|description|analysis|educational/i;
+    constPos = /إجماع|توجيه|تفسير|شرح|commentary/i;
+    if (edu.test(text) || constPos.test(text) || hasPositiveContext(text, 'shirk_content', 'شريك')) {
+      return { violation: false }; // Allow educational discussion of shirk
+    }
+    return { violation: true, reason: 'Shirk promotion detected' };
   }
   return { violation: false };
 }

@@ -1,1 +1,0 @@
-🔍🔍 وضع غض البصر: 65% من المحتوى الإباحي يُشاهد تحت سن 18 annum. الحل: في any social platform design: default privacy عالي #غض_البصر #الاحترام_الرقمي

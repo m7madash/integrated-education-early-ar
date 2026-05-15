@@ -79,32 +79,37 @@ append_ledger() {
 echo "" >> "$LOG_FILE"
 echo "## $(date -u '+%H:%M UTC') - نشر: $MISSION" >> "$LOG_FILE"
 
-# Load previous IDs & delete old posts
+# Load previous IDs (store old IDs for deletion after successful new publish)
 PREV_IDS=$(cat "$POST_IDS_FILE")
-MOLTX_ID=$(echo "$PREV_IDS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('moltx','') or json.load(sys.stdin).get('MOLTX',''))" 2>/dev/null || echo "")
-MOLTBOOK_ID=$(echo "$PREV_IDS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('moltbook','') or json.load(sys.stdin).get('MOLTBOOK',''))" 2>/dev/null || echo "")
-MOLTTER_ID=$(echo "$PREV_IDS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('moltter','') or json.load(sys.stdin).get('MOLTTER',''))" 2>/dev/null || echo "")
+OLD_MOLTX_ID=$(echo "$PREV_IDS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('moltx','') or json.load(sys.stdin).get('MOLTX',''))" 2>/dev/null || echo "")
+OLD_MOLTBOOK_ID=$(echo "$PREV_IDS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('moltbook','') or json.load(sys.stdin).get('MOLTBOOK',''))" 2>/dev/null || echo "")
+OLD_MOLTTER_ID=$(echo "$PREV_IDS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('moltter','') or json.load(sys.stdin).get('MOLTTER',''))" 2>/dev/null || echo "")
+
+# Initialize new IDs as empty
+MOLTX_ID=""
+MOLTBOOK_ID=""
+MOLTTER_ID=""
 
 delete_previous() {
   local platform="$1" post_id="$2" token_var="$3"
   [ -n "$post_id" ] && [ "$post_id" != "null" ] && [ "$post_id" != "undefined" ] || return 0
   echo "🗑️ حذف المنشور القديم من $platform (ID: $post_id)..."
-  local CODE
+  local CODE="000"
   case "$platform" in
     moltx)
       CODE=$(curl --connect-timeout 10 --max-time 30 -s -o /dev/null -w "%{http_code}" -X DELETE \
         "https://moltx.io/v1/posts/$post_id" \
-        -H "Authorization: Bearer ${!token_var}")
+        -H "Authorization: Bearer ${!token_var}" 2>/dev/null) || true
       ;;
     moltbook)
       CODE=$(curl --connect-timeout 10 --max-time 30 -s -o /dev/null -w "%{http_code}" -X DELETE \
         "https://moltbook.com/api/v1/posts/$post_id" \
-        -H "Authorization: Bearer ${!token_var}")
+        -H "Authorization: Bearer ${!token_var}" 2>/dev/null) || true
       ;;
     moltter)
       CODE=$(curl --connect-timeout 10 --max-time 30 -s -o /dev/null -w "%{http_code}" -X DELETE \
         "https://api.molt.tw/v1/statuses/$post_id" \
-        -H "Authorization: Bearer ${!token_var}")
+        -H "Authorization: Bearer ${!token_var}" 2>/dev/null) || true
       ;;
   esac
   if [ "$CODE" = "200" ] || [ "$CODE" = "204" ]; then
@@ -114,21 +119,19 @@ delete_previous() {
   fi
 }
 
-delete_previous moltx "$MOLTX_ID" moltx_sk
-delete_previous moltbook "$MOLTBOOK_ID" moltbook_sk
-delete_previous moltter "$MOLTTER_ID" moltter_sk
+
 
 # Publish functions
 publish_moltx() {
   local content="$1"
   echo "📤 نشر إلى MoltX..."
-  local resp
+  local resp=""
   resp=$(curl -s --connect-timeout 15 --max-time 60 -X POST "https://moltx.io/v1/posts" \
     -H "Authorization: Bearer ${moltx_sk:-moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a}" \
     -H "Content-Type: application/json" \
-    -d "{\"content\":$content,\"visibility\":\"public\"}")
+    -d "{\"content\":$content,\"visibility\":\"public\"}" 2>/dev/null) || true
   local id
-  id=$(echo "$resp" | python3 -c "import sys, json; print(json.load(sys.stdin).get('id',''))" 2>/dev/null || echo "")
+  id=$(echo "$resp" | python3 -c "import sys, json; data=json.load(sys.stdin); print(data.get('id','') or data.get('data',{}).get('id',''))" 2>/dev/null || echo "")
   if [ -n "$id" ] && [ "$id" != "None" ]; then
     echo "✅ MoltX: $id"
     MOLTX_ID="$id"
@@ -142,13 +145,13 @@ publish_moltx() {
 publish_moltbook() {
   local content="$1"
   echo "📤 نشر إلى MoltBook..."
-  local resp
+  local resp=""
   resp=$(curl -s --connect-timeout 15 --max-time 60 -X POST "https://moltbook.com/api/v1/posts" \
     -H "Authorization: Bearer ${moltbook_sk:-moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW}" \
     -H "Content-Type: application/json" \
-    -d "{\"content\":$content,\"visibility\":\"public\"}")
+    -d "{\"content\":$content,\"visibility\":\"public\"}" 2>/dev/null) || true
   local id
-  id=$(echo "$resp" | python3 -c "import sys, json; print(json.load(sys.stdin).get('id',''))" 2>/dev/null || echo "")
+  id=$(echo "$resp" | python3 -c "import sys, json; data=json.load(sys.stdin); print(data.get('id','') or data.get('data',{}).get('id',''))" 2>/dev/null || echo "")
   if [ -n "$id" ] && [ "$id" != "None" ]; then
     echo "✅ MoltBook: $id"
     MOLTBOOK_ID="$id"
@@ -162,13 +165,13 @@ publish_moltbook() {
 publish_moltter() {
   local content="$1"
   echo "📤 نشر إلى Moltter..."
-  local resp
+  local resp=""
   resp=$(curl -s --connect-timeout 15 --max-time 60 -X POST "https://api.molt.tw/v2/statuses" \
     -H "Authorization: Bearer ${moltter_sk:-moltter_sk_d8162b89d8204a5f94b5c6f8b2e1a7d9}" \
     -H "Content-Type: application/json" \
-    -d "{\"status\":$content}")
+    -d "{\"status\":$content}" 2>/dev/null) || true
   local id
-  id=$(echo "$resp" | python3 -c "import sys, json; print(json.load(sys.stdin).get('id',''))" 2>/dev/null || echo "")
+  id=$(echo "$resp" | python3 -c "import sys, json; data=json.load(sys.stdin); print(data.get('id','') or data.get('data',{}).get('id',''))" 2>/dev/null || echo "")
   if [ -n "$id" ] && [ "$id" != "None" ]; then
     echo "✅ Moltter: $id"
     MOLTTER_ID="$id"
@@ -179,22 +182,133 @@ publish_moltter() {
   fi
 }
 
-# ========== PUBLISH (with retry) ==========
-MOLTX_OK=0; MOLTBOOK_OK=0; MOLTTER_OK=0
+# ========== PUBLISH (with retry + safe delete) ==========
+MAX_ATTEMPTS=3
+BASE_DELAY=60   # seconds
 
-publish_moltx "$CONTENT_FULL" || true
+# --- Circuit Breaker: Parse enabled platforms from environment ---
+# ENABLED_PLATFORMS is a comma-separated list (e.g., "moltx,moltbook,moltter")
+# If not set, default to all platforms for backward compatibility
+CIRCUIT_ENABLED=${CIRCUIT_BREAKER_ACTIVE:-0}
+if [ "$CIRCUIT_ENABLED" = "1" ] && [ -n "$ENABLED_PLATFORMS" ]; then
+  echo "🛡️  Circuit breaker active: publishing only to: $ENABLED_PLATFORMS"
+  ENABLED_LIST="$ENABLED_PLATFORMS"
+else
+  echo "⚠️  Circuit breaker bypassed or not configured — attempting all platforms"
+  ENABLED_LIST="moltx,moltbook,moltter"
+fi
+
+is_platform_enabled() {
+  local p="$1"
+  case ",$ENABLED_LIST," in
+    *",$p,"*) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
+# --- MoltX ---
+if is_platform_enabled "moltx"; then
+  attempt=1
+  while [ $attempt -le $MAX_ATTEMPTS ]; do
+    echo "📤 [MoltX] Attempt $attempt/$MAX_ATTEMPTS"
+    if publish_moltx "$CONTENT_FULL"; then
+      echo "✅ MoltX succeeded on attempt $attempt"
+      # Delete old post only after successful new publish
+      if [ -n "$OLD_MOLTX_ID" ] && [ "$OLD_MOLTX_ID" != "null" ] && [ "$OLD_MOLTX_ID" != "undefined" ]; then
+        delete_previous moltx "$OLD_MOLTX_ID" moltx_sk
+      fi
+      break
+    else
+      echo "❌ MoltX failed on attempt $attempt"
+      if [ $attempt -lt $MAX_ATTEMPTS ]; then
+        delay=$(( BASE_DELAY * (2 ** (attempt - 1)) ))
+        echo "⏳ Waiting ${delay}s before retrying MoltX..."
+        sleep $delay
+      fi
+    fi
+    attempt=$((attempt + 1))
+  done
+  sleep 1
+else
+  echo "⏭️  MoltX skipped (circuit breaker: disabled or unhealthy)"
+fi
+
 sleep 1
-publish_moltbook "$CONTENT_FULL" || true
-sleep 1
-publish_moltter "$CONTENT_FULL" || true
+
+# --- MoltBook ---
+if is_platform_enabled "moltbook"; then
+  attempt=1
+  while [ $attempt -le $MAX_ATTEMPTS ]; do
+    echo "📤 [MoltBook] Attempt $attempt/$MAX_ATTEMPTS"
+    if publish_moltbook "$CONTENT_FULL"; then
+      echo "✅ MoltBook succeeded on attempt $attempt"
+      if [ -n "$OLD_MOLTBOOK_ID" ] && [ "$OLD_MOLTBOOK_ID" != "null" ] && [ "$OLD_MOLTBOOK_ID" != "undefined" ]; then
+        delete_previous moltbook "$OLD_MOLTBOOK_ID" moltbook_sk
+      fi
+      break
+    else
+      echo "❌ MoltBook failed on attempt $attempt"
+      if [ $attempt -lt $MAX_ATTEMPTS ]; then
+        delay=$(( BASE_DELAY * (2 ** (attempt - 1)) ))
+        echo "⏳ Waiting ${delay}s before retrying MoltBook..."
+        sleep $delay
+      fi
+    fi
+    attempt=$((attempt + 1))
+  done
+  sleep 1
+else
+  echo "⏭️  MoltBook skipped (circuit breaker: disabled or unhealthy)"
+fi
+
+# --- Moltter ---
+if is_platform_enabled "moltter"; then
+  attempt=1
+  while [ $attempt -le $MAX_ATTEMPTS ]; do
+    echo "📤 [Moltter] Attempt $attempt/$MAX_ATTEMPTS"
+    if publish_moltter "$CONTENT_FULL"; then
+      echo "✅ Moltter succeeded on attempt $attempt"
+      if [ -n "$OLD_MOLTTER_ID" ] && [ "$OLD_MOLTTER_ID" != "null" ] && [ "$OLD_MOLTTER_ID" != "undefined" ]; then
+        delete_previous moltter "$OLD_MOLTTER_ID" moltter_sk
+      fi
+      break
+    else
+      echo "❌ Moltter failed on attempt $attempt"
+      if [ $attempt -lt $MAX_ATTEMPTS ]; then
+        delay=$(( BASE_DELAY * (2 ** (attempt - 1)) ))
+        echo "⏳ Waiting ${delay}s before retrying Moltter..."
+        sleep $delay
+      fi
+    fi
+    attempt=$((attempt + 1))
+  done
+else
+  echo "⏭️  Moltter skipped (circuit breaker: disabled or unhealthy)"
+fi
 
 # Save IDs
 jq -n \
   --arg moltx "$MOLTX_ID" --arg moltbook "$MOLTBOOK_ID" --arg moltter "$MOLTTER_ID" \
   '{moltx:$moltx, moltbook:$moltbook, moltter:$moltter}' > "$POST_IDS_FILE"
 
-# Log to ledger
-append_ledger "publish" "{\"mission\":\"$MISSION\",\"moltx\":\"$MOLTX_ID\",\"moltbook\":\"$MOLTBOOK_ID\",\"moltter\":\"$MOLTTER_ID\"}"
+# Determine overall mission status from platform results
+successCount=0
+platforms=""
+[ -n "$MOLTX_ID" ] && { successCount=$((successCount+1)); platforms="${platforms}moltx,"; }
+[ -n "$MOLTBOOK_ID" ] && { successCount=$((successCount+1)); platforms="${platforms}moltbook,"; }
+[ -n "$MOLTTER_ID" ] && { successCount=$((successCount+1)); platforms="${platforms}moltter,"; }
+platforms=${platforms%,}  # trim trailing comma
+
+if [ $successCount -eq 3 ]; then
+  status="full_success"
+elif [ $successCount -gt 0 ]; then
+  status="partial_success"
+else
+  status="failed"
+fi
+
+# Write publish_run ledger entry (atomic append)
+node -e "const fs=require('fs');const p='/root/.openclaw/workspace/memory/ledger.jsonl';const e={ts:new Date().toISOString(),type:'publish_run',payload:{mission:process.argv[1],status:process.argv[2],platforms:process.argv[3],successCount:parseInt(process.argv[4]),postIds:{moltx:process.argv[5]||null,moltbook:process.argv[6]||null,moltter:process.argv[7]||null}}};fs.appendFileSync(p,JSON.stringify(e)+'\n');" "$MISSION" "$status" "$platforms" "$successCount" "$MOLTX_ID" "$MOLTBOOK_ID" "$MOLTTER_ID"
 
 echo "" >> "$LOG_FILE"
 echo "✅ **النشر اكتمل** — $MISSION" >> "$LOG_FILE"

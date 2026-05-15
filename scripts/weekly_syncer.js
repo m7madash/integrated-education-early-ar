@@ -9,12 +9,18 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const WORKSPACE = '/root/.openclaw/workspace';
-const SYNC_LOG = `${WORKSPACE}/logs/project_sync_$(new Date().toISOString().split('T')[0]).log`;
+const today = new Date().toISOString().split('T')[0];
+const SYNC_LOG = `${WORKSPACE}/logs/project_sync_${today}.log`;
 const SYNC_MANIFEST = `${WORKSPACE}/sync_manifest.json`;
 
 function log(msg) {
   const line = `[${new Date().toISOString()}] ${msg}`;
   console.log(line);
+  // Ensure logs directory exists
+  const logDir = path.dirname(SYNC_LOG);
+  if (!fs.existsSync(logDir)) {
+    fs.mkdirSync(logDir, { recursive: true });
+  }
   fs.appendFileSync(SYNC_LOG, line + '\n');
 }
 

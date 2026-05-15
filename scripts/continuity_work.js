@@ -38,6 +38,67 @@ function appendLedger(type, payload) {
 log('=== Continuity Work: improvement cycle ===');
 appendLedger('continuity_work_start', { phase: 'improvement_cycle' });
 
+// 0. Pre-check: Ensure continuity scheduler watchdog is running (auto-restart supervision)
+(function ensureSchedulerRunning() {
+  const watchdogPattern = 'continuity_scheduler_watchdog.sh';
+  const schedulerPattern = 'standalone_continuity_scheduler.js';
+  let watchdogRunning = false;
+  let schedulerRunning = false;
+
+  try {
+    const pgrep = spawnSync('pgrep', ['-f', watchdogPattern], { encoding: 'utf8' });
+    watchdogRunning = pgrep.status === 0 && pgrep.stdout.trim().length > 0;
+  } catch (e) { watchdogRunning = false; }
+
+  try {
+    const pgrep2 = spawnSync('pgrep', ['-f', schedulerPattern], { encoding: 'utf8' });
+    schedulerRunning = pgrep2.status === 0 && pgrep2.stdout.trim().length > 0;
+  } catch (e) { schedulerRunning = false; }
+
+  if (!watchdogRunning) {
+    log('⚠️ Continuity scheduler watchdog NOT running — starting it now...');
+    try {
+      const start = spawnSync('bash', ['/root/.openclaw/workspace/scripts/continuity_scheduler_watchdog.sh'], {
+        cwd: WORKSPACE,
+        stdio: 'ignore',
+        detach: true
+      });
+      if (start.status === 0) {
+        log('✅ Watchdog started successfully');
+      } else {
+        log('❌ Failed to start watchdog (exit ' + start.status + ')');
+      }
+    } catch (e) {
+      log('❌ Error starting watchdog: ' + e.message);
+    }
+    return; // watchdog will spawn scheduler
+  }
+
+  if (!schedulerRunning) {
+    log('⚠️ Scheduler process NOT running — restarting watchdog to spawn fresh scheduler...');
+    try {
+      // Kill existing watchdog (it may be stuck)
+      spawnSync('pkill', ['-f', watchdogPattern]);
+      spawnSync('sleep', ['2']);
+      // Restart watchdog
+      const restart = spawnSync('bash', ['/root/.openclaw/workspace/scripts/continuity_scheduler_watchdog.sh'], {
+        cwd: WORKSPACE,
+        stdio: 'ignore',
+        detach: true
+      });
+      if (restart.status === 0) {
+        log('✅ Watchdog restarted (will spawn fresh scheduler)');
+      } else {
+        log('❌ Failed to restart watchdog');
+      }
+    } catch (e) {
+      log('❌ Error restarting watchdog: ' + e.message);
+    }
+  } else {
+    log('✅ Scheduler supervision: watchdog running, scheduler running');
+  }
+})();
+
 // 1. Weekly review trigger (if Sunday)
 const dayOfWeek = parseInt(new Date().getUTCDay()); // 0 = Sunday, 6 = Saturday
 if (dayOfWeek === 0) { // Sunday

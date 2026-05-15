@@ -16,6 +16,11 @@
         "mission_pattern": "slavery|عبودية",
         "allowed_terms": ["استعباد", " Arbeitszwang", "خدمة قسرية"],
         "rationale": "Necessary to describe modern slavery"
+      },
+      {
+        "mission_pattern": "shirk_tawhid",
+        "allowed_terms": ["شريك", "شرك", "تأليه", "عبادة", "shirk", "tawhid"],
+        "rationale": "Educational analysis of shirk vs tawhid — terms used to warn against polytheism, not promote it"
       }
     ]
   }

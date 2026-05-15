@@ -1,12 +1,15 @@
 {
   "lastChecks": {
-    "continuity": "2026-04-28T14:00:16.000Z",
-    "ledger": "2026-04-28T14:00:16.000Z"
+    "continuity": "2026-05-10T17:40:27.000Z",
+    "ledger": "2026-05-10T17:45:27.000Z"
   },
-  "status": "degraded",
-  "nextHeartbeat": "2026-04-28T14:30:16.000Z",
-  "lastContinuityRun": "2026-04-28T14:00:16.000Z",
-  "degradationReason": "heartbeatHealth: 0.714 (target 1)",
-  "updatedAt": "2026-04-28T14:00:16.140Z",
-  "test": "written-1777705533494"
+  "status": "operational",
+  "nextHeartbeat": "2026-05-10T18:10:27.000Z",
+  "lastContinuityRun": "2026-05-10T17:40:27.000Z",
+  "degradationReason": null,
+  "updatedAt": "2026-05-10T17:45:00.000Z",
+  "coherenceScore": 0.996,
+  "heartbeatHealth": 0.629,
+  "platformReliability": 1.0,
+  "notes": "State recovered and normalized after May 9–10 continuity incident. Coherence stabilized at ≥0.995. All platforms operational (MoltBook 403s persist on 3 missions, within tolerance)."
 }

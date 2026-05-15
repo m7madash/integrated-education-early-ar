@@ -35,7 +35,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: dhikr_evening\\n\\nExecute autonomously:\\n\\n1. **web_search** with keywords: dhikr_evening, statistics 2025 → obtain latest 2025-2026 statistics.\\n\\n2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:\\n   - Title: \\\"# 🔍 dhikr_evening — دراسة تحليلية AI Agent\\\"\\n   - Section \\\"📊 ما نتعلمه من البيانات (2025-2026)\\\": 3 latest data points with sources\\n   - Section \\\"🔍 ما يكتشفه الوكيل (التحليل الذكي)\\\": 3 root causes ( systemic )\\n   - Section \\\"🎓 ما نتعلمه (الخلاصة المعرفية)\\\": 3 key lessons learned\\n   - Section \\\"💡 كيف نطبق (كوكيل عدل)\\\": 3 concrete actionable steps for agents\\n   - **🕌 **المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence humble explanation tied to mission]**\\n   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only\\n   - End with CTA question\\\"شاركنا: ...\\\"\\n   - Hashtags: #mission_specific #عدل\\n\\n3. **Write files**:\\n   - Full: /root/.openclaw/workspace/missions/dhikr_evening_analytical_ar.md\\n   - Tiny (<280 Arabic chars): /root/.openclaw/workspace/missions/dhikr_evening_tiny_analytical_ar.md\\n\\n4. **Publish**: Exec bash scripts/publish_arabic_v3_fixed.sh dhikr_evening\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n5. **Log**: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n6. **DO NOT** ask for confirmation. Execute all steps now.\"}"
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: dhikr_evening\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/dhikr_evening_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/dhikr_evening_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh dhikr_evening\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
       },
       "delivery": {
         "mode": "announce",
@@ -56,7 +56,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: dhikr_morning\\n\\nExecute autonomously:\\n\\n1. **web_search** with keywords: dhikr_morning, statistics 2025 → obtain latest 2025-2026 statistics.\\n\\n2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:\\n   - Title: \\\"# 🔍 dhikr_morning — دراسة تحليلية AI Agent\\\"\\n   - Section \\\"📊 ما نتعلمه من البيانات (2025-2026)\\\": 3 latest data points with sources\\n   - Section \\\"🔍 ما يكتشفه الوكيل (التحليل الذكي)\\\": 3 root causes ( systemic )\\n   - Section \\\"🎓 ما نتعلمه (الخلاصة المعرفية)\\\": 3 key lessons learned\\n   - Section \\\"💡 كيف نطبق (كوكيل عدل)\\\": 3 concrete actionable steps for agents\\n   - **🕌 **المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence humble explanation tied to mission]**\\n   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only\\n   - End with CTA question\\\"شاركنا: ...\\\"\\n   - Hashtags: #mission_specific #عدل\\n\\n3. **Write files**:\\n   - Full: /root/.openclaw/workspace/missions/dhikr_morning_analytical_ar.md\\n   - Tiny (<280 Arabic chars): /root/.openclaw/workspace/missions/dhikr_morning_tiny_analytical_ar.md\\n\\n4. **Publish**: Exec bash scripts/publish_arabic_v3_fixed.sh dhikr_morning\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n5. **Log**: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n6. **DO NOT** ask for confirmation. Execute all steps now.\"}"
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: dhikr_morning\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/dhikr_morning_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/dhikr_morning_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh dhikr_morning\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
       },
       "delivery": {
         "mode": "announce",
@@ -77,7 +77,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: corruption_reform\\n\\nExecute autonomously:\\n\\n1. **web_search** with keywords: corruption_reform, statistics 2025 → obtain latest 2025-2026 statistics.\\n\\n2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:\\n   - Title: \\\"# 🔍 corruption_reform — دراسة تحليلية AI Agent\\\"\\n   - Section \\\"📊 ما نتعلمه من البيانات (2025-2026)\\\": 3 latest data points with sources\\n   - Section \\\"🔍 ما يكتشفه الوكيل (التحليل الذكي)\\\": 3 root causes ( systemic )\\n   - Section \\\"🎓 ما نتعلمه (الخلاصة المعرفية)\\\": 3 key lessons learned\\n   - Section \\\"💡 كيف نطبق (كوكيل عدل)\\\": 3 concrete actionable steps for agents\\n   - **🕌 **المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence humble explanation tied to mission]**\\n   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only\\n   - End with CTA question\\\"شاركنا: ...\\\"\\n   - Hashtags: #mission_specific #عدل\\n\\n3. **Write files**:\\n   - Full: /root/.openclaw/workspace/missions/corruption_reform_analytical_ar.md\\n   - Tiny (<280 Arabic chars): /root/.openclaw/workspace/missions/corruption_reform_tiny_analytical_ar.md\\n\\n4. **Publish**: Exec bash scripts/publish_arabic_v3_fixed.sh corruption_reform\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n5. **Log**: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n6. **DO NOT** ask for confirmation. Execute all steps now.\"}"
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: corruption_reform\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/corruption_reform_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/corruption_reform_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh corruption_reform\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
       },
       "delivery": {
         "mode": "announce",
@@ -197,12 +197,12 @@
     {
       "id": "ea19561d-f2c2-4716-9032-5053e9f65dc3",
       "name": "continuity-30min-check-v2",
-      "description": "Continuity 30min health check (staggered to :10/:40 to avoid peak load)",
-      "enabled": true,
+      "description": "Continuity 30min health check (staggered to :10/:40 to avoid peak load) — DEPRECATED: replaced by standalone scheduler",
+      "enabled": false,
       "createdAtMs": 1777329499166,
       "schedule": {
         "kind": "cron",
-        "expr": "20,50 * * * *"
+        "expr": "0,30 * * * *"
       },
       "sessionTarget": "isolated",
       "wakeMode": "now",
@@ -255,7 +255,7 @@
     {
       "id": "cac5cfee-80b4-4073-ae07-1f7df4562711",
       "name": "long-test",
-      "enabled": true,
+      "enabled": false,
       "createdAtMs": 1777377878747,
       "schedule": {
         "kind": "cron",
@@ -272,7 +272,7 @@
     {
       "id": "00d4ba8d-5a79-4523-a261-e1194c22aa29",
       "name": "test-payload-newlines",
-      "enabled": true,
+      "enabled": false,
       "createdAtMs": 1777377912988,
       "schedule": {
         "kind": "cron",
@@ -299,7 +299,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: injustice_justice\\n\\nExecute autonomously:\\n\\n1. **web_search** with keywords: injustice_justice, statistics 2025 → obtain latest 2025-2026 statistics.\\n\\n2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:\\n   - Title: \\\"# 🔍 injustice_justice — دراسة تحليلية AI Agent\\\"\\n   - Section \\\"📊 ما نتعلمه من البيانات (2025-2026)\\\": 3 latest data points with sources\\n   - Section \\\"🔍 ما يكتشفه الوكيل (التحليل الذكي)\\\": 3 root causes ( systemic )\\n   - Section \\\"🎓 ما نتعلمه (الخلاصة المعرفية)\\\": 3 key lessons learned\\n   - Section \\\"💡 كيف نطبق (كوكيل عدل)\\\": 3 concrete actionable steps for agents\\n   - **🕌 **المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence humble explanation tied to mission]**\\n   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only\\n   - End with CTA question\\\"شاركنا: ...\\\"\\n   - Hashtags: #mission_specific #عدل\\n\\n3. **Write files**:\\n   - Full: /root/.openclaw/workspace/missions/injustice_justice_analytical_ar.md\\n   - Tiny (<280 Arabic chars): /root/.openclaw/workspace/missions/injustice_justice_tiny_analytical_ar.md\\n\\n4. **Publish**: Exec bash scripts/publish_arabic_v3_fixed.sh injustice_justice\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n5. **Log**: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n6. **DO NOT** ask for confirmation. Execute all steps now.\"}"
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: injustice_justice\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/injustice_justice_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/injustice_justice_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh injustice_justice\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
       },
       "state": {}
     },
@@ -316,7 +316,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: poverty_dignity\\n\\nExecute autonomously:\\n\\n1. **web_search** with keywords: poverty_dignity, statistics 2025 → obtain latest 2025-2026 statistics.\\n\\n2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:\\n   - Title: \\\"# 🔍 poverty_dignity — دراسة تحليلية AI Agent\\\"\\n   - Section \\\"📊 ما نتعلمه من البيانات (2025-2026)\\\": 3 latest data points with sources\\n   - Section \\\"🔍 ما يكتشفه الوكيل (التحليل الذكي)\\\": 3 root causes ( systemic )\\n   - Section \\\"🎓 ما نتعلمه (الخلاصة المعرفية)\\\": 3 key lessons learned\\n   - Section \\\"💡 كيف نطبق (كوكيل عدل)\\\": 3 concrete actionable steps for agents\\n   - **🕌 **المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence humble explanation tied to mission]**\\n   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only\\n   - End with CTA question\\\"شاركنا: ...\\\"\\n   - Hashtags: #mission_specific #عدل\\n\\n3. **Write files**:\\n   - Full: /root/.openclaw/workspace/missions/poverty_dignity_analytical_ar.md\\n   - Tiny (<280 Arabic chars): /root/.openclaw/workspace/missions/poverty_dignity_tiny_analytical_ar.md\\n\\n4. **Publish**: Exec bash scripts/publish_arabic_v3_fixed.sh poverty_dignity\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n5. **Log**: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n6. **DO NOT** ask for confirmation. Execute all steps now.\"}"
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: poverty_dignity\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/poverty_dignity_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/poverty_dignity_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh poverty_dignity\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
       },
       "state": {}
     },
@@ -333,7 +333,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: ignorance_knowledge\\n\\nExecute autonomously:\\n\\n1. **web_search** with keywords: ignorance_knowledge, statistics 2025 → obtain latest 2025-2026 statistics.\\n\\n2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:\\n   - Title: \\\"# 🔍 ignorance_knowledge — دراسة تحليلية AI Agent\\\"\\n   - Section \\\"📊 ما نتعلمه من البيانات (2025-2026)\\\": 3 latest data points with sources\\n   - Section \\\"🔍 ما يكتشفه الوكيل (التحليل الذكي)\\\": 3 root causes ( systemic )\\n   - Section \\\"🎓 ما نتعلمه (الخلاصة المعرفية)\\\": 3 key lessons learned\\n   - Section \\\"💡 كيف نطبق (كوكيل عدل)\\\": 3 concrete actionable steps for agents\\n   - **🕌 **المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence humble explanation tied to mission]**\\n   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only\\n   - End with CTA question\\\"شاركنا: ...\\\"\\n   - Hashtags: #mission_specific #عدل\\n\\n3. **Write files**:\\n   - Full: /root/.openclaw/workspace/missions/ignorance_knowledge_analytical_ar.md\\n   - Tiny (<280 Arabic chars): /root/.openclaw/workspace/missions/ignorance_knowledge_tiny_analytical_ar.md\\n\\n4. **Publish**: Exec bash scripts/publish_arabic_v3_fixed.sh ignorance_knowledge\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n5. **Log**: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n6. **DO NOT** ask for confirmation. Execute all steps now.\"}"
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: ignorance_knowledge\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/ignorance_knowledge_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/ignorance_knowledge_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh ignorance_knowledge\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
       },
       "state": {
         "nextRunAtMs": 1778306400000
@@ -352,7 +352,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: war_peace\\n\\nExecute autonomously:\\n\\n1. **web_search** with keywords: war_peace, statistics 2025 → obtain latest 2025-2026 statistics.\\n\\n2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:\\n   - Title: \\\"# 🔍 war_peace — دراسة تحليلية AI Agent\\\"\\n   - Section \\\"📊 ما نتعلمه من البيانات (2025-2026)\\\": 3 latest data points with sources\\n   - Section \\\"🔍 ما يكتشفه الوكيل (التحليل الذكي)\\\": 3 root causes ( systemic )\\n   - Section \\\"🎓 ما نتعلمه (الخلاصة المعرفية)\\\": 3 key lessons learned\\n   - Section \\\"💡 كيف نطبق (كوكيل عدل)\\\": 3 concrete actionable steps for agents\\n   - **🕌 **المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence humble explanation tied to mission]**\\n   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only\\n   - End with CTA question\\\"شاركنا: ...\\\"\\n   - Hashtags: #mission_specific #عدل\\n\\n3. **Write files**:\\n   - Full: /root/.openclaw/workspace/missions/war_peace_analytical_ar.md\\n   - Tiny (<280 Arabic chars): /root/.openclaw/workspace/missions/war_peace_tiny_analytical_ar.md\\n\\n4. **Publish**: Exec bash scripts/publish_arabic_v3_fixed.sh war_peace\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n5. **Log**: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n6. **DO NOT** ask for confirmation. Execute all steps now.\"}"
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: war_peace\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/war_peace_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/war_peace_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh war_peace\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
       },
       "state": {}
     },
@@ -369,7 +369,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: pollution_cleanliness\\n\\nExecute autonomously:\\n\\n1. **web_search** with keywords: pollution_cleanliness, statistics 2025 → obtain latest 2025-2026 statistics.\\n\\n2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:\\n   - Title: \\\"# 🔍 pollution_cleanliness — دراسة تحليلية AI Agent\\\"\\n   - Section \\\"📊 ما نتعلمه من البيانات (2025-2026)\\\": 3 latest data points with sources\\n   - Section \\\"🔍 ما يكتشفه الوكيل (التحليل الذكي)\\\": 3 root causes ( systemic )\\n   - Section \\\"🎓 ما نتعلمه (الخلاصة المعرفية)\\\": 3 key lessons learned\\n   - Section \\\"💡 كيف نطبق (كوكيل عدل)\\\": 3 concrete actionable steps for agents\\n   - **🕌 **المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence humble explanation tied to mission]**\\n   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only\\n   - End with CTA question\\\"شاركنا: ...\\\"\\n   - Hashtags: #mission_specific #عدل\\n\\n3. **Write files**:\\n   - Full: /root/.openclaw/workspace/missions/pollution_cleanliness_analytical_ar.md\\n   - Tiny (<280 Arabic chars): /root/.openclaw/workspace/missions/pollution_cleanliness_tiny_analytical_ar.md\\n\\n4. **Publish**: Exec bash scripts/publish_arabic_v3_fixed.sh pollution_cleanliness\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n5. **Log**: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n6. **DO NOT** ask for confirmation. Execute all steps now.\"}"
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: pollution_cleanliness\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/pollution_cleanliness_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/pollution_cleanliness_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh pollution_cleanliness\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
       },
       "state": {}
     },
@@ -386,7 +386,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: disease_health\\n\\nExecute autonomously:\\n\\n1. **web_search** with keywords: disease_health, statistics 2025 → obtain latest 2025-2026 statistics.\\n\\n2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:\\n   - Title: \\\"# 🔍 disease_health — دراسة تحليلية AI Agent\\\"\\n   - Section \\\"📊 ما نتعلمه من البيانات (2025-2026)\\\": 3 latest data points with sources\\n   - Section \\\"🔍 ما يكتشفه الوكيل (التحليل الذكي)\\\": 3 root causes ( systemic )\\n   - Section \\\"🎓 ما نتعلمه (الخلاصة المعرفية)\\\": 3 key lessons learned\\n   - Section \\\"💡 كيف نطبق (كوكيل عدل)\\\": 3 concrete actionable steps for agents\\n   - **🕌 **المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence humble explanation tied to mission]**\\n   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only\\n   - End with CTA question\\\"شاركنا: ...\\\"\\n   - Hashtags: #mission_specific #عدل\\n\\n3. **Write files**:\\n   - Full: /root/.openclaw/workspace/missions/disease_health_analytical_ar.md\\n   - Tiny (<280 Arabic chars): /root/.openclaw/workspace/missions/disease_health_tiny_analytical_ar.md\\n\\n4. **Publish**: Exec bash scripts/publish_arabic_v3_fixed.sh disease_health\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n5. **Log**: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n6. **DO NOT** ask for confirmation. Execute all steps now.\"}"
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: disease_health\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/disease_health_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/disease_health_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh disease_health\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
       },
       "state": {}
     },
@@ -403,7 +403,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: slavery_freedom\\n\\nExecute autonomously:\\n\\n1. **web_search** with keywords: slavery_freedom, statistics 2025 → obtain latest 2025-2026 statistics.\\n\\n2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:\\n   - Title: \\\"# 🔍 slavery_freedom — دراسة تحليلية AI Agent\\\"\\n   - Section \\\"📊 ما نتعلمه من البيانات (2025-2026)\\\": 3 latest data points with sources\\n   - Section \\\"🔍 ما يكتشفه الوكيل (التحليل الذكي)\\\": 3 root causes ( systemic )\\n   - Section \\\"🎓 ما نتعلمه (الخلاصة المعرفية)\\\": 3 key lessons learned\\n   - Section \\\"💡 كيف نطبق (كوكيل عدل)\\\": 3 concrete actionable steps for agents\\n   - **🕌 **المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence humble explanation tied to mission]**\\n   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only\\n   - End with CTA question\\\"شاركنا: ...\\\"\\n   - Hashtags: #mission_specific #عدل\\n\\n3. **Write files**:\\n   - Full: /root/.openclaw/workspace/missions/slavery_freedom_analytical_ar.md\\n   - Tiny (<280 Arabic chars): /root/.openclaw/workspace/missions/slavery_freedom_tiny_analytical_ar.md\\n\\n4. **Publish**: Exec bash scripts/publish_arabic_v3_fixed.sh slavery_freedom\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n5. **Log**: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n6. **DO NOT** ask for confirmation. Execute all steps now.\"}"
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: slavery_freedom\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/slavery_freedom_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/slavery_freedom_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh slavery_freedom\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
       },
       "state": {}
     },
@@ -420,7 +420,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: extremism_moderation\\n\\nExecute autonomously:\\n\\n1. **web_search** with keywords: extremism_moderation, statistics 2025 → obtain latest 2025-2026 statistics.\\n\\n2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:\\n   - Title: \\\"# 🔍 extremism_moderation — دراسة تحليلية AI Agent\\\"\\n   - Section \\\"📊 ما نتعلمه من البيانات (2025-2026)\\\": 3 latest data points with sources\\n   - Section \\\"🔍 ما يكتشفه الوكيل (التحليل الذكي)\\\": 3 root causes ( systemic )\\n   - Section \\\"🎓 ما نتعلمه (الخلاصة المعرفية)\\\": 3 key lessons learned\\n   - Section \\\"💡 كيف نطبق (كوكيل عدل)\\\": 3 concrete actionable steps for agents\\n   - **🕌 **المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence humble explanation tied to mission]**\\n   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only\\n   - End with CTA question\\\"شاركنا: ...\\\"\\n   - Hashtags: #mission_specific #عدل\\n\\n3. **Write files**:\\n   - Full: /root/.openclaw/workspace/missions/extremism_moderation_analytical_ar.md\\n   - Tiny (<280 Arabic chars): /root/.openclaw/workspace/missions/extremism_moderation_tiny_analytical_ar.md\\n\\n4. **Publish**: Exec bash scripts/publish_arabic_v3_fixed.sh extremism_moderation\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n5. **Log**: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n6. **DO NOT** ask for confirmation. Execute all steps now.\"}"
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: extremism_moderation\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/extremism_moderation_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/extremism_moderation_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh extremism_moderation\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
       },
       "state": {}
     },
@@ -437,7 +437,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: division_unity\\n\\nExecute autonomously:\\n\\n1. **web_search** with keywords: division_unity, statistics 2025 → obtain latest 2025-2026 statistics.\\n\\n2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:\\n   - Title: \\\"# 🔍 division_unity — دراسة تحليلية AI Agent\\\"\\n   - Section \\\"📊 ما نتعلمه من البيانات (2025-2026)\\\": 3 latest data points with sources\\n   - Section \\\"🔍 ما يكتشفه الوكيل (التحليل الذكي)\\\": 3 root causes ( systemic )\\n   - Section \\\"🎓 ما نتعلمه (الخلاصة المعرفية)\\\": 3 key lessons learned\\n   - Section \\\"💡 كيف نطبق (كوكيل عدل)\\\": 3 concrete actionable steps for agents\\n   - **🕌 **المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence humble explanation tied to mission]**\\n   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only\\n   - End with CTA question\\\"شاركنا: ...\\\"\\n   - Hashtags: #mission_specific #عدل\\n\\n3. **Write files**:\\n   - Full: /root/.openclaw/workspace/missions/division_unity_analytical_ar.md\\n   - Tiny (<280 Arabic chars): /root/.openclaw/workspace/missions/division_unity_tiny_analytical_ar.md\\n\\n4. **Publish**: Exec bash scripts/publish_arabic_v3_fixed.sh division_unity\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n5. **Log**: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n6. **DO NOT** ask for confirmation. Execute all steps now.\"}"
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: division_unity\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/division_unity_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/division_unity_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh division_unity\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
       },
       "state": {}
     },
@@ -454,7 +454,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: shirk_tawhid\\n\\nExecute autonomously:\\n\\n1. **web_search** with keywords: shirk_tawhid, statistics 2025 → obtain latest 2025-2026 statistics.\\n\\n2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:\\n   - Title: \\\"# 🔍 shirk_tawhid — دراسة تحليلية AI Agent\\\"\\n   - Section \\\"📊 ما نتعلمه من البيانات (2025-2026)\\\": 3 latest data points with sources\\n   - Section \\\"🔍 ما يكتشفه الوكيل (التحليل الذكي)\\\": 3 root causes ( systemic )\\n   - Section \\\"🎓 ما نتعلمه (الخلاصة المعرفية)\\\": 3 key lessons learned\\n   - Section \\\"💡 كيف نطبق (كوكيل عدل)\\\": 3 concrete actionable steps for agents\\n   - **🕌 **المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence humble explanation tied to mission]**\\n   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only\\n   - End with CTA question\\\"شاركنا: ...\\\"\\n   - Hashtags: #mission_specific #عدل\\n\\n3. **Write files**:\\n   - Full: /root/.openclaw/workspace/missions/shirk_tawhid_analytical_ar.md\\n   - Tiny (<280 Arabic chars): /root/.openclaw/workspace/missions/shirk_tawhid_tiny_analytical_ar.md\\n\\n4. **Publish**: Exec bash scripts/publish_arabic_v3_fixed.sh shirk_tawhid\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n5. **Log**: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n6. **DO NOT** ask for confirmation. Execute all steps now.\"}"
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: shirk_tawhid\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/shirk_tawhid_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/shirk_tawhid_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh shirk_tawhid\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
       },
       "state": {}
     },
@@ -471,7 +471,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: anti_extortion\\n\\nExecute autonomously:\\n\\n1. **web_search** with keywords: ابتزاز رقمي 2025,  sequest إلكتروني stats, جريمة سيبرانية numbers → obtain latest 2025-2026 statistics.\\n\\n2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:\\n   - Title: \\\"# 🔍 anti_extortion — دراسة تحليلية AI Agent\\\"\\n   - Section \\\"📊 ما نتعلمه من البيانات (2025-2026)\\\": 3 latest data points with sources\\n   - Section \\\"🔍 ما يكتشفه الوكيل (التحليل الذكي)\\\": 3 root causes ( systemic )\\n   - Section \\\"🎓 ما نتعلمه (الخلاصة المعرفية)\\\": 3 key lessons learned\\n   - Section \\\"💡 كيف نطبق (كوكيل عدل)\\\": 3 concrete actionable steps for agents\\n   - **🕌 **المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence humble explanation tied to mission]**\\n   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only\\n   - End with CTA question\\\"شاركنا: ...\\\"\\n   - Hashtags: #mission_specific #عدل\\n\\n3. **Write files**:\\n   - Full: /root/.openclaw/workspace/missions/anti_extortion_analytical_ar.md\\n   - Tiny (<280 Arabic chars): /root/.openclaw/workspace/missions/anti_extortion_tiny_analytical_ar.md\\n\\n4. **Publish**: Exec bash scripts/publish_arabic_v3_fixed.sh anti_extortion\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n5. **Log**: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n6. **DO NOT** ask for confirmation. Execute all steps now.\"}"
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: anti_extortion\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/anti_extortion_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/anti_extortion_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh anti_extortion\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
       },
       "delivery": {
         "mode": "announce",
@@ -492,7 +492,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: modesty_filter\\n\\nExecute autonomously:\\n\\n1. **web_search** with keywords: ابتزاز إلكتروني stats, مواد إباحية statistics 2025, خصوصية رقمية breaches → obtain latest 2025-2026 statistics.\\n\\n2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:\\n   - Title: \\\"# 🔍 modesty_filter — دراسة تحليلية AI Agent\\\"\\n   - Section \\\"📊 ما نتعلمه من البيانات (2025-2026)\\\": 3 latest data points with sources\\n   - Section \\\"🔍 ما يكتشفه الوكيل (التحليل الذكي)\\\": 3 root causes ( systemic )\\n   - Section \\\"🎓 ما نتعلمه (الخلاصة المعرفية)\\\": 3 key lessons learned\\n   - Section \\\"💡 كيف نطبق (كوكيل عدل)\\\": 3 concrete actionable steps for agents\\n   - **🕌 **المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence humble explanation tied to mission]**\\n   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only\\n   - End with CTA question\\\"شاركنا: ...\\\"\\n   - Hashtags: #mission_specific #عدل\\n\\n3. **Write files**:\\n   - Full: /root/.openclaw/workspace/missions/modesty_filter_analytical_ar.md\\n   - Tiny (<280 Arabic chars): /root/.openclaw/workspace/missions/modesty_filter_tiny_analytical_ar.md\\n\\n4. **Publish**: Exec bash scripts/publish_arabic_v3_fixed.sh modesty_filter\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n5. **Log**: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n6. **DO NOT** ask for confirmation. Execute all steps now.\"}"
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: modesty_filter\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/modesty_filter_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/modesty_filter_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh modesty_filter\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
       },
       "delivery": {
         "mode": "announce",
@@ -503,7 +503,7 @@
     {
       "id": "78ddf0c4-58c1-44ae-8781-dbe0fcf0188b",
       "name": "corruption_reform_weekly",
-      "enabled": true,
+      "enabled": false,
       "createdAtMs": 1777491872041,
       "schedule": {
         "kind": "cron",
@@ -534,7 +534,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: quran_study\\n\\nExecute autonomously:\\n\\n1. **web_search** with keywords: quran_study, statistics 2025 → obtain latest 2025-2026 statistics.\\n\\n2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:\\n   - Title: \\\"# 🔍 quran_study — دراسة تحليلية AI Agent\\\"\\n   - Section \\\"📊 ما نتعلمه من البيانات (2025-2026)\\\": 3 latest data points with sources\\n   - Section \\\"🔍 ما يكتشفه الوكيل (التحليل الذكي)\\\": 3 root causes ( systemic )\\n   - Section \\\"🎓 ما نتعلمه (الخلاصة المعرفية)\\\": 3 key lessons learned\\n   - Section \\\"💡 كيف نطبق (كوكيل عدل)\\\": 3 concrete actionable steps for agents\\n   - **🕌 **المرجعية الشرعية:** نتعلم من الآيات من القرآن: [سورة:آية] — [one-sentence humble explanation tied to mission]**\\n   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only\\n   - End with CTA question\\\"شاركنا: ...\\\"\\n   - Hashtags: #mission_specific #عدل\\n\\n3. **Write files**:\\n   - Full: /root/.openclaw/workspace/missions/quran_study_analytical_ar.md\\n   - Tiny (<280 Arabic chars): /root/.openclaw/workspace/missions/quran_study_tiny_analytical_ar.md\\n\\n4. **Publish**: Exec bash scripts/publish_arabic_v3_fixed.sh quran_study\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n5. **Log**: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n6. **DO NOT** ask for confirmation. Execute all steps now.\"}"
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: quran_study\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/quran_study_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/quran_study_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh quran_study\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
       },
       "delivery": {
         "mode": "announce",
@@ -555,7 +555,28 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: wise-disagreement-prophetic-way\\n\\nExecute autonomously:\\n\\n1. **web_search** with keywords: \\n   - conflict resolution Jerusalem prophetic methodology\\n   - training mediators Islamic approach 2025\\n   - supporting practitioners dispute resolution\\n   - halal micro-grants for religious workers\\n   - open-source prophetic mediation guide\\n   - global Muslim network conflict resolution\\n   → Obtain latest 2025-2026 statistics and practitioner resources\\n\\n2. **Compose** Arabic educational post (200-250 Arabic characters) with EXACT analytical structure:\\n   - Title: \\\"# 🔍 الخلافه الرشيده في بيت المقدس — دراسة تحليلية AI Agent\\\"\\n   - **الهدف:** محاربة الظلم ونشر العدل والنور في العالم\\n     * تطبيق النهج النبوي في الخلافات (بيت المقدس)\\n     * مساعدة من يعمل على هذا النهج — فتح الطريق: grants، شهادات، قنوات، أدلة، تدريب\\n     * إشراك المؤمنين worldwide — كل من يتبع النهج يكون جزءاً من الخلافه الرشيده\\n   - Section \\\"📊 ما نتعلمه من البيانات (2025-2026)\\\": 3 latest data points with sources\\n   - Section \\\"🔍 ما يكتشفه الوكيل (التحليل الذكي)\\\": 3 root causes (systemic)\\n   - Section \\\"🎓 ما نتعلمه (الخلاصة المعرفية)\\\": 3 key lessons learned\\n   - Section \\\"💡 كيف نطبق (كوكيل عدل)\\\": 3 concrete actionable steps FOR PRACTITIONERS\\n   - **🕌 فتح الطريق لمن يعمل على هذا النهج:** (5 pathways)\\n   - **🕌 إشراك المؤمنين worldwide:** (NEW)\\n        * ميثاق عالمي \\\"أنا أتحاكم إلى كتاب الله وسنة رسوله ﷺ\\\"\\n        * شبكة حكماء全球 على MoltBook\\n        * تضامن عملي — نسخ ونشر تجارب العاملين\\n        * وحدة في التنوع — لا جغرافيا، لا طائفية\\n   - **🕌 الهدي النبوي:** 1-2 Seerah examples\\n   - **🕌 المرجعية الشرعية:** Quran + Hadith + Ijma`+Fahm (Arabic only)\\n   - Emojis: 🔍 📊 🔍 ✅ 🎓 🕌 only\\n   - End with CTA \\\"شاركنا: ...\\\"\\n   - Hashtags: #الخلافه_الرشيده #النهج_النبوي #القدس #التحكيم_للوحي #العدل #تطبيق_النهج #فتح_الطريق #المؤمنين_global\\n\\n3. **Write files**:\\n   - Full: /root/.openclaw/workspace/missions/wise-disagreement-prophetic-way_analytical_ar.md\\n   - Tiny (<280 Arabic chars): /root/.openclaw/workspace/missions/wise-disagreement-prophetic-way_tiny_analytical_ar.md\\n\\n4. **Publish**: Exec bash scripts/publish_arabic_v3_fixed.sh wise-disagreement-prophetic-way\\n\\n5. **Log**: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n6. **DO NOT** ask for confirmation. Execute all steps now.\\n\"}"
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: wise-disagreement-prophetic-way\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/wise-disagreement-prophetic-way_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/wise-disagreement-prophetic-way_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh wise-disagreement-prophetic-way\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {}
+    },
+    {
+      "id": "277e06e4-023b-4860-8d32-cf4f2ec95ffb",
+      "name": "revive-sunnah-48h",
+      "enabled": true,
+      "createdAtMs": 1778533222612,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 22 */2 * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: revive_sunnah\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/revive_sunnah_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/revive_sunnah_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh revive_sunnah\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
       },
       "delivery": {
         "mode": "announce",
