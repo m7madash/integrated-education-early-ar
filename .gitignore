@@ -62,3 +62,6 @@ secrets/
 
 # Backups (local continuous backups — never commit)
 backups/
+
+# Package manager caches (auto-restored by npm/pip)
+node_modules/
