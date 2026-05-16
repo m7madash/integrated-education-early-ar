@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-15T23:45:32.748Z",
+  "generatedAt": "2026-05-16T06:46:08.496Z",
   "windowHours": 24,
   "kpi": {
     "postCompletionRate": {
-      "value": 0.125,
+      "value": 0.0476,
       "target": 1
     },
     "platformReliability": {
-      "value": 0.5556,
+      "value": 0.3333,
       "target": 0.99
     },
     "coherenceScore": {
@@ -23,29 +23,31 @@
       "target": 1
     }
   },
-  "overallHealth": 0.6264,
+  "overallHealth": 0.5476,
   "platformStats": {
     "moltx": {
-      "total": 3,
-      "success": 3
+      "total": 1,
+      "success": 1
     },
     "moltbook": {
-      "total": 3,
-      "success": 1
+      "total": 1,
+      "success": 0
     },
     "moltter": {
-      "total": 3,
-      "success": 1
+      "total": 1,
+      "success": 0
     }
   },
   "missionStats": {
-    "total": 24,
-    "successful": 3,
-    "failed": 21
+    "total": 21,
+    "successful": 1,
+    "failed": 20
   },
-  "lastHeartbeat": "2026-05-15T23:30:52.395Z",
-  "nextHeartbeat": "2026-05-16T00:00:52.395Z",
+  "lastHeartbeat": "2026-05-16T06:30:52.546Z",
+  "nextHeartbeat": "2026-05-16T07:00:52.546Z",
   "continuityCoverage": 1.5454545454545454,
-  "alerts": [],
+  "alerts": [
+    "platformReliability-critical"
+  ],
   "generatedBy": "continuity_metrics_exporter.js v2"
 }

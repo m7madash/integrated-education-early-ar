@@ -1,19 +1,19 @@
 {
-  "lastContinuityRun": "2026-05-16T06:00:52.522Z",
+  "lastContinuityRun": "2026-05-16T06:48:06.001Z",
   "lastChecks": {
-    "continuity": "2026-05-16T06:00:52.522Z",
-    "ledger": "2026-05-16T06:00:52.522Z",
+    "continuity": "2026-05-16T06:48:06.001Z",
+    "ledger": "2026-05-16T06:48:06.001Z",
     "coherence": "2026-05-03T13:03:00.000Z"
   },
   "status": "ok",
   "degradationReason": "",
-  "updatedAt": "2026-05-16T06:00:52.522Z",
-  "nextHeartbeat": "2026-05-16T06:30:52.522Z",
+  "updatedAt": "2026-05-16T06:48:06.001Z",
+  "nextHeartbeat": "2026-05-16T07:18:06.001Z",
   "heartbeatRatio": 1.5454545454545454,
   "lastNormalized": "2026-05-14T05:46:27.554Z",
   "heartbeatHealth": 1,
   "lastHeartbeatCount": {
-    "actual": 12,
-    "expected": 12
+    "actual": 14,
+    "expected": 14
   }
 }
