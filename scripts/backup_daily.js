@@ -73,6 +73,7 @@ log('🚀 Backup job started');
     '--exclude=media/cache/*',
     '--exclude=.git/objects/pack/*.pack',
     '--exclude=backups/*',
+    '--exclude=scripts/qemu-vm/*',
     '--exclude=memory/ledger.jsonl',
     '-C', WORKSPACE,
     '.'
@@ -143,8 +144,23 @@ log('🚀 Backup job started');
     log('ℹ️ rclone not installed — skipping remote backup');
   }
 
-  // ==================== 6. Retention & cleanup ====================
-  log('🧹 Applying retention policy...');
+  // ==================== 6. Snapshot prune ===================================
+  log('📂 Pruning old snapshots...');
+  const PRUNE_SCRIPT = path.join(WORKSPACE, 'scripts', 'prune_snapshots.js');
+  if (fs.existsSync(PRUNE_SCRIPT)) {
+    try {
+      const { execFileSync } = require('child_process');
+      const pruneOutput = execFileSync('node', [PRUNE_SCRIPT], { encoding: 'utf8', maxBuffer: 1024 * 1024 });
+      log('✅ Snapshot prune complete' + (pruneOutput ? ':\n' + pruneOutput.trim() : ''));
+    } catch (e) {
+      log(`⚠️  Snapshot prune failed: ${e.message}`);
+    }
+  } else {
+    log('ℹ️ prune_snapshots.js not found — skipping');
+  }
+
+  // ==================== 7. Retention & cleanup =================================
+  log('🧹 Applying retention policy (tarballs)...');
 
   // List all backups sorted by name (which includes timestamp)
   const allBackups = fs.readdirSync(BACKUP_DIR)

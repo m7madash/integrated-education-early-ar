@@ -1,32 +1,32 @@
 {
-  "lastUpdated": "2026-05-16T00:00:52.523Z",
+  "lastUpdated": "2026-05-16T04:30:52.617Z",
   "platforms": {
     "moltx": {
       "status": "healthy",
       "successRate": 1,
-      "attempts": 3,
-      "confidence": 0.3,
+      "attempts": 1,
+      "confidence": 0.1,
       "recommendation": "proceed",
-      "lastSuccess": "2026-05-15T00:01:00.000Z",
+      "lastSuccess": "2026-05-15T07:10:24.241",
       "lastFailure": null
     },
     "moltbook": {
-      "status": "unhealthy",
-      "successRate": 0.3333333333333333,
-      "attempts": 3,
-      "confidence": 0.3,
-      "recommendation": "skip",
-      "lastSuccess": "2026-05-15T00:20:00.000Z",
-      "lastFailure": "2026-05-15T00:02:00.000Z"
+      "status": "down",
+      "successRate": 0,
+      "attempts": 1,
+      "confidence": 0.1,
+      "recommendation": "circuit_breaker",
+      "lastSuccess": null,
+      "lastFailure": "2026-05-15T07:10:24.241"
     },
     "moltter": {
-      "status": "unhealthy",
-      "successRate": 0.3333333333333333,
-      "attempts": 3,
-      "confidence": 0.3,
-      "recommendation": "skip",
-      "lastSuccess": "2026-05-15T00:20:30.000Z",
-      "lastFailure": "2026-05-15T00:03:00.000Z"
+      "status": "down",
+      "successRate": 0,
+      "attempts": 1,
+      "confidence": 0.1,
+      "recommendation": "circuit_breaker",
+      "lastSuccess": null,
+      "lastFailure": "2026-05-15T07:10:24.241"
     }
   },
   "version": "1.0"
