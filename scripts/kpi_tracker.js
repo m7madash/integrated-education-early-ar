@@ -71,13 +71,17 @@ function calculateMetrics() {
         for (const [name, stats] of Object.entries(platforms)) {
           const rate = stats.successRate || (stats.status === 'healthy' ? 1 : 0);
           platformStats[name] = { total: 1, success: Math.round(rate) };
+          platformStats[name]._rate = rate;  // preserve raw fractional rate
           totalReliability += rate;
         }
-        // Set overall reliability from real health data
-        const healthyCount = Object.values(platforms).filter(p => p.status === 'healthy').length;
-        const totalCount = Object.keys(platforms).length;
         platformStats._fromHealthFile = true;
         console.log('  ℹ️ platformReliability sourced from platform_health_state.json (no post logs available today)');
+        // Compute reliability from _rate (preserved raw rate) across named platforms only
+        const healthNamedEntries = Object.entries(platformStats).filter(([k]) => !k.startsWith('_'));
+        const overallFromHealth = healthNamedEntries.length > 0
+          ? healthNamedEntries.reduce((sum, [, stats]) => sum + (stats._rate || (stats.total ? stats.success / stats.total : 1)), 0) / healthNamedEntries.length
+          : 1;
+        platformStats._overallFromHealth = overallFromHealth;
       } catch (e) {
         console.warn('  ⚠️ Could not parse platform_health_state.json:', e.message);
       }
@@ -158,10 +162,10 @@ function calculateMetrics() {
     metrics: {
       postCompletionRate: Math.min(completionRate, 1),
       platformReliability: {
-        moltbook: platformStats.moltbook.total ? platformStats.moltbook.success / platformStats.moltbook.total : 1,
-        moltter: platformStats.moltter.total ? platformStats.moltter.success / platformStats.moltter.total : 1,
-        moltx: platformStats.moltx.total ? platformStats.moltx.success / platformStats.moltx.total : 1,
-        overall: Object.values(platformStats).reduce((sum, p) => sum + (p.total ? p.success / p.total : 1), 0) / 3
+        moltbook: platformStats.moltbook._rate ?? (platformStats.moltbook.total ? platformStats.moltbook.success / platformStats.moltbook.total : 1),
+        moltter: platformStats.moltter._rate ?? (platformStats.moltter.total ? platformStats.moltter.success / platformStats.moltter.total : 1),
+        moltx: platformStats.moltx._rate ?? (platformStats.moltx.total ? platformStats.moltx.success / platformStats.moltx.total : 1),
+        overall: (platformStats._overallFromHealth !== undefined ? platformStats._overallFromHealth : Object.entries(platformStats).filter(([k]) => !k.startsWith('_')).reduce((sum, [, p]) => sum + (p.total ? p.success / p.total : 1), 0) / 3),
       },
       coherenceScore,
       errorFrequency: errorRate,

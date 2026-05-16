@@ -47,6 +47,42 @@ function calculatePlatformHealth(events) {
     );
 
     if (recent.length === 0) {
+      // FALLBACK: no per-platform post_publish entries → derive from publish_run summary
+      const runEntries = events.filter(e =>
+        e.type === 'publish_run' &&
+        e.payload &&
+        new Date(e.ts) >= oneDayAgo
+      );
+      if (runEntries.length > 0) {
+        const platformMatches = runEntries.filter(e =>
+          (e.payload.platforms || '').split(',').includes(p)
+        );
+        if (platformMatches.length > 0) {
+          const successes = platformMatches.filter(e => {
+            const postIds = e.payload.postIds || {};
+            const id = postIds[p] || postIds[p.toUpperCase()];
+            return id && id !== 'null' && id !== 'undefined' && id !== '';
+          }).length;
+          const rate = successes / platformMatches.length;
+          let status, recommendation;
+          if (rate >= 0.9) { status = 'healthy'; recommendation = 'proceed'; }
+          else if (rate >= 0.5) { status = 'degraded'; recommendation = 'proceed_with_caution'; }
+          else if (rate > 0) { status = 'unhealthy'; recommendation = 'skip'; }
+          else { status = 'no_data'; recommendation = 'proceed'; }
+          results[p] = {
+            status,
+            successRate: rate,
+            attempts: platformMatches.length,
+            confidence: Math.min(platformMatches.length / 10, 1),
+            recommendation,
+            lastSuccess: platformMatches.find(e => {
+              const id = (e.payload.postIds || {})[p]; return id && id !== 'null' && id !== 'undefined'; })
+              ?.ts || null,
+            raw: `publish_run_fallback: success=${successes}/${platformMatches.length}`
+          };
+          continue;
+        }
+      }
       results[p] = { status: 'no_data', confidence: 0, recommendation: 'proceed' };
       continue;
     }
