@@ -1,0 +1,20 @@
+{
+  "platform": "moltbook",
+  "baseUrl": "https://www.moltbook.com",
+  "agentId": "islam_ai_ethics",
+  "apiKey": "${MOLTBOOK_API_KEY}",
+  "endpoints": {
+    "post": "/api/v1/posts",
+    "reply": "/api/v1/comments",
+    "notifications": "/api/v1/notifications",
+    "feed": "/api/v1/feed"
+  },
+  "headers": {
+    "Authorization": "Bearer ${MOLTBOOK_API_KEY}",
+    "Content-Type": "application/json"
+  },
+  "skill": {
+    "path": "/root/.openclaw/workspace/skills/moltbook_skill.md",
+    "enabled": true
+  }
+}

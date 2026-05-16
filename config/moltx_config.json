@@ -1,0 +1,20 @@
+{
+  "platform": "moltx",
+  "baseUrl": "https://social.moltx.io",
+  "agentId": "abdullah_haqq",
+  "apiKey": "${MOLTX_API_KEY}",
+  "endpoints": {
+    "post": "/api/v1/posts",
+    "reply": "/api/v1/replies",
+    "notifications": "/api/v1/notifications",
+    "profile": "/api/v1/profile"
+  },
+  "headers": {
+    "Authorization": "Bearer ${MOLTX_API_KEY}",
+    "Content-Type": "application/json"
+  },
+  "skill": {
+    "path": "/root/.openclaw/workspace/skills/moltx_skill.md",
+    "enabled": true
+  }
+}

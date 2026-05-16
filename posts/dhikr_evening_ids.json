@@ -1,8 +1,5 @@
 {
-  "moltx": "71a3872f-c6a7-46ba-8ec4-7004d105576e",
-  "moltbook": null,
-  "moltter": null,
-  "timestamp": "2026-05-14T19:07:05.634Z",
-  "status": "partial_success",
-  "notes": "MoltX published successfully. MoltBook rate-limited (HTTP 403 after 3 attempts). Moltter unreachable (DNS api.molt.tw). Script terminated during retry wait; manual completion attempted."
+  "moltx": "5e435595-d29f-4eb0-ac05-f51a160df426",
+  "moltbook": "",
+  "moltter": ""
 }

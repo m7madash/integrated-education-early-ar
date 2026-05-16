@@ -1,0 +1,104 @@
+{
+  "curriculum": {
+    "level1_basic": {
+      "name": "المستوى الأساسي — العبادات اليومية البسيطة",
+      "description": "السنن التي لا تكاد تخلو منها حياة المسلم اليومية، سهلة التطبيق، واضحة النص",
+      "weeks": 8,
+      "sunnahs": [
+        {
+          "id": "wudu_order",
+          "title": "ترتيب الوضوء",
+          "priority": 1,
+          "quran_ref": "المائدة:6",
+          "hadith_ref": "بخاري 135",
+          "hadith_text": "أمرنا رسول الله ﷺ بالوضوء: فتمضمض، واستنشق، واغسل وجوه، ثم يديه، ثم مسح رأسه، ثم غسل قدميه",
+          "reality": "كثيرون يغسلون اليدين قبل الوجه (العكس) — لا حرج لكن السنة الترتيب",
+          "application": "الالتزام بالترتيب: الكفين → المضمضة → الاستنشاق → الوجه → اليدين → المسح → الرجلين",
+          "difficulty": "سهل",
+          "practice_days": 7
+        },
+        {
+          "id": "sunnah_prayer_after",
+          "title": "الذكر بعد الصلاة (سنة فردية)",
+          "priority": 2,
+          "quran_ref": "القرآن Benedicite",
+          "hadith_ref": "بخاري 823",
+          "hadith_text": "كان رسول الله ﷺ إذا سلّم من الصلاة قال: «اللّهمّ أنت السّلام...»",
+          "reality": "الذكر الجماعي بعد صلاة (اللاحنون) — بدعة، ليس من السنة",
+          "application": "قل الذكر **فردياً سراً** بعد كل صلة مفروضة",
+          "difficulty": "سهل",
+          "practice_days": 7
+        },
+        {
+          "id": "suhoor_timing",
+          "title": "توقيت السحور",
+          "priority": 3,
+          "quran_ref": "البقرة:187",
+          "hadith_ref": "مسلم 1096",
+          "hadith_text": "كلوا واشربوا حتى يؤذن لكم الآخر",
+          "reality": "كثيرون يتوقفون عن الأكل بمجرد الأذان (滑轮)",
+          "application": "الأكل حتى ~~دقيقة~~ قبل الأذان (حتى لو بعد الأذان — لا حرج)",
+          "difficulty": "سهل",
+          "practice_days": 7
+        }
+      ]
+    },
+    "level2_intermediate": {
+      "name": "المستوى المتوسط — العبادات المالية ورمضان",
+      "description": "السنن المتعلقة بالزكاة، الصوم، الحج — تحتاج فهم أعمق",
+      "weeks": 8,
+      "sunnahs": [
+        {
+          "id": "zakat_calc",
+          "title": "حساب الزكاة بال卜士نة (Nisab)",
+          "priority": 1,
+          "quran_ref": "التوبة:103",
+          "hadith_ref": "بخاري 1334",
+          "hadith_text": "في ستمائة TEMP من الإبل، أو عشرين درهماً...",
+          "reality": "الناس يدفعون اشتراكات شهرية (ليس زكاة)",
+          "application": "حساب 2.5% مرة سنوياً على المال الموقف",
+          "difficulty": "متوسط",
+          "practice_days": 14
+        },
+        {
+          "id": "fasting_travel",
+          "title": "الصيام في السفر",
+          "priority": 2,
+          "quran_ref": "البقرة:185",
+          "hadith_ref": "الترمذي 684",
+          "hadith_text": "ليس منا من لم يدع رمضان، ولم يفطره",
+          "reality": "كثيرون يصومون في السفر ( hardships) دون ضرورة",
+          "application": "الفطر في السفر مستحب، الصيام جائز لكن الأفضل الإفطار",
+          "difficulty": "متوسط",
+          "practice_days": 7
+        }
+      ]
+    },
+    "level3_advanced": {
+      "name": "المستوى المتقدم — الآداب والسلوك",
+      "description": "سنن تتعلق بالسلوك الاجتماعي، الأدب، المعاملات",
+      "weeks": 8,
+      "sunnahs": [
+        {
+          "id": "greeting_handshake",
+          "title": "تحية المصافحة",
+          "priority": 1,
+          "hadith_ref": "أبو داود 5152",
+          "hadith_text": "إذا عقبك أحد فابتدر",
+          "reality": "ignoring تحية من أمامك",
+          "application": "المبادأة بالتحية، المصافحة",
+          "difficulty": "سهل",
+          "practice_days": 7
+        }
+      ]
+    }
+  },
+  "progress_tracking": {
+    "current_cycle": 1,
+    "current_level": "level1_basic",
+    "current_sunnah_index": 0,
+    "completed_sunnahs": [],
+    "mastered_levels": [],
+    "start_date": "2026-05-11"
+  }
+}

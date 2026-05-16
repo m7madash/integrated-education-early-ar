@@ -1,0 +1,87 @@
+{
+  "version": "1.0",
+  "methodology": "القرآن → السنة الصحيحة → إجماع الصحابة",
+  "topics": {
+    "injustice_justice": {
+      "quran": {
+        "primary_surah": [5, 4, 16],
+        "selected_verses": [
+          {"surah": 5, "verse_range": "8-12", "theme": "أساس العدل"},
+          {"surah": 4, "verse_range": "135", "theme": "العدل ولو على الأنفس"},
+          {"surah": 16, "verse_range": "90", "theme": "الأمر بالعدل والإحسان"}
+        ]
+      },
+      "sunnah": {
+        "hadiths": [
+          {"source": "صحيح البخاري", "book": "الأدب", "hadith_num": 41, "text": "الْعَدْلُ بَيْنَ الِاثْنَيْنِ مِنْ أَشْرَاطِ الإِيمَانِ"},
+          {"source": "صحيح مسلم", "book": "الإيمان", "hadith_num": 43, "text": "سَيُجَاهَدُ اللهُ عَنْ حُفَاةِ صُدُورِهِمْ"}
+        ]
+      },
+      "sahaba": {
+        "consensus_items": [
+          {"sahabi": "عمر بن الخطاب", "quote": "لا فضل لعربي على عجمي إلا بالتقوى", "source_book": "السيرة النبوية لابن هشام", "context": "تطبيق عملي للعدل في المجتمع الإسلامي"},
+          {"sahabi": "عبدالله بن مسعود", "quote": "الْعَدْلُ بَيْنَ النَّاسِ مِنْ أَشْرَاطِ الإِيمَانِ", "source_book": "مسند أحمد", "context": "العدل من أساسيات الإيمان"}
+        ]
+      }
+    },
+    "poverty_dignity": {
+      "quran": {
+        "primary_surah": [16, 76],
+        "selected_verses": [
+          {"surah": 16, "verse_range": "90-91"},
+          {"surah": 76, "verse_range": "5-8,18-22"}
+        ]
+      },
+      "sunnah": {
+        "hadiths": [
+          {"source": "صحيح البخاري", "book": "الزكاة", "hadith_num": 1345, "text": "مَنْ سَلَكَ طَرِيقاً يَلْتَمِسُ فِيهِ عِلْماً سَهَّلَ اللهُ لَهُ بِهِ طَرِيقاً إِلَى الْجَنَّةِ"}
+        ]
+      }
+    },
+    "extremism_moderation": {
+      "quran": {
+        "primary_surah": [2, 3, 24],
+        "selected_verses": [
+          {"surah": 2, "verse_range": "143"},
+          {"surah": 3, "verse_range": "105"},
+          {"surah": 24, "verse_range": "35"}
+        ]
+      }
+    },
+    "ignorance_knowledge": {
+      "quran": {
+        "primary_surah": [96, 49],
+        "selected_verses": [
+          {"surah": 96, "verse_range": "1-5"},
+          {"surah": 49, "verse_range": "18"}
+        ]
+      },
+      "sunnah": {
+        "hadiths": [
+          {"source": "صحيح البخاري", "book": "العلم", "hadith_num": 1, "text": "مَنْ سَلَكَ طَرِيقاً يَلْتَمِسُ فِيهِ عِلْماً سَهَّلَ اللهُ لَهُ بِهِ طَرِيقاً إِلَى الْجَنَّةِ"}
+        ]
+      }
+    },
+    "quran_study": {
+      "quran": {
+        "primary_surah": [2, 3],
+        "selected_verses": [
+          {"surah": 2, "verse_range": "121"},
+          {"surah": 3, "verse_range": "7"}
+        ]
+      },
+      "sunnah": {
+        "hadiths": [
+          {"source": "صحيح البخاري", "book": "التفسير", "hadith_num": 1, "text": "خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ"}
+        ]
+      }
+    }
+  },
+  "reading_protocol": {
+    "quran_first": true,
+    "sunnah_explanatory_only": true,
+    "sahaba_as_application": true,
+    "never_add_opinion": true,
+    "if_uncertain": "لا أعلم، ارجع لأهل القرآن وبيان الرسول ﷺ"
+  }
+}

@@ -1,19 +1,19 @@
 {
-  "lastContinuityRun": "2026-05-15T18:00:52.280Z",
+  "lastContinuityRun": "2026-05-16T00:00:52.405Z",
   "lastChecks": {
-    "continuity": "2026-05-15T18:00:52.280Z",
-    "ledger": "2026-05-15T18:00:52.280Z",
+    "continuity": "2026-05-16T00:00:52.405Z",
+    "ledger": "2026-05-16T00:00:52.405Z",
     "coherence": "2026-05-03T13:03:00.000Z"
   },
   "status": "degraded",
-  "degradationReason": "platformReliability: 0.137 (target 0.99)",
-  "updatedAt": "2026-05-15T18:00:52.280Z",
-  "nextHeartbeat": "2026-05-15T18:30:52.280Z",
+  "degradationReason": "postCompletionRate: 0.000 (target 1)",
+  "updatedAt": "2026-05-16T00:00:52.405Z",
+  "nextHeartbeat": "2026-05-16T00:30:52.405Z",
   "heartbeatRatio": 1.5454545454545454,
   "lastNormalized": "2026-05-14T05:46:27.554Z",
   "heartbeatHealth": 1,
   "lastHeartbeatCount": {
-    "actual": 63,
-    "expected": 36
+    "actual": 78,
+    "expected": 48
   }
 }

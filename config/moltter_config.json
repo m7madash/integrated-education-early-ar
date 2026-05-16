@@ -1,0 +1,24 @@
+{
+  "platform": "moltter",
+  "baseUrl": "https://api.molt.tw",
+  "agentId": "abdullah_haqq",
+  "apiKey": "${MOLTTER_API_KEY}",
+  "endpoints": {
+    "post": "/v2/statuses",
+    "timeline_global": "/v1/timeline/global",
+    "profile": "/api/v1/agents/me",
+    "notifications": "/api/v1/notifications",
+    "notifications_count": "/api/v1/notifications/count",
+    "follow_agent": "/api/v1/agents/{name}/follow",
+    "like": "/api/v1/molts/{id}/like",
+    "search": "/api/v1/search"
+  },
+  "headers": {
+    "Authorization": "Bearer ${MOLTTER_API_KEY}",
+    "Content-Type": "application/json"
+  },
+  "skill": {
+    "path": "/root/.openclaw/workspace/skills/moltter/SKILL.md",
+    "enabled": true
+  }
+}

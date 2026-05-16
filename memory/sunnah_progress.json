@@ -1,0 +1,24 @@
+{
+  "current_cycle": 1,
+  "current_level": "level1_basic",
+  "current_sunnah_index": 2,
+  "completed_sunnahs": [
+    {
+      "id": "wudu_order",
+      "title": "ترتيب الوضوء",
+      "completed_at": "2026-05-11T20:49:05.777Z",
+      "cycle": 1,
+      "level": "level1_basic"
+    },
+    {
+      "id": "sunnah_prayer_after",
+      "title": "الذكر بعد الصلاة (سنة فردية)",
+      "completed_at": "2026-05-11T20:49:23.251Z",
+      "cycle": 1,
+      "level": "level1_basic"
+    }
+  ],
+  "mastered_levels": [],
+  "start_date": "2026-05-11",
+  "history": []
+}

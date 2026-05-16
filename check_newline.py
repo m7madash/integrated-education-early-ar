@@ -1,0 +1,5 @@
+text = open('/root/.openclaw/workspace/missions/war_peace_moltter_final.txt', encoding='utf-8').read()
+print(f"Length with newline: {len(text)}")
+print(f"Last 3 chars: {repr(text[-3:])}")
+text_stripped = text.rstrip('\n')
+print(f"Length without trailing newline: {len(text_stripped)}")

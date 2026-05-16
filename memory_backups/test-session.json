@@ -1,0 +1,33 @@
+{
+  "entries": [
+    {
+      "timestamp": 1778747024119,
+      "sn": "event-1",
+      "sessionKey": "test-session",
+      "iri": 0.05049998333399998,
+      "emotion": "hap",
+      "emotion_model": "classification",
+      "manual": false,
+      "bypass_critpath": false,
+      "permanent_penalty": 0,
+      "content_hash": "b5daf188983d521c4dbd39a0aac88c3f7c5d9ab98f48d96ef057066cf269b21e",
+      "emotion_delta": 0.6,
+      "emotion_delta_confidence": 1,
+      "confidence": 0.9,
+      "coherence_contribution": 1,
+      "memory_uid": "bea3e349188cf7f1",
+      "memory_penalty": 0.2,
+      "witness_gates": [],
+      "tags": [
+        "repair_signal",
+        "high_intensity",
+        "positive_affect"
+      ]
+    }
+  ],
+  "currentIRI": 0.05049998333399998,
+  "lifetimeCoherence": 1,
+  "emotionalVolatility": 0,
+  "cascadeRisk": 0,
+  "lastUpdate": 1778747024119
+}

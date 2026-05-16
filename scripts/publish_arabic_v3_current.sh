@@ -1,0 +1,1 @@
+/root/.openclaw/workspace/scripts/publish_arabic_v3_fixed.sh

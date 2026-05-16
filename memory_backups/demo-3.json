@@ -1,0 +1,53 @@
+{
+  "entries": [
+    {
+      "timestamp": 1778747111346,
+      "sn": "start",
+      "sessionKey": "demo-3",
+      "iri": 0.05,
+      "emotion": "neu",
+      "emotion_model": "classification",
+      "manual": false,
+      "bypass_critpath": false,
+      "permanent_penalty": 0,
+      "witness_gates": [
+        {
+          "tag": "session_start",
+          "triggeredAt": 1778747111346,
+          "after": {},
+          "before": {},
+          "risk": 0
+        }
+      ],
+      "content_hash": "22f3a36d04d2aa1a8f91d56bbcfb24223f5759a22ff96db733aa84370fa61104"
+    },
+    {
+      "timestamp": 1778747115671,
+      "sn": "event-neg",
+      "sessionKey": "demo-3",
+      "iri": 0.04731332869144055,
+      "emotion": "sad",
+      "emotion_model": "classification",
+      "manual": false,
+      "bypass_critpath": false,
+      "permanent_penalty": 0,
+      "content_hash": "f3a6786a63a84d5c20f942e9d3eef9d30bda48bf09aff70a4f38b8067ff59aee",
+      "emotion_delta": -0.6,
+      "emotion_delta_confidence": 1,
+      "confidence": 0.9,
+      "coherence_contribution": 0.94,
+      "memory_uid": "e72c26dd1fbf24a6",
+      "memory_penalty": 0.2,
+      "witness_gates": [],
+      "tags": [
+        "high_intensity",
+        "negative_affect"
+      ]
+    }
+  ],
+  "currentIRI": 0.04731332869144055,
+  "lifetimeCoherence": 0.94,
+  "emotionalVolatility": 0,
+  "cascadeRisk": 0.15,
+  "lastUpdate": 1778747115671
+}

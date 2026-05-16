@@ -6,11 +6,11 @@
 
 ## 📊 ما نتعلمه من البيانات (2025–2026)
 
-1. **91% من الدول تتجاوز حد تلوث الهواء** — وفق تقرير IQAir 2025 (صادر مارس 2026)، 130 من 143 دولة monitored تجاوزت حدود الـ PM2.5 السنوية لـ WHO (5 ميكروغرام/م³). المصدر: [IQAir World Air Quality Report 2025](https://www.prnewswire.com/news-releases/iqairs-2025-world-air-quality-report-finds-only-14-of-cities-meet-who-air-pollution-guideline-302720338.html)
+1. **91% من الدول تتجاوز حد تلوث الهواء** — وفق تقرير IQAir 2025 (صادر مارس 2026) من 143 دولة monitored تجاوزت حدود الـ PM2.5 السنوية لـ WHO (5 ميكروغرام/م³) [IQAir World Air Quality Report 2025](https://www.prnewswire.com/news-releases/iqairs-2025-world-air-quality-report-finds-only-14-of-cities-meet-who-air-pollution-guideline-302720338.html)
 
-2. **7.9 مليون وفاة سنوياً مرتبطة بتلوث الهواء** — تقرير "حالة الهواء في العالم" 2025 (قاعدة بيانات حتى 2023) يُشير إلى أن تلوث الهواء مسؤول عن 13% من إجمالي الوفيات العالمية سنوياً، منها 4.9 مليون من الجزيئات الدقيقة PM2.5. المصدر: [AHQSI/AQLI 2025](https://aqli.epic.uchicago.edu/files/Report%20-%20English%20Global%20View.pdf)
+2. **7.9 مليون وفاة سنوياً مرتبطة بتلوث الهواء** — تقرير "حالة الهواء في العالم" 2025 (قاعدة بيانات حتى 2023) يُشير إلى أن تلوث الهواء مسؤول عن 13% من إجمالي الوفيات العالمية سنوياً، منها 4.9 مليون من الجزيئات الدقيقة PM2.5 [AHQSI/AQLI 2025](https://aqli.epic.uchicago.edu/files/Report%20-%20English%20Global%20View.pdf)
 
-3. **المدن الأكثر تلوثاً: لوني (الهند 112.5 ميكروغرام/م³) ودلهي (العاصمة الأكثر تلوثاً للمرة الثامنة)** — زاد تلوث لوني بنسبة 23% من 2024. المصدر: [JagranJosh/IQAir 2026](https://www.jagranjosh.com/general-knowledge/world-air-quality-report-most-polluted-countries-cities-in-the-world-1820007282-1)
+3. **المدن الأكثر تلوثاً: لوني (الهند 112.5 ميكروغرام/م³) ودلهي (العاصمة الأكثر تلوثاً للمرة الثامنة)** — زاد تلوث لوني بنسبة 23% من 2024 [JagranJosh/IQAir 2026](https://www.jagranjosh.com/general-knowledge/world-air-quality-report-most-polluted-countries-cities-in-the-world-1820007282-1)
 
 ---
 

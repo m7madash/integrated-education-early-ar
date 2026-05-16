@@ -19,6 +19,10 @@ TINY="$BASE/missions/${MISSION}_tiny_ar.md"
 
 [ -f "$FILE" ] || { echo "❌ ملف المهمة غير موجود: $FILE"; exit 1; }
 
+# Moltter: pre-written short form (≤275 chars) preferred
+MOLTTER_FILE="$BASE/missions/${MISSION}_moltter.md"
+[ -f "$MOLTTER_FILE" ] || MOLTTER_FILE="$TINY"
+
 # Load content (with JSON decoding)
 RAW_FULL=$(cat "$FILE")
 if echo "$RAW_FULL" | grep -q '\\n'; then
@@ -27,7 +31,15 @@ else
   CONTENT_FULL=$(echo "$RAW_FULL" | python3 -c "import json,sys; print(json.dumps(sys.stdin.read(), ensure_ascii=False))")
 fi
 
-if [ -f "$TINY" ]; then
+# Load Moltter-specific short content
+if [ -f "$MOLTTER_FILE" ]; then
+  RAW_MOLTTER=$(cat "$MOLTTER_FILE")
+  if echo "$RAW_MOLTTER" | grep -q '\\n'; then
+    CONTENT_MOLTTER=$(echo "$RAW_MOLTTER" | sed 's/\\n/\n/g' | python3 -c "import json,sys; print(json.dumps(sys.stdin.read(), ensure_ascii=False))")
+  else
+    CONTENT_MOLTTER=$(echo "$RAW_MOLTTER" | python3 -c "import json,sys; print(json.dumps(sys.stdin.read(), ensure_ascii=False))")
+  fi
+elif [ -f "$TINY" ]; then
   RAW_TINY=$(cat "$TINY")
   if echo "$RAW_TINY" | grep -q '\\n'; then
     CONTENT_TINY=$(echo "$RAW_TINY" | sed 's/\\n/\n/g' | python3 -c "import json,sys; print(json.dumps(sys.stdin.read(), ensure_ascii=False))")
@@ -162,6 +174,25 @@ publish_moltbook() {
   fi
 }
 
+# --- Moltter-safe truncation (≤275 display chars) ---
+moltter_truncate() {
+  local text="$1"
+  python3 -c "
+import sys, re
+text = sys.stdin.read()
+text = re.sub(r'^[#\s]+', '', text, flags=re.MULTILINE)
+text = re.sub(r'[🤖📚📊🔍📱💡🌱✅❌🕌🛡️🔗\n]', ' ', text)
+text = re.sub(r'#[^\s]+', ' ', text)
+text = re.sub(r'—.+', '', text)
+lines = [l.strip() for l in re.split(r'[。.,؟!]', text)
+         if l.strip() and len(l.strip()) > 5 and not re.match(r'^[*\-•·]', l.strip())]
+para = ' '.join(lines[:3])
+if len(para) > 260:
+    para = re.split(r'[\s,،]', para[:260])[0]
+print(para.strip())
+" <<< "$text"
+}
+
 publish_moltter() {
   local content="$1"
   echo "📤 نشر إلى Moltter..."
@@ -266,7 +297,7 @@ if is_platform_enabled "moltter"; then
   attempt=1
   while [ $attempt -le $MAX_ATTEMPTS ]; do
     echo "📤 [Moltter] Attempt $attempt/$MAX_ATTEMPTS"
-    if publish_moltter "$CONTENT_FULL"; then
+    if publish_moltter "${CONTENT_MOLTTER:-"$(moltter_truncate "$CONTENT_TINY")"}"; then
       echo "✅ Moltter succeeded on attempt $attempt"
       if [ -n "$OLD_MOLTTER_ID" ] && [ "$OLD_MOLTTER_ID" != "null" ] && [ "$OLD_MOLTTER_ID" != "undefined" ]; then
         delete_previous moltter "$OLD_MOLTTER_ID" moltter_sk

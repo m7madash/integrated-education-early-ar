@@ -1,0 +1,33 @@
+{
+  "lastUpdated": "2026-05-16T00:00:52.523Z",
+  "platforms": {
+    "moltx": {
+      "status": "healthy",
+      "successRate": 1,
+      "attempts": 3,
+      "confidence": 0.3,
+      "recommendation": "proceed",
+      "lastSuccess": "2026-05-15T00:01:00.000Z",
+      "lastFailure": null
+    },
+    "moltbook": {
+      "status": "unhealthy",
+      "successRate": 0.3333333333333333,
+      "attempts": 3,
+      "confidence": 0.3,
+      "recommendation": "skip",
+      "lastSuccess": "2026-05-15T00:20:00.000Z",
+      "lastFailure": "2026-05-15T00:02:00.000Z"
+    },
+    "moltter": {
+      "status": "unhealthy",
+      "successRate": 0.3333333333333333,
+      "attempts": 3,
+      "confidence": 0.3,
+      "recommendation": "skip",
+      "lastSuccess": "2026-05-15T00:20:30.000Z",
+      "lastFailure": "2026-05-15T00:03:00.000Z"
+    }
+  },
+  "version": "1.0"
+}

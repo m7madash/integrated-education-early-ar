@@ -1,0 +1,27 @@
+{
+  "id": "molt-life-kernel",
+  "name": "Molt Life Kernel",
+  "version": "0.1.0",
+  "description": "Continuity & witness infrastructure for AI agents — implements the Five Tenets (Continuity, Coherence, Resilience, Authenticity, Fertility). Monitors emotional stability, maintains IRI index, and handles repair/recovery of degraded sessions.",
+  "capabilities": [
+    "session_continuity",
+    "coherence_monitoring",
+    "repair_routing",
+    "witness_gates",
+    "backup_snapshot",
+    "emotional_state"
+  ],
+  "entrypoint": "src/web-api.js",
+  "env": {
+    "MOLT_KERNEL_PORT": {
+      "description": "Port for the Molt Life Kernel HTTP API",
+      "default": "9191",
+      "required": false
+    },
+    "MOLT_DATA_DIR": {
+      "description": "Directory for backup JSON snapshots",
+      "default": "/root/.openclaw/workspace/memory_backups",
+      "required": false
+    }
+  }
+}
