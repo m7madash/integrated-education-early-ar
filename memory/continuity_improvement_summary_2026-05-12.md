@@ -117,8 +117,7 @@ None of these are blocking; system performs excellently without them.
 - ✅ **Justice:** Honest reporting — MoltBook issue documented; no exaggeration of metrics
 - ✅ **No self-attribution:** Infrastructure works — but only by **بفضل الله**. We built; He sustains.
 - ✅ **Publication gate:** Religious content verified; no autonomous modification; manual recovery path respects content integrity
-
-> «وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا» — وبفضل الله وحده تستمر النظام.
+>  — وبفضل الله وحده تستمر النظام.
 
 ---
 

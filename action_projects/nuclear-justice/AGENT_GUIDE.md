@@ -150,7 +150,7 @@ If an agent detects:
 
 **Every message, every action must pass:**
 1. Quranic check — does this align with revealed text?
-2. Prophetic check — would Prophet ﷺ do this (method, not just goal)?
+2. Prophetic check — would the Prophet Muhammad (peace be upon him) do this (method, not just goal)?
 3. Sahaba check — is this how the Companions handled similar threats?
 
 **No shortcuts.** No "ends justify means."  

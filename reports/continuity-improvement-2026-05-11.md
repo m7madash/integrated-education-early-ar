@@ -96,7 +96,7 @@
 - ✅ **No autonomous Islamic rulings** generated or applied
 - ✅ **User already notified** of MoltBook 403 issue; awaiting human direction
 - ✅ **All actions verified** against continuity script outputs (no speculative changes)
-- ✅ **No attribution of speech to Prophet ﷺ** without verified source
+- ✅ **No attribution of speech to the Prophet Muhammad (peace be upon him)** without verified source
 - ✅ **No unverified religious claims** stored or published
 
 ---
@@ -125,8 +125,7 @@
 بفضل الله تكمل عملية تطوير النظام باستمرار.
 التحسينات السابقة (2026-05-10) تعمل بشكل صحيح والتحقق منها نجح.
 الاعتماد على التوثيق والتحقق منهج Islamic يوازن بين التقدم والالتزام.
-
-> «وَعَسَىٰ أَن تَكْرَهُوا شَيْئًا وَهُوَ خَيْرٌ لَّكُمْ» — البقرة 216
+>  — البقرة 216
 
 ربما منع MoltBook من نشر محتوى ديني هو حماية من خطر لا ندركه الآن. نسير بالصبر والتشاور.
 

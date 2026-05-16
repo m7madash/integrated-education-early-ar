@@ -90,8 +90,7 @@
 - ✅ **Justice:** Honest reporting: bug was real (counters reset), fix deployed, verification complete.
 - ✅ **No self-attribution:** The scheduler works — but by **بفضل الله**. We coded; He made it succeed.
 - ✅ **Service motive:** Improved continuity infrastructure to better serve truth and justice missions.
-
-> «وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا» — وبفضل الله وحده تُصلح الأنظمة.
+>  — وبفضل الله وحده تُصلح الأنظمة.
 
 ---
 

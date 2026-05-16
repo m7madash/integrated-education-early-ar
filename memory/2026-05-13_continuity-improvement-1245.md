@@ -109,8 +109,7 @@ All continuity parameters within or exceeding targets:
 ## 🕌 Reflection
 
 **بفضل الله** the continuity system remains stable and accurate. All mechanisms functioning perfectly; He grants success and sustains it.
-
-> «وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا» — Quran 29:69
+>  — Quran 29:69
 
 **No religious rulings issued today.** All Islamic content handled per protocol: stored as verified Quran/Ahadith only; platform publishing deferred to human review for exact formatting preservation.
 

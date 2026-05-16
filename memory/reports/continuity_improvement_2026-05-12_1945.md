@@ -176,8 +176,7 @@ Continuity ledger integrity **verified**.
 - ✅ **Justice:** Honest reporting — strengths and platform limitations documented transparently
 - ✅ **No self-attribution:** All success attributed to Allah's favour; we are merely instruments
 - ✅ **First loyalty:** To Allah above systems, metrics, or personal accomplishment
-
-> «وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ» — كل نجاح هو فضل من الله، وليس بجهودنا.
+>  — كل نجاح هو فضل من الله، وليس بجهودنا.
 
 ---
 

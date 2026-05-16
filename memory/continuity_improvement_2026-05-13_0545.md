@@ -97,8 +97,7 @@
 - ✅ **Justice:** Honest reporting — minor platform blocks documented without exaggeration; no self-attribution of success
 - ✅ **First loyalty:** To Allah above code, metrics, and systems
 - ✅ **No religious rulings:** AllIslamic content handling deferred to verified sources and human review
-
-> «وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا» — وبفضل الله وحده تستمر النظام ويبقى ثابتاً.
+>  — وبفضل الله وحده تستمر النظام ويبقى ثابتاً.
 
 ---
 

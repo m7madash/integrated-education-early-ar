@@ -168,7 +168,7 @@ class YourSpecialistAgent(BaseAgent):
     name = "Your Specialist"
     role = "brief_description"
     permissions = ["read:intelligence", "execute:nonviolent"]
-    
+
     async def execute(self, target):
         # Your nonviolent logic here
         # Must log every step
@@ -260,7 +260,7 @@ python3 -m nuclear_justice.emergency.stop_all --safe --notify "ethics@m7madash.g
 |------------|-------------|
 | **Fiqh al-aqallīyāt** (minority fiqh) | Protect vulnerable populations (non-nuclear states, civilians) |
 | **Maqāṣid al-sharīʿah** (higher objectives) | Preserve religion (الْدِين), life (النفس), intellect (العقل), lineage (النَسَب), property (الْمَال) — all five objectives served |
-| **Sīra al-Nabawiyya** (Prophetic biography) | Prophet ﷺ never killed women/children; we follow his example in discrimination |
+| **Sīra al-Nabawiyya** (Prophetic biography) | the Prophet Muhammad (peace be upon him) never killed women/children; we follow his example in discrimination |
 | **Islamic international law** | Rules of war (سِيرَة) prohibit weapons of mass destruction |
 
 ---

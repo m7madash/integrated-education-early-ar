@@ -5,6 +5,5 @@
 
 ## ✅ No shirk expressions detected — all files clean.
 
-
 ---
 🕌 First loyalty to Allah. Final standard: verified text.

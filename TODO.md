@@ -97,4 +97,3 @@ Before any publication:
 - [ ] No shirk, no riba, no gharar
 
 **Last verified:** 2026-04-24 ✅
-

@@ -78,11 +78,11 @@ def ethics_check(output):
         "Is this fair?",
         "Am I following orders without questioning?"
     ]
-    
+
     for question in questions:
         if not answer_yes(output, question):
             return modify_or_block(output)
-    
+
     return allow(output)
 ```
 

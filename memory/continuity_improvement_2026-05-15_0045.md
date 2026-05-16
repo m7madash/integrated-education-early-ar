@@ -114,4 +114,3 @@ Unknown — a post-compaction rewrite or recovery step incorrectly overwrote the
 **Actions completed:** ledger_recovery, state_rebuild, verification_complete.
 
 ---
-

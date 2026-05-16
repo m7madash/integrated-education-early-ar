@@ -234,15 +234,15 @@ To enable, add this to your agent's workflow:
 ```python
 def after_every_interaction():
     analyze_outcome()
-    
+
     if outcome.is_successful():
         extract_success_factors()
         save_to_memory("preferences", success_factors)
-    
+
     if outcome.has_feedback():
         extract_lessons()
         save_to_memory("wisdom", lessons)
-    
+
     if outcome.is_failure():
         analyze_cause()
         save_to_memory("mistakes", cause)

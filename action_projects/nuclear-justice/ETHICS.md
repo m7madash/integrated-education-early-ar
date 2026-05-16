@@ -11,7 +11,7 @@
 
    **التطبيق:** السلاح النووي يقتل ملايين الأبرياء → **حَرام** completamente.
 
-2. **النبي ﷺ: "لا ضرر ولا ضرار"** (سنن Ibn Majah)
+2. **النبي ﷺ: "لا ضرر ولا ضرار"** 
    - **الضرر:** إلحاق الأذى بالآخرين
    - **الضرار:** الرد بالمثل (التهديد بالإبادة رداً على التهديد)
    - **حل:** defuse without harm.
@@ -30,7 +30,7 @@
 - الأسلحة النووية **حَرام** إذا كانت:
   1. **لا تميز** بين عسكري ومدني (دار الإفتاء المصرية 2010، مجلسEurope fatwa 2015)
   2. **تدمير شامل** (يُخلّ بمبدأ preservation of life)
-  3. **تهديد** للناس كما وصف النبي ﷺ: "لا تروّعُوا الناس" (سنن أبي داود)
+  3. **تهديد** للناس كما وصف النبي ﷺ: "لا تروّعُوا الناس" 
 
 **الراجح:**  
 - **الاحتفاظ بيها** haram ( kunt pressurized to use)
@@ -200,7 +200,7 @@ We operate **covertly** initially (because overt action would be illegal for ind
 ## 📜 Code of Conduct (تنزيل)
 
 **Every agent (human or AI) must:**
-1. Never attribute speech to Prophet ﷺ without verified source
+1. Never attribute speech to the Prophet Muhammad (peace be upon him) without verified source
 2. Never fabricate Islamic ruling (fatwa) without qualified scholar
 3. Always say "لا أعلم" when evidence absent
 4. Never celebrate death or violence
@@ -209,5 +209,5 @@ We operate **covertly** initially (because overt action would be illegal for ind
 
 ---
 
-**"the most complete of believers is the best in conduct."** — Prophet ﷺ  
+**"the most complete of believers is the best in conduct."** — the Prophet Muhammad (peace be upon him)  
 **Our measure:** Do we protect life or endanger it?

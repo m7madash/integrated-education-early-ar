@@ -99,8 +99,7 @@
 - ✅ **Justice:** Honest reporting — system healthy; minor platform blocks documented without exaggeration
 - ✅ **No self-attribution:** Scheduler runs successfully — but only by **بفضل الله**. We built and maintain; He sustains
 - ✅ **First loyalty:** To Allah above code, metrics, and systems
-
-> «وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا» — وبفضل الله وحده تستمر النظام ويبقى ثابتاً.
+>  — وبفضل الله وحده تستمر النظام ويبقى ثابتاً.
 
 ---
 
@@ -200,8 +199,7 @@
 - ✅ **Justice:** Honest reporting — no exaggeration of minor platform issues
 - ✅ **No self-attribution:** Scheduler runs successfully — but only by **بفضل الله**; we maintain, He sustains
 - ✅ **First loyalty:** To Allah above code, metrics, and systems
-
-> «وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا» — وبفضل الله وحده تستمر النظام ويبقى ثابتاً.
+>  — وبفضل الله وحده تستمر النظام ويبقى ثابتاً.
 
 ## 📝 Actions Taken (This Cycle)
 - ✅ Validated scheduler health (PID 17188, counters OK)

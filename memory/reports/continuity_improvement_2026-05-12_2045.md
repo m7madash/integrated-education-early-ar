@@ -138,9 +138,8 @@ Honest reporting:
 Scheduler runs successfully — but success attributed solely to **بفضل الله**. We built the tools; He made them succeed and sustain.
 
 ### ✅ First Loyalty
-To Allah above code, metrics, and systems. All actions checked against Quranic principles (no speculative religious content; no unauthorized rulings; no attribution to Prophet ﷺ without verified source).
-
-> «وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا» (العنكبوت: 69) — وبفضل الله وحده تستمر النظام.
+To Allah above code, metrics, and systems. All actions checked against Quranic principles (no speculative religious content; no unauthorized rulings; no attribution to the Prophet Muhammad (peace be upon him) without verified source).
+>  (العنكبوت: 69) — وبفضل الله وحده تستمر النظام.
 
 ---
 

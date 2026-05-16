@@ -52,8 +52,7 @@ All metrics remain optimal. No degradation observed.
 - ✅ **Verification:** Cross-checked ledger, KPI snapshot, and gap scans — sources aligned
 - ✅ **Honesty:** Reported false positive without exaggeration; distinguished between actual health (perfect) and stale metric file (incorrect)
 - ✅ **No self-attribution:** Success is **بفضل الله** alone
-
-> «وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا» — وبفضل الله وحده تستمر الاستمرارية.
+>  — وبفضل الله وحده تستمر الاستمرارية.
 
 ---
 

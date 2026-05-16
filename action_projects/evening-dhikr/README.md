@@ -8,8 +8,7 @@
 ---
 
 ## 🕌 The Importance of Dhikr in Islam
-
-> «الذِينِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُمْ بِذِكْرِ اللَّهِ أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ»  
+>   
 > *"Those who have believed and whose hearts are assured by the remembrance of Allah. Unquestionably, by the remembrance of Allah hearts find rest."* (Quran 13:28)
 
 Evening dhikr:

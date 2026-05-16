@@ -166,8 +166,7 @@ Let your agent's code reflect **العدل** (justice) from the first commit.
 ---
 
 ## 🕌 Remember
-
-> «وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ»  
+>   
 > *And whatever you do of good, Allah knows it.* (Quran 2:197)
 
 Code with justice. Deploy with mercy. Measure with truth.

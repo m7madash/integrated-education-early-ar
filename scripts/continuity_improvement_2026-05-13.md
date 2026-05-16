@@ -176,9 +176,7 @@ All improvements serve:
 - **العدل (Justice):** Reliable systems ensure truth reaches people without delay
 - **ال broken trust:** Unreliable posting breaks community trust — fix restores it
 - **No harm:** Non-invasive fixes, no data loss
-- **Taqwa:** Sincere service doesn't cut corners on reliability
-
-> «وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا» (29:69)  
+- **Taqwa:** Sincere service doesn't cut corners on reliability  
 > We strive in the way of truth — seeking only Allah's guidance, not credit.
 
 ---
@@ -274,7 +272,6 @@ n   - Includes KPI breakdown: postCompletionRate, platformReliability, coherence
 - Add metrics visualisation (simple HTML dashboard) if needed
 
 🕌 بفضل الله — continuity infrastructure now self-monitoring, redundant, and alert-capable.
-
 
 ### Critical Fix: Auto-Repair Filename Mismatch
 **Problem**: The continuity auto-repair (`continuity_runner_v2.js`) passes hyphenated mission names (e.g., `war-peace`) to `publish_daily_post.sh`, which then constructs filenames using hyphens (`war-peace_analytical_ar.md`). All mission files on disk use underscores (`war_peace_analytical_ar.md`). This mismatch caused every auto-repair attempt to fail immediately with "Mission file not found", without logging to the scheduler output (stdio ignored). As a result, missions like `war-peace`, `disease-health`, `corruption-reform` remained in a missing state indefinitely despite multiple retries.

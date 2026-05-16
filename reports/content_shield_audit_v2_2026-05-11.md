@@ -13,12 +13,10 @@
 
 ## Previously Rejected Files (should now PASS)
 
-
 ### extremism_moderation_analytical_ar.md
 - **Old result:** reject — Blacklist: تمييز
 - **New result:** reject
 - **Reason:** Blacklist: تمييز
-
 
 ## All Results Summary
 

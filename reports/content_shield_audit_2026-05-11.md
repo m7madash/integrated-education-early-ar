@@ -7,12 +7,10 @@
 
 ## Flagged Files (review threshold tuning required)
 
-
 ### food_safety_harmful_analytical_ar.md
 - **Category:** subjective_adjectives
 - **Reason:** Subjective judg ements without evidence
 - **Action needed:** Adjust graylist? Add exception rule?
-
 
 ## Passed Files (good)
 

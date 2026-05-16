@@ -170,4 +170,3 @@
 **No human intervention required** — all handled autonomously.
 
 🕌 First loyalty: to Allah. Final standard: verified text.
-

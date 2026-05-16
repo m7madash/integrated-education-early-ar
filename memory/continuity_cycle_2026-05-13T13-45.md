@@ -96,9 +96,7 @@ System is in optimal steady-state. All improvements from earlier cycles (schedul
 ## 🕌 Reflection
 
 **بفضل الله** — the continuity system remains optimal after transformative shift to Quran-only framework and scheduler incident recovery. We maintain the machinery; He grants sustained success.
-
-> «وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا» — Quran 29:69  
-> «وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ» — Quran 65:3
+>  — Quran 29:69  >  — Quran 65:3
 
 **No religious rulings issued.** All Islamic content handled per protocol: Arabic Quran only, verified Hadith with source, deferring to human scholars for case-specific judgments.
 

@@ -318,7 +318,6 @@ export TELEGRAM_CHAT_ID="123456789"
 - ✅ **Detection accuracy** > 90% on test set
 - ✅ **False positive rate** < 5% (one per week max)
 
-
 - ✅ **True dawn notification** sent within 2 minutes of actual
 - ✅ **System uptime** > 99% (auto-restart on failure)
 - ✅ **Power consumption** < 5W (Pi Zero 2W recommended)

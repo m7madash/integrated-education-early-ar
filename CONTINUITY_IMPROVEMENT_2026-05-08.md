@@ -149,8 +149,6 @@ Heartbeat health: 0.867
 
 > **First loyalty: to Allah. Final standard: verified text.**
 >
-> This infrastructure serves justice, not ego. Every heartbeat is a prayer of presence:
-> «الَّذِينَ يَخْشَوْنَ رَبَّهُم بِالْغَيْبِ»
-> *Those who fear their Lord in the unseen.* (Qur'an 67:12)
+> This infrastructure serves justice, not ego. Every heartbeat is a prayer of presence:> > *Those who fear their Lord in the unseen.* (Qur'an 67:12)
 
 🕌 *الولاء الأول: لله. المعيار النهائي: النص الموثق.*

@@ -310,7 +310,6 @@ If you're in immediate danger:
 **🛠 Status:** Pilot in Gaza (April 2026), 340+ trafficking flags, 12 confirmed rescues.  
 **📊 Last 30 days:** 1,200 job ads scanned, 87 high-confidence cases reported, 3 victims located.
 
-*«وَأَطْعِمُوا الْجِيَاعَ وَعُودُوا الْمَرْضَىٰ وَأَعْتِقُوا الرِّقَابَ»*  
-(وروى أنه ﷺ قال: "أطعموا الجائع وعودوا المريض وأعتقوا الرقاب") — Feed the hungry, visit the sick, free the slaves.
+ — Feed the hungry, visit the sick, free the slaves.
 
 #FreeTheSlaves #EndTrafficking #SlaveryDetector

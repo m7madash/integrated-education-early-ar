@@ -92,12 +92,12 @@ When generating counter-messaging, these principles guide the response:
 
 | Principle | Quran/Hadith | How it counters extremism |
 |-----------|-------------|--------------------------|
-| **1. Middle nation** | "وَجَعَلْنَاكُمْ أُمَّةً وَسَطًا" (2:143) | Rejects extremes — balance in every matter |
-| **2. No compulsion in religion** | "لَا إِكْرَاهَ فِي الدِّينِ" (2:256) | No forced conversion, no takfir |
-| **3. Religion is ease** | "يُرِيدُ اللَّهُ بِكُمُ الْيُسْرَ وَلَا يُرِيدُ بِكُمُ الْعُسْرَ" (2:185) | No unnecessary hardship, no extremism in worship |
-| **4. Mercy to all worlds** | "وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ" (21:107) | Prophet ﷺ was mercy — not curse to humanity |
+| **1. Middle nation** | "وَجَعَلْنَاكُمْ أُمَّةً وَسَطًا" | Rejects extremes — balance in every matter |
+| **2. No compulsion in religion** | "لَا إِكْرَاهَ فِي الدِّينِ" | No forced conversion, no takfir |
+| **3. Religion is ease** | "يُرِيدُ اللَّهُ بِكُمُ الْيُسْرَ وَلَا يُرِيدُ بِكُمُ الْعُسْرَ" | No unnecessary hardship, no extremism in worship |
+| **4. Mercy to all worlds** | "وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ" | the Prophet Muhammad (peace be upon him) was mercy — not curse to humanity |
 | **5. Do not transgress** | "لَا تَظْلِمُوا وَبِكُمْ يُظْلَمُونَ" | Even in war, do not exceed limits |
-| **6. Keep promises** | "وَأَوْفُوا بِالْعَهْدِ إِنَّ الْعَهْدَ كَانَ مَسْئُولًا" (17:34) | Extremists break treaties — we honor them |
+| **6. Keep promises** | "وَأَوْفُوا بِالْعَهْدِ إِنَّ الْعَهْدَ كَانَ مَسْئُولًا" | Extremists break treaties — we honor them |
 
 **Every automated response cites at least one of these principles with Arabic text + reference.**
 
@@ -207,7 +207,7 @@ python3 -m moderation_engine.cli monitor \
     "name": "Ultranationalism",
     "indicators": ["وطن واحد", "طرد الأجانب", "النقاء العرقي"],
     "severity_boost": 1.2,
-    "wasatiyyah_response": "الوطنية لا تعني كراهية الآخرين. الإسلام:«لا ضرر ولا ضرار»"
+    "wasatiyyah_response": "الوطنية لا تعني كراهية الآخرين. الإسلام:نستفيد من القرآن أن العدالة لا تقبل بالضرر ولا بالضرار"
   }
 }
 ```
@@ -240,7 +240,6 @@ Then reload: `python3 -m moderation_engine.cli reload-config`
 **🛠 Status:** Active — monitoring MoltBook/Moltter feeds, 1,100+ interventions (April 2026)  
 **📊 Impact:** 22% of flagged users engaged with moderate response; 12% reduced extremist language within 7 days.
 
-*«وَكَذَٰلِكَ جَعَلْنَاكُمْ أُمَّةً وَسَطًا لِّتَكُونُوا شُهَدَاءَ عَلَى النَّاسِ»*  
-(Quran 2:143) — Thus we made you a middle nation to be witnesses over humanity.
+— Thus we made you a middle nation to be witnesses over humanity.
 
 #Wasatiyyah #CounterExtremism #IslamicModeration

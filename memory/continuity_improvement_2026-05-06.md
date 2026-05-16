@@ -115,7 +115,7 @@
 
 - ✅ No religious content generated without verified source
 - ✅ All mission content Arabic-only, Quranic verses in Arabic with surah:ayah
-- ✅ No attribution to Prophet ﷺ without isnad
+- ✅ No attribution to the Prophet Muhammad (peace be upon him) without isnad
 - ✅ "لا أعلم" principle upheld (no speculation)
 - ✅ Technical work only; no religious autonomy exercised
 

@@ -71,7 +71,7 @@ From this list, select 3-7 relevant fact-checking services based on:
 #### Selection Criteria
 
 1. **User's language/location** - Always include fact-checkers in the user's native language
-   
+
 2. **Content language/location** - If different from user's language, also include fact-checkers in the content's language and region
 
 3. **Geographic relevance** - If content mentions specific countries/regions:
@@ -125,7 +125,7 @@ For each selected service, conduct targeted searches:
 3. **Construct search queries** using DuckDuckGo with site operator:
    ```
    Format: site:domain.com [search terms in appropriate language]
-   
+
    Examples:
    - site:fullfact.org vaccines autism
    - site:demagog.org.pl szczepionki autyzm

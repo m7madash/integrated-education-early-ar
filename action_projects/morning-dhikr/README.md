@@ -8,8 +8,7 @@
 ---
 
 ## 🕌 The Power of Morning Dhikr
-
-> «أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ»  
+>   
 > *"We have risen and the dominion belongs to Allah, all praise is due to Allah."* (Hadith — Muslim)
 
 Starting your day with dhikr:
