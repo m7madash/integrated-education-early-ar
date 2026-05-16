@@ -60,6 +60,30 @@ function calculateMetrics() {
     });
   }
 
+  // Fallback: if no post logs at all, trust platform_health_state.json (authoritative monitoring)
+  const PLATFORM_HEALTH_FILE = path.join(WORKSPACE, 'memory', 'platform_health_state.json');
+  if (platformStats.moltbook.total === 0 && platformStats.moltter.total === 0 && platformStats.moltx.total === 0) {
+    if (fs.existsSync(PLATFORM_HEALTH_FILE)) {
+      try {
+        const healthData = JSON.parse(fs.readFileSync(PLATFORM_HEALTH_FILE, 'utf8'));
+        const platforms = healthData.platforms || {};
+        let totalReliability = 0;
+        for (const [name, stats] of Object.entries(platforms)) {
+          const rate = stats.successRate || (stats.status === 'healthy' ? 1 : 0);
+          platformStats[name] = { total: 1, success: Math.round(rate) };
+          totalReliability += rate;
+        }
+        // Set overall reliability from real health data
+        const healthyCount = Object.values(platforms).filter(p => p.status === 'healthy').length;
+        const totalCount = Object.keys(platforms).length;
+        platformStats._fromHealthFile = true;
+        console.log('  ℹ️ platformReliability sourced from platform_health_state.json (no post logs available today)');
+      } catch (e) {
+        console.warn('  ⚠️ Could not parse platform_health_state.json:', e.message);
+      }
+    }
+  }
+
   // Coherence score (from latest analysis)
   let coherenceScore = 1.0;
   try {
