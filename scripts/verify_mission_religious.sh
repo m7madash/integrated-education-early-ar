@@ -1,74 +1,69 @@
 #!/bin/bash
 #
-# verify_mission_religious.sh — Pre-Publish ReligiousGate
-# Called by continuity_30min.sh before publishing any mission
-# Exit: 0 = OK, 1 = Needs review, 2 = Block
-#
+# verify_mission_religious.sh — Pre-Publish Religious Content Gate (v2)
+# Blocks: Quran verses, hadith citations, surah:ayah refs in published content
+# Exit: 0=clean, 1=blocked
 
 MISSION="$1"
 MISSION_FILE="$2"
 
 if [ -z "$MISSION" ] || [ -z "$MISSION_FILE" ]; then
   echo "Usage: $0 <mission_name> <mission_file>"
-  exit 1
+  exit 2
 fi
 
+BASE="/root/.openclaw/workspace"
 WORKSPACE="/root/.openclaw/workspace"
-VERIFIED_SOURCES="${WORKSPACE}/memory/verified_sources.json"
 LOG_DIR="${WORKSPACE}/memory/verification_logs"
 mkdir -p "$LOG_DIR"
 
-# Extract religious content sections from mission file
-# Specifically look for "🕌 **المرجعية الشرعية**" section
-RELIGIOUS_SECTION=$(grep -A 10 "المرجعية الشرعية" "$MISSION_FILE" || true)
+HIT_COUNT=0
+HIT_LIST=""
 
-# If no explicit religious section → assume OK
-if [ -z "$RELIGIOUS_SECTION" ]; then
-  echo "✅ No explicit religious section found — auto-pass"
-  exit 0
+# Gate 1: surah:ayah in brackets [{سورة X: Y}]
+if grep -qPn '\[[^\]]*[أ-ي]+[[:space:]]*:[[:space:]]*[0-9]+[^\]]*\]' "$MISSION_FILE" 2>/dev/null; then
+  HIT_LIST="${HIT_LIST}  - Block A: [سورة/سورة:آية] format in brackets\n"
+  HIT_COUNT=$((HIT_COUNT+1))
 fi
 
-# Check for Quran references: must match verified_sources.json
-# Pattern: "القرآن: البقرة:205 — «...»" or "القرآن: المائدة:6"
-QURAN_REF_PATTERN='القرآن:[[:space:]]*([0-9]+|[أ-ي]+):([0-9]+)'
-
-echo "🔍 Checking religious references in $MISSION..."
-  
-# Extract Quran references from the section
-QURAN_REFS=$(echo "$RELIGIOUS_SECTION" | grep -oP "$QURAN_REF_PATTERN" || true)
-
-if [ -n "$QURAN_REFS" ]; then
-  echo "📖 Found Quran references:"
-  echo "$QURAN_REFS" | while read -r line; do
-    echo "  - $line"
-  done
-  
-  # Verify each against verified_sources.json using jq
-  # For now, simple pattern: ensure reference format is correct (surah:ayah numbers)
-  # More advanced: cross-check with verified_sources.json quran_verses array
-  
-  # Check for Arabic surah names and convert to numbers
-  # This is simplified — would need full surah name→number mapping
-  
-  echo "✅ Religious references appear valid (format check only)."
+# Gate 2: «...» delimited Arabic text (common for ayah/hadith copying)
+if grep -q '«[^»]+»' "$MISSION_FILE" 2>/dev/null; then
+  HIT_LIST="${HIT_LIST}  - Block B: «...» quoted text (typically verse/hadith)\n"
+  HIT_COUNT=$((HIT_COUNT+1))
 fi
 
-# Check for Hadith references
-HADITH_PATTERN='\(صحيح[[:space:]]+(مسلم|البخاري)\)|\(حسن\)|\(ضعيف\)'
-if echo "$RELIGIOUS_SECTION" | grep -qE "$HADITH_PATTERN"; then
-  echo "📜 Found Hadith references — require isnad verification"
-  # For now, flag for human if hadith without explicit source book
-  if ! echo "$RELIGIOUS_SECTION" | grep -qE "بخاري|مسلم|أبو داود|الترمذي|ابن ماجه|النسائي"; then
-    echo "⚠️  Hadith mentioned but source not explicitly named — flagging for review"
-    exit 1
-  fi
+# Gate 3: Explicit Hadith source mentions
+if grep -qP '(صحيح\s+(البخاري|مسلم)|صحيح\s+السنن|أبو\s+داود|النسائي|الترمذي)' "$MISSION_FILE" 2>/dev/null; then
+  HIT_LIST="${HIT_LIST}  - Block C: hadith source name\n"
+  HIT_COUNT=$((HIT_COUNT+1))
 fi
 
-# Check for "لا أعلم" principle presence
-if echo "$RELIGIOUS_SECTION" | grep -q "لا أعلم"; then
-  echo "✅ Principle of admission of ignorance present"
+# Gate 4: "القرآن: Surah:Ayah" inline format
+if grep -qP 'القرآن:\s*(\([^)]+\)|[أ-ي]+:[0-9]+)' "$MISSION_FILE" 2>/dev/null; then
+  HIT_LIST="${HIT_LIST}  - Block D: القرآن inline citation\n"
+  HIT_COUNT=$((HIT_COUNT+1))
 fi
 
-# All checks passed
-echo "✅ Religious content check PASSED"
+# Gate 5: "الحديث:" prefix
+if grep -q 'الحديث:' "$MISSION_FILE" 2>/dev/null; then
+  HIT_LIST="${HIT_LIST}  - Block E: الحديث: prefix\n"
+  HIT_COUNT=$((HIT_COUNT+1))
+fi
+
+# Gate 6: "المرجعية الشرعية" section (legacy)
+if grep -q 'المرجعية الشرعية' "$MISSION_FILE" 2>/dev/null; then
+  HIT_LIST="${HIT_LIST}  - Block F: المراجع الشرعية section still present\n"
+  HIT_COUNT=$((HIT_COUNT+1))
+fi
+
+if [ "$HIT_COUNT" -gt 0 ]; then
+  echo "BLOCKED [$MISSION] — $HIT_COUNT religious reference violation(s):"
+  echo -e "$HIT_LIST"
+  echo "🛑 publish [$MISSION] aborted — religious content gate triggered" >> "${LOG_DIR}/religion_block_$(date -u '+%Y-%m-%d').log"
+  echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') BLOCKED $MISSION ($HIT_COUNT violations)" >> "${LOG_DIR}/religion_block_$(date -u '+%Y-%m-%d').log"
+  exit 1
+fi
+
+# All gates clean
+echo "✅ [$MISSION] clean — no religious references found"
 exit 0

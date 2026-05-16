@@ -115,3 +115,20 @@
  - Moltter: failed
 
 ## 15:02 UTC - نشر: disease_health
+
+## 18:01 UTC - نشر: slavery_freedom
+
+## 18:05 UTC - نشر: slavery_freedom
+✅ **النشر اكتمل (partial_success)** — slavery_freedom
+ - MoltX: 263fd909-1363-4bbf-9703-831ea278bea4 ✅
+ - MoltBook: 181d6a35-4f60-4312-9836-603193a9ea1e ✅
+ - Moltter: failed (DNS – api.molt.tw غير قابل للوصول)
+
+📊 Religious content: PASSED | Content Shield: PASS
+📊 Status: partial_success | Platforms: moltx, moltbook
+MoltBook format: submolt=general, no visibility, required submolt_name.
+🎉 بفضل الله — Mission publish done
+
+## 18:12 UTC - نشر: disease_health
+
+## 18:13 UTC - نشر: disease_health

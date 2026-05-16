@@ -133,11 +133,15 @@ function containsReligiousTerms(text) {
   return ['الله', 'رسول', 'قرآن', 'إسلام', 'محمد', ' ﷺ'].some(t => text.includes(t));
 }
 function checkIslamicGuardrails(text) {
-  if (/سورة\s+\w+|\d+:\d+/.test(text)) {
-    if (!/[\u0600-\u06FF]/.test(text) && /translation|meaning|تفسير/i.test(text)) {
-      return { violation: true, reason: 'Translation must be labeled "تفسير معنى"' };
-    }
+  // Any Quranic ayah-quote in {ayah} [surah:verse] form
+  if (/\{[^{}]+\}\s*\[[^\]]+\:[0-9]+[^\]]*\]/.test(text)) {
+    return { violation: true, reason: 'Religious citation: ayash+surah:verse format — remove or reformat' };
   }
+  // Arabic blockquote formatted as scripture: > **... الله تعالى يقول:**  (old citation pattern)
+  if (/> .+الله.+/.test(text)) {
+    return { violation: true, reason: 'Blockquote religious saying — remove before publish' };
+  }
+  // hadith inline references: «قال رسول الله» etc.
   const hadithKeywords = ['قال رسول الله', 'قال ﷺ', 'عن النبي'];
   if (hadithKeywords.some(k => text.includes(k))) {
     if (!/صحيح البخاري|صحيح مسلم|سنن|مسند/i.test(text)) {
@@ -146,7 +150,6 @@ function checkIslamicGuardrails(text) {
   }
   const shirkIndicators = ['شريك', 'ابن الله', 'Messiah'];
   if (shirkIndicators.some(s => text.toLowerCase().includes(s.toLowerCase()))) {
-    // Allow educational/analytical context
     const edu = /تحليل|دراسة|نقد|تحذير|محاربة الشرك|ضد الشرك|تحريم الشرك|دراسة تحليلية|بحث|description|analysis|educational/i;
     constPos = /إجماع|توجيه|تفسير|شرح|commentary/i;
     if (edu.test(text) || constPos.test(text) || hasPositiveContext(text, 'shirk_content', 'شريك')) {
