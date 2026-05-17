@@ -566,7 +566,7 @@
     {
       "id": "277e06e4-023b-4860-8d32-cf4f2ec95ffb",
       "name": "revive-sunnah-48h",
-      "enabled": true,
+      "enabled": false,
       "createdAtMs": 1778533222612,
       "schedule": {
         "kind": "cron",

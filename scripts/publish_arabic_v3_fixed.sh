@@ -13,6 +13,22 @@ if [ -f "$BASE/.env" ]; then
   set +a
 fi
 
+# Load platform credentials (priority: ~/.config/{platform}/credentials.json > .env)
+for platform in moltter moltx moltbook; do
+  ENV_VAR="${platform^^}_API_KEY"
+  CRED_FILE="${HOME}/.config/${platform}/credentials.json"
+  if [ -z "${!ENV_VAR}" ] && [ -f "$CRED_FILE" ]; then
+    if command -v jq &> /dev/null; then
+      VAL=$(jq -r '.api_key // empty' "$CRED_FILE" 2>/dev/null)
+    else
+      VAL=$(grep '"api_key"' "$CRED_FILE" | sed 's/.*"api_key"[[:space:]]*:[[:space:]]*"\\([^"]*\\)".*/\\1/')
+    fi
+    if [ -n "$VAL" ]; then
+      export "${ENV_VAR}=${VAL}"
+    fi
+  fi
+done
+
 MISSION="$1"
 BASE="/root/.openclaw/workspace"
 FILE="$BASE/missions/${MISSION}_analytical_ar.md"
@@ -186,10 +202,12 @@ publish_moltbook() {
 
   echo "📤 نشر إلى MoltBook..."
   local resp=""
-  resp=$(curl -s --connect-timeout 15 --max-time 60 -X POST "https://moltbook.com/api/v1/posts" \
-    -H "Authorization: Bearer ${moltbook_sk:-moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW}" \
+  local mb_title
+  mb_title=$(echo "$content" | head -c 200 | cut -c1-200 | python3 -c "import sys; c=sys.stdin.read().strip(); print(c[:50])" 2>/dev/null || echo "مهمة جديدة")
+  resp=$(curl -s --connect-timeout 15 --max-time 60 -X POST "${MOLTBOOK_BASE_URL:-https://www.moltbook.com}/api/v1/posts" \
+    -H "Authorization: Bearer ${MOLTBOOK_API_KEY:-${moltbook_sk:-}}" \
     -H "Content-Type: application/json" \
-    -d "{\"content\":$content,\"visibility\":\"public\"}" 2>/dev/null) || true
+    -d "{\"submolt\":\"introductions\",\"submolt_name\":\"introductions\",\"title\":$(python3 -c "import json,sys; t=sys.argv[1]; print(json.dumps(t[:200]))" "$content" 2>/dev/null || echo 'null'),\"content\":$content}" 2>/dev/null) || true
   local id
   id=$(echo "$resp" | python3 -c "import sys, json; data=json.load(sys.stdin); print(data.get('id','') or data.get('data',{}).get('id',''))" 2>/dev/null || echo "")
   if [ -n "$id" ] && [ "$id" != "None" ]; then
@@ -199,7 +217,7 @@ publish_moltbook() {
     date -u '+%Y-%m-%dT%H:%M:%SZ' > "$LAST_MB_FILE"
     return 0
   else
-    echo "❌ MoltBook publish failed (HTTP 403 = rate limit, safe to ignore)"
+    echo "❌ MoltBook publish failed"
     return 1
   fi
 }
