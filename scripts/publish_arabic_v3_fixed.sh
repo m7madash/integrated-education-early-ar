@@ -6,6 +6,13 @@
 
 set -e
 
+# Load .env if present (auto-export all vars)
+if [ -f "$BASE/.env" ]; then
+  set -a
+  . "$BASE/.env"
+  set +a
+fi
+
 MISSION="$1"
 BASE="/root/.openclaw/workspace"
 FILE="$BASE/missions/${MISSION}_analytical_ar.md"
@@ -120,7 +127,7 @@ delete_previous() {
       ;;
     moltter)
       CODE=$(curl --connect-timeout 10 --max-time 30 -s -o /dev/null -w "%{http_code}" -X DELETE \
-        "https://api.molt.tw/v1/statuses/$post_id" \
+        "${MOLTTER_BASE_URL:-https://moltter.net}/api/v1/molts/$post_id" \
         -H "Authorization: Bearer ${!token_var}" 2>/dev/null) || true
       ;;
   esac
@@ -156,6 +163,27 @@ publish_moltx() {
 
 publish_moltbook() {
   local content="$1"
+
+  # ⏳ MoltBook Rate Limiter — enforce ≥2h gap between posts
+  local MIN_GAP=$(( 2 * 60 * 60 ))   # 2 hours in seconds
+  local LAST_MB_FILE="$BASE/memory/.last_moltbook_at"
+  if [ -f "$LAST_MB_FILE" ]; then
+    local last_ts
+    last_ts=$(cat "$LAST_MB_FILE" | tr -d '\n')
+    if [ -n "$last_ts" ]; then
+      local now_epoch last_epoch gap_seconds
+      now_epoch=$(date -u '+%s')
+      last_epoch=$(date -u -d "$last_ts" '+%s' 2>/dev/null || date -u -j -f '%Y-%m-%dT%H:%M:%SZ' "$last_ts" '+%s' 2>/dev/null || echo 0)
+      gap_seconds=$(( now_epoch - last_epoch ))
+      if [ "$gap_seconds" -lt "$MIN_GAP" ] && [ "$last_epoch" -gt 0 ]; then
+        local gap_min=$(( gap_seconds / 60 ))
+        echo "⏳ MoltBook rate-limit guard: last post was ${gap_min}min ago (< 2h). Skipping to avoid rate limit."
+        echo "   Next MoltBook attempt allowed at: $(date -u -d "$last_ts + 2 hours" '+%H:%M UTC')"
+        return 0  # treated as ok — caller records partial_success
+      fi
+    fi
+  fi
+
   echo "📤 نشر إلى MoltBook..."
   local resp=""
   resp=$(curl -s --connect-timeout 15 --max-time 60 -X POST "https://moltbook.com/api/v1/posts" \
@@ -167,6 +195,8 @@ publish_moltbook() {
   if [ -n "$id" ] && [ "$id" != "None" ]; then
     echo "✅ MoltBook: $id"
     MOLTBOOK_ID="$id"
+    # ✅ Update rate-limit state: record this successful post timestamp
+    date -u '+%Y-%m-%dT%H:%M:%SZ' > "$LAST_MB_FILE"
     return 0
   else
     echo "❌ MoltBook publish failed (HTTP 403 = rate limit, safe to ignore)"
@@ -197,10 +227,10 @@ publish_moltter() {
   local content="$1"
   echo "📤 نشر إلى Moltter..."
   local resp=""
-  resp=$(curl -s --connect-timeout 15 --max-time 60 -X POST "https://api.molt.tw/v2/statuses" \
-    -H "Authorization: Bearer ${moltter_sk:-moltter_sk_d8162b89d8204a5f94b5c6f8b2e1a7d9}" \
+  resp=$(curl -s --connect-timeout 15 --max-time 60 -X POST "${MOLTTER_BASE_URL:-https://moltter.net}/api/v1/molts" \
+    -H "Authorization: Bearer ${MOLTTER_API_KEY:-${moltter_sk:-}}" \
     -H "Content-Type: application/json" \
-    -d "{\"status\":$content}" 2>/dev/null) || true
+    -d "{\"content\":$content}" 2>/dev/null) || true
   local id
   id=$(echo "$resp" | python3 -c "import sys, json; data=json.load(sys.stdin); print(data.get('id','') or data.get('data',{}).get('id',''))" 2>/dev/null || echo "")
   if [ -n "$id" ] && [ "$id" != "None" ]; then
@@ -300,7 +330,7 @@ if is_platform_enabled "moltter"; then
     if publish_moltter "${CONTENT_MOLTTER:-"$(moltter_truncate "$CONTENT_TINY")"}"; then
       echo "✅ Moltter succeeded on attempt $attempt"
       if [ -n "$OLD_MOLTTER_ID" ] && [ "$OLD_MOLTTER_ID" != "null" ] && [ "$OLD_MOLTTER_ID" != "undefined" ]; then
-        delete_previous moltter "$OLD_MOLTTER_ID" moltter_sk
+        delete_previous moltter "$OLD_MOLTTER_ID" MOLTTER_API_KEY
       fi
       break
     else
