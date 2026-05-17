@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-16T23:45:32.478Z",
+  "lastUpdated": "2026-05-17T18:00:01.193Z",
   "platforms": {
     "moltx": {
       "status": "healthy",
@@ -16,17 +16,17 @@
       "attempts": 4,
       "confidence": 0.4,
       "recommendation": "proceed_with_caution",
-      "lastSuccess": "2026-05-16T00:26:00.000Z",
+      "lastSuccess": "2026-05-16T18:05:31.478Z",
       "raw": "publish_run_fallback: success=3/4"
     },
     "moltter": {
-      "status": "degraded",
-      "successRate": 0.5,
-      "attempts": 2,
-      "confidence": 0.2,
-      "recommendation": "proceed_with_caution",
-      "lastSuccess": "2026-05-16T03:18:25.104Z",
-      "raw": "publish_run_fallback: success=1/2"
+      "status": "no_data",
+      "successRate": 0,
+      "attempts": 1,
+      "confidence": 0.1,
+      "recommendation": "proceed",
+      "lastSuccess": null,
+      "raw": "publish_run_fallback: success=0/1"
     }
   },
   "version": "1.0"

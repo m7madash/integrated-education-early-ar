@@ -2389,3 +2389,14 @@ Despite deployed `publish_with_circuit_breaker.sh` wrapper, cron jobs were still
 
 <!-- openclaw-memory-promotion:memory:memory/2026-05-08.md:20:20 -->
 - Next scheduled runs should execute without skip status. "skipped" status in `cron list` will clear after successful runs. 
+
+## Promoted From Short-Term Memory (2026-05-17)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-05-11.md:3:3 -->
+- > قال تعالى: «وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْديَنَّهُمْ سُبُلَنَا» - سورة العنكبوت (29:69) [score=0.861 recalls=0 avg=0.620 source=memory/2026-05-11.md:3-3]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-10.md:3:3 -->
+- _continuity improved, wrappers created, schedule stabilized_ [score=0.850 recalls=0 avg=0.620 source=memory/2026-05-10.md:3-3]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-10.md:5:5 -->
+- > قال تعالى: «وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْديَنَّهُمْ سُبُلَنَا» — سورة العنكبوت (29:69) [score=0.850 recalls=0 avg=0.620 source=memory/2026-05-10.md:5-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-10.md:11:14 -->
+- | Time | Event | |------|-------| | 09:45 | Received `continuity-improvement` cron trigger — begin diagnosis | | 10:00 | Analyzed ledger: 650 lines, 0 parse errors, but gaps >35min exist | [score=0.850 recalls=0 avg=0.620 source=memory/2026-05-10.md:11-14]

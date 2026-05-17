@@ -35,6 +35,7 @@ function loadLedgerEntries(limit = 1000) {
 function main() {
   const config = loadJSON(path.join(WORKSPACE, 'continuity.config.json'));
   const heartbeat = loadJSON(path.join(WORKSPACE, 'memory', 'heartbeat-state.json'));
+  const platformHealthState = loadJSON(path.join(WORKSPACE, 'memory', 'platform_health_state.json'));
   const ledger = loadLedgerEntries();
 
   const kpi = config.kpi || {};
@@ -53,22 +54,70 @@ function main() {
   // (full success would require all platforms succeed; but KPI target 1.0 suggests strictness... let's compute both)
 
   // Platform reliability: per-platform success rate
+  // Strategy: use platform_health_state.json as authoritative source (aggregated, multi-day)
+  // Fall back to ledger publish_run data if platform_health_state.json is missing/malformed
+  let platformReliabilityFrom = 'unknown';
   const platformStats = {};
-  postPublishes.forEach(pp => {
-    const plat = pp.platform;
-    if (!platformStats[plat]) platformStats[plat] = { total: 0, success: 0 };
-    platformStats[plat].total++;
-    if (pp.success === true || pp.status === 'success') platformStats[plat].success++;
-  });
 
-  // Overall platform reliability: weighted average across platforms attempts
-  let platformReliability = 0;
-  const platforms = Object.keys(platformStats);
-  if (platforms.length > 0) {
-    const totalAttempts = platforms.reduce((sum, p) => sum + platformStats[p].total, 0);
-    const totalSuccesses = platforms.reduce((sum, p) => sum + platformStats[p].success, 0);
-    platformReliability = totalAttempts ? totalSuccesses / totalAttempts : 1;
+  // PRIMARY: platform_health_state.json (most recent health check snapshot)
+  if (platformHealthState.platforms) {
+    Object.entries(platformHealthState.platforms).forEach(([plat, data]) => {
+      platformStats[plat] = {
+        total: data.attempts || 0,
+        success: Math.round((data.attempts || 0) * (data.successRate || 0)),
+        status: data.status,
+        confidence: data.confidence,
+        _source: 'platform_health_state'
+      };
+    });
+    platformReliabilityFrom = 'platform_health_state.json';
   }
+
+  // PRIMARY: platform_health_state.json (most recent health check snapshot)
+  if (platformHealthState.platforms) {
+    Object.entries(platformHealthState.platforms).forEach(([plat, data]) => {
+      platformStats[plat] = {
+        total: data.attempts || 0,
+        success: Math.round((data.attempts || 0) * (data.successRate || 0)),
+        status: data.status,
+        confidence: data.confidence,
+        _source: 'platform_health_state'
+      };
+    });
+    platformReliabilityFrom = 'platform_health_state.json';
+  }
+
+  // SECONDARY fallback (if platform_health_state missing): read publish_run postIds
+  // Use 'platforms' field as source-of-truth for whether an attempt was actually made
+  if (Object.keys(platformStats).length === 0) {
+    const ATLAS_PLATS = ['moltx', 'moltbook', 'moltter'];
+    const attemptedMap = {};
+    publishRuns.forEach(pr => {
+      const postIds = pr.postIds || pr.payload?.postIds || {};
+      const targets = (pr.platforms || pr.payload?.platforms || '')
+        .split(',').map(s => s.trim()).filter(s => ATLAS_PLATS.includes(s));
+      const attempted = targets.length > 0 ? targets : Object.keys(postIds).filter(k => ATLAS_PLATS.includes(k));
+      attempted.forEach(plat => {
+        if (!attemptedMap[plat]) attemptedMap[plat] = { total: 0, success: 0 };
+        attemptedMap[plat].total++;
+        if (postIds[plat] && typeof postIds[plat] === 'string' && postIds[plat].length > 0) {
+          attemptedMap[plat].success++;
+        }
+      });
+    });
+    Object.entries(attemptedMap).forEach(([plat, s]) => {
+      platformStats[plat] = { total: s.total, success: s.success, _source: 'publish_run_fallback' };
+    });
+    platformReliabilityFrom = 'publish_run_fallback';
+  }
+
+  console.log(`⚠️ platformReliability sourced from ${platformReliabilityFrom}`);
+
+  // Overall platform reliability: weighted average across platform attempts
+  const platformsKeys = Object.keys(platformStats);
+  const totalAttempts = platformsKeys.reduce((sum, p) => sum + (platformStats[p].total || 0), 0);
+  const totalSuccesses = platformsKeys.reduce((sum, p) => sum + (platformStats[p].success || 0), 0);
+  const platformReliability = totalAttempts ? totalSuccesses / totalAttempts : 1;
 
   // Mission completion: simple ratio of missions with at least one platform success
   // Because each mission ideally posts to 3 platforms; if at least one succeeds, mission content is live.
@@ -143,7 +192,7 @@ function main() {
   console.log(`✅ Metrics: ${METRICS_OUTPUT}`);
   console.log(`   Overall: ${(metrics.overallHealth*100).toFixed(1)}% | Coverage: ${(metrics.continuityCoverage*100).toFixed(1)}%`);
   console.log(`   Missions: ${metrics.missionStats.successful}/${metrics.missionStats.total}`);
-  console.log(`   Platforms: ${(platformReliability*100).toFixed(1)}% avg across ${platforms.join(',')||'none'}`);
+  console.log(`   Platforms: ${(platformReliability*100).toFixed(1)}% avg across ${platformsKeys.join(',')||'none'}`);
   process.exit(0);
 }
 

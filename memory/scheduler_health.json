@@ -1,11 +1,11 @@
 {
   "status": "running",
-  "lastRunMs": 1778959852804,
+  "lastRunMs": 1779040800567,
   "lastRunSuccess": true,
-  "lastRunDuration": 2451,
+  "lastRunDuration": 3185,
   "lastRunTimedOut": false,
   "consecutiveFailures": 0,
-  "nextRunMs": 1778961652804,
-  "totalRuns": 92,
-  "successfulRuns": 92
+  "nextRunMs": 1779042600567,
+  "totalRuns": 27,
+  "successfulRuns": 27
 }
