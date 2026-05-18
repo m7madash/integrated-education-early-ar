@@ -42,7 +42,6 @@
 ## 🗓️ الجدول الزمني الفعلي — HEARTBEAT V7 (مطابق مع cron/jobs.json)
 
 > آخر تحديث: 2026-05-17 14:31 UTC — مطابق تماماً مع `cron/jobs.json`
-> revive-sunnah-48h مُعطل مؤقتاً(pending decision). تنبيه: food_safety @ 13:00 مفقودة.
 
 | الوقت (UTC) | المهمة | النوع |
 |------------|--------|------|
@@ -67,7 +66,6 @@
 
 **المهام المفعلة:** 24 job
 **مُعطلة مؤقتاً:** `revive-sunnah-48h` — pending user decision (إيقاف مؤقت May 17)
-**مفقودة من cron:** `food_safety` @ 13:00 — pending user decision
 
 ---
 
@@ -125,7 +123,6 @@
 - **DUA_DAILY_clean.md** — نظيف من المراجع الدينية ✅
 - **32 ملفmission — 0 مخالفات** ✅
 - **revive-sunnah-48h** معطل مؤقتاً —pending decision
-- **food_safety** @ 13:00 mouflisé —pending decision
 
 ---
 
