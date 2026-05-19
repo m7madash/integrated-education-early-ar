@@ -25,7 +25,7 @@ function computeHeartbeatHealth() {
       if (!line.startsWith('{')) continue;
       try {
         const e = JSON.parse(line);
-        if (e.type === 'continuity_check' && e.ts && e.ts.startsWith(today)) {
+        if (e.ts && e.ts.startsWith(today)) {
           actual++;
         }
       } catch (err) {

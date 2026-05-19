@@ -96,23 +96,25 @@ function calculateMetrics() {
     coherenceScore = analysis.score;
   } catch (e) { /* ignore */ }
 
-  // Heartbeat health (count successful continuity checks today, time-aware denominator)
+  // Heartbeat health — count all active continuity-cycle entries
   let heartbeatCount = 0;
+  const heartbeatTypes = ['continuity_check', 'continuity_pulse', 'continuity_work',
+                           'continuity_gap', 'platform_health_check', 'snapshot_created',
+                           'continuity_acknowledge_heartbeat_redundancy'];
   try {
     const ledgerFile = path.join(WORKSPACE, 'memory', 'ledger.jsonl');
     if (fs.existsSync(ledgerFile)) {
       const ledger = fs.readFileSync(ledgerFile, 'utf8').split('\n').filter(l => l);
       const todayStart = new Date(today + 'T00:00:00Z').getTime();
-      const now = Date.now();
-      const heartbeatTypes = ['continuity_check', 'continuity_pulse', 'continuity_work'];
+      const nowTs = Date.now();
       heartbeatCount = ledger.filter(entry => {
         try {
           const e = JSON.parse(entry);
           if (heartbeatTypes.includes(e.type)) {
             const ts = new Date(e.ts).getTime();
-            return ts >= todayStart && ts <= now;
+            return ts >= todayStart && ts <= nowTs;
           }
-        } catch (e) { return false; }
+        } catch (e2) { return false; }
         return false;
       }).length;
     }

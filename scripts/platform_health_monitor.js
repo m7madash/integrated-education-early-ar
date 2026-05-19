@@ -55,7 +55,7 @@ function calculatePlatformHealth(events) {
       );
       if (runEntries.length > 0) {
         const platformMatches = runEntries.filter(e =>
-          (e.payload.platforms || '').split(',').includes(p)
+          (String(e.payload.platforms || '').split(',').includes(p))
         );
         if (platformMatches.length > 0) {
           const successes = platformMatches.filter(e => {

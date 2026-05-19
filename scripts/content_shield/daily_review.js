@@ -77,8 +77,8 @@ ${item.content.substring(0, 200)}...
 ## Notes
 
 - Review these items to ensure filter accuracy
-- Adjust rules in `config/content_filter_rules.json` if false positives appear
-- Add exceptions to `config/islamic_guardrails.json` for verified religious content
+- Adjust rules in 'config/content_filter_rules.json' if false positives appear
+- Add exceptions to 'config/islamic_guardrails.json' for verified religious content
 
 ---
 

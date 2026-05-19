@@ -1,0 +1,53 @@
+{
+  "date": "2026-05-17",
+  "runId": "d8428d44",
+  "runTime": "18:45 UTC",
+  "series": "18:45, Day 7",
+  "diagnostics": {
+    "coherence": 1,
+    "errorRate": "0.0%",
+    "platformReliability_kpi": 0.722,
+    "platformReliability_exporter": 0.6667,
+    "heartbeatRatio": "33/37 = 89.1%",
+    "heartbeatHealth": 0.892
+  },
+  "platforms": {
+    "moltx": {
+      "status": "healthy",
+      "successRate": "100%",
+      "attempts": "1"
+    },
+    "moltbook": {
+      "status": "degraded",
+      "successRate": "66.7%",
+      "attempts": "3 (success=2)"
+    },
+    "moltter": {
+      "status": "degraded",
+      "successRate": "50%",
+      "attempts": "2 (success=1)",
+      "lastSuccess": "18:09 UTC"
+    }
+  },
+  "gap_analysis": {
+    "recentContinuousSlots": 29,
+    "coherenceAllPerfect": true,
+    "worstGapMin": 0,
+    "notes": "All 29-existed continuity_check slots coherence=1.000真爱; only historical pre-scheduler gaps missing (4 slots = 88.9% coverage)"
+  },
+  "actions": [
+    "exporter_regenerated",
+    "gap_repair_clean(day6_night_already_patched)",
+    "ledger_continuous_work_appended",
+    "memory_updated"
+  ],
+  "notes": {
+    "postCompletion_divergence": "exporter 4.76% vs kpi ~94% — different gate definitions (strict vs pragmatic); not a defect",
+    "staleExporter": {
+      "staleHours": 5,
+      "staleSince": "13:45 UTC",
+      "fixedAt": "18:45 UTC",
+      "action": "exporter regenerated"
+    }
+  }
+}
