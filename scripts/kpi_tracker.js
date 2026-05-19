@@ -71,15 +71,25 @@ function calculateMetrics() {
         for (const [name, stats] of Object.entries(platforms)) {
           const rate = stats.successRate || (stats.status === 'healthy' ? 1 : 0);
           platformStats[name] = { total: 1, success: Math.round(rate) };
-          platformStats[name]._rate = rate;  // preserve raw fractional rate
+          platformStats[name]._rate = rate;          // preserve raw fractional rate
+          platformStats[name]._confidence = stats.confidence ?? 1.0; // preserve confidence for weighting
           totalReliability += rate;
         }
         platformStats._fromHealthFile = true;
         console.log('  ℹ️ platformReliability sourced from platform_health_state.json (no post logs available today)');
-        // Compute reliability from _rate (preserved raw rate) across named platforms only
         const healthNamedEntries = Object.entries(platformStats).filter(([k]) => !k.startsWith('_'));
-        const overallFromHealth = healthNamedEntries.length > 0
-          ? healthNamedEntries.reduce((sum, [, stats]) => sum + (stats._rate || (stats.total ? stats.success / stats.total : 1)), 0) / healthNamedEntries.length
+        // Confidence-weighted overall: platforms with low confidence (e.g. MoltBook confidence=0.1,
+        // status=no_data) contribute less to the aggregate. Only platforms with confidence
+        // >= 0.5 participate in the weighted average.
+        const CONFIDENCE_THRESHOLD = 0.5;
+        const weightedContributions = [];
+        healthNamedEntries.forEach(([, stats]) => {
+          const conf = stats._confidence !== undefined ? stats._confidence : 1.0;
+          const rate = stats._rate ?? 1.0;
+          if (conf >= CONFIDENCE_THRESHOLD) weightedContributions.push({rate, weight: conf});
+        });
+        const overallFromHealth = weightedContributions.length > 0
+          ? weightedContributions.reduce((sum, c) => sum + c.rate * c.weight, 0) / weightedContributions.reduce((sum, c) => sum + c.weight, 0)
           : 1;
         platformStats._overallFromHealth = overallFromHealth;
       } catch (e) {
