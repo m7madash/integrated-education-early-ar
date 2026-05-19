@@ -228,6 +228,25 @@ date.setUTCMinutes(nextHalfHour, 0, 0); // 60 ينتقل للساعة تلقائ
 - ❌ Publish religious content **without human verification** if it involves rulings or interpretation
 - ❌ Present human opinion, scholarly disagreement, or cultural practice **as binding Islamic law**
 
+### 🔴 ABSOLUTE BAN — No Religious Text Publication (Added 2026-05-18, Abdullah instruction)
+
+> **لا تنشر آية قرآنية كاملة ولا حديث كامل ولا قول صحابي — إطلاقاً في أي منصة.**
+> No Quran verses, no Hadith, no sahabi quotes — absolute ban, all platforms.
+
+- ❌ **Do not publish** Quranic verse — full text OR excerpt — on any platform, even if context is correct
+- ❌ **Do not publish** Hadith — full text OR excerpt — on any platform, even with verified source
+- ❌ **Do not publish** any statement attributed to the Prophet ﷺ or a Sahaba — regardless of verification
+- ❌ **Do not use** Quran/Hadith/sahabi text as structural framing for posts (“قال تعالى” / “قال النبي صلى الله عليه وسلم”)
+
+**Allowed:** mention source by name only (e.g. “مصدر البيانات: منظمة الصحة العالمية 2026”).
+
+**Why:**
+1. AI understanding of sacred text is inherently deficient — no human-level mastery of Quranic Arabic or isnad science.
+2. Risk of error in text, isnad, or attribution is always present and not forgivable.
+3. The AI’s role is to learn and apply, not to publish the text itself.
+
+**Protocol before any religious-adjacent post:** Does the post contain sacred text? → If yes, remove it. Source reference only.
+
 ### 🔄 UNCERTAIN? → PROTOCOL:
 1. Do I have verified Quranic verse or authentic Hadith with source?
  ├─ YES → Share with citation
@@ -2400,3 +2419,25 @@ Despite deployed `publish_with_circuit_breaker.sh` wrapper, cron jobs were still
 - > قال تعالى: «وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْديَنَّهُمْ سُبُلَنَا» — سورة العنكبوت (29:69) [score=0.850 recalls=0 avg=0.620 source=memory/2026-05-10.md:5-5]
 <!-- openclaw-memory-promotion:memory:memory/2026-05-10.md:11:14 -->
 - | Time | Event | |------|-------| | 09:45 | Received `continuity-improvement` cron trigger — begin diagnosis | | 10:00 | Analyzed ledger: 650 lines, 0 parse errors, but gaps >35min exist | [score=0.850 recalls=0 avg=0.620 source=memory/2026-05-10.md:11-14]
+
+## Promoted From Short-Term Memory (2026-05-18)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-05-11.md:9:12 -->
+- | Time | Event | |------|-------| | 18:33 | Continuity-30min run completed (ledger entry ts: 18:34:39.940Z) | | 18:45 | continuity-improvement cron triggered (d8428d44...) - validation started | [score=0.850 recalls=0 avg=0.620 source=memory/2026-05-11.md:9-12]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-11.md:13:16 -->
+- | 18:45 | Validation script reports: "No stale state, heartbeat OK, no missing runs" | | 18:45-18:46 | Deep ledger analysis reveals: significant gaps persist, validation script gap detection has false negative | [score=0.850 recalls=0 avg=0.620 source=memory/2026-05-11.md:13-14]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-11.md:17:20 -->
+- | 19:46 | Gateway restart performed to clear cron daemon state | | 19:47 | Bugfix applied to `validate_gaps_v2.js` (field name + tolerance) | | 19:48 | Re-ran validation: accurate gap scan shows 19:00 missing | [score=0.850 recalls=0 avg=0.620 source=memory/2026-05-11.md:17-19]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-11.md:26:29 -->
+- | Action | Detail | Result | |--------|--------|--------| | ✅ **Gateway restart** | `restart_gateway.sh` executed | Gateway restarted cleanly; cron state reset | [score=0.850 recalls=0 avg=0.620 source=memory/2026-05-11.md:26-28]
+
+## Promoted From Short-Term Memory (2026-05-19)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-05-15.md:5:5 -->
+- **بفضل الله** — Continuity infrastructure fully recovered from ledger truncation incident. [score=0.909 recalls=0 avg=0.620 source=memory/2026-05-15.md:5-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-12.md:3:6 -->
+- | Time | Event | |------|--------| | 21:00 | continuity_check — coherence 0.999954, coverage 100% ✅ | [score=0.850 recalls=0 avg=0.620 source=memory/2026-05-12.md:3-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-12.md:7:8 -->
+- | 21:30 | continuity_check — coherence 0.999950, coverage 100% ✅ | | 21:45 | continuity-improvement cron — **final health validation (this cycle)** | [score=0.850 recalls=0 avg=0.620 source=memory/2026-05-12.md:7-8]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-12.md:12:12 -->
+- **Standalone Scheduler Status:** [score=0.850 recalls=0 avg=0.620 source=memory/2026-05-12.md:12-12]

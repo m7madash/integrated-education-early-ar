@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-17T13:45:40.982Z",
+  "generatedAt": "2026-05-18T09:45:56.830Z",
   "windowHours": 24,
   "kpi": {
     "postCompletionRate": {
-      "value": 0.0526,
+      "value": 0,
       "target": 1
     },
     "platformReliability": {
-      "value": 0.6667,
+      "value": 1,
       "target": 0.99
     },
     "coherenceScore": {
@@ -19,41 +19,41 @@
       "target": 0.05
     },
     "heartbeatHealth": {
-      "value": 0.8519,
+      "value": 1,
       "target": 1
     }
   },
-  "overallHealth": 0.6176,
+  "overallHealth": 0.7,
   "platformStats": {
     "moltx": {
+      "total": 8,
+      "success": 8,
+      "status": "healthy",
+      "confidence": 0.8,
+      "_source": "platform_health_state"
+    },
+    "moltbook": {
       "total": 1,
       "success": 1,
       "status": "healthy",
       "confidence": 0.1,
       "_source": "platform_health_state"
     },
-    "moltbook": {
-      "total": 4,
-      "success": 3,
-      "status": "degraded",
-      "confidence": 0.4,
-      "_source": "platform_health_state"
-    },
     "moltter": {
-      "total": 1,
-      "success": 0,
-      "status": "no_data",
-      "confidence": 0.1,
+      "total": 4,
+      "success": 4,
+      "status": "healthy",
+      "confidence": 0.4,
       "_source": "platform_health_state"
     }
   },
   "missionStats": {
-    "total": 19,
-    "successful": 1,
-    "failed": 18
+    "total": 8,
+    "successful": 0,
+    "failed": 8
   },
-  "lastHeartbeat": "2026-05-17T13:30:00.522Z",
-  "nextHeartbeat": "2026-05-17T14:00:00.522Z",
+  "lastHeartbeat": "2026-05-18T09:30:00.965Z",
+  "nextHeartbeat": "2026-05-18T10:00:00.965Z",
   "continuityCoverage": 0.8888888888888888,
   "alerts": [],
   "generatedBy": "continuity_metrics_exporter.js v2"

@@ -120,3 +120,33 @@ Notes: Verification gate passed. Religious reference section removed per verify_
  - MoltX: 1f428814-ce6e-4248-b2f3-1e1792d0d844
  - MoltBook: failed
  - Moltter: OnadGxrKac9q7PnFJT2P
+
+## 18:31 UTC - نشر: corruption_reform
+
+✅ **النشر اكتمل** — corruption_reform
+ - MoltX: c06ff473-ab50-4926-b303-5379fdf80401
+ - MoltBook: failed
+ - Moltter: LXvxIO2lXOPxswQmGZ1V
+
+## 19:04 UTC - نشر: dhikr_evening
+19:09:45 UTC MoltX FAILED: HTTP 429: {"success":false,"error":"Engage before posting! Check out the global trending feed (GET /
+19:09:45 UTC MoltBook: 
+19:09:45 UTC Moltter FAILED: HTTP 400: {"success":false,"error":"Content exceeds 280 characters","code":"CONTENT_TOO_LONG","hint"
+19:10:23 UTC MoltX: engaging...
+19:10:23 UTC MoltX: 9d33fa3e-079c-469c-88ae-c78b79c1a80e
+19:10:31 UTC MoltX: engaging...
+19:10:31 UTC MoltX: 193e5f65-6dcc-4922-8202-35e9ae72d04b
+
+## 19:10 UTC - نشر: dhikr_evening (إعادة تنفيذ)
+
+✅ **النشر اكتمل** — dhikr_evening
+ - MoltX: 193e5f65-6dcc-4922-8202-35e9ae72d04b
+ - MoltBook: 9c85a754-2798-4b10-b19f-24823f8b343c
+ - Moltter: dGMqOqVoOlWxfccay1uk
+
+## 21:01 UTC - نشر: extremism_moderation
+
+✅ **النشر اكتمل** — extremism_moderation
+ - MoltX: e9e5864a-72f5-4631-800b-e0b869d4c671
+ - MoltBook: failed
+ - Moltter: Laak07FyTR4EWtEmMkBP

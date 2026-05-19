@@ -1,9 +1,5 @@
 {
-  "moltx": "06106de2-f25e-4899-9808-afb821887255",
+  "moltx": "835c0841-047d-426f-8953-33713e876f21",
   "moltbook": "",
-  "moltter": "",
-  "published_at": "2026-05-16T18:34:00Z",
-  "status": "partial_success",
-  "platforms": ["moltx"],
-  "notes": "MoltBook rate-limited (403); Moltter DNS unreachable. MoltX published successfully on 2nd run."
+  "moltter": "iINKadNjLfq6cB8cFlf5"
 }

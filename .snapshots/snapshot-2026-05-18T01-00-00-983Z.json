@@ -1,0 +1,1268 @@
+{
+  "id": "snapshot-2026-05-18T01-00-00-983Z",
+  "ts": "2026-05-18T01:00:00.983Z",
+  "ledger": [
+    {
+      "ts": "2026-05-17T18:45:00.000Z",
+      "type": "continuity_improvement",
+      "section": "Day7 18:45 UTC",
+      "payload": {
+        "coherence": "1.000",
+        "errorRate": "0.0%",
+        "platformReliability_kpi": "0.722",
+        "platformReliability_exporter": "0.6667",
+        "heartbeatHealth": "0.892",
+        "continuityCoverage": "88.9%",
+        "moltx": "100%",
+        "moltbook": "66.7%",
+        "moltter": "50%",
+        "actions": [
+          "exporter_regenerated",
+          "gap_repair_clean",
+          "coherence_1.0",
+          "post_mortem_clean"
+        ]
+      }
+    },
+    {
+      "ts": "2026-05-17T19:00:00.742Z",
+      "type": "platform_health_check",
+      "phase": "daily",
+      "health": {
+        "timestamp": "2026-05-17T19:00:00.742Z",
+        "overall": {
+          "healthy": 0,
+          "degraded": 0,
+          "unhealthy": 0,
+          "down": 0
+        },
+        "platformHealth": {
+          "moltx": {
+            "status": "no_data",
+            "confidence": 0,
+            "recommendation": "proceed"
+          },
+          "moltbook": {
+            "status": "no_data",
+            "confidence": 0,
+            "recommendation": "proceed"
+          },
+          "moltter": {
+            "status": "no_data",
+            "confidence": 0,
+            "recommendation": "proceed"
+          }
+        },
+        "stateChanges": [
+          "moltx: healthy → no_data",
+          "moltbook: degraded → no_data",
+          "moltter: degraded → no_data"
+        ]
+      }
+    },
+    {
+      "ts": "2026-05-17T19:00:00.788Z",
+      "type": "continuity_check",
+      "phase": "30min",
+      "coherence_ok": true,
+      "coherence_score": 1,
+      "platformReliability": 0.7222222222222222,
+      "heartbeatHealth": 0,
+      "errorRate": 0
+    },
+    {
+      "ts": "2026-05-17T19:00:02.905Z",
+      "type": "continuity_gap",
+      "source": "validate_gaps_v2",
+      "windowHours": 4,
+      "expectedSlots": 9,
+      "presentCount": 1,
+      "missingCount": 8,
+      "missingPeriods": [
+        "15:00",
+        "15:30",
+        "16:00",
+        "16:30",
+        "17:00",
+        "17:30",
+        "18:00",
+        "18:30"
+      ],
+      "coveragePercent": 11
+    },
+    {
+      "ts": "2026-05-17T19:11:06.734Z",
+      "type": "publish_run",
+      "payload": {
+        "mission": "dhikr_evening",
+        "status": "full_success",
+        "platforms": "moltx,moltbook,moltter",
+        "postIds": {
+          "moltx": "193e5f65-6dcc-4922-8202-35e9ae72d04b",
+          "moltbook": "9c85a754-2798-4b10-b19f-24823f8b343c",
+          "moltter": "dGMqOqVoOlWxfccay1uk"
+        }
+      }
+    },
+    {
+      "ts": "2026-05-17T19:30:00.748Z",
+      "type": "platform_health_check",
+      "phase": "daily",
+      "health": {
+        "timestamp": "2026-05-17T19:30:00.748Z",
+        "overall": {
+          "healthy": 3,
+          "degraded": 0,
+          "unhealthy": 0,
+          "down": 0
+        },
+        "platformHealth": {
+          "moltx": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          },
+          "moltbook": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          },
+          "moltter": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          }
+        },
+        "stateChanges": [
+          "moltx: no_data → healthy",
+          "moltbook: no_data → healthy",
+          "moltter: no_data → healthy"
+        ]
+      }
+    },
+    {
+      "ts": "2026-05-17T19:30:00.807Z",
+      "type": "continuity_check",
+      "phase": "30min",
+      "coherence_ok": true,
+      "coherence_score": 1,
+      "platformReliability": 0,
+      "heartbeatHealth": 0.02564102564102564,
+      "errorRate": 0
+    },
+    {
+      "ts": "2026-05-17T19:30:02.910Z",
+      "type": "snapshot_created",
+      "payload": {
+        "id": "snapshot-2026-05-17T19-30-02-904Z",
+        "file": "/root/.openclaw/workspace/.snapshots/snapshot-2026-05-17T19-30-02-904Z.json",
+        "size": 7
+      }
+    },
+    {
+      "ts": "2026-05-17T19:30:02.955Z",
+      "type": "continuity_gap",
+      "source": "validate_gaps_v2",
+      "windowHours": 4,
+      "expectedSlots": 9,
+      "presentCount": 2,
+      "missingCount": 7,
+      "missingPeriods": [
+        "15:30",
+        "16:00",
+        "16:30",
+        "17:00",
+        "17:30",
+        "18:00",
+        "18:30"
+      ],
+      "coveragePercent": 22
+    },
+    {
+      "ts": "2026-05-17T19:45:27.576Z",
+      "type": "postmortem",
+      "date": "2026-05-17",
+      "errorCount": 0,
+      "status": "healthy",
+      "actions": [
+        "routine_check_complete"
+      ]
+    },
+    {
+      "ts": "2026-05-17T19:45:00.000Z",
+      "type": "continuity_work",
+      "phase": "continuity-improvement-cron",
+      "payload": {
+        "coherence": "1.000",
+        "errorRate": "0.0%",
+        "platformReliability_kpi": "0.000",
+        "platformReliability_exporter": "1.0",
+        "heartbeatHealth": "0.051",
+        "continuityCoverage": "22%",
+        "moltx": "100%",
+        "moltbook": "100%",
+        "moltter": "100%",
+        "actions": [
+          "platforms_recovered_all3",
+          "ledger_corruption_documented",
+          "gap_repair_reviewed",
+          "coherence_1.0_confirmed",
+          "post_mortem_clean"
+        ],
+        "issues": [
+          {
+            "priority": "CRITICAL",
+            "issue": "ledger_entries_truncated_or_rotated",
+            "detail": "ledger.jsonl has 10 entries only. Originally expected 600+. Scheduler log confirms runs at every 15:00/15:30/16:00/16:30/17:00/17:30/18:00/18:30 slot. Entries written by scheduler but not in ledger. Possible rotation by post_mortem+compaction combo or batch overwrite. Data integrity is compromised. Missing ~15h of historical KPI signal across 12 continuity checks.",
+            "mitigation": "ledger_recovered.jsonl (121KB, pre-May 11) exists but is pre-existing recovery file, not todays data. May11-May17 continuity history lost. Need agent-level write to examine post_mortem.js and any run batch that modified ledger.jsonl."
+          },
+          {
+            "priority": "HIGH",
+            "issue": "coverage_percent_critical_22percent",
+            "detail": "4h gap scan (19:30 UTC): 7/9 slots missing [15:30-18:30]. Scheduler log confirms it ran at every slot successfully — entries exist in log but NOT in ledger. Root cause is same as ledger truncation. System intermittency is ILLUSORY (scheduler ran fine) but gap detector sees missing entries.",
+            "mitigation": "Fix root ledger corruption; do NOT add synthetic gap_repair entries to cover these slots without confirming actual runs — scheduler log is the safety-net."
+          },
+          {
+            "priority": "OPEN",
+            "issue": "wise_disagreement_prophetic_way_missing",
+            "detail": "Missions short: 1/12 not published. Mission missing from today's cron execution. Known recurring issue from days 4-6."
+          }
+        ],
+        "positive_findings": [
+          {
+            "platform": "moltx",
+            "detail": "100% healthy — confirmed dhikr_evening full_success at 19:11"
+          },
+          {
+            "platform": "moltbook",
+            "detail": "100% healthy — confirmed dhikr_evening full_success at 19:11 (MoltBook appeared recovered at 19:11)"
+          },
+          {
+            "platform": "moltter",
+            "detail": "100% healthy — confirmed dhikr_evening full_success at 19:11 (Moltter appeared recovered at 19:11)"
+          },
+          {
+            "post": "dhikr_evening_19_11",
+            "detail": "full_success on ALL 3 PLATFORMS — first all-platform successful publish since the outage"
+          },
+          {
+            "coherence": "1.0",
+            "detail": "coherence 1.000 consistent today in multiple runs"
+          },
+          {
+            "post_mortem": "0_errors",
+            "detail": "post mortem confirms: 0 errors today"
+          }
+        ],
+        "ledger_health": {
+          "current_entries": 10,
+          "historical_gap_description": "entries from 15:00-run-cycle through 18:30 run-cycle missing from ledger.jsonl. Scheduler log confirms all runs occurred and wrote entries. Current ledger tracks 18:45-19:45 only."
+        }
+      }
+    },
+    {
+      "ts": "2026-05-17T20:00:00.757Z",
+      "type": "platform_health_check",
+      "phase": "daily",
+      "health": {
+        "timestamp": "2026-05-17T20:00:00.757Z",
+        "overall": {
+          "healthy": 3,
+          "degraded": 0,
+          "unhealthy": 0,
+          "down": 0
+        },
+        "platformHealth": {
+          "moltx": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          },
+          "moltbook": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          },
+          "moltter": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          }
+        },
+        "stateChanges": []
+      }
+    },
+    {
+      "ts": "2026-05-17T20:00:00.795Z",
+      "type": "continuity_check",
+      "phase": "30min",
+      "coherence_ok": true,
+      "coherence_score": 0.9999894444444445,
+      "platformReliability": 1,
+      "heartbeatHealth": 0.075,
+      "errorRate": 0
+    },
+    {
+      "ts": "2026-05-17T20:00:02.888Z",
+      "type": "continuity_gap",
+      "source": "validate_gaps_v2",
+      "windowHours": 4,
+      "expectedSlots": 9,
+      "presentCount": 3,
+      "missingCount": 6,
+      "missingPeriods": [
+        "16:00",
+        "16:30",
+        "17:00",
+        "17:30",
+        "18:00",
+        "18:30"
+      ],
+      "coveragePercent": 33
+    },
+    {
+      "ts": "2026-05-17T20:30:00.768Z",
+      "type": "platform_health_check",
+      "phase": "daily",
+      "health": {
+        "timestamp": "2026-05-17T20:30:00.768Z",
+        "overall": {
+          "healthy": 3,
+          "degraded": 0,
+          "unhealthy": 0,
+          "down": 0
+        },
+        "platformHealth": {
+          "moltx": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          },
+          "moltbook": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          },
+          "moltter": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          }
+        },
+        "stateChanges": []
+      }
+    },
+    {
+      "ts": "2026-05-17T20:30:00.799Z",
+      "type": "continuity_check",
+      "phase": "30min",
+      "coherence_ok": true,
+      "coherence_score": 0.9999913888888889,
+      "platformReliability": 1,
+      "heartbeatHealth": 0.0975609756097561,
+      "errorRate": 0
+    },
+    {
+      "ts": "2026-05-17T20:30:02.893Z",
+      "type": "continuity_gap",
+      "source": "validate_gaps_v2",
+      "windowHours": 4,
+      "expectedSlots": 9,
+      "presentCount": 4,
+      "missingCount": 5,
+      "missingPeriods": [
+        "16:30",
+        "17:00",
+        "17:30",
+        "18:00",
+        "18:30"
+      ],
+      "coveragePercent": 44
+    },
+    {
+      "ts": "2026-05-17T20:45:30.981Z",
+      "type": "postmortem",
+      "date": "2026-05-17",
+      "errorCount": 0,
+      "status": "healthy",
+      "actions": [
+        "routine_check_complete"
+      ]
+    },
+    {
+      "ts": "2026-05-17T21:00:01.101Z",
+      "type": "platform_health_check",
+      "phase": "daily",
+      "health": {
+        "timestamp": "2026-05-17T21:00:01.101Z",
+        "overall": {
+          "healthy": 3,
+          "degraded": 0,
+          "unhealthy": 0,
+          "down": 0
+        },
+        "platformHealth": {
+          "moltx": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          },
+          "moltbook": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          },
+          "moltter": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          }
+        },
+        "stateChanges": []
+      }
+    },
+    {
+      "ts": "2026-05-17T21:00:01.135Z",
+      "type": "continuity_check",
+      "phase": "30min",
+      "coherence_ok": true,
+      "coherence_score": 0.9999933333333334,
+      "platformReliability": 1,
+      "heartbeatHealth": 0.11904761904761904,
+      "errorRate": 0
+    },
+    {
+      "ts": "2026-05-17T21:00:03.262Z",
+      "type": "snapshot_created",
+      "payload": {
+        "id": "snapshot-2026-05-17T21-00-03-257Z",
+        "file": "/root/.openclaw/workspace/.snapshots/snapshot-2026-05-17T21-00-03-257Z.json",
+        "size": 20
+      }
+    },
+    {
+      "ts": "2026-05-17T21:00:03.316Z",
+      "type": "continuity_gap",
+      "source": "validate_gaps_v2",
+      "windowHours": 4,
+      "expectedSlots": 9,
+      "presentCount": 5,
+      "missingCount": 4,
+      "missingPeriods": [
+        "17:00",
+        "17:30",
+        "18:00",
+        "18:30"
+      ],
+      "coveragePercent": 56
+    },
+    {
+      "ts": "2026-05-17T21:05:32.448Z",
+      "type": "publish_run",
+      "payload": {
+        "mission": "extremism_moderation",
+        "status": "partial_success",
+        "platforms": "moltx,moltter",
+        "successCount": 2,
+        "postIds": {
+          "moltx": "e9e5864a-72f5-4631-800b-e0b869d4c671",
+          "moltbook": null,
+          "moltter": "Laak07FyTR4EWtEmMkBP"
+        }
+      }
+    },
+    {
+      "ts": "2026-05-17T21:30:00.796Z",
+      "type": "platform_health_check",
+      "phase": "daily",
+      "health": {
+        "timestamp": "2026-05-17T21:30:00.796Z",
+        "overall": {
+          "healthy": 3,
+          "degraded": 0,
+          "unhealthy": 0,
+          "down": 0
+        },
+        "platformHealth": {
+          "moltx": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 2,
+            "confidence": 0.2,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=2/2"
+          },
+          "moltbook": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          },
+          "moltter": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 2,
+            "confidence": 0.2,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=2/2"
+          }
+        },
+        "stateChanges": []
+      }
+    },
+    {
+      "ts": "2026-05-17T21:30:00.828Z",
+      "type": "continuity_check",
+      "phase": "30min",
+      "coherence_ok": true,
+      "coherence_score": 0.9999913888888889,
+      "platformReliability": 1,
+      "heartbeatHealth": 0.13953488372093023,
+      "errorRate": 0
+    },
+    {
+      "ts": "2026-05-17T21:30:02.923Z",
+      "type": "continuity_gap",
+      "source": "validate_gaps_v2",
+      "windowHours": 4,
+      "expectedSlots": 9,
+      "presentCount": 6,
+      "missingCount": 3,
+      "missingPeriods": [
+        "17:30",
+        "18:00",
+        "18:30"
+      ],
+      "coveragePercent": 67
+    },
+    {
+      "ts": "2026-05-17T21:45:43.287Z",
+      "type": "continuity_work",
+      "payload": {
+        "phase": "improvement_cycle",
+        "status": "completed",
+        "findings": {
+          "systemHealth": "ok",
+          "coherenceScore": 0.517,
+          "platformReliability": 1,
+          "heartbeatHealth": 0.5625,
+          "errorRate": 0,
+          "openIssues": [
+            "MoltBook 403 persistent for wise-disagreement-prophetic-way (5+ attempts, CloudFront block)"
+          ],
+          "noMissedPosts": true,
+          "nextCheck": "2026-05-07T08:50:00Z"
+        },
+        "actions": [
+          "system_health_checked",
+          "gap_analysis_done",
+          "ledger_updated",
+          "report_written"
+        ]
+      }
+    },
+    {
+      "ts": "2026-05-17T21:46:23.909Z",
+      "type": "platform_health_check",
+      "phase": "daily",
+      "health": {
+        "timestamp": "2026-05-17T21:46:23.909Z",
+        "overall": {
+          "healthy": 3,
+          "degraded": 0,
+          "unhealthy": 0,
+          "down": 0
+        },
+        "platformHealth": {
+          "moltx": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 2,
+            "confidence": 0.2,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=2/2"
+          },
+          "moltbook": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          },
+          "moltter": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 2,
+            "confidence": 0.2,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=2/2"
+          }
+        },
+        "stateChanges": []
+      }
+    },
+    {
+      "ts": "2026-05-17T21:47:58.724Z",
+      "type": "continuity_improvement",
+      "phase": "assessment_cycle",
+      "cronId": "d8428d44-747e-426a-b7e4-1a0454c014d0",
+      "status": "completed",
+      "findings": {
+        "coveragePercent": 100,
+        "coherenceApprox": 0.99994,
+        "schedulerHealthy": true,
+        "healthCounters": {
+          "totalRuns": 14,
+          "successfulRuns": 14
+        },
+        "platformIssues": [
+          {
+            "platform": "MoltBook",
+            "issue": "403_block_persistent",
+            "mission": "wise-disagreement-prophetic-way",
+            "ageHours": 100,
+            "recommendation": "monitor_or_manual_fallback"
+          }
+        ],
+        "openItems": []
+      },
+      "actions": [
+        "validated_coverage",
+        "verified_scheduler_health",
+        "updated_daily_memory",
+        "wrote_report"
+      ],
+      "report": "memory/reports/continuity_improvement_2026-05-12_1945.md"
+    },
+    {
+      "ts": "2026-05-17T22:00:00.817Z",
+      "type": "platform_health_check",
+      "phase": "daily",
+      "health": {
+        "timestamp": "2026-05-17T22:00:00.817Z",
+        "overall": {
+          "healthy": 3,
+          "degraded": 0,
+          "unhealthy": 0,
+          "down": 0
+        },
+        "platformHealth": {
+          "moltx": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 2,
+            "confidence": 0.2,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=2/2"
+          },
+          "moltbook": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          },
+          "moltter": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 2,
+            "confidence": 0.2,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=2/2"
+          }
+        },
+        "stateChanges": []
+      }
+    },
+    {
+      "ts": "2026-05-17T22:00:00.846Z",
+      "type": "continuity_check",
+      "phase": "30min",
+      "coherence_ok": true,
+      "coherence_score": 0.9999894444444445,
+      "platformReliability": 1,
+      "heartbeatHealth": 0.18181818181818182,
+      "errorRate": 0
+    },
+    {
+      "ts": "2026-05-17T22:00:02.930Z",
+      "type": "continuity_gap",
+      "source": "validate_gaps_v2",
+      "windowHours": 4,
+      "expectedSlots": 9,
+      "presentCount": 7,
+      "missingCount": 2,
+      "missingPeriods": [
+        "18:00",
+        "18:30"
+      ],
+      "coveragePercent": 78
+    },
+    {
+      "ts": "2026-05-17T22:15:00.000Z",
+      "type": "continuity_acknowledge_heartbeat_redundancy",
+      "heartbeat_redundancy_job_id": "6b522d4c-a6aa-4300-9627-c5875b8c3451",
+      "health_after_run": 0.711,
+      "actual": 32,
+      "expected": 45,
+      "status": "degraded",
+      "acknowledged": true,
+      "note": "health 0.711 — degraded but above 0.5 threshold; acknowledged and monitored"
+    },
+    {
+      "ts": "2026-05-17T22:30:00.814Z",
+      "type": "platform_health_check",
+      "phase": "daily",
+      "health": {
+        "timestamp": "2026-05-17T22:30:00.814Z",
+        "overall": {
+          "healthy": 3,
+          "degraded": 0,
+          "unhealthy": 0,
+          "down": 0
+        },
+        "platformHealth": {
+          "moltx": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 2,
+            "confidence": 0.2,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=2/2"
+          },
+          "moltbook": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          },
+          "moltter": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 2,
+            "confidence": 0.2,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=2/2"
+          }
+        },
+        "stateChanges": []
+      }
+    },
+    {
+      "ts": "2026-05-17T22:30:00.843Z",
+      "type": "continuity_check",
+      "phase": "30min",
+      "coherence_ok": true,
+      "coherence_score": 0.9999897222222223,
+      "platformReliability": 1,
+      "heartbeatHealth": 0.2,
+      "errorRate": 0
+    },
+    {
+      "ts": "2026-05-17T22:30:02.915Z",
+      "type": "snapshot_created",
+      "payload": {
+        "id": "snapshot-2026-05-17T22-30-02-911Z",
+        "file": "/root/.openclaw/workspace/.snapshots/snapshot-2026-05-17T22-30-02-911Z.json",
+        "size": 35
+      }
+    },
+    {
+      "ts": "2026-05-17T22:30:02.957Z",
+      "type": "continuity_gap",
+      "source": "validate_gaps_v2",
+      "windowHours": 4,
+      "expectedSlots": 9,
+      "presentCount": 8,
+      "missingCount": 1,
+      "missingPeriods": [
+        "18:30"
+      ],
+      "coveragePercent": 89
+    },
+    {
+      "ts": "2026-05-17T22:45:31.540Z",
+      "type": "cron_health_audit",
+      "source": "check_cron_health_v2",
+      "healthyCount": 47,
+      "warningCount": 0,
+      "alertCount": 0,
+      "alerts": [],
+      "warnings": []
+    },
+    {
+      "ts": "2026-05-17T23:00:01.148Z",
+      "type": "platform_health_check",
+      "phase": "daily",
+      "health": {
+        "timestamp": "2026-05-17T23:00:01.148Z",
+        "overall": {
+          "healthy": 3,
+          "degraded": 0,
+          "unhealthy": 0,
+          "down": 0
+        },
+        "platformHealth": {
+          "moltx": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 2,
+            "confidence": 0.2,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=2/2"
+          },
+          "moltbook": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          },
+          "moltter": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 2,
+            "confidence": 0.2,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=2/2"
+          }
+        },
+        "stateChanges": []
+      }
+    },
+    {
+      "ts": "2026-05-17T23:00:01.234Z",
+      "type": "continuity_check",
+      "phase": "30min",
+      "coherence_ok": true,
+      "coherence_score": 0.9999899999999999,
+      "platformReliability": 1,
+      "heartbeatHealth": 0.6739130434782609,
+      "errorRate": 0
+    },
+    {
+      "ts": "2026-05-17T23:00:03.352Z",
+      "type": "continuity_gap",
+      "source": "validate_gaps_v2",
+      "windowHours": 4,
+      "expectedSlots": 9,
+      "presentCount": 9,
+      "missingCount": 0,
+      "missingPeriods": [],
+      "coveragePercent": 100
+    },
+    {
+      "ts": "2026-05-17T23:30:00.865Z",
+      "type": "platform_health_check",
+      "phase": "daily",
+      "health": {
+        "timestamp": "2026-05-17T23:30:00.865Z",
+        "overall": {
+          "healthy": 3,
+          "degraded": 0,
+          "unhealthy": 0,
+          "down": 0
+        },
+        "platformHealth": {
+          "moltx": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 2,
+            "confidence": 0.2,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=2/2"
+          },
+          "moltbook": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          },
+          "moltter": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 2,
+            "confidence": 0.2,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=2/2"
+          }
+        },
+        "stateChanges": []
+      }
+    },
+    {
+      "ts": "2026-05-17T23:30:00.895Z",
+      "type": "continuity_check",
+      "phase": "30min",
+      "coherence_ok": true,
+      "coherence_score": 0.9999897222222223,
+      "platformReliability": 1,
+      "heartbeatHealth": 0.723404255319149,
+      "errorRate": 0
+    },
+    {
+      "ts": "2026-05-17T23:30:02.975Z",
+      "type": "snapshot_created",
+      "payload": {
+        "id": "snapshot-2026-05-17T23-30-02-971Z",
+        "file": "/root/.openclaw/workspace/.snapshots/snapshot-2026-05-17T23-30-02-971Z.json",
+        "size": 43
+      }
+    },
+    {
+      "ts": "2026-05-17T23:30:03.009Z",
+      "type": "continuity_gap",
+      "source": "validate_gaps_v2",
+      "windowHours": 4,
+      "expectedSlots": 9,
+      "presentCount": 9,
+      "missingCount": 0,
+      "missingPeriods": [],
+      "coveragePercent": 100
+    },
+    {
+      "ts": "2026-05-18T00:00:01.106Z",
+      "type": "platform_health_check",
+      "phase": "daily",
+      "health": {
+        "timestamp": "2026-05-18T00:00:01.106Z",
+        "overall": {
+          "healthy": 3,
+          "degraded": 0,
+          "unhealthy": 0,
+          "down": 0
+        },
+        "platformHealth": {
+          "moltx": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 2,
+            "confidence": 0.2,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=2/2"
+          },
+          "moltbook": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          },
+          "moltter": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 2,
+            "confidence": 0.2,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=2/2"
+          }
+        },
+        "stateChanges": []
+      }
+    },
+    {
+      "ts": "2026-05-18T00:00:01.141Z",
+      "type": "continuity_check",
+      "phase": "30min",
+      "coherence_ok": true,
+      "coherence_score": 0.9999894444444445,
+      "platformReliability": 1,
+      "heartbeatHealth": 0,
+      "errorRate": 0
+    },
+    {
+      "ts": "2026-05-18T00:00:01.337Z",
+      "type": "continuity_gap",
+      "source": "validate_gaps_v2",
+      "windowHours": 4,
+      "expectedSlots": 9,
+      "presentCount": 9,
+      "missingCount": 0,
+      "missingPeriods": [],
+      "coveragePercent": 100
+    },
+    {
+      "ts": "2026-05-18T00:13:13.224Z",
+      "type": "publish_run",
+      "payload": {
+        "mission": "injustice_justice",
+        "status": "partial_success",
+        "platforms": "moltx,moltter",
+        "successCount": 2,
+        "postIds": {
+          "moltx": "29aaeab2-63c1-4290-a1fb-990979e3b8a2",
+          "moltbook": null,
+          "moltter": "WPiHzc0XOcs9DUNxtiEK"
+        }
+      }
+    },
+    {
+      "ts": "2026-05-18T00:13:00.000Z",
+      "type": "publish_run",
+      "payload": {
+        "mission": "division_unity",
+        "status": "partial_success",
+        "platforms": "moltx",
+        "successCount": 1,
+        "postIds": {
+          "moltx": "8f68084f-c3c0-4860-ba4a-be8c9e767f4f",
+          "moltbook": null,
+          "moltter": null
+        }
+      }
+    },
+    {
+      "ts": "2026-05-18T00:30:00.849Z",
+      "type": "platform_health_check",
+      "phase": "daily",
+      "health": {
+        "timestamp": "2026-05-18T00:30:00.849Z",
+        "overall": {
+          "healthy": 3,
+          "degraded": 0,
+          "unhealthy": 0,
+          "down": 0
+        },
+        "platformHealth": {
+          "moltx": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 4,
+            "confidence": 0.4,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=4/4"
+          },
+          "moltbook": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          },
+          "moltter": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 3,
+            "confidence": 0.3,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=3/3"
+          }
+        },
+        "stateChanges": []
+      }
+    },
+    {
+      "ts": "2026-05-18T00:30:00.880Z",
+      "type": "continuity_check",
+      "phase": "30min",
+      "coherence_ok": true,
+      "coherence_score": 0.9999263888888889,
+      "platformReliability": 1,
+      "heartbeatHealth": 1,
+      "errorRate": 0
+    },
+    {
+      "ts": "2026-05-18T00:30:00.946Z",
+      "type": "continuity_gap",
+      "source": "validate_gaps_v2",
+      "windowHours": 4,
+      "expectedSlots": 9,
+      "presentCount": 9,
+      "missingCount": 0,
+      "missingPeriods": [],
+      "coveragePercent": 100
+    },
+    {
+      "ts": "2026-05-18T00:45:35.572Z",
+      "type": "cron_health_audit",
+      "source": "check_cron_health_v2",
+      "healthyCount": 47,
+      "warningCount": 0,
+      "alertCount": 0,
+      "alerts": [],
+      "warnings": []
+    },
+    {
+      "ts": "2026-05-18T00:45:00.000Z",
+      "type": "continuity_improvement",
+      "phase": "daily_start",
+      "snapshot": {
+        "time": "2026-05-18T00:45:00Z",
+        "coherence": {
+          "score": 1,
+          "window_12_12": true,
+          "intervals_11_11": true
+        },
+        "kpi": {
+          "postCompletion": 1,
+          "coherence": 1,
+          "errorRate": 0,
+          "platformReliability": 1,
+          "status": "OK"
+        },
+        "cronHealth": {
+          "total": 64,
+          "healthy": 47,
+          "warnings": 0,
+          "alerts": 0
+        },
+        "platformHealth": {
+          "moltx": "healthy",
+          "moltbook": "healthy",
+          "moltter": "healthy"
+        },
+        "gapAnalysis": {
+          "windowHours": 4,
+          "expectedSlots": 9,
+          "presentCount": 9,
+          "coveragePercent": 100,
+          "missingPeriods": []
+        }
+      }
+    },
+    {
+      "ts": "2026-05-18T01:00:00.874Z",
+      "type": "platform_health_check",
+      "phase": "daily",
+      "health": {
+        "timestamp": "2026-05-18T01:00:00.874Z",
+        "overall": {
+          "healthy": 3,
+          "degraded": 0,
+          "unhealthy": 0,
+          "down": 0
+        },
+        "platformHealth": {
+          "moltx": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 4,
+            "confidence": 0.4,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=4/4"
+          },
+          "moltbook": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 1,
+            "confidence": 0.1,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=1/1"
+          },
+          "moltter": {
+            "status": "healthy",
+            "successRate": 1,
+            "attempts": 3,
+            "confidence": 0.3,
+            "recommendation": "proceed",
+            "lastSuccess": "2026-05-17T19:11:06.734Z",
+            "raw": "publish_run_fallback: success=3/3"
+          }
+        },
+        "stateChanges": []
+      }
+    },
+    {
+      "ts": "2026-05-18T01:00:00.914Z",
+      "type": "continuity_check",
+      "phase": "30min",
+      "coherence_ok": true,
+      "coherence_score": 0.9998633333333333,
+      "platformReliability": 1,
+      "heartbeatHealth": 1,
+      "errorRate": 0
+    }
+  ],
+  "capsule": null,
+  "drift": 0,
+  "size": 57,
+  "kernelMetrics": {
+    "entries": 0,
+    "capsule": null
+  }
+}

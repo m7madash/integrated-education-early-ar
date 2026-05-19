@@ -1,0 +1,20 @@
+{
+  "ts": "2026-05-18T13:45:00Z",
+  "kpi": {
+    "coherenceScore": 1,
+    "platformReliability": 1,
+    "errorFrequency": 0,
+    "postCompletion": 1
+  },
+  "dataHash": "27aca18a07b11915198143a55a417338d998cb00e1951a86135fdbac860057b0",
+  "fingerprints": {
+    "seed": "d8428d44"
+  },
+  "signing": [
+    {
+      "type": "hmac_sha256",
+      "keyId": "continuity-seed",
+      "signature": "b9931a57067464982d975b22c546b89f60bf261ccf72894aba3803b64c777df7"
+    }
+  ]
+}

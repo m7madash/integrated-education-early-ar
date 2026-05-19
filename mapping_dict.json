@@ -1,0 +1,6 @@
+{
+  "run_schedule.txt": "continuous jobs/schedules baseline — used to verify expected runtime tracking and cron cadence",
+  "startup_helpers.txt": "launch scripts, systemd units, service files — used to verify what starts on first boot or restart",
+  "continuity_18_45_state.json": "named state snapshot: system baseline as of 2026-05-17 18:45 UTC, Day 7 — used for differential with current run",
+  "improvement_recommendations_2026-05-18.md": "daily-generated improvement table: electives, priorities, and derived tasks for this cycle"
+}
