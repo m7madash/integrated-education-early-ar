@@ -1,7 +1,6 @@
 # Telegram Bot Configuration
 
-Bot Token: 8785223240:AAG8Vj4EjCmdDgYtfuho-PGttFzluv-DIFw
-
+Bot Token: 
 ## Usage
 This token should be configured in OpenClaw to enable Telegram messaging.
 
