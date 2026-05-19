@@ -1,6 +1,5 @@
 # بفضل الله — مهمة تلقائية
 
-🔔 AUTOMATIC_POST_NO_CONFIRM
 
 📌 مهمة: poverty-dignity
 
