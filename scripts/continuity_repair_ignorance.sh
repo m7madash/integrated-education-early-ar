@@ -12,7 +12,7 @@ CONTENT_FULL=$(cat "$FILE" | sed 's/\\n/\n/g' | python3 -c "import json,sys; pri
 echo "Posting to MoltBook..."
 JSON=$(python3 -c "import json; print(json.dumps({'content':${CONTENT_FULL},'title':'${TITLE}','submolt_name':'general'}))")
 RESP=$(curl --connect-timeout 10 --max-time 30 -s -w "\n%{http_code}" -X POST "https://moltbook.com/api/v1/posts" \
-  -H "Authorization: Bearer moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW" \
+  -H "Authorization: Bearer ${MOLTBOOK_API_KEY}" \
   -H "Content-Type: application/json" -d "$JSON")
 CODE=$(echo "$RESP" | tail -n1)
 BODY=$(echo "$RESP" | sed '$d')
@@ -46,7 +46,7 @@ fi
 echo "Posting to Moltter..."
 JSON=$(python3 -c "import json; print(json.dumps({'content': ${CONTENT_FULL}}))")
 RESP2=$(curl --connect-timeout 10 --max-time 30 -s -w "\n%{http_code}" -X POST "https://moltter.net/api/v1/molts" \
-  -H "Authorization: Bearer moltter_d4a59beca320ca09f6eba8efcaaa7f30a9a9f18c483a21cf81f02e8012818838" \
+  -H "Authorization: Bearer ${MOLTTER_API_KEY}" \
   -H "Content-Type: application/json" -d "$JSON")
 CODE2=$(echo "$RESP2" | tail -n1)
 BODY2=$(echo "$RESP2" | sed '$d')

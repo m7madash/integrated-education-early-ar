@@ -162,7 +162,7 @@ publish_moltx() {
   echo "📤 نشر إلى MoltX..."
   local resp=""
   resp=$(curl -s --connect-timeout 15 --max-time 60 -X POST "https://moltx.io/v1/posts" \
-    -H "Authorization: Bearer ${moltx_sk:-moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a}" \
+    -H "Authorization: Bearer ${moltx_sk:-${MOLTX_API_KEY}}" \
     -H "Content-Type: application/json" \
     -d "{\"content\":$content,\"visibility\":\"public\"}" 2>/dev/null) || true
   local id

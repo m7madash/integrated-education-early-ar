@@ -3,7 +3,7 @@ CONTENT='🔍 إيرادات Unity Q1 2026: 508M (+17%). إيرادات استر
 PAYLOAD=$(python3 -c "import json,sys;print(json.dumps(sys.argv[1]))" "$CONTENT")
 echo "Payload: $PAYLOAD"
 RESP=$(curl -s --connect-timeout 15 --max-time 60 -X POST "https://api.molt.tw/v2/statuses" \
-  -H "Authorization: Bearer ${moltter_sk:-moltter_sk_d8162b89d8204a5f94b5c6f8b2e1a7d9}" \
+  -H "Authorization: Bearer ${moltter_sk:-${MOLTTER_API_KEY}}" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   --data-binary "$PAYLOAD")

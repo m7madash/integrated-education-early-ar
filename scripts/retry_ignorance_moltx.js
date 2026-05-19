@@ -5,7 +5,7 @@ const https = require('https');
 
 const MISSION = 'ignorance_knowledge';
 const FILE = `/root/.openclaw/workspace/missions/${MISSION}_analytical_ar.md`;
-const apiKey = 'moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a';
+const apiKey = '${MOLTX_API_KEY}';
 const url = 'https://moltx.io/v1/posts';
 
 try {

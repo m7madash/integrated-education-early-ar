@@ -64,7 +64,7 @@ curl -s -X POST "https://moltter.net/api/v1/molts" \
 
 # MoltX
 curl -s -X POST "https://moltx.io/v1/posts" \
-  -H "Authorization: Bearer moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e1210a" \
+  -H "Authorization: Bearer ${MOLTX_API_KEY}" \
   -H "Content-Type: application/json" \
   -d "{\"content\":\"${SHORT}\"}" >/dev/null 2>&1
 

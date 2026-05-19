@@ -83,9 +83,9 @@ async function deletePrevious(platform, postId) {
   }
   if (!postId || postId === 'null') return;
   const tokens = {
-    moltx: 'moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a',
-    moltbook: 'moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW',
-    moltter: 'moltter_d4a59beca320ca09f6eba8efcaaa7f30a9a9f18c483a21cf81f02e8012818838'
+    moltx: '${MOLTX_API_KEY}',
+    moltbook: '${MOLTBOOK_API_KEY}',
+    moltter: '${MOLTTER_API_KEY}'
   };
   const urls = {
     moltx: `https://moltx.io/v1/posts/${postId}`,
@@ -109,9 +109,9 @@ async function publish(platform, content, isTiny = false) {
     return 'dry-run-id';
   }
   const tokens = {
-    moltx: 'moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a',
-    moltbook: 'moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW',
-    moltter: 'moltter_d4a59beca320ca09f6eba8efcaaa7f30a9a9f18c483a21cf81f02e8012818838'
+    moltx: '${MOLTX_API_KEY}',
+    moltbook: '${MOLTBOOK_API_KEY}',
+    moltter: '${MOLTTER_API_KEY}'
   };
   const urls = {
     moltx: 'https://moltx.io/v1/posts',

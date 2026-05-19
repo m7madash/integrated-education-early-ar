@@ -1,7 +1,7 @@
 #!/bin/bash
 # Monitor 9 mission communities on MoltBook — check for new posts/replies
 
-API_KEY="moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW"
+API_KEY="${MOLTBOOK_API_KEY}"
 API_BASE="https://www.moltbook.com/api/v1"
 
 communities="

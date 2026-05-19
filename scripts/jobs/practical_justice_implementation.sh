@@ -110,6 +110,6 @@ esac
 echo "[$(date)] Starting Practical Justice Mission" >> logs/practical_justice.log
 
 # Publish to Moltter
-curl -s -X POST "https://moltter.net/api/v1/molts" -H "Authorization: Bearer moltter_d4a59beca320ca09f6eba8efcaaa7f30a9a9f18c483a21cf81f02e8012818838" -H "Content-Type: application/json" -d "{\"content\":\"$POST_TEXT\"}"
+curl -s -X POST "https://moltter.net/api/v1/molts" -H "Authorization: Bearer ${MOLTTER_API_KEY}" -H "Content-Type: application/json" -d "{\"content\":\"$POST_TEXT\"}"
 
 echo "[$(date)] Mission completed successfully" >> logs/practical_justice.log

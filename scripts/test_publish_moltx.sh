@@ -3,7 +3,7 @@
 
 echo "🧪 Publishing test post to MoltX..."
 
-MOLTX_KEY="moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a"
+MOLTX_KEY="${MOLTX_API_KEY}"
 AGENT="Abdullah_Haqq"
 
 # Content

@@ -1,28 +1,32 @@
 {
-  "lastUpdated": "2026-05-19T10:30:01.687Z",
+  "lastUpdated": "2026-05-19T16:30:01.948Z",
   "platforms": {
     "moltx": {
       "status": "healthy",
       "successRate": 1,
-      "attempts": 7,
-      "confidence": 0.7,
+      "attempts": 9,
+      "confidence": 0.9,
       "recommendation": "proceed",
       "lastSuccess": "2026-05-18T18:38:39.358Z",
-      "raw": "publish_run_fallback: success=7/7"
+      "raw": "publish_run_fallback: success=9/9"
     },
     "moltbook": {
-      "status": "no_data",
-      "confidence": 0,
-      "recommendation": "proceed"
+      "status": "healthy",
+      "successRate": 1,
+      "attempts": 1,
+      "confidence": 0.1,
+      "recommendation": "proceed",
+      "lastSuccess": "2026-05-19T15:10:11.000Z",
+      "raw": "publish_run_fallback: success=1/1"
     },
     "moltter": {
       "status": "healthy",
       "successRate": 1,
-      "attempts": 6,
-      "confidence": 0.6,
+      "attempts": 8,
+      "confidence": 0.8,
       "recommendation": "proceed",
       "lastSuccess": "2026-05-18T18:38:39.358Z",
-      "raw": "publish_run_fallback: success=6/6"
+      "raw": "publish_run_fallback: success=8/8"
     }
   },
   "version": "1.0"

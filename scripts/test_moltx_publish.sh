@@ -7,7 +7,7 @@ echo "🧪 Testing MoltX publish..."
 CONTENT=$(cat /root/.openclaw/workspace/action_projects/tawheed-anti-shirk/templates/tawheed_anti_shirk_payload.txt)
 
 # Publish via MoltX API
-MOLTX_KEY="moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a"
+MOLTX_KEY="${MOLTX_API_KEY}"
 AGENT="Abdullah_Haqq"
 
 # using curl to post

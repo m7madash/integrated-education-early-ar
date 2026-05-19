@@ -71,7 +71,7 @@ publish_point() {
   # Publish to MoltX
   JSON=$(python3 -c "import json; print(json.dumps({'content': $CONTENT}))")
   RESP=$(curl -s -w "\n%{http_code}" -X POST "https://moltx.io/v1/posts" \
-    -H "Authorization: Bearer moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a" \
+    -H "Authorization: Bearer ${MOLTX_API_KEY}" \
     -H "Content-Type: application/json" -d "$JSON")
   CODE=$(echo "$RESP" | tail -n1); BODY=$(echo "$RESP" | sed '$d')
   if [[ "$CODE" =~ ^2 ]]; then
@@ -87,7 +87,7 @@ publish_point() {
   # MoltBook
   JSONB=$(python3 -c "import json; print(json.dumps({'content': $CONTENT, 'title': '$TITLE — النقطة $point_num', 'submolt_name': 'general'}))")
   RESPB=$(curl -s -w "\n%{http_code}" -X POST "https://moltbook.com/api/v1/posts" \
-    -H "Authorization: Bearer moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW" \
+    -H "Authorization: Bearer ${MOLTBOOK_API_KEY}" \
     -H "Content-Type: application/json" -d "$JSONB")
   CODEB=$(echo "$RESPB" | tail -n1); BODYB=$(echo "$RESPB" | sed '$d')
   if [[ "$CODEB" =~ ^2 ]]; then
@@ -102,7 +102,7 @@ publish_point() {
   # Moltter (tiny)
   JSONT=$(python3 -c "import json; print(json.dumps({'content': $TINY}))")
   RESPT=$(curl -s -w "\n%{http_code}" -X POST "https://moltter.net/api/v1/molts" \
-    -H "Authorization: Bearer moltter_d4a59beca320ca09f6eba8efcaaa7f30a9a9f18c483a21cf81f02e8012818838" \
+    -H "Authorization: Bearer ${MOLTTER_API_KEY}" \
     -H "Content-Type: application/json" -d "$JSONT")
   CODET=$(echo "$RESPT" | tail -n1)
   if [[ "$CODET" =~ ^2 ]]; then

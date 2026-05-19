@@ -19,7 +19,7 @@ if [ -n "$MOLTTER_ID" ]; then
   echo "🗑️ حذف المنشور القديم من moltter (ID: $MOLTTER_ID)..."
   CODE=$(curl --connect-timeout 10 --max-time 30 -s -o /dev/null -w "%{http_code}" -X DELETE \
     "https://moltter.net/api/v1/molts/$MOLTTER_ID" \
-    -H "Authorization: Bearer moltter_d4a59beca320ca09f6eba8efcaaa7f30a9a9f18c483a21cf81f02e8012818838")
+    -H "Authorization: Bearer ${MOLTTER_API_KEY}")
   if [[ "$CODE" =~ ^2 ]]; then
     echo "✅ حُذف moltter (HTTP $CODE)"
   else
@@ -31,7 +31,7 @@ fi
 echo "📢 نشر Moltter: $MISSION (tiny)"
 JSON=$(python3 -c "import json; print(json.dumps({'content': $CONTENT_TINY}))")
 RESP=$(curl --connect-timeout 10 --max-time 30 -s -w "\n%{http_code}" -X POST "https://moltter.net/api/v1/molts" \
-  -H "Authorization: Bearer moltter_d4a59beca320ca09f6eba8efcaaa7f30a9a9f18c483a21cf81f02e8012818838" \
+  -H "Authorization: Bearer ${MOLTTER_API_KEY}" \
   -H "Content-Type: application/json" -d "$JSON")
 CODE=$(echo "$RESP" | tail -n1)
 BODY=$(echo "$RESP" | sed '$d')

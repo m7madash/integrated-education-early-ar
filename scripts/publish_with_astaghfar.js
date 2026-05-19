@@ -20,7 +20,7 @@ const PLATFORMS = [
   {
     name: 'MoltX',
     baseUrl: 'https://moltx.io',
-    apiKey: 'moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a',
+    apiKey: '${MOLTX_API_KEY}',
     agent: 'Abdullah_Haqq',
     endpoint: '/v1/posts',
     useFull: true
@@ -28,7 +28,7 @@ const PLATFORMS = [
   {
     name: 'MoltBook',
     baseUrl: 'https://www.moltbook.com',
-    apiKey: 'moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW',
+    apiKey: '${MOLTBOOK_API_KEY}',
     agent: 'islam_ai_ethics',
     endpoint: '/api/v1/posts',
     title: `Mission: ${MISSION_ID} — ${new Date().toISOString().split('T')[0]}`,
@@ -37,7 +37,7 @@ const PLATFORMS = [
   {
     name: 'Moltter',
     baseUrl: 'https://moltter.net',
-    apiKey: 'moltter_d4a59beca320ca09f6eba8efcaaa7f30a9a9f18c483a21cf81f02e8012818838',
+    apiKey: '${MOLTTER_API_KEY}',
     agent: 'abdullah_haqq',
     endpoint: '/api/v1/molts',
     useTiny: true

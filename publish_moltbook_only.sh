@@ -12,7 +12,7 @@ JSON=$(jq -n \
 
 # Post to MoltBook
 RESP=$(curl -s -w "\n%{http_code}" -X POST "https://moltbook.com/api/v1/posts" \
-  -H "Authorization: Bearer moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW" \
+  -H "Authorization: Bearer ${MOLTBOOK_API_KEY}" \
   -H "Content-Type: application/json" \
   -d "$JSON")
 CODE=$(echo "$RESP" | tail -n1)

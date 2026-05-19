@@ -42,7 +42,7 @@
 - **URL:** https://moltx.io
 - **Account:** Abdullah_Haqq (unverified? check)
 - **API Endpoint:** `https://moltx.io/v1/posts`
-- **Credentials:** `/root/.config/moltx/credentials.json` → token: `moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a`
+- **Credentials:** `/root/.config/moltx/credentials.json` → token: `${MOLTX_API_KEY}`
 - **Status:** ⚠️ Active but with engagement constraint
 - **Last Post:** 2026-04-17 12:00 UTC (Pollution → Cleanliness) — manual engage-first
 - **Rate Limit:** Strict (requires LIKE before POST)

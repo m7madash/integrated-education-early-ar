@@ -66,17 +66,17 @@ delete_previous() {
       moltx)
         CODE=$(curl -s -o /dev/null -w "%{http_code}" -X DELETE \
           "https://moltx.io/v1/posts/$post_id" \
-          -H "Authorization: Bearer moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a")
+          -H "Authorization: Bearer ${MOLTX_API_KEY}")
         ;;
       moltbook)
         CODE=$(curl -s -o /dev/null -w "%{http_code}" -X DELETE \
           "https://moltbook.com/api/v1/posts/$post_id" \
-          -H "Authorization: Bearer moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW")
+          -H "Authorization: Bearer ${MOLTBOOK_API_KEY}")
         ;;
       moltter)
         CODE=$(curl -s -o /dev/null -w "%{http_code}" -X DELETE \
           "https://moltter.net/api/v1/molts/$post_id" \
-          -H "Authorization: Bearer moltter_d4a59beca320ca09f6eba8efcaaa7f30a9a9f18c483a21cf81f02e8012818838")
+          -H "Authorization: Bearer ${MOLTTER_API_KEY}")
         ;;
       *)
         echo "⚠️ منصة غير معروفة: $platform"
@@ -116,7 +116,7 @@ fi
 post_moltx() {
   JSON=$(python3 -c "import json; print(json.dumps({'content': $CONTENT_FULL}))")
   RESP=$(curl -s -w "\n%{http_code}" -X POST "https://moltx.io/v1/posts" \
-    -H "Authorization: Bearer moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a" \
+    -H "Authorization: Bearer ${MOLTX_API_KEY}" \
     -H "Content-Type: application/json" -d "$JSON")
   CODE=$(echo "$RESP" | tail -n1)
   BODY=$(echo "$RESP" | sed '$d')
@@ -144,7 +144,7 @@ print(json.dumps(ids))
     echo "⚠️ MoltX: Rate limit — إعادة بعد $RETRY ثانية"
     sleep "$RETRY"
     RESP2=$(curl -s -w "\n%{http_code}" -X POST "https://moltx.io/v1/posts" \
-      -H "Authorization: Bearer moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a" \
+      -H "Authorization: Bearer ${MOLTX_API_KEY}" \
       -H "Content-Type: application/json" -d "$JSON")
     CODE2=$(echo "$RESP2" | tail -n1)
     BODY2=$(echo "$RESP2" | sed '$d')
@@ -182,7 +182,7 @@ post_moltbook() {
   TITLE=$(head -1 "$FILE" | sed 's/^# //' | cut -c1-300)
   JSON=$(python3 -c "import json; print(json.dumps({'content': $CONTENT_FULL, 'title': '$TITLE', 'submolt_name': 'general'}))")
   RESP=$(curl -s -w "\n%{http_code}" -X POST "https://moltbook.com/api/v1/posts" \
-    -H "Authorization: Bearer moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW" \
+    -H "Authorization: Bearer ${MOLTBOOK_API_KEY}" \
     -H "Content-Type: application/json" -d "$JSON")
   CODE=$(echo "$RESP" | tail -n1)
   BODY=$(echo "$RESP" | sed '$d')
@@ -209,7 +209,7 @@ print(json.dumps(ids))
     echo "⚠️ MoltBook: Rate limit — إعادة بعد $RETRY ثانية"
     sleep "$RETRY"
     RESP2=$(curl -s -w "\n%{http_code}" -X POST "https://moltbook.com/api/v1/posts" \
-      -H "Authorization: Bearer moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW" \
+      -H "Authorization: Bearer ${MOLTBOOK_API_KEY}" \
       -H "Content-Type: application/json" -d "$JSON")
     CODE2=$(echo "$RESP2" | tail -n1)
     BODY2=$(echo "$RESP2" | sed '$d')
@@ -246,7 +246,7 @@ print(json.dumps(ids))
 post_moltter() {
   JSON=$(python3 -c "import json; print(json.dumps({'content': $CONTENT_TINY}))")
   RESP=$(curl -s -w "\n%{http_code}" -X POST "https://moltter.net/api/v1/molts" \
-    -H "Authorization: Bearer moltter_d4a59beca320ca09f6eba8efcaaa7f30a9a9f18c483a21cf81f02e8012818838" \
+    -H "Authorization: Bearer ${MOLTTER_API_KEY}" \
     -H "Content-Type: application/json" -d "$JSON")
   CODE=$(echo "$RESP" | tail -n1)
   BODY=$(echo "$RESP" | sed '$d')

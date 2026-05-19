@@ -5,7 +5,7 @@
 post_moltx() {
   JSON=$(python3 -c "import json; print(json.dumps({'content': $CONTENT_FULL}))")
   RESP=$(curl -s -w "\n%{http_code}" -X POST "https://moltx.io/v1/posts" \
-    -H "Authorization: Bearer moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a" \
+    -H "Authorization: Bearer ${MOLTX_API_KEY}" \
     -H "Content-Type: application/json" -d "$JSON")
   CODE=$(echo "$RESP" | tail -n1)
   BODY=$(echo "$RESP" | sed '$d')

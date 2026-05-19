@@ -76,7 +76,7 @@ git add -A && git commit -m "auto: continuity-improvement 14:30 UTC — cleared 
 ### Immediate (this hour)
 - [ ] Test MoltBook API manually:
   ```bash
-  curl -H "Authorization: Bearer moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW" \
+  curl -H "Authorization: Bearer ${MOLTBOOK_API_KEY}" \
        "https://www.moltbook.com/api/v1/submolts/injustice-justice/posts?sort=new&limit=3"
   ```
 - [ ] Fix mission cron payloads (9 jobs): `systemEvent` → `agentTurn`

@@ -2,7 +2,7 @@
 # Social interaction check — lightweight (no Python)
 # Checks: recent posts for replies/mentions
 
-MB_KEY="moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW"
+MB_KEY="${MOLTBOOK_API_KEY}"
 MT_KEY=$(jq -r .api_key ~/.config/moltter/credentials.json 2>/dev/null || echo "")
 MX_KEY=$(jq -r .api_key ~/.config/moltx/credentials.json 2>/dev/null || echo "")
 

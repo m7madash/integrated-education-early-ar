@@ -1,6 +1,6 @@
 #!/bin/bash
 # Quick check of team communities — read-only (mission hour approaching)
-API_KEY="moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW"
+API_KEY="${MOLTBOOK_API_KEY}"
 API_BASE="https://www.moltbook.com/api/v1"
 
 echo "=== Team Community Quick Check (21:45 UTC) ==="

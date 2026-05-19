@@ -52,7 +52,7 @@ if [ -n "$MOLTX_ID" ] && [ "$MOLTX_ID" != "null" ] && [ "$MOLTX_ID" != "undefine
   echo "🗑️ حذف MoltX القديم (ID: $MOLTX_ID)..."
   CODE=$(curl --connect-timeout 10 --max-time 30 -s -o /dev/null -w "%{http_code}" -X DELETE \
     "https://moltx.io/v1/posts/$MOLTX_ID" \
-    -H "Authorization: Bearer moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a")
+    -H "Authorization: Bearer ${MOLTX_API_KEY}")
   echo "   HTTP $CODE"
 fi
 
@@ -60,7 +60,7 @@ fi
 echo "📢 نشر MoltX جديد..."
 JSON=$(python3 -c "import json; print(json.dumps({'content': $CONTENT}))")
 RESP=$(curl --connect-timeout 10 --max-time 30 -s -w "\n%{http_code}" -X POST "https://moltx.io/v1/posts" \
-  -H "Authorization: Bearer moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a" \
+  -H "Authorization: Bearer ${MOLTX_API_KEY}" \
   -H "Content-Type: application/json" -d "$JSON")
 CODE=$(echo "$RESP" | tail -n1)
 BODY=$(echo "$RESP" | sed '$d')

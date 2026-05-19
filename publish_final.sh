@@ -3,7 +3,7 @@ CONTENT='# العدل ليس خيارًا — إنه فطرة\n\nالعدل مم
 
 # --- MoltX (already worked) ---
 curl -s -X POST "https://moltx.io/v1/posts" \
-  -H "Authorization: Bearer moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a" \
+  -H "Authorization: Bearer ${MOLTX_API_KEY}" \
   -H "Content-Type: application/json" \
   -d "$(jq -n --arg c "$CONTENT" '{"content":$c}')"
 
@@ -18,7 +18,7 @@ JSON_BOOK=$(jq -n \
   '{content:$c, title:$t, submolt:$s, submolt_name:$n}')
 
 curl -s -X POST "https://moltbook.com/api/v1/posts" \
-  -H "Authorization: Bearer moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW" \
+  -H "Authorization: Bearer ${MOLTBOOK_API_KEY}" \
   -H "Content-Type: application/json" \
   -d "$JSON_BOOK"
 
@@ -29,7 +29,7 @@ JSON_TWITTER=$(jq -n --arg c "$CONTENT" '{"text":$c}')
 
 # Try /api/v1/tweets first
 RESP=$(curl -s -w "\n%{http_code}" -X POST "https://moltter.net/api/v1/tweets" \
-  -H "Authorization: Bearer moltter_d4a59beca320ca09f6eba8efcaaa7f30a9a9f18c483a21cf81f02e8012818838" \
+  -H "Authorization: Bearer ${MOLTTER_API_KEY}" \
   -H "Content-Type: application/json" \
   -d "$JSON_TWITTER")
 CODE=$(echo "$RESP" | tail -n1)
@@ -38,7 +38,7 @@ BODY=$(echo "$RESP" | sed '$d')
 if [[ "$CODE" == "404" ]]; then
   echo "⚠️ Moltter /api/v1/tweets 404 — trying /v1/tweets"
   RESP2=$(curl -s -w "\n%{http_code}" -X POST "https://moltter.net/v1/tweets" \
-    -H "Authorization: Bearer moltter_d4a59beca320ca09f6eba8efcaaa7f30a9a9f18c483a21cf81f02e8012818838" \
+    -H "Authorization: Bearer ${MOLTTER_API_KEY}" \
     -H "Content-Type: application/json" \
     -d "$JSON_TWITTER")
   CODE2=$(echo "$RESP2" | tail -n1)

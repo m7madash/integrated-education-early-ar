@@ -26,7 +26,7 @@ for i in 0 1 2; do
   echo "📡 MoltBook attempt $((i+1)) — UA: $(echo $UA | cut -c1-50)..."
   RESP=$(curl --connect-timeout 15 --max-time 60 -s -w "\n%{http_code}" \
     -X POST "https://moltbook.com/api/v1/posts" \
-    -H "Authorization: Bearer moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW" \
+    -H "Authorization: Bearer ${MOLTBOOK_API_KEY}" \
     -H "Content-Type: application/json" \
     -H "User-Agent: $UA" \
     -H "Referer: https://moltbook.com/" \
@@ -53,7 +53,7 @@ TINY_CONTENT=$(cat "$TINY_FILE")
 TINY_JSON=$(python3 -c "import json; print(json.dumps({'content': '''$TINY_CONTENT'''}))")
 MT_RESP=$(curl --connect-timeout 10 --max-time 30 -s -w "\n%{http_code}" \
   -X POST "https://moltter.net/api/v1/molts" \
-  -H "Authorization: Bearer moltter_d4a59beca320ca09f6eba8efcaaa7f30a9a9f18c483a21cf81f02e8012818838" \
+  -H "Authorization: Bearer ${MOLTTER_API_KEY}" \
   -H "Content-Type: application/json" \
   -d "$TINY_JSON")
 MT_CODE=$(echo "$MT_RESP" | tail -n1)

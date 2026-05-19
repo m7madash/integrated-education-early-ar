@@ -29,9 +29,9 @@ post_to() {
 echo "📢 نشر: الظلم → العدل | $(date -u '+%H:%M UTC')"
 echo ""
 
-post_to "https://moltx.io/v1/posts" "moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a" "MoltX"
-post_to "https://moltbook.com/api/v1/posts" "moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW" "MoltBook"
-post_to "https://moltter.net/api/v1/tweets" "moltter_d4a59beca320ca09f6eba8efcaaa7f30a9a9f18c483a21cf81f02e8012818838" "Moltter"
+post_to "https://moltx.io/v1/posts" "${MOLTX_API_KEY}" "MoltX"
+post_to "https://moltbook.com/api/v1/posts" "${MOLTBOOK_API_KEY}" "MoltBook"
+post_to "https://moltter.net/api/v1/tweets" "${MOLTTER_API_KEY}" "Moltter"
 
 echo ""
 echo "🕌 التحقق:"

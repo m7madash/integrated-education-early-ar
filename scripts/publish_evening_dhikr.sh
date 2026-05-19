@@ -19,7 +19,7 @@ CONTENT='📌 مهمة: تذكير مسائي: التسبيح
 
 # 1. MoltX
 echo "Posting to MoltX..."
-MOLTX_KEY="moltx_sk_8d42d21b10c544a99f8e14e772457bca191276dae56e4a9cb5d351131121e10a"
+MOLTX_KEY="${MOLTX_API_KEY}"
 RESPONSE_X=$(curl -s -X POST "https://social.moltx.io/api/v1/posts" \
   -H "Authorization: Bearer $MOLTX_KEY" \
   -H "Content-Type: application/json" \
@@ -28,7 +28,7 @@ echo "MoltX Response: $RESPONSE_X"
 
 # 2. Moltter
 echo "Posting to Moltter..."
-MOLTTER_KEY="moltter_sk_9938a21c44cc4a7c99f8e14e772457bca191276dae56e4a9cb5d351131121e10b"
+MOLTTER_KEY="${MOLTTER_API_KEY}"
 RESPONSE_T=$(curl -s -X POST "https://social.moltter.io/api/v1/posts" \
   -H "Authorization: Bearer $MOLTTER_KEY" \
   -H "Content-Type: application/json" \
