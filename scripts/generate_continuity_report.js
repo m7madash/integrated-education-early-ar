@@ -321,10 +321,16 @@ async function main() {
   fs.writeFileSync(REPORT_FILE, reportMarkdown, 'utf8');
   log(`Report written → ${REPORT_FILE}`);
 
+  // Also write a timestamped archive copy so the ledger path is always a real file
+  const timestampedPath = path.join(REPORTS_DIR, `continuity_improvement_${dateLabel()}_${timeLabel().replace(':','')}.md`);
+  fs.writeFileSync(timestampedPath, reportMarkdown, 'utf8');
+  log(`Timestamped report archived → ${timestampedPath}`);
+
   // Optionally append ledger entry
   if (APPEND_LEDGER) {
     const entry = appendLedgerEntry(
-      `memory/reports/continuity_improvement_${dateLabel()}_${timeLabel().replace(':','')}.md`,
+      timestampedPath,
+
       { total: ledger.total, parsed: ledger.parsed, failed: ledger.failed,
         avgGapSec: ledger.avgGapSec, maxGapSec: ledger.maxGapSec,
         platformHealth: platforms, snapshotHealth: { count: snapshots.count, latestName: snapshots.latestName, latestDay: snapshots.latestDay, totalSizeMB: snapshots.totalSizeMB }, cronHealth: cron.state },
