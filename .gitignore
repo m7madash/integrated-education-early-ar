@@ -67,3 +67,8 @@ backups/
 
 # Package manager caches (auto-restored by npm/pip)
 node_modules/
+
+# RTW transient dirs — not tracked
+missions/ci_ledger/
+posts/ci_ledger/
+memory/.templates/
