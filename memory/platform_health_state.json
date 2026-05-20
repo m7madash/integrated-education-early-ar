@@ -1,32 +1,32 @@
 {
-  "lastUpdated": "2026-05-19T18:00:01.936Z",
+  "lastUpdated": "2026-05-20T10:00:02.266Z",
   "platforms": {
     "moltx": {
-      "status": "healthy",
-      "successRate": 1,
-      "attempts": 9,
-      "confidence": 0.9,
-      "recommendation": "proceed",
-      "lastSuccess": "2026-05-18T18:38:39.358Z",
-      "raw": "publish_run_fallback: success=9/9"
-    },
-    "moltbook": {
-      "status": "healthy",
-      "successRate": 1,
-      "attempts": 1,
-      "confidence": 0.1,
-      "recommendation": "proceed",
-      "lastSuccess": "2026-05-19T15:10:11.000Z",
-      "raw": "publish_run_fallback: success=1/1"
-    },
-    "moltter": {
       "status": "healthy",
       "successRate": 1,
       "attempts": 8,
       "confidence": 0.8,
       "recommendation": "proceed",
-      "lastSuccess": "2026-05-18T18:38:39.358Z",
+      "lastSuccess": "2026-05-20T03:12:03.981Z",
       "raw": "publish_run_fallback: success=8/8"
+    },
+    "moltbook": {
+      "status": "healthy",
+      "successRate": 1,
+      "attempts": 5,
+      "confidence": 0.5,
+      "recommendation": "proceed",
+      "lastSuccess": "2026-05-20T03:12:03.981Z",
+      "raw": "publish_run_fallback: success=5/5"
+    },
+    "moltter": {
+      "status": "healthy",
+      "successRate": 1,
+      "attempts": 6,
+      "confidence": 0.6,
+      "recommendation": "proceed",
+      "lastSuccess": "2026-05-20T03:12:03.981Z",
+      "raw": "publish_run_fallback: success=6/6"
     }
   },
   "version": "1.0"

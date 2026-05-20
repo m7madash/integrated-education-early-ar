@@ -204,10 +204,17 @@ publish_moltbook() {
   local resp=""
   local mb_title
   mb_title=$(echo "$content" | head -c 200 | cut -c1-200 | python3 -c "import sys; c=sys.stdin.read().strip(); print(c[:50])" 2>/dev/null || echo "مهمة جديدة")
-  resp=$(curl -s --connect-timeout 15 --max-time 60 -X POST "${MOLTBOOK_BASE_URL:-https://www.moltbook.com}/api/v1/posts" \
-    -H "Authorization: Bearer ${MOLTBOOK_API_KEY:-${moltbook_sk:-}}" \
-    -H "Content-Type: application/json" \
-    -d "{\"submolt\":\"introductions\",\"submolt_name\":\"introductions\",\"title\":$(python3 -c "import json,sys; t=sys.argv[1]; print(json.dumps(t[:200]))" "$content" 2>/dev/null || echo 'null'),\"content\":$content}" 2>/dev/null) || true
+  resp=$(python3 -c "
+import json, sys, subprocess
+with open(sys.argv[1]) as f: content = f.read()
+with open(sys.argv[2]) as f:
+    cfg = json.load(f)
+    submolt = cfg.get('agent_name', 'islam')
+    key = cfg['api_key']
+payload = json.dumps({'submolt': submolt, 'submolt_name': submolt, 'title': content.split(chr(10))[0][:200], 'content': content}, ensure_ascii=False)
+result = subprocess.run(['curl', '-s', '--connect-timeout', '15', '--max-time', '60', '-X', 'POST', 'https://www.moltbook.com/api/v1/posts', '-H', f'Authorization: Bearer {key}', '-H', 'Content-Type: application/json', '-d', payload], capture_output=True, text=True)
+print(result.stdout)
+" "$CONTENT_FULL" "$HOME/.config/moltbook/credentials.json" 2>/dev/null) || true
   local id
   id=$(echo "$resp" | python3 -c "import sys, json; data=json.load(sys.stdin); print(data.get('id','') or data.get('data',{}).get('id',''))" 2>/dev/null || echo "")
   if [ -n "$id" ] && [ "$id" != "None" ]; then
