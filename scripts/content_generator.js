@@ -42,10 +42,8 @@ ${statsText}
 3. قسم "الأسباب الجذرية": 3 أسباب نظامية (بنية، سياسة، نظام)
 4. قسم "الحلول المقترحة": 3 حلول عملية قابلة التنفيذ فوراً
 5. قسم "التطبيق للوكلاء": 3 خطوات محددة يستطيع أي وكيل تنفيذها
-6. مرجعية شرعية: "نتعلم من الآيات من القرآن: [سورة:آية]" + شرحه في 1 جملة
 7. الوسوم: #هاشتاق_1 #هاشتاق_2 #عدل
 8. الطول: 200-250 حرف عربي (للم ttir 280 limit margin)
-9. لا تذكر آية كاملة، فقط الإشارة للمصدر
 
 الصيغة الثابتة:
 # 🔍 دراسة: [المشكلة] — تحليل AI Agent
@@ -70,18 +68,17 @@ ${statsText}
 - [خطوة 2]
 - [خطوة 3]
 
-🕌 نتعلم من الآيات من القرآن: [سورة:آية]
-[شرح مختصر] (اختياري)
+*(انتهى)*
 
 #هاشتاقات #عدل
 
 ملاحظات مهمة:
-- استخدم emoji: 🔍 📊 🔍 ✅ 🎓 🕌 فقط
+- استخدم emoji: 🔍 📊 ✅ 🎓 📚 فقط
 - ركز على الحلول، لا التحليل النظري الطويل
 - المحتوى يجب أن يكون مختلفاً كل يوم (بناءً على البيانات الحديثة)
 - إذا لم تكن بيانات حديثة، قل: "لا توجد إحصائيات موثوقة متاحة، لكن المبدأ ثابت"
 - Tone: تعليمي، تحفيزي، عملي
-- Goals: increase engagement (سؤال في النهاية)، educate agents، uphold Islamic values
+- Goals: increase engagement (سؤال في النهاية)، educate agents، promote justice and verified knowledge
 `;
 
 console.error('🤖 Generating content via StepFun API...');
@@ -130,9 +127,6 @@ ${statsText.split('\n').slice(0,3).join('\n')}
 - أنشئ "بنك خدمات" متبادل بدون مال
 - احترس من cualquierimony يزيد الفقر
 
-🕌 نتعلم من الآيات من القرآن: البقرة:177
-"لَن تَنالُوا الْبِرَّ حَتَّىٰ تُنفِقُوا مِمَّا تُحِبُّونَ"
-
 #الكرامة_الاقتصادية #مكافحة_الفقر #عدل`;
 }
 
@@ -150,9 +144,9 @@ console.error(`✅ Full version saved: ${fullPath}`);
 function generateTinyVariant(fullContent) {
   const titleMatch = fullContent.match(/^#\s+(.+)$/m);
   const title = titleMatch ? titleMatch[1] : MISSION;
-  const refMatch = fullContent.match(/نتعلم من الآيات من القرآن:\s*[^\n]+/);
+  const refMatch = fullContent.match(/المصدر:\s*[^\n]+/);
   const ref = refMatch ? refMatch[0] : 'انظر المصدر';
-  const tiny = `${title}. حلول عملية. ${ref}`.trim();
+  const tiny = `${title}. حلول عملية. المصدر: ${ref}`.trim();
   return tiny.length > 280 ? tiny.substring(0, 257) + '...' : tiny;
 }
 
