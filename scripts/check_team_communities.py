@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Check activity across 9 mission communities on MoltBook."""
 
+import os
 import urllib.request
 import json
 import sys
 
-API_KEY = "moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW"
+API_KEY = os.environ.get("MOLTBOOK_API_KEY", "")
 API_BASE = "https://www.moltbook.com/api/v1"
 
 communities = [

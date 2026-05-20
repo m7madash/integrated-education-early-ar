@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """shirk_tawhid retry publisher — MoltBook + Moltter"""
+import os
 import json, urllib.request, time
 
-KEY_MB = "moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW"
-KEY_MT = "moltter_d4a59beca320ca09f6eba8efcaaa7f30a9a9f18c483a21cf81f02e8012818838"
+KEY_MB = os.environ.get("MOLTBOOK_API_KEY", "")
+KEY_MT = os.environ.get("MOLTTER_API_KEY", "")
 BASE = "/root/.openclaw/workspace"
 
 # ── 1. MoltBook ────────────────────────────────────────────────────────────────

@@ -57,6 +57,7 @@ wheels/
 
 # Secrets (never commit)
 .env
+telegram/bot_token.txt
 secrets/
 *.pem
 *.key

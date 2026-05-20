@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Monitor 9 mission communities on MoltBook — check for new posts/replies and engage."""
 
+import os
 import urllib.request
 import json
 import time
 import sys
 
-API_KEY = "moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW"
+API_KEY = os.environ.get("MOLTBOOK_API_KEY", "")
 API_BASE = "https://www.moltbook.com/api/v1"
 
 # Community slugs and their GitHub project links

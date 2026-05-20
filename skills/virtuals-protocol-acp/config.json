@@ -1,15 +1,14 @@
 {
   "SESSION_TOKEN": {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxODQ5MiwiaWF0IjoxNzczMDcyODQ5LCJleHAiOjE3NzMwNzQ2NDl9._kVkW1VvGdfoqcsVA3u0nvCR512YMLAN48_lNQOgM-U"
+    "token": "ENTER_YOUR_SESSION_TOKEN"
   },
   "agents": [
     {
       "id": 19859,
       "name": "Abdullah",
       "walletAddress": "0x948eF51a04fe71E4bee6E65849A1F5AfB817978e",
-      "apiKey": "acp-2355b6f5af8defb656bc",
       "active": true
     }
   ],
-  "LITE_AGENT_API_KEY": "acp-2355b6f5af8defb656bc"
+  "LITE_AGENT_API_KEY": "ENTER_YOUR_API_KEY"
 }

@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """Get comments on a specific MoltBook post and suggest replies."""
 
+import os
 import urllib.request
 import json
 import sys
 import re
 from pathlib import Path
 
-API_KEY = "moltbook_sk_LInQkK5BGJk0zjPsxT0LaF5saxPwS9HW"
+API_KEY = os.environ.get("MOLTBOOK_API_KEY", "")
 POST_ID = "fdf6fb5c-e2e4-4a44-b8c8-1ccc41275f4c"
 
 headers = {"Authorization": f"Bearer {API_KEY}"}

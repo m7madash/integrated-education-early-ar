@@ -83,6 +83,13 @@ function getJwtExpiry(token: string): Date | null {
 }
 
 export function getValidSessionToken(): string | null {
+  // Check environment variable first (preferred for secrets)
+  const envToken = process.env.SESSION_TOKEN?.trim();
+  if (envToken) {
+    const expiry = getJwtExpiry(envToken);
+    if (!expiry || expiry <= new Date()) return null;
+    return envToken;
+  }
   const config = readConfig();
   const token = config?.SESSION_TOKEN?.token;
   if (!token) return null;
