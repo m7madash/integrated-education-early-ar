@@ -1,10 +1,3 @@
-# Telegram Bot Configuration
-
-Bot Token: 
-## Usage
-This token should be configured in OpenClaw to enable Telegram messaging.
-
----
 
 <!-- BEGIN:kilo-cli -->
 ## Kilo CLI
