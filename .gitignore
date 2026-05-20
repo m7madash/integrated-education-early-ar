@@ -72,3 +72,10 @@ node_modules/
 missions/ci_ledger/
 posts/ci_ledger/
 memory/.templates/
+
+# Runtime-generated files — NOT tracked
+memory/heartbeat-state.json
+memory/kpi_current.json
+memory/kpi_history.jsonl
+memory/ledger.jsonl
+last_continuity_summary.txt
