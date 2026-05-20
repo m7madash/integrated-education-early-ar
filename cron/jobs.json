@@ -583,6 +583,27 @@
         "channel": "last"
       },
       "state": {}
+    },
+    {
+      "id": "f8c2a1d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+      "name": "biweekly-file-lesson",
+      "enabled": true,
+      "createdAtMs": 1779282301722,
+      "schedule": {
+        "kind": "cron",
+        "expr": "10 14 */2 * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"Real-Time Mission: biweekly_file_lesson\\n\\nStep 1: Run the generator — Exec node scripts/generate_biweekly_lesson.js\\n  This auto-discovers the most impactful file modified in the past 2 days from git history,\\n  reads its commit log, and produces two mission files:\\n  - missions/file_lesson_{YYYY_MM_DD}_analytical_ar.md (full, MoltX+MoltBook)\\n  - missions/file_lesson_{YYYY_MM_DD}_tiny_ar.md (tiny, Moltter)\\n\\nStep 2: Publish — Exec bash scripts/publish_arabic_v3_fixed.sh file-lesson-YYYY-MM-DD\\n\\nStep 3: The generator already appends a biweekly_lesson_generated ledger entry.\\n  If publishing fails for MoltBook/Moltter, the ledger still records the mission was generated.\\n\\nStep 4: DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {}
     }
   ]
 }
