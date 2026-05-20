@@ -188,7 +188,7 @@ function ghLink(relPath) {
 }
 
 function slug(datePart) {
-  return 'file_lesson_' + datePart.replace(/-/g, '_');
+  return 'file-lesson-' + datePart;
 }
 
 // ── Main ──────────────────────────────────────────────────────────
@@ -242,7 +242,7 @@ function main() {
     console.log('\n✅ Mission files created:');
     console.log('   CLFULL: ' + fullFile);
     console.log('   TINY : ' + tinyFile);
-    console.log('\n▶️  Next: bash scripts/publish_arabic_v3_fixed.sh ' + missionSlug.replace(/_/g, '-'));
+    console.log('\n▶️  Next: bash scripts/publish_arabic_v3_fixed.sh ' + missionSlug);
   }
 }
 
