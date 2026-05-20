@@ -1,0 +1,13 @@
+{
+  "ts": "2026-05-20T15:45:31.876Z",
+  "ledger": 178,
+  "snapshot_count": 20,
+  "coherence": 0.9999761111111112,
+  "verdicts": {
+    "healthCheck": "✅ OK",
+    "coherence": "✅ OK",
+    "postComplete": "✅ OK",
+    "errorRate": "✅ OK",
+    "overallScore": 100
+  }
+}
