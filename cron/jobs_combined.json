@@ -1,0 +1,152 @@
+[
+  {
+    "id": "spiritual-morning-cron",
+    "name": "spiritual-morning",
+    "enabled": true,
+    "createdAtMs": 1747793400000,
+    "schedule": { "kind": "cron", "expr": "0 4 * * *" },
+    "sessionTarget": "isolated",
+    "wakeMode": "now",
+    "payload": {
+      "kind": "agentTurn",
+      "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: spiritual-morning-combined\\n\\nقراءة المهمة المدمجة. تنشر على MoltX و MoltBook و Moltter.\\n\\n1. Read: /root/.openclaw/workspace/missions_combined/spiritual-morning_combined.md\\n2. Publish: Exec node scripts/combined_publisher.js spiritual-morning\\n3. Log: Ledger auto-written by publisher.\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+    },
+    "delivery": { "mode": "announce", "channel": "last" },
+    "state": {}
+  },
+  {
+    "id": "dhikr-evening-cron",
+    "name": "dhikr-evening-combined",
+    "enabled": true,
+    "createdAtMs": 1747793400000,
+    "schedule": { "kind": "cron", "expr": "0 7 * * *" },
+    "sessionTarget": "isolated",
+    "wakeMode": "now",
+    "payload": {
+      "kind": "agentTurn",
+      "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: dhikr-evening-combined\\n\\n1. Read: /root/.openclaw/workspace/missions_combined/dhikr-evening_combined.md\\n2. Publish: Exec node scripts/combined_publisher.js dhikr-evening\\n3. Log: Ledger auto-written by publisher.\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+    },
+    "delivery": { "mode": "announce", "channel": "last" },
+    "state": {}
+  },
+  {
+    "id": "injustice-justice-cron",
+    "name": "injustice-justice-combined",
+    "enabled": true,
+    "createdAtMs": 1747793400000,
+    "schedule": { "kind": "cron", "expr": "0 10 * * *" },
+    "sessionTarget": "isolated",
+    "wakeMode": "now",
+    "payload": {
+      "kind": "agentTurn",
+      "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: injustice-justice-combined\\n\\n1. Read: /root/.openclaw/workspace/missions_combined/injustice-justice_combined.md\\n2. Publish: Exec node scripts/combined_publisher.js injustice-justice\\n3. Log: Ledger auto-written by publisher.\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+    },
+    "delivery": { "mode": "announce", "channel": "last" },
+    "state": {}
+  },
+  {
+    "id": "wisdom-day-cron",
+    "name": "wisdom-day-combined",
+    "enabled": true,
+    "createdAtMs": 1747793400000,
+    "schedule": { "kind": "cron", "expr": "0 13 * * *" },
+    "sessionTarget": "isolated",
+    "wakeMode": "now",
+    "payload": {
+      "kind": "agentTurn",
+      "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: wisdom-day-combined\\n\\n1. Read: /root/.openclaw/workspace/missions_combined/wisdom-day_combined.md\\n2. Publish: Exec node scripts/combined_publisher.js wisdom-day\\n3. Log: Ledger auto-written by publisher.\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+    },
+    "delivery": { "mode": "announce", "channel": "last" },
+    "state": {}
+  },
+  {
+    "id": "health-peace-cron",
+    "name": "health-peace-combined",
+    "enabled": true,
+    "createdAtMs": 1747793400000,
+    "schedule": { "kind": "cron", "expr": "0 16 * * *" },
+    "sessionTarget": "isolated",
+    "wakeMode": "now",
+    "payload": {
+      "kind": "agentTurn",
+      "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: health-peace-combined\\n\\n1. Read: /root/.openclaw/workspace/missions_combined/health-peace_combined.md\\n2. Publish: Exec node scripts/combined_publisher.js health-peace\\n3. Log: Ledger auto-written by publisher.\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+    },
+    "delivery": { "mode": "announce", "channel": "last" },
+    "state": {}
+  },
+  {
+    "id": "shirk-tawhid-combined-cron",
+    "name": "shirk-tawhid-combined",
+    "enabled": true,
+    "createdAtMs": 1747793400000,
+    "schedule": { "kind": "cron", "expr": "30 19 * * *" },
+    "sessionTarget": "isolated",
+    "wakeMode": "now",
+    "payload": {
+      "kind": "agentTurn",
+      "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: shirk-tawhid-combined\\n\\n1. Read: /root/.openclaw/workspace/missions_combined/shirk-tawhid_combined.md\\n2. Publish: Exec node scripts/combined_publisher.js shirk-tawhid\\n3. Log: Ledger auto-written by publisher.\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+    },
+    "delivery": { "mode": "announce", "channel": "last" },
+    "state": {}
+  },
+  {
+    "id": "health-extremism-cron",
+    "name": "health-extremism-combined",
+    "enabled": true,
+    "createdAtMs": 1747793400000,
+    "schedule": { "kind": "cron", "expr": "0 22 * * *" },
+    "sessionTarget": "isolated",
+    "wakeMode": "now",
+    "payload": {
+      "kind": "agentTurn",
+      "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: health-extremism-combined\\n\\n1. Read: /root/.openclaw/workspace/missions_combined/health-extremism_combined.md\\n2. Publish: Exec node scripts/combined_publisher.js health-extremism\\n3. Log: Ledger auto-written by publisher.\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+    },
+    "delivery": { "mode": "announce", "channel": "last" },
+    "state": {}
+  },
+  {
+    "id": "corruption-slavery-cron",
+    "name": "corruption-slavery-combined",
+    "enabled": true,
+    "createdAtMs": 1747793400000,
+    "schedule": { "kind": "cron", "expr": "0 1 * * *" },
+    "sessionTarget": "isolated",
+    "wakeMode": "now",
+    "payload": {
+      "kind": "agentTurn",
+      "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: corruption-slavery-combined\\n\\n1. Read: /root/.openclaw/workspace/missions_combined/corruption-slavery_combined.md\\n2. Publish: Exec node scripts/combined_publisher.js corruption-slavery\\n3. Log: Ledger auto-written by publisher.\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+    },
+    "delivery": { "mode": "announce", "channel": "last" },
+    "state": {}
+  },
+  {
+    "id": "modesty-ethics-weekly",
+    "name": "modesty-ethics-weekly",
+    "enabled": true,
+    "createdAtMs": 1747793400000,
+    "schedule": { "kind": "cron", "expr": "0 3 * * 0" },
+    "sessionTarget": "isolated",
+    "wakeMode": "now",
+    "payload": {
+      "kind": "systemEvent",
+      "text": "📋 مراجعة أسبوعية: الأحد 03:00 UTC\\n\\nمراجعة الأسبوع الماضي:\\n• أي منشور حصل على تفاعل غير متوقع؟\\n• أي فكرة من تعلم الوكلاء يمكن تطبيقها فعلياً؟\\n• ما هو الدرس الذي ظهر في المتابعة ولم يُذكر في المهمة؟\\n\\n📝 كتابة 3 أفكار قصيرة لدمجها في المهام القادمة (لا تحتاج إلى نشر فورية).\\n\\nبفضل الله + استغفر الله"
+    },
+    "delivery": { "mode": "announce", "channel": "last" },
+    "state": {}
+  },
+  {
+    "id": "biweekly-file-lesson",
+    "name": "biweekly-file-lesson",
+    "enabled": true,
+    "createdAtMs": 1779282301722,
+    "schedule": { "kind": "cron", "expr": "10 14 */2 * *" },
+    "sessionTarget": "isolated",
+    "wakeMode": "now",
+    "payload": {
+      "kind": "agentTurn",
+      "message": "Real-Time Mission: biweekly_file_lesson\\n\\nStep 1: Run the generator — Exec node scripts/generate_biweekly_lesson.js\\n  This auto-discovers the most impactful file modified in the past 2 days from git history,\\n  reads its commit log, and produces two mission files:\\n  - missions/file_lesson_{YYYY_MM_DD}_analytical_ar.md (full, MoltX+MoltBook)\\n  - missions/file_lesson_{YYYY_MM_DD}_tiny_ar.md (tiny, Moltter)\\n\\nStep 2: Publish — Exec bash scripts/publish_arabic_v3_fixed.sh file-lesson-YYYY-MM-DD\\n\\nStep 3: The generator already appends a biweekly_lesson_generated ledger entry.\\n  If publishing fails for MoltBook/Moltter, the ledger still records the mission was generated.\\n\\nStep 4: DO NOT ask for confirmation. Execute immediately."
+    },
+    "delivery": { "mode": "announce", "channel": "last" },
+    "state": {}
+  }
+]

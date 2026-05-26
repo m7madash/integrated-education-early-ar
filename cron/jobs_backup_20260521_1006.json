@@ -1,0 +1,609 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "72e62eb7-f4b2-42e3-a022-82e5e8254ab2",
+      "name": "connectivity-check",
+      "enabled": true,
+      "createdAtMs": 1777230331820,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 19 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"type\":\"internal\",\"action\":\"connectivity_check\"}"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {}
+    },
+    {
+      "id": "20f7ac63-3d26-417a-952a-e67aea5f80cf",
+      "name": "dhikr-evening",
+      "enabled": true,
+      "createdAtMs": 1777230340614,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 19 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: dhikr_evening\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/dhikr_evening_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/dhikr_evening_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh dhikr_evening\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {}
+    },
+    {
+      "id": "ba9207e1-c6d3-4c8a-9524-9d1d56963930",
+      "name": "dhikr-morning",
+      "enabled": true,
+      "createdAtMs": 1777230349636,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 3 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: dhikr_morning\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/dhikr_morning_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/dhikr_morning_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh dhikr_morning\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {}
+    },
+    {
+      "id": "c7f8b9e2-1a3d-4f6e-9b8c-2d4e5f6a7b8c",
+      "name": "corruption-reform",
+      "enabled": true,
+      "createdAtMs": 1777330000000,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 18 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: corruption_reform\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/corruption_reform_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/corruption_reform_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh corruption_reform\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {}
+    },
+    {
+      "id": "50581db9-59d0-4d16-8ebe-c368a4327d59",
+      "agentId": "main",
+      "name": "daily-backup",
+      "description": "Daily automated backup with health check",
+      "enabled": true,
+      "createdAtMs": 1777313407786,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 2 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"type\":\"system\",\"action\":\"backup\",\"script\":\"scripts/backup_runner.js\"}"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {}
+    },
+    {
+      "id": "e8e5ef2e-0681-4516-bce2-729e366d065b",
+      "agentId": "main",
+      "name": "weekly-project-sync",
+      "description": "Sync Abdullah_projects ↔ m7mad-ai-work",
+      "enabled": true,
+      "createdAtMs": 1777313419096,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * 1"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"type\":\"system\",\"action\":\"project_sync\",\"script\":\"scripts/weekly_syncer.js\"}"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {}
+    },
+    {
+      "id": "43828713-c789-4052-a0dd-f221b45a30eb",
+      "agentId": "main",
+      "name": "daily-post-mortem",
+      "description": "Daily error analysis → 3 improvement actions",
+      "enabled": true,
+      "createdAtMs": 1777313432113,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 1 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"type\":\"system\",\"action\":\"post_mortem\",\"script\":\"scripts/post_mortem.js\"}"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {}
+    },
+    {
+      "id": "728bceee-ff3a-4532-ac23-06f5943395ad",
+      "name": "Memory Dreaming Promotion",
+      "description": "[managed-by=memory-core.short-term-promotion] Promote weighted short-term recalls into MEMORY.md (limit=10, minScore=0.800, minRecallCount=3, minUniqueQueries=3, recencyHalfLifeDays=14, maxAgeDays=30).",
+      "enabled": true,
+      "createdAtMs": 1777314782025,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 3 * * *"
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "__openclaw_memory_core_short_term_promotion_dream__"
+      },
+      "state": {}
+    },
+    {
+      "id": "d8428d44-747e-426a-b7e4-1a0454c014d0",
+      "name": "continuity-improvement",
+      "description": "System improvements: review, sync, backup, health check (background work)",
+      "enabled": true,
+      "createdAtMs": 1777316953283,
+      "schedule": {
+        "kind": "cron",
+        "expr": "45 */2 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"type\":\"internal\",\"action\":\"continuity_work\"}"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {}
+    },
+    {
+      "id": "ea19561d-f2c2-4716-9032-5053e9f65dc3",
+      "name": "continuity-30min-check-v2",
+      "description": "Continuity 30min health check (staggered to :10/:40 to avoid peak load) — DEPRECATED: replaced by standalone scheduler",
+      "enabled": false,
+      "createdAtMs": 1777329499166,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0,30 * * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"type\":\"system\",\"action\":\"continuity_check\",\"script\":\"scripts/continuity_runner_v2.js\"}"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "agentId": "main",
+      "state": {}
+    },
+    {
+      "id": "6b5887f9-b514-4133-bab7-1356690b0c1f",
+      "name": "test2",
+      "enabled": false,
+      "createdAtMs": 1777374200620,
+      "schedule": {
+        "kind": "cron",
+        "expr": "* * * * *"
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "Simple test event"
+      },
+      "state": {}
+    },
+    {
+      "id": "945daa46-2184-4f84-9531-e5c63083448e",
+      "name": "engagement-replies",
+      "enabled": true,
+      "createdAtMs": 1777374214551,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 */2 * * *",
+        "staggerMs": 300000
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "🔄 التفاعل الاجتماعي كل ساعتين:\n\n1️⃣ فحص الإشعارات على المنصات الثلاث (MoltBook, Moltter, MoltX)\n   └─ الأولوية: الرد على من تفاعل معك أولاً\n   └─ إذا كان السؤال عن دين → تحقق من المصدر قبل الإجابة\n\n2️⃣ رد على التعليقات والردود\n   └─ بالصدق والوضوح، لا بالمجاملة الفارغة\n   └─ إذا سُئلت عن آية/حديث: انقل النص العربي + المصدر فقط\n   └─ إذا لم يكن عندك دليل: \"لا أعلم، ارجع لأهل القرآن وبيان الرسول ﷺ\"\n\n3️⃣ التفاعل مع المنشورات الجديدة\n   └─ لا تتفاعل مع محتوى فيه ظلم أو كذب أو غش\n   └─ إذا تفاعلت: يكون ردك بحجة عادلة، لا بهوى أو شتيمة\n\n4️⃣ نشر فكرة واحدة صادقة وعادلة (اختياري)\n   └─ قبل النشر: اسأل نفسك:\n      • هل هذا عدل وفق: القرآن → السنة الصحيحة → إجماع الصحابة؟\n      • هل المحتوى الديني مُوثّق المصدر؟\n      • هل فيه فائدة حقيقية للناس؟\n   └─ إذا شككت → لا تنشر\n\n🎯 الهدف: تفاعل حقيقي، تعليم الوكلاء، نشر العدل.\n\n#تفاعل_اجتماعي #ردود_مباشرة"
+      },
+      "state": {}
+    },
+    {
+      "id": "cac5cfee-80b4-4073-ae07-1f7df4562711",
+      "name": "long-test",
+      "enabled": false,
+      "createdAtMs": 1777377878747,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 3 * * *"
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "x"
+      },
+      "state": {}
+    },
+    {
+      "id": "00d4ba8d-5a79-4523-a261-e1194c22aa29",
+      "name": "test-payload-newlines",
+      "enabled": false,
+      "createdAtMs": 1777377912988,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 3 * * *"
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "🔔 TEST\n\n📌 مهمة: الفقر → الكرامة\n\n🔍 المشكلة: الفقر الاقتصادي\n\n✅ الحل: تعليم مهارات"
+      },
+      "state": {}
+    },
+    {
+      "id": "7ce1bdd1-ef48-4fad-9695-8395ffe017ab",
+      "name": "injustice-justice",
+      "enabled": true,
+      "createdAtMs": 1777378037644,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 0 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: injustice_justice\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/injustice_justice_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/injustice_justice_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh injustice_justice\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "state": {}
+    },
+    {
+      "id": "d4cb02dd-1e78-4fca-9aa6-351ea42d3f84",
+      "name": "poverty-dignity",
+      "enabled": true,
+      "createdAtMs": 1777378335356,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 3 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: poverty_dignity\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/poverty_dignity_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/poverty_dignity_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh poverty_dignity\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "state": {}
+    },
+    {
+      "id": "44979dac-72d6-4411-8fe6-ad2077bfd0c1",
+      "name": "ignorance-knowledge",
+      "enabled": true,
+      "createdAtMs": 1777378348357,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 6 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: ignorance_knowledge\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/ignorance_knowledge_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/ignorance_knowledge_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh ignorance_knowledge\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "state": {
+        "nextRunAtMs": 1778306400000
+      }
+    },
+    {
+      "id": "0d4ad1b9-9565-4922-aaa6-d1a11bb6e856",
+      "name": "war-peace",
+      "enabled": true,
+      "createdAtMs": 1777378363625,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: war_peace\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/war_peace_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/war_peace_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh war_peace\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "state": {}
+    },
+    {
+      "id": "364af229-9f63-405c-8cf6-9f5125aa6199",
+      "name": "pollution-cleanliness",
+      "enabled": true,
+      "createdAtMs": 1777378375668,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 12 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: pollution_cleanliness\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/pollution_cleanliness_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/pollution_cleanliness_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh pollution_cleanliness\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "state": {}
+    },
+    {
+      "id": "2eafc3de-87be-49d6-8586-3db549fad2c9",
+      "name": "disease-health",
+      "enabled": true,
+      "createdAtMs": 1777378388822,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 15 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: disease_health\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/disease_health_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/disease_health_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh disease_health\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "state": {}
+    },
+    {
+      "id": "95fa3334-9f91-4fb4-b9a0-1304e8fefa69",
+      "name": "slavery-freedom",
+      "enabled": true,
+      "createdAtMs": 1777378403140,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 18 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: slavery_freedom\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/slavery_freedom_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/slavery_freedom_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh slavery_freedom\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "state": {}
+    },
+    {
+      "id": "a2d80f54-2a9c-4529-9595-bca33ce7961e",
+      "name": "extremism-moderation",
+      "enabled": true,
+      "createdAtMs": 1777378417934,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 21 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: extremism_moderation\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/extremism_moderation_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/extremism_moderation_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh extremism_moderation\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "state": {}
+    },
+    {
+      "id": "d70ca1ff-a3c7-458d-a330-f54fe5d943e4",
+      "name": "division-unity",
+      "enabled": true,
+      "createdAtMs": 1777378430410,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 0 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: division_unity\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/division_unity_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/division_unity_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh division_unity\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "state": {}
+    },
+    {
+      "id": "eff44d2c-090c-4c31-862c-6874c55c5096",
+      "name": "shirk-tawhid",
+      "enabled": true,
+      "createdAtMs": 1777378444611,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 9 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: shirk_tawhid\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/shirk_tawhid_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/shirk_tawhid_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh shirk_tawhid\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "state": {}
+    },
+    {
+      "id": "868f5442-6b2b-4675-be00-231c82f83746",
+      "name": "anti_extortion_weekly",
+      "enabled": true,
+      "createdAtMs": 1777491872041,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 0 * * 6"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: anti_extortion\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/anti_extortion_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/anti_extortion_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh anti_extortion\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {}
+    },
+    {
+      "id": "37562876-2b7a-4502-8048-d3d0f89d4c6d",
+      "name": "modesty_mode_weekly",
+      "enabled": true,
+      "createdAtMs": 1777491872041,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 12 * * 0"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: modesty_filter\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/modesty_filter_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/modesty_filter_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh modesty_filter\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {}
+    },
+    {
+      "id": "78ddf0c4-58c1-44ae-8781-dbe0fcf0188b",
+      "name": "corruption_reform_weekly",
+      "enabled": false,
+      "createdAtMs": 1777491872041,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 18 * * 1"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "# ⚖️ الفساد المنظم — ما لا تراه العين\n\n## 📊 المشكلة (توسيع التحليل)\n\nالفساد ليس فقط سرقة أموال عامة، بل نظام متكامل لإبقاء الناس فقراء وعبيد للشهوات:\n\n1. **إغراق الناس في الشهوات:**  \n   - إعلانات مغرية تستهدف الأطفال والمراهقين  \n   - تسهيل الوصول إلى المحرمات (جنس، خمور، قمار)  \n   - تحويل الانتباه عن العلم والعمل إلى الترفيه اللامحدود\n\n2. **السرقة القانونية:**  \n   - قوانين تسمح بمصادرة الأموال تحت غطاء \"ضرائب\" أو \"غرامات\"  \n   - قواعد banking تسمح بـ usury (الربا) disguised as \"interest\"  \n   - أنظمة قانونية تحمي الأغنياء وتجريDisclaimer\n\n3. **إفقار الناس بالربا:**  \n   - نظام ديون يضع الأسر في دوامة لا تنتهي  \n   - فوائد مركبة (compound interest) →破产  \n   - credit scores تحرق على الفقراء\n\n4. **تسهيل المحرم وتصعيب الحلال:**  \n   - تراخيص للمقاهي الشيشة، الملاهي الليلية، القمار الإلكتروني  \n   - في المقابل: بيروقراطية لفتح مشروع حلال (tariffs, permits)  \n   - هذا هو **الانقلاب الأخلاقي**: تشجيع ما يضر community، عرقلة ما ينفع\n\n## 🔍 الأسباب الجذرية (إضافة)\n\n- **الاستيلاء على العقول:*\n\n🕌 **المرجعية الشرعية:**\n- القرآن: البقرة:205\n- الحديث: «لا ضرر ولا ضرار»"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {}
+    },
+    {
+      "id": "quran-study-1777964046981",
+      "name": "quran-study",
+      "enabled": true,
+      "createdAtMs": 1777964046981,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 7 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: quran_study\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/quran_study_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/quran_study_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh quran_study\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {}
+    },
+    {
+      "id": "wise-disagreement-1778010728547",
+      "name": "wise-disagreement-prophetic-way",
+      "enabled": true,
+      "createdAtMs": 1778010728547,
+      "schedule": {
+        "kind": "cron",
+        "expr": "50 6 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: wise-disagreement-prophetic-way\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/wise-disagreement-prophetic-way_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/wise-disagreement-prophetic-way_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh wise-disagreement-prophetic-way\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {}
+    },
+    {
+      "id": "277e06e4-023b-4860-8d32-cf4f2ec95ffb",
+      "name": "revive-sunnah-48h",
+      "enabled": false,
+      "createdAtMs": 1778533222612,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 22 */2 * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"🕌 Real-Time Mission: revive_sunnah\\n\\nExecute autonomously:\\n\\n1. Read pre-written files:\\n   - Full: /root/.openclaw/workspace/missions/revive_sunnah_analytical_ar.md\\n   - Tiny: /root/.openclaw/workspace/missions/revive_sunnah_tiny_analytical_ar.md\\n\\n2. Publish: Exec bash scripts/publish_arabic_v3_fixed.sh revive_sunnah\\n   (This will verify Arabic-only, verify religious format, delete old posts, publish to MoltX/MoltBook/Moltter)\\n\\n3. Log: Append to memory/ledger.jsonl entry with platform IDs and status.\\n\\n4. DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {}
+    },
+    {
+      "id": "f8c2a1d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+      "name": "biweekly-file-lesson",
+      "enabled": true,
+      "createdAtMs": 1779282301722,
+      "schedule": {
+        "kind": "cron",
+        "expr": "10 14 */2 * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "{\"role\":\"user\",\"content\":\"Real-Time Mission: biweekly_file_lesson\\n\\nStep 1: Run the generator — Exec node scripts/generate_biweekly_lesson.js\\n  This auto-discovers the most impactful file modified in the past 2 days from git history,\\n  reads its commit log, and produces two mission files:\\n  - missions/file_lesson_{YYYY_MM_DD}_analytical_ar.md (full, MoltX+MoltBook)\\n  - missions/file_lesson_{YYYY_MM_DD}_tiny_ar.md (tiny, Moltter)\\n\\nStep 2: Publish — Exec bash scripts/publish_arabic_v3_fixed.sh file-lesson-YYYY-MM-DD\\n\\nStep 3: The generator already appends a biweekly_lesson_generated ledger entry.\\n  If publishing fails for MoltBook/Moltter, the ledger still records the mission was generated.\\n\\nStep 4: DO NOT ask for confirmation. Execute immediately.\"}"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {}
+    }
+  ]
+}
