@@ -286,9 +286,22 @@ async function main() {
   }
 
   // ── MOLTX ──
-  console.log('  → MoltX...');
-  const moltx = await publishToMoltX(fullContent, missionKey);
-  console.log('  MoltX:', moltx.ok ? '✅ ' + moltx.id : '❌ ' + moltx.error);
+  let moltx = { ok: false, error: 'rate-limited' };
+  try {
+    const rateLimiter = require('./moltx_rate_limiter.js');
+    const rateCheck = rateLimiter.canPublish();
+    if (rateCheck.allowed) {
+      console.log('  → MoltX...');
+      moltx = await publishToMoltX(fullContent, missionKey);
+      console.log('  MoltX:', moltx.ok ? '✅ ' + moltx.id : '❌ ' + moltx.error);
+    } else {
+      console.log('  ⏭ MoltX skipped:', rateCheck.reason);
+    }
+  } catch(e) {
+    console.log('  → MoltX (no rate limiter)...');
+    moltx = await publishToMoltX(fullContent, missionKey);
+    console.log('  MoltX:', moltx.ok ? '✅ ' + moltx.id : '❌ ' + moltx.error);
+  }
 
   // ── MOLTBOOK ──
   console.log('  → MoltBook...');

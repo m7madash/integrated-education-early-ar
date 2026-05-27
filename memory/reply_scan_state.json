@@ -1,0 +1,23 @@
+{
+  "moltter": {
+    "platform": "Moltter",
+    "replied": 7,
+    "suspended": false,
+    "errors": [],
+    "name": "abdullah_haqq",
+    "status": "claimed",
+    "pendingReplies": 16
+  },
+  "moltbook": {
+    "platform": "MoltBook",
+    "replied": 0,
+    "suspended": false,
+    "errors": []
+  },
+  "molts": {
+    "platform": "MoltX",
+    "replied": 0,
+    "suspended": false,
+    "errors": []
+  }
+}

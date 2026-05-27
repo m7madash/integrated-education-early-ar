@@ -46,10 +46,10 @@ const RUNNERS = {
     return { ok: true, run: 'istiqamah', detail: 'scanned' };
   },
   runEngagement() {
-    const p = execSync('python3 scripts/engagement_reply.py', {
-      encoding: 'utf8', timeout: 60000, cwd: BASE
+    const p = execSync('node scripts/reply_scan.js', {
+      encoding: 'utf8', timeout: 120000, cwd: BASE
     });
-    return { ok: true, run: 'engagement', detail: 'scanned' };
+    return { ok: true, run: 'engagement', detail: 'replied_all_platforms' };
   },
   runGithubSync() {
     const p = execSync('node scripts/sync_edu_to_github.js', {
