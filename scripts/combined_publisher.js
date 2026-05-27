@@ -236,6 +236,21 @@ async function main() {
   const missionArg = process.argv[2];
   if (!missionArg) { console.error('Usage: node combined_publisher.js <mission-id>'); process.exit(1); }
 
+  // ── RATE LIMIT CHECK (MoltX) ──
+  try {
+    const rateLimit = require('./moltx_rate_limiter.js');
+    const check = rateLimit.canPublish();
+    if (!check.allowed) {
+      console.log('🔒 MoltX rate limit:', check.reason);
+      console.log('   → Publishing to MoltBook + Moltter only');
+      // Will skip MoltX below
+    } else {
+      console.log('✅ MoltX: ' + check.remaining + ' publishes remaining today (' + check.todayCount + '/' + rateLimit.DAILY_LIMIT + ')');
+    }
+  } catch(e) {
+    console.log('  Rate limiter unavailable, proceeding normally');
+  }
+
   loadEnv();
   const resolved = resolveMissionFile(missionArg);
   if (!resolved) {

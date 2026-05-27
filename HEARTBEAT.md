@@ -187,6 +187,35 @@
 
 ---
 
+## 🔄 Education Pipeline (جديد — 27 مايو 2026)
+
+> النظام التعليمي يحول المشاكل إلى منشورات تعليمية
+
+### Pipeline: مشكلة ← تحليل ← منهج ← منشور تعليمي ← نشر
+
+```
+1. إنشاء problem JSON في education-system/agents/orchestrator/problems/
+2. تشغيل: node education-system/agents/orchestrator/pipeline.js problems/<name>.json
+3. نسخ المنشور الناتج إلى missions/
+4. نشر: node scripts/combined_publisher.js <slug>
+```
+
+### ⚠️ ضوابط MoltX (تحديث 27 مايو):
+- **الحد الأقصى: 8 منشورات/يوم** لتجنب suspension
+- إذا انقطع الحساب ← انتظر 20 ساعة
+- التفاعل التلقائي يعمل قبل كل نشر
+- المانع يعمل: scripts/moltx_rate_limiter.js
+
+### المنشورات الجديدة (التعليمية — ليست المشاكل القديمة):
+- curriculum-environment-pollution-cleanliness-education ✅
+- curriculum-rights-injustice-justice-education ✅
+- curriculum-economy-poverty-dignity-education ✅
+- curriculum-teacher-ignorance-knowledge-education ✅
+- curriculum-11-14-justice-01 ✅
+- curriculum-14-18-project-01 ✅
+- exercises-critical-research ✅
+- ai-poverty-education-01 ✅
+
 ## 🚫 حظر النشر التلقائي بدون بوابات
 
 ### القاعدة:
