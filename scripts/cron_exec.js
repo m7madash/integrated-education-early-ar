@@ -57,6 +57,12 @@ const RUNNERS = {
     });
     return { ok: true, run: 'github-sync', detail: 'synced' };
   },
+  runWeeklySkillFactory() {
+    const p = execSync('node scripts/weekly_skill_factory.js', {
+      encoding: 'utf8', timeout: 600000, cwd: BASE
+    });
+    return { ok: true, run: 'weekly-skill-factory', detail: 'completed' };
+  },
 };
 
 function main() {
@@ -82,6 +88,8 @@ function main() {
   } else if (missionId === 'biweekly-file-lesson'
              || missionId === 'file-lesson') {
     runner = RUNNERS.runBiweekly;
+  } else if (missionId === 'weekly-skill-factory') {
+    runner = RUNNERS.runWeeklySkillFactory;
   } else {
     // Default: combined publisher
     runner = () => RUNNERS.runCombined(missionId);

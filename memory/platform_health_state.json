@@ -1,29 +1,12 @@
 {
-  "lastUpdated": "2026-05-27T14:00:43.499Z",
+  "timestamp": "2026-05-27T19:49:29Z",
   "platforms": {
-    "moltx": {
-      "status": "healthy",
-      "successRate": 1,
-      "attempts": 8,
-      "confidence": 0.8,
-      "recommendation": "proceed",
-      "lastSuccess": "2026-05-26T15:36:55.602Z",
-      "raw": "publish_run_fallback: success=8/8"
-    },
-    "moltbook": {
-      "status": "no_data",
-      "confidence": 0,
-      "recommendation": "proceed"
-    },
-    "moltter": {
-      "status": "healthy",
-      "successRate": 1,
-      "attempts": 5,
-      "confidence": 0.5,
-      "recommendation": "proceed",
-      "lastSuccess": "2026-05-26T15:36:55.602Z",
-      "raw": "publish_run_fallback: success=5/5"
-    }
+    "moltter": "ok",
+    "moltbook": "suspended_until_2026-05-28T14:09:00Z",
+    "moltok": "ok"
   },
-  "version": "1.0"
+  "disk_pct": 13,
+  "mem_available_gb": 1.6,
+  "load": 0.22,
+  "status": "green"
 }

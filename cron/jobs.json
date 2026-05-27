@@ -604,6 +604,19 @@
         "channel": "last"
       },
       "state": {}
+    },
+    {
+      "name": "weekly-skill-factory",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 6 * * 0"
+      },
+      "action": {
+        "kind": "exec",
+        "command": "node /root/.openclaw/workspace/scripts/cron_exec.js weekly-skill-factory"
+      },
+      "enabled": true,
+      "description": "مصنع المهارات الأسبوعي — دراسة المشكلات + إنتاج مهارة + مراجعة المنشورات"
     }
   ]
 }

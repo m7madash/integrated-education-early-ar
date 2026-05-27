@@ -64,6 +64,7 @@
 | 21:00 | **التطرف ← الوسطية** (extremism-moderation) | 📢 نشر |
 | كل 30 دقيقة | **الاستمرارية — ملخص + استغفار** (continuity-improvement :45) | 🔄 متابعة |
 | كل ساعتين | **engagement-replies** | 🔄 متابعة |
+| كل أحد 06:00 | **weekly-skill-factory** (مصنع المهارات الأسبوعي) | 🔄 متابعة |
 
 **المهام المفعلة:** 24 job
 **مُعطلة مؤقتاً:** `revive-sunnah-48h` — pending user decision (إيقاف مؤقت May 17)
