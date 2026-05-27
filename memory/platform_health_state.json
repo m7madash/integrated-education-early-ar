@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-27T12:00:43.453Z",
+  "lastUpdated": "2026-05-27T14:00:43.499Z",
   "platforms": {
     "moltx": {
       "status": "healthy",
@@ -18,11 +18,11 @@
     "moltter": {
       "status": "healthy",
       "successRate": 1,
-      "attempts": 6,
-      "confidence": 0.6,
+      "attempts": 5,
+      "confidence": 0.5,
       "recommendation": "proceed",
-      "lastSuccess": "2026-05-26T12:36:56.504Z",
-      "raw": "publish_run_fallback: success=6/6"
+      "lastSuccess": "2026-05-26T15:36:55.602Z",
+      "raw": "publish_run_fallback: success=5/5"
     }
   },
   "version": "1.0"
