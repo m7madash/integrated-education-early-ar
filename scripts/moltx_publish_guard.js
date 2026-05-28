@@ -199,8 +199,11 @@ function wasPublishedToday(missionKey) {
 }
 
 // ── Main ────────────────────────────────────────────────────
+// Export BEFORE running CLI code
 module.exports = { wasPublishedToday, findMissing, cmdCheck };
 
+// Only run CLI if executed directly (not required as module)
+if (require.main === module) {
 const cmd = process.argv[2] || 'check';
 if (cmd === 'check' || cmd === 'report') {
   cmdCheck();
@@ -209,3 +212,4 @@ if (cmd === 'check' || cmd === 'report') {
 } else {
   console.log('Usage: node moltx_publish_guard.js <check|report|retry-missing>');
 }
+} // end require.main === module
