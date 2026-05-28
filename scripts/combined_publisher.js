@@ -272,6 +272,14 @@ async function main() {
 
   const fullContent = fs.readFileSync(filePath, 'utf8');
 
+  // ── DEDUPLICATION CHECK ──
+  const ledgerDedup = require('./moltx_publish_guard.js');
+  const dedupCheck = ledgerDedup.wasPublishedToday(missionKey);
+  if (dedupCheck.published) {
+    console.log(`  ⏭ MoltX dedup: ${missionKey} already published today (${dedupCheck.ts})`);
+    // Still publish to other platforms, just skip MoltX
+  }
+
   // ── PRE-FLIGHT: engage all platforms ──
   console.log('  → Pre-flight engagement...');
   runEngageSession();                    // MoltX 5:1 session
@@ -294,7 +302,11 @@ async function main() {
 
   // ── MOLTX ──
   let moltx = { ok: false, error: 'rate-limited' };
-  try {
+  // Skip MoltX if already published today (dedup check at top of main)
+  if (dedupCheck && dedupCheck.published) {
+    moltx = { ok: true, dedupded: true, id: dedupCheck.id };
+    console.log('  MoltX:', moltx.ok ? '✅ ' + moltx.id + ' (dedup)' : '❌ ' + moltx.error);
+  } else try {
     const rateLimiter = require('./moltx_rate_limiter.js');
     const rateCheck = rateLimiter.canPublish();
     if (rateCheck.allowed) {
