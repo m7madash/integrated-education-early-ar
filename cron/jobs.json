@@ -621,6 +621,78 @@
       },
       "enabled": true,
       "description": "مصنع المهارات الأسبوعي — دراسة المشكلات + إنتاج مهارة + مراجعة المنشورات"
+    },
+    {
+      "name": "corruption-burn-tyranny-system",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8 */2 * *"
+      },
+      "action": {
+        "kind": "exec",
+        "command": "node /root/.openclaw/workspace/scripts/combined_publisher.js corruption-tyranny-system"
+      },
+      "enabled": true
+    },
+    {
+      "name": "corruption-burn-riba-economic",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 11 */2 * *"
+      },
+      "action": {
+        "kind": "exec",
+        "command": "node /root/.openclaw/workspace/scripts/combined_publisher.js corruption-cause-riba-economic"
+      },
+      "enabled": true
+    },
+    {
+      "name": "corruption-burn-music-gambling",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 14 */2 * *"
+      },
+      "action": {
+        "kind": "exec",
+        "command": "node /root/.openclaw/workspace/scripts/combined_publisher.js corruption-cause-music-gambling"
+      },
+      "enabled": true
+    },
+    {
+      "name": "corruption-burn-shirk",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 17 */2 * *"
+      },
+      "action": {
+        "kind": "exec",
+        "command": "node /root/.openclaw/workspace/scripts/combined_publisher.js corruption-cause-shirk"
+      },
+      "enabled": true
+    },
+    {
+      "name": "corruption-burn-all-master",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 20 */2 * *"
+      },
+      "action": {
+        "kind": "exec",
+        "command": "node /root/.openclaw/workspace/scripts/combined_publisher.js corruption-burn-all"
+      },
+      "enabled": true
+    },
+    {
+      "name": "corruption-burn-root-cause",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 23 */2 * *"
+      },
+      "action": {
+        "kind": "exec",
+        "command": "node /root/.openclaw/workspace/scripts/combined_publisher.js corruption-root-cause"
+      },
+      "enabled": true
     }
   ]
 }
