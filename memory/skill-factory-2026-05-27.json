@@ -1,0 +1,41 @@
+{
+  "date": "2026-05-27T19:55:10.851Z",
+  "analysis": {
+    "topProblems": [
+      [
+        "injustice-justice",
+        1
+      ],
+      [
+        "early-integrated-education",
+        1
+      ],
+      [
+        "wisdom-knowledge",
+        1
+      ],
+      [
+        "slavery-freedom",
+        1
+      ],
+      [
+        "connectivity-check",
+        1
+      ]
+    ],
+    "errorCount": 20
+  },
+  "proposedSkill": {
+    "name": "error-recovery",
+    "description": "مهارة التعافي من الأخطاء — تعيد المحاولة بذكاء",
+    "problem": "مشكلة \"injustice-justice\" تكررت 1 مرة",
+    "priority": "medium"
+  },
+  "publishedSkills": [
+    {
+      "name": "haqq-ethics",
+      "version": "2.0.0"
+    }
+  ],
+  "status": "completed"
+}
