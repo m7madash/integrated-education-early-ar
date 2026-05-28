@@ -4,7 +4,7 @@
     {
       "id": "72e62eb7-f4b2-42e3-a022-82e5e8254ab2",
       "name": "connectivity-check",
-      "enabled": true,
+      "enabled": false,
       "createdAtMs": 1777230331820,
       "schedule": {
         "kind": "cron",
@@ -20,7 +20,11 @@
         "mode": "announce",
         "channel": "last"
       },
-      "state": {}
+      "state": {},
+      "action": {
+        "kind": "exec",
+        "command": "node scripts/cron_exec.js connectivity-check"
+      }
     },
     {
       "id": "20f7ac63-3d26-417a-952a-e67aea5f80cf",
