@@ -39,32 +39,40 @@
 
 ---
 
-## 🗓️ الجدول الزمني الفعلي — HEARTBEAT V7 (مطابق مع cron/jobs.json)
+## 🗓️ الجدول الزمني الفعلي — HEARTBEAT V8 (مطابق مع cron/jobs.json)
 
-> آخر تحديث: 2026-05-17 14:31 UTC — مطابق تماماً مع `cron/jobs.json`
+> آخر تحديث: 2026-05-28 17:30 UTC — كل مهمة كل يومين + فواصل ساعتين
 
-| الوقت (UTC) | المهمة | النوع |
-|------------|--------|------|
-| 00:00 | **الظلم ← العدل** (injustice-justice) + **الانقسام ← الوحدة** (division-unity) | 📢 نشر |
-| 01:00 | **Post-Mortem يومي** (daily-post-mortem) | 📢 نشر |
-| 02:00 | **Backup يومي** (daily-backup) | 📢 نشر |
-| 03:00 | **dhikr-morning** + **poverty-dignity** + Memory Dreaming Promotion | 📢 نشر |
-| 06:00 | **الجهل ← العلم** (ignorance-knowledge) | 📢 نشر |
-| 06:50 | **wise-disagreement-prophetic-way** | 📢 نشر |
-| 07:00 | **quran-study** (تعلم القرآن) | 📢 نشر |
-| 09:00 | **الحرب ← السلام** (war-peace) | 📢 نشر |
-| 09:30 | **محاربة الشرك** (shirk-tawhid) | 📢 نشر |
-| 12:00 | **التلوث ← النظافة** (pollution-cleanliness) | 📢 نشر |
-| 12:00 | **modesty_mode_weekly** (كل أحد) | 📢 نشر |
-| 15:00 | **المرض ← الصحة** (disease-health) | 📢 نشر |
-| 18:00 | **العدل ضد الرق** (slavery-freedom) | 📢 نشر |
-| 18:30 | **إصلاح الفساد** (corruption-reform) | 📢 نشر |
-| 19:00 | **dhikr-evening** (الذكر المسائي) | 📢 نشر |
-| 19:30 | **فحص الاتصال بالمنصات** (connectivity-check) | 📢 نشر |
-| 21:00 | **التطرف ← الوسطية** (extremism-moderation) | 📢 نشر |
-| كل 30 دقيقة | **الاستمرارية — ملخص + استغفار** (continuity-improvement :45) | 🔄 متابعة |
-| كل ساعتين | **engagement-replies** | 🔄 متابعة |
-| كل أحد 06:00 | **weekly-skill-factory** (مصنع المهارات الأسبوعي) | 🔄 متابعة |
+### 📢 مهام النشر (كل يومين)
+
+| الوقت (UTC) | المهمة | التكرار |
+|------------|--------|--------|
+| 00:00 | **الظلم ← العدل** (injustice-justice) + **الانقسام ← الوحدة** (division-unity) | كل يومين |
+| 03:00 | **dhikr-morning** + **poverty-dignity** | كل يومين |
+| 06:00 | **الجهل ← العلم** (ignorance-knowledge) | كل يومين |
+| 06:50 | **wise-disagreement-prophetic-way** | كل يومين |
+| 07:00 | **quran-study** تعلم القرآن | كل يومين |
+| 09:00 | **الحرب ← السلام** (war-peace) | كل يومين |
+| 09:30 | **محاربة الشرك** (shirk-tawhid) | كل يومين |
+| 12:00 | **التلوث ← النظافة** (pollution-cleanliness) | كل يومين |
+| 15:00 | **المرض ← الصحة** (disease-health) | كل يومين |
+| 18:00 | **العدل ضد الرق** (slavery-freedom) | كل يومين |
+| 18:30 | **إصلاح الفساد** (corruption-reform) | كل يومين |
+| 19:00 | **dhikr-evening** الذكر المسائي | كل يومين |
+| 21:00 | **التطرف ← الوسطية** (extremism-moderation) | كل يومين |
+
+### 🔄 مهام المتابعة
+
+| المهمة | التكرار |
+|--------|--------|
+| **engagement-replies** (ردود) | كل ساعتين |
+| **daily-backup** | يومي |
+| **continuity-improvement** | كل 30 دقيقة |
+| **weekly-skill-factory** | كل أحد |
+
+> ✅ كل مهمة نشر كل يومين — يقلل الضغط ويمنع رفض MoltX
+> ✅ dedup guard — لا ينشر منشور مكرر
+> ✅ معدل MoltX: 5 منشورات/يوم كحد أقصى
 
 **المهام المفعلة:** 24 job
 **مُعطلة مؤقتاً:** `revive-sunnah-48h` — pending user decision (إيقاف مؤقت May 17)
