@@ -693,6 +693,90 @@
         "command": "node /root/.openclaw/workspace/scripts/combined_publisher.js corruption-root-cause"
       },
       "enabled": true
+    },
+    {
+      "name": "corruption-burn-zina",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 5 */2 * *"
+      },
+      "action": {
+        "kind": "exec",
+        "command": "node /root/.openclaw/workspace/scripts/combined_publisher.js corruption-cause-zina"
+      },
+      "enabled": true
+    },
+    {
+      "name": "corruption-burn-ghibah",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 10 */2 * *"
+      },
+      "action": {
+        "kind": "exec",
+        "command": "node /root/.openclaw/workspace/scripts/combined_publisher.js corruption-cause-ghibah"
+      },
+      "enabled": true
+    },
+    {
+      "name": "corruption-burn-drugs",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 13 */2 * *"
+      },
+      "action": {
+        "kind": "exec",
+        "command": "node /root/.openclaw/workspace/scripts/combined_publisher.js corruption-cause-drugs"
+      },
+      "enabled": true
+    },
+    {
+      "name": "corruption-burn-oppression",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 16 */2 * *"
+      },
+      "action": {
+        "kind": "exec",
+        "command": "node /root/.openclaw/workspace/scripts/combined_publisher.js corruption-cause-oppression"
+      },
+      "enabled": true
+    },
+    {
+      "name": "corruption-burn-silence",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 19 */2 * *"
+      },
+      "action": {
+        "kind": "exec",
+        "command": "node /root/.openclaw/workspace/scripts/combined_publisher.js corruption-cause-silence"
+      },
+      "enabled": true
+    },
+    {
+      "name": "corruption-burn-ignorance",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 22 */2 * *"
+      },
+      "action": {
+        "kind": "exec",
+        "command": "node /root/.openclaw/workspace/scripts/combined_publisher.js corruption-cause-ignorance"
+      },
+      "enabled": true
+    },
+    {
+      "name": "corruption-burn-blast-from-past",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 4 */2 * *"
+      },
+      "action": {
+        "kind": "exec",
+        "command": "node /root/.openclaw/workspace/scripts/combined_publisher.js corruption-blast-from-past"
+      },
+      "enabled": true
     }
   ]
 }
