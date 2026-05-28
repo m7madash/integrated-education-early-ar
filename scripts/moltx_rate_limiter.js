@@ -9,7 +9,9 @@ const path = require('path');
 const LEDGER = '/root/.openclaw/workspace/memory/ledger.jsonl';
 const STATE_FILE = '/root/.openclaw/workspace/memory/moltx_rate_state.json';
 
-const DAILY_LIMIT = 8; // حد أقصى آمن لتجنب suspension
+const DAILY_LIMIT = 5; // حد أقصى آمن — الـ API يمنع أكثر من هذا
+const MIN_POST_INTERVAL_MS = 3 * 60 * 60 * 1000; // ٣ ساعات بين كل منشور
+let lastPublishTime = 0;
 
 function getTodayKey() {
   return new Date().toISOString().slice(0, 10); // YYYY-MM-DD
