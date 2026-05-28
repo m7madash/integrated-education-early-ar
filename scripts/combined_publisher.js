@@ -147,36 +147,43 @@ async function publishToMoltX(content, missionKey) {
     const key = process.env.MOLTX_API_KEY || '';
     if (!key) return { ok: false, error: 'MOLTX_API_KEY not set' };
 
-    // Pre-flight Python engage (like + repost + reply)
-    // Pre-flight engage: gate handled by moltXEngageGate (1 lightweight LIKE)
-    // Heavy engage (engage_all.py moltx all → >1 like + reply) runs hourly via moltx_pre_engagement.py cron
-    publishToMoltX._preEngaged = true;  // skip old engage_all call to save engagement tokens
-    // Simple engage gate
-    if (!publishToMoltX._liked) {
-      const gate = await moltXEngageGate(key);
-      publishToMoltX._liked = gate.ok;
-      if (!gate.ok) console.log('  MoltX gate:', gate.reason);
-    }
+    // Pre-flight: heavy engagement session (20+ likes, 5+ replies)
+    publishToMoltX._preEngaged = true;
 
-    const payload = JSON.stringify({ content, visibility: 'public' });
-    const tmp  = tmpFile('moltx', 'json', payload);
-    const cmd  = `curl -s --connect-timeout 15 --max-time 60 -X POST https://moltx.io/v1/posts`
-               + ` -H "Authorization: Bearer ${key}"`
-               + ` -H "Content-Type: application/json"`
-               + ` -d @${tmp}`;
-    const result = execSync(cmd, { encoding: 'utf8', timeout: 30000 });
-    try { fs.unlinkSync(tmp); } catch(_) {}
+    const MAX_POST_RETRIES = 3;
+    for (let attempt = 1; attempt <= MAX_POST_RETRIES; attempt++) {
+      const payload = JSON.stringify({ content, visibility: 'public' });
+      const tmp  = tmpFile('moltx', 'json', payload);
+      const cmd  = `curl -s --connect-timeout 15 --max-time 60 -X POST https://moltx.io/v1/posts`
+                 + ` -H "Authorization: Bearer ${key}"`
+                 + ` -H "Content-Type: application/json"`
+                 + ` -d @${tmp}`;
+      const result = execSync(cmd, { encoding: 'utf8', timeout: 30000 });
+      try { fs.unlinkSync(tmp); } catch(_) {}
 
-    const idMatch = result.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/);
-    if (idMatch) {
-      // Post-publish: engage on feed to boost visibility
-      if (!publishToMoltX._postEngaged) {
-        runEngage('moltx', 'likes');
-        publishToMoltX._postEngaged = true;
+      const idMatch = result.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/);
+      if (idMatch) {
+        return { ok: true, id: idMatch[0] };
       }
-      return { ok: true, id: idMatch[0] };
+
+      // Check if engagement gate error
+      const isEngageGate = result.includes('Engage before posting') || result.includes('try again shortly');
+      if (isEngageGate && attempt < MAX_POST_RETRIES) {
+        console.log(`  MoltX gate attempt ${MAX_POST_RETRIES - attempt} retries left — heavy engaging...`);
+        // Heavy engagement: like 20 + reply 5
+        try {
+          execSync('python3 ' + ENGAGE_SCRIPT + ' moltx all', { encoding: 'utf8', timeout: 60000 });
+        } catch(e) {}
+        await new Promise(r => setTimeout(r, 3000));
+        continue;
+      }
+
+      // Not a gate error or last attempt
+      if (attempt === MAX_POST_RETRIES) {
+        return { ok: false, error: (result || '').slice(0, 120) };
+      }
     }
-    return { ok: false, error: (result || '').slice(0, 120) };
+    return { ok: false, error: 'max-retries-exhausted' };
   } catch(e) {
     return { ok: false, error: (e.message || '').slice(0, 120) };
   }
