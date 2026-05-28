@@ -777,6 +777,18 @@
         "command": "node /root/.openclaw/workspace/scripts/combined_publisher.js corruption-blast-from-past"
       },
       "enabled": true
+    },
+    {
+      "name": "corruption-burn-pharaoh-and-his-people",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 7 */2 * *"
+      },
+      "action": {
+        "kind": "exec",
+        "command": "node /root/.openclaw/workspace/scripts/combined_publisher.js corruption-burn-pharaoh-and-his-people"
+      },
+      "enabled": true
     }
   ]
 }
