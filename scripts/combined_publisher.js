@@ -307,6 +307,9 @@ async function main() {
 
   // ── MOLTX ──
   let moltx = { ok: false, error: 'not-attempted' };
+  // Determine if this is a high-priority corruption-burn mission
+  const isCorruptionBurn = /corruption-(burn|cause|tyranny|riba|music|shirk|zina|ghibah|drugs|oppression|silence|ignorance|blast)/.test(missionKey);
+  
   // Skip MoltX if already published today (dedup check at top of main)
   if (dedupCheck && dedupCheck.published) {
     moltx = { ok: true, dedupded: true, id: dedupCheck.id };
@@ -317,7 +320,15 @@ async function main() {
       const rateLimiter2 = require('./moltx_rate_limiter.js');
       const rc = rateLimiter2.canPublish();
       if (!rc.allowed) {
-        console.log('  ⏭ MoltX skipped:', rc.reason);
+        // Non-corruption missions: always skip MoltX when rate limited
+        // Corruption missions: skip only when limit is hard-reached
+        if (!isCorruptionBurn || rc.remaining <= 0) {
+          console.log('  ⏭ MoltX skipped:', rc.reason);
+          skipMoltX = true;
+        }
+      } else if (!isCorruptionBurn && rc.remaining <= 2) {
+        // Reserve last 2 slots for corruption-burn missions
+        console.log('  ⏭ MoltX reserved for remaining corruption-burn missions (' + rc.remaining + ' left)');
         skipMoltX = true;
       }
     } catch(e) { /* rate limiter error, proceed */ }
