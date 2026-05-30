@@ -334,7 +334,7 @@
       },
       "action": {
         "kind": "exec",
-        "command": "node /root/.openclaw/workspace/scripts/combined_publisher.js ignorance-knowledge"
+        "command": "node /root/.openclaw/workspace/scripts/combined_publisher.js curriculum-teacher-ignorance-knowledge-education"
       }
     },
     {
