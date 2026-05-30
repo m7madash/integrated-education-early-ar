@@ -39,27 +39,21 @@
 
 ---
 
-## 🗓️ الجدول الزمني الفعلي — HEARTBEAT V8 (مطابق مع cron/jobs.json)
+## 🗓️ الجدول الزمني — HEARTBEAT V9 (توزيع أسبوعي)
 
-> آخر تحديث: 2026-05-28 17:30 UTC — كل مهمة كل يومين + فواصل ساعتين
+> آخر تحديث: 2026-05-30 — 29 مهمة/أسبوع (4-5/يوم) — كل يوم مهام مختلفة
 
-### 📢 مهام النشر (كل يومين)
+### 📢 الجدول الأسبوعي
 
-| الوقت (UTC) | المهمة | التكرار |
-|------------|--------|--------|
-| 00:00 | **الظلم ← العدل** (injustice-justice) + **الانقسام ← الوحدة** (division-unity) | كل يومين |
-| 03:00 | **dhikr-morning** + **poverty-dignity** | كل يومين |
-| 06:00 | **الجهل ← العلم** (ignorance-knowledge) | كل يومين |
-| 06:50 | **wise-disagreement-prophetic-way** | كل يومين |
-| 07:00 | **quran-study** تعلم القرآن | كل يومين |
-| 09:00 | **الحرب ← السلام** (war-peace) | كل يومين |
-| 09:30 | **محاربة الشرك** (shirk-tawhid) | كل يومين |
-| 12:00 | **التلوث ← النظافة** (pollution-cleanliness) | كل يومين |
-| 15:00 | **المرض ← الصحة** (disease-health) | كل يومين |
-| 18:00 | **العدل ضد الرق** (slavery-freedom) | كل يومين |
-| 18:30 | **إصلاح الفساد** (corruption-reform) | كل يومين |
-| 19:00 | **dhikr-evening** الذكر المسائي | كل يومين |
-| 21:00 | **التطرف ← الوسطية** (extremism-moderation) | كل يومين |
+| اليوم | 🔥 فساد | 📬 نشر عام | المجموع |
+|------|---------|-----------|-------|
+| **السبت** | blast-from-past (06:00), music-gambling (14:00) | war-peace (09:00), dhikr-evening (18:00) | 4 |
+| **الأحد** | zina (05:00), oppression (16:00) | dhikr-morning (03:00), shirk-tawhid (09:00) | 4 |
+| **الإثنين** | pharaoh (07:00), shirk (17:00) | quran-study (10:00), pollution-cleanliness (12:00) | 4 |
+| **الثلاثاء** | tyranny-system (08:00), silence (19:00) | injustice (04:00), disease-health (15:00), wise-disagreement (13:00) | 5 |
+| **الأربعاء** | riba (11:00), ignorance (22:00) | division-unity (06:00), slavery-freedom (18:00) | 4 |
+| **الخميس** | ghibah (10:00), burn-all (20:00) | poverty-dignity (03:00), extremism (21:00) | 4 |
+| **الجمعة** | drugs (13:00), root-cause (23:00) | ignorance-knowledge (08:00), corruption-reform (18:00) | 4 |
 
 ### 🔄 مهام المتابعة
 
@@ -70,12 +64,13 @@
 | **continuity-improvement** | كل 30 دقيقة |
 | **weekly-skill-factory** | كل أحد |
 
-> ✅ كل مهمة نشر كل يومين — يقلل الضغط ويمنع رفض MoltX
+> ✅ توزيع أسبوعي: 4-5 مهام/يوم — يضمن النشر على المنصات الثلاث
+> ✅ أولوية MoltX لـ corruption-burn missions (آخر 2 spots محجوزين)
 > ✅ dedup guard — لا ينشر منشور مكرر
-> ✅ معدل MoltX: 5 منشورات/يوم كحد أقصى
+> ✅ MoltX: ~4-5 منشورات/يوم (ضمن الحد)
 
-**المهام المفعلة:** 24 job
-**مُعطلة مؤقتاً:** `revive-sunnah-48h` — pending user decision (إيقاف مؤقت May 17)
+**المهام المفعلة:** 39 job
+**مُعطلة مؤقتاً:** `revive-sunnah-48h` — pending user decision
 
 ---
 
