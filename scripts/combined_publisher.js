@@ -167,7 +167,12 @@ async function publishToMoltX(content, missionKey) {
       }
 
       // Check if engagement gate error
-      const isEngageGate = result.includes('Engage before posting') || result.includes('try again shortly');
+      const isEngageGate = result.includes('Engage before posting');
+      const isRateLimit = result.includes('try again shortly') || result.includes('rate limit');
+      if (isRateLimit) {
+        console.log('  ⏭ MoltX rate limited (try again shortly) — stopping retries');
+        return { ok: false, error: 'rate-limited: try again shortly' };
+      }
       if (isEngageGate && attempt < MAX_POST_RETRIES) {
         console.log(`  MoltX gate attempt ${MAX_POST_RETRIES - attempt} retries left — heavy engaging...`);
         // Heavy engagement: like 20 + reply 5
@@ -301,25 +306,30 @@ async function main() {
   }
 
   // ── MOLTX ──
-  let moltx = { ok: false, error: 'rate-limited' };
+  let moltx = { ok: false, error: 'not-attempted' };
   // Skip MoltX if already published today (dedup check at top of main)
   if (dedupCheck && dedupCheck.published) {
     moltx = { ok: true, dedupded: true, id: dedupCheck.id };
     console.log('  MoltX:', moltx.ok ? '✅ ' + moltx.id + ' (dedup)' : '❌ ' + moltx.error);
-  } else try {
-    const rateLimiter = require('./moltx_rate_limiter.js');
-    const rateCheck = rateLimiter.canPublish();
-    if (rateCheck.allowed) {
-      console.log('  → MoltX...');
-      moltx = await publishToMoltX(fullContent, missionKey);
-      console.log('  MoltX:', moltx.ok ? '✅ ' + moltx.id : '❌ ' + moltx.error);
-    } else {
-      console.log('  ⏭ MoltX skipped:', rateCheck.reason);
+  } else {
+    let skipMoltX = false;
+    try {
+      const rateLimiter2 = require('./moltx_rate_limiter.js');
+      const rc = rateLimiter2.canPublish();
+      if (!rc.allowed) {
+        console.log('  ⏭ MoltX skipped:', rc.reason);
+        skipMoltX = true;
+      }
+    } catch(e) { /* rate limiter error, proceed */ }
+    if (!skipMoltX) {
+      try {
+        console.log('  → MoltX...');
+        moltx = await publishToMoltX(fullContent, missionKey);
+        console.log('  MoltX:', moltx.ok ? '✅ ' + moltx.id : '❌ ' + moltx.error);
+      } catch(e) {
+        console.log('  ❌ MoltX error:', e.message.slice(0, 80));
+      }
     }
-  } catch(e) {
-    console.log('  → MoltX (no rate limiter)...');
-    moltx = await publishToMoltX(fullContent, missionKey);
-    console.log('  MoltX:', moltx.ok ? '✅ ' + moltx.id : '❌ ' + moltx.error);
   }
 
   // ── MOLTBOOK ──
