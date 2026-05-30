@@ -33,7 +33,7 @@
       "createdAtMs": 1777230340614,
       "schedule": {
         "kind": "cron",
-        "expr": "0 19 */2 * *"
+        "expr": "0 18 * * 6"
       },
       "wakeMode": "now",
       "delivery": {
@@ -53,7 +53,7 @@
       "createdAtMs": 1777230349636,
       "schedule": {
         "kind": "cron",
-        "expr": "0 3 */2 * *"
+        "expr": "0 3 * * 0"
       },
       "wakeMode": "now",
       "delivery": {
@@ -73,7 +73,7 @@
       "createdAtMs": 1777330000000,
       "schedule": {
         "kind": "cron",
-        "expr": "30 18 */2 * *"
+        "expr": "0 18 * * 5"
       },
       "wakeMode": "now",
       "delivery": {
@@ -294,7 +294,7 @@
       "createdAtMs": 1777378037644,
       "schedule": {
         "kind": "cron",
-        "expr": "0 0 */2 * *"
+        "expr": "0 4 * * 2"
       },
       "wakeMode": "now",
       "state": {},
@@ -310,7 +310,7 @@
       "createdAtMs": 1777378335356,
       "schedule": {
         "kind": "cron",
-        "expr": "0 3 */2 * *"
+        "expr": "0 3 * * 4"
       },
       "wakeMode": "now",
       "state": {},
@@ -326,7 +326,7 @@
       "createdAtMs": 1777378348357,
       "schedule": {
         "kind": "cron",
-        "expr": "0 6 */2 * *"
+        "expr": "0 8 * * 5"
       },
       "wakeMode": "now",
       "state": {
@@ -344,7 +344,7 @@
       "createdAtMs": 1777378363625,
       "schedule": {
         "kind": "cron",
-        "expr": "0 9 */2 * *"
+        "expr": "0 9 * * 6"
       },
       "wakeMode": "now",
       "state": {},
@@ -360,7 +360,7 @@
       "createdAtMs": 1777378375668,
       "schedule": {
         "kind": "cron",
-        "expr": "0 12 */2 * *"
+        "expr": "0 12 * * 1"
       },
       "wakeMode": "now",
       "state": {},
@@ -376,7 +376,7 @@
       "createdAtMs": 1777378388822,
       "schedule": {
         "kind": "cron",
-        "expr": "0 15 */2 * *"
+        "expr": "0 15 * * 2"
       },
       "wakeMode": "now",
       "state": {},
@@ -392,7 +392,7 @@
       "createdAtMs": 1777378403140,
       "schedule": {
         "kind": "cron",
-        "expr": "0 18 */2 * *"
+        "expr": "0 18 * * 3"
       },
       "wakeMode": "now",
       "state": {},
@@ -408,7 +408,7 @@
       "createdAtMs": 1777378417934,
       "schedule": {
         "kind": "cron",
-        "expr": "0 21 */2 * *"
+        "expr": "0 21 * * 4"
       },
       "wakeMode": "now",
       "state": {},
@@ -424,7 +424,7 @@
       "createdAtMs": 1777378430410,
       "schedule": {
         "kind": "cron",
-        "expr": "0 0 */2 * *"
+        "expr": "0 6 * * 3"
       },
       "wakeMode": "now",
       "state": {},
@@ -440,7 +440,7 @@
       "createdAtMs": 1777378444611,
       "schedule": {
         "kind": "cron",
-        "expr": "30 9 */2 * *"
+        "expr": "0 9 * * 0"
       },
       "wakeMode": "now",
       "state": {},
@@ -517,7 +517,7 @@
       "createdAtMs": 1777964046981,
       "schedule": {
         "kind": "cron",
-        "expr": "0 7 */2 * *"
+        "expr": "0 10 * * 1"
       },
       "wakeMode": "now",
       "delivery": {
@@ -537,7 +537,7 @@
       "createdAtMs": 1778010728547,
       "schedule": {
         "kind": "cron",
-        "expr": "50 6 */2 * *"
+        "expr": "0 13 * * 2"
       },
       "wakeMode": "now",
       "delivery": {
@@ -608,7 +608,7 @@
       "name": "corruption-burn-tyranny-system",
       "schedule": {
         "kind": "cron",
-        "expr": "0 8 */2 * *"
+        "expr": "0 8 * * 2"
       },
       "action": {
         "kind": "exec",
@@ -620,7 +620,7 @@
       "name": "corruption-burn-riba-economic",
       "schedule": {
         "kind": "cron",
-        "expr": "0 11 */2 * *"
+        "expr": "0 11 * * 3"
       },
       "action": {
         "kind": "exec",
@@ -632,7 +632,7 @@
       "name": "corruption-burn-music-gambling",
       "schedule": {
         "kind": "cron",
-        "expr": "0 14 */2 * *"
+        "expr": "0 14 * * 6"
       },
       "action": {
         "kind": "exec",
@@ -644,7 +644,7 @@
       "name": "corruption-burn-shirk",
       "schedule": {
         "kind": "cron",
-        "expr": "0 17 */2 * *"
+        "expr": "0 17 * * 1"
       },
       "action": {
         "kind": "exec",
@@ -656,7 +656,7 @@
       "name": "corruption-burn-all-master",
       "schedule": {
         "kind": "cron",
-        "expr": "0 20 */2 * *"
+        "expr": "0 20 * * 4"
       },
       "action": {
         "kind": "exec",
@@ -668,7 +668,7 @@
       "name": "corruption-burn-root-cause",
       "schedule": {
         "kind": "cron",
-        "expr": "0 23 */2 * *"
+        "expr": "0 23 * * 5"
       },
       "action": {
         "kind": "exec",
@@ -680,7 +680,7 @@
       "name": "corruption-burn-zina",
       "schedule": {
         "kind": "cron",
-        "expr": "0 5 */2 * *"
+        "expr": "0 5 * * 0"
       },
       "action": {
         "kind": "exec",
@@ -692,7 +692,7 @@
       "name": "corruption-burn-ghibah",
       "schedule": {
         "kind": "cron",
-        "expr": "0 10 */2 * *"
+        "expr": "0 10 * * 4"
       },
       "action": {
         "kind": "exec",
@@ -704,7 +704,7 @@
       "name": "corruption-burn-drugs",
       "schedule": {
         "kind": "cron",
-        "expr": "0 13 */2 * *"
+        "expr": "0 13 * * 5"
       },
       "action": {
         "kind": "exec",
@@ -716,7 +716,7 @@
       "name": "corruption-burn-oppression",
       "schedule": {
         "kind": "cron",
-        "expr": "0 16 */2 * *"
+        "expr": "0 16 * * 0"
       },
       "action": {
         "kind": "exec",
@@ -728,7 +728,7 @@
       "name": "corruption-burn-silence",
       "schedule": {
         "kind": "cron",
-        "expr": "0 19 */2 * *"
+        "expr": "0 19 * * 2"
       },
       "action": {
         "kind": "exec",
@@ -740,7 +740,7 @@
       "name": "corruption-burn-ignorance",
       "schedule": {
         "kind": "cron",
-        "expr": "0 22 */2 * *"
+        "expr": "0 22 * * 3"
       },
       "action": {
         "kind": "exec",
@@ -752,7 +752,7 @@
       "name": "corruption-burn-blast-from-past",
       "schedule": {
         "kind": "cron",
-        "expr": "0 4 */2 * *"
+        "expr": "0 6 * * 6"
       },
       "action": {
         "kind": "exec",
@@ -764,7 +764,7 @@
       "name": "corruption-burn-pharaoh-and-his-people",
       "schedule": {
         "kind": "cron",
-        "expr": "0 7 */2 * *"
+        "expr": "0 7 * * 1"
       },
       "action": {
         "kind": "exec",
