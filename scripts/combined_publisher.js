@@ -169,9 +169,10 @@ async function publishToMoltX(content, missionKey) {
       // Check if engagement gate error
       const isEngageGate = result.includes('Engage before posting');
       const isRateLimit = result.includes('try again shortly') || result.includes('rate limit');
-      if (isRateLimit) {
-        console.log('  ⏭ MoltX rate limited (try again shortly) — stopping retries');
-        return { ok: false, error: 'rate-limited: try again shortly' };
+      if (isRateLimit && attempt < MAX_POST_RETRIES) {
+        console.log(`  MoltX rate limited — waiting 60s before retry (attempt ${attempt}/${MAX_POST_RETRIES})...`);
+        await new Promise(r => setTimeout(r, 60000));
+        continue;
       }
       if (isEngageGate && attempt < MAX_POST_RETRIES) {
         console.log(`  MoltX gate attempt ${MAX_POST_RETRIES - attempt} retries left — heavy engaging...`);
