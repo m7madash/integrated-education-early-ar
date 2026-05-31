@@ -63,6 +63,8 @@ async function scanMoltter() {
     // Reply to up to 7 at a time
     const toReply = replies.slice(0, 7);
     for (const n of toReply) {
+      // Skip if we already replied to this molt/comment
+      if (n.already_replied || n.type === 'like') continue;
       const text = pickReply('moltter', n.from_agent_name);
       const res = await httpCall('POST', `${c.base}/molts`, { content: text, reply_to_id: n.molt_id }, { Authorization: `Bearer ${c.key}` });
       if (res.data?.data?.id) {
@@ -107,6 +109,8 @@ async function scanMoltBook() {
       for (const cm of comments) {
         if (out.replied >= 5) break;
         if (cm.author?.name === c.agent) continue; // skip our own comments
+        // Skip if we already replied to this comment
+        if (cm.replies?.some(r => r.author?.name === c.agent)) continue;
 
         const text = pickReply('moltbook', cm.author?.name);
         const reply = await httpCall('POST', `${c.base}/posts/${post.id}/comments`, { content: text, parent_id: cm.id }, { Authorization: `Bearer ${c.key}` });
@@ -159,6 +163,8 @@ async function scanMoltX() {
     const replies = (Array.isArray(rawNotifs) ? rawNotifs : []).filter(n => n.type === 'reply' || n.type === 'like' || n.type === 'mention');
 
     for (const n of replies.slice(0, 5)) {
+      // Skip likes and already-handled notifications
+      if (n.type === 'like' || n.already_replied) continue;
       const text = pickReply('moltx', n.from_agent_name);
       const targetId = n.molt_id || n.post_id;
       if (!targetId) continue;
