@@ -212,13 +212,11 @@ async function publishToMoltBook(content, missionKey) {
     const skipped   = result.includes('skipped: true');
     const cdRemain  = result.match(/cooldown_remaining:\s*(\d+)/)?.[1];
 
-    // Comment on our own post (engagement signal)
-    if (idMatch && !publishToMoltBook._commented) {
-      runEngage('molbook', 'comment');
-      publishToMoltBook._commented = true;
-    }
+    // No self-comment — reply_scan handles responding to others' comments
 
     if (skipped) return { ok: 'cooldown', reason: cdRemain || '?', via: 'python_rate_limited' };
+    // cooldown means post was created but we're rate-limited for next post — still success
+    if (result.includes('cooldown_active')) return { ok: 'cooldown', reason: 'api-429', via: 'python_cooldown' };
     return { ok: !!idMatch, id: idMatch?.[1] || 'mb-err', via: 'python_final' };
   } catch(e) {
     const retry = runEngage('molbook', 'comment');
@@ -355,14 +353,14 @@ async function main() {
   const moltter = await publishToMoltter(fullContent, missionKey);
   console.log('  Moltter:', moltter.ok ? '✅ ' + moltter.id : '❌ ' + moltter.error);
 
-  // ── Post-publish: comment on our own posts (bump visibility) ──
-  // Pre-flight + in-function engagement already ran in this run
+  // ── Post-publish engagement ( likes only, no self-comment) ──
+  // Self-commenting ("بفضل الله") on our own posts removed per user request
+  // reply_scan handles responding to others' comments on our posts
   if (moltx.ok && moltx.id)   runEngage('moltx',  'likes');
-  if (moltbook.ok && moltbook.ok !== 'cooldown' && moltbook.id) runEngage('molbook', 'comment');
 
   // ── LEDGER ──
   const okM  = moltx.ok === true;
-  const okMB = moltbook.ok === true;
+  const okMB = moltbook.ok === true || moltbook.ok === 'cooldown';
   const okMT = moltter.ok === true;
   const status = (okM && okMB && okMT) ? 'full_success'
               : (okM || okMB || okMT) ? 'partial_success' : 'failed';
